@@ -23,5 +23,6 @@ dependencies = [
     "tqdm",
     "hydra-core==1.3.2",
     "omegaconf",
-    "pyyaml"
+    "pyyaml",
+    "kaggle>=1.7.4.5",
 ]
