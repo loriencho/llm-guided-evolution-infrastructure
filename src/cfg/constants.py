@@ -12,7 +12,10 @@ SEED_NETWORK = os.path.join(SOTA_ROOT, 'models/Menghao/model.py')
 MODEL = 'model'
 OUTPUT_DIR = 'output'  # path for GA output
 # Path to local LLM model path used by server.py for LLM operations
-MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/mixtral"
+#MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/mixtral"
+# Switching model path because it's complaining about attention with Mixtral... but also silently dying, I had to figure it out by running the model from file by hand
+# TODO: Have better error handling in model initialization and figure out why the error isn't caught with the current implementation
+MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/"
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
 TRAIN_FILE = os.path.join(SOTA_ROOT, "train_cls.py") 
 

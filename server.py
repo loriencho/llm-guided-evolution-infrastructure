@@ -29,18 +29,25 @@ class LLMModel:
                     print(f"Loading model at {MODEL_PATH} for the first time")
                     cls._instance = super(LLMModel, cls).__new__(cls)
                     cls._instance._initialize()
+                    print('I created my instance')
+                    print(dir(cls._instance))            
         return cls._instance
     
     def _initialize(self):
+        print("initializing")
+        # TODO figure out how to better handle the initialization (i.e. mixtral dies because it doesn't have attention)
+        # TODO find out why when this dies the code around it continues i.e. a model is returned to generate_text, but I never see the print out of "I created my instance"
         self.model = transformers.AutoModelForCausalLM.from_pretrained(
             MODEL_PATH,
             trust_remote_code=True,
-            torch_dtype=torch.bfloat16,
+            dtype=torch.bfloat16,
             device_map="auto",
             attn_implementation="sdpa" # faster inference
         ).eval()
+        print("model loaded")
 
         self.tokenizer = transformers.AutoTokenizer.from_pretrained(MODEL_PATH)
+        print("tokenizer created")
         
         # for batching, need to set pad tokens
         if self.tokenizer.pad_token is None:
@@ -60,11 +67,13 @@ class LLMModel:
             do_sample=True,
             batch_size=BATCH_SIZE # for batch support
         )
+        print("pipeline created")
         
         self.request_queue = asyncio.Queue() # queue for holding requests to process
         self.batch_task = None # current task
         self.batch_lock = asyncio.Lock() # lock for
         self.is_processing = False # current state
+        print("ready to go")
     
     async def start_batch_processor(self):
         """Start the batch processor if it's not already running"""
@@ -162,7 +171,9 @@ class LLMModel:
         future = asyncio.Future()
         
         # put in queue
+        print('Hey I am about to access the request queue attribute')
         await self.request_queue.put((request_dict, future))
+        print('No problem, I got it')
         
         # start processing batches if not already started
         await self.start_batch_processor()
@@ -196,6 +207,7 @@ async def generate_text(request: LLMRequest):
         
         # Get the model instance
         model = LLMModel()
+        print(dir(model))
         
         # Submit to the batch processor and wait for result
         start_time = time.time()
