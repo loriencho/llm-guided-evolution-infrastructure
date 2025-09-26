@@ -11,4 +11,10 @@ module load gcc/13.2.0
 source ~/.bashrc
 # Set the TOKENIZERS_PARALLELISM environment variable if needed
 export TOKENIZERS_PARALLELISM=false
-uv run python llm_crossover.py '/home/hice1/madewolu9/scratch/madewolu9/LLMGE01_Generic/LLM-Guided-Evolution-Generic/sota/Point-Transformers/models/Menghao/model.py' '/home/hice1/madewolu9/scratch/madewolu9/LLMGE01_Generic/LLM-Guided-Evolution-Generic/sota/Point-Transformers/models/Menghao/model_x.py' '/home/hice1/madewolu9/scratch/madewolu9/LLMGE01_Generic/LLM-Guided-Evolution-Generic/sota/Point-Transformers/models/Menghao/model_z.py'  --top_p 0.15   --temperature 0.1 --apply_quality_control 'True' --bit 8
+
+# get root dir
+pushd $SCRIPT_DIR/.. > /dev/null # go to script dir
+ROOT_DIR=$(pwd)
+popd > /dev/null  # return to original working directory
+
+uv run python llm_crossover.py "${ROOT_DIR}/sota/Point-Transformers/models/Menghao/model.py" "${ROOT_DIR}/sota/Point-Transformers/models/Menghao/model_x.py" "${ROOT_DIR}/sota/Point-Transformers/models/Menghao/model_z.py"  --top_p 0.15   --temperature 0.1 --apply_quality_control 'True' --bit 8

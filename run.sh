@@ -14,6 +14,7 @@ hostname
 
 module load cuda
 module load anaconda3
+module load uv
 export CUDA_VISIBLE_DEVICES=0
 export MKL_THREADING_LAYER=GNU 
 

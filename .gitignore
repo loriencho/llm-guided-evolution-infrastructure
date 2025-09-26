@@ -14,3 +14,8 @@ data/
 .DS_Store
 mistralai
 **/*.egg-info
+output/
+**/models/
+**/weights/
+**/results/
+**/llmge_models/

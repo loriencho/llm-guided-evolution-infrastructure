@@ -141,7 +141,7 @@ def write_bash_script(input_filename_x=f'{SOTA_ROOT}/{SEED_NETWORK}',
         if GEN_COUNT >= 0: # this does not need to happen at creation of population
             GLOBAL_DATA_ANCESTRY = update_ancestry(gene_id_child, gene_id_parent, GLOBAL_DATA_ANCESTRY, 
                                                     mutation_type=mute_type, gene_id_parent2=None)
-        out_dir = str(GENERATION)
+        out_dir = os.path.join(OUTPUT_DIR, str(GENERATION))
         file_path = os.path.join(out_dir, f'{gene_id_child}_model.txt')
         os.makedirs(out_dir, exist_ok=True)
         with open(file_path, 'w') as file:
@@ -273,7 +273,7 @@ def generate_random_string(length=20):
 
 def create_individual(container, temp_min=0.05, temp_max=0.4):
     box_print("Create Individual", print_bbox_len=60, new_line_end=False)
-    out_dir = str(GENERATION)
+    out_dir = os.path.join(OUTPUT_DIR, str(GENERATION))
     config = load_yaml()
     gene_id = generate_random_string(length=24)
     # Select prompte and temp
@@ -342,7 +342,7 @@ def submit_run(gene_id):
             job_id = None
         return successful_sub_flag, job_id, local_output
     
-    out_dir = str(GENERATION)
+    out_dir = os.path.join(OUTPUT_DIR, str(GENERATION))
     file_path = os.path.join(out_dir, f'{gene_id}_model.sh')
     successful_sub_flag, job_id, local_output = submit_bash_py(file_path, gene_id)
     GLOBAL_DATA[gene_id]['status'] = 'running eval'
@@ -366,7 +366,7 @@ def check4model2run(gene_id):
         GLOBAL_DATA[gene_id]['fitness'] = INVALID_FITNESS_MAX
         return
 
-    model_path = os.path.join(str(GENERATION), f'{gene_id}_model.txt')
+    model_path = os.path.join(OUTPUT_DIR, str(GENERATION), f'{gene_id}_model.txt')
 
     # Proceed only if the model hasn't been evaluated yet
     if GLOBAL_DATA[gene_id]['status'] != 'running eval':
@@ -403,7 +403,7 @@ def check4results(gene_id):
                 
     job_done = check4error(gene_id)
     if job_done is True:
-        out_dir = str(GENERATION)
+        out_dir = os.path.join(OUTPUT_DIR, str(GENERATION))
         # The job saves the model results to a file f'{gene_id}_results.txt'
         # results_path = os.path.join(out_dir, f'{gene_id}_results.txt')
         results_path = f'{SOTA_ROOT}/results/{gene_id}_results.txt'
@@ -626,7 +626,7 @@ def customCrossover(ind1, ind2):
         Returns:
         str: The gene ID of the new individual.
         """
-        out_dir = str(GENERATION)
+        out_dir = os.path.join(OUTPUT_DIR, str(GENERATION))
         config = load_yaml()
         # Retrieve gene IDs from the individuals
         gene_id_1 = ind1[0]
@@ -704,14 +704,13 @@ def customMutation(individual, indpb, temp_min=0.02, temp_max=0.35):
     
     # Check if mutation occurs (based on the mutation probability)
     # if random.random() < indpb: # TODO: connect this to temp
-    out_dir = str(GENERATION)
     config = load_yaml()
     old_gene_id = individual[0]
     # Generate a new gene ID
     new_gene_id = generate_random_string(length=24)
     print(f'Mutating: {old_gene_id} and Replaceing with: {new_gene_id}')
     # Name of the sh bash file
-    file_path = os.path.join(str(GENERATION), f'{new_gene_id}.sh')
+    file_path = os.path.join(OUTPUT_DIR, str(GENERATION), f'{new_gene_id}.sh')
     temperature = round(random.uniform(temp_min, temp_max), 2)
     successful_sub_flag, job_id, local_output = submit_bash(file_path, 
                                               input_filename_x= f'{VARIANT_DIR}/{MODEL}_{old_gene_id}.py',
@@ -835,6 +834,8 @@ GLOBAL_DATA_ANCESTRY = {}
 
 # Main Evolution Loop
 if __name__ == "__main__":
+    # make output directory
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     # Set Cluter Configurations
     parser = argparse.ArgumentParser(description='Run Generation')

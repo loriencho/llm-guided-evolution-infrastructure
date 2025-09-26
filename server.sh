@@ -12,17 +12,23 @@ echo "launching LLM Server"
 hostname
 
 module load cuda/12.2.2
+module load uv
 
 # Make sure CUDA can see all GPUs
 export CUDA_VISIBLE_DEVICES=0,1
 export MKL_THREADING_LAYER=GNU
 
-
-source /home/madewolu9/madewolu9_ICE/LLMGE01/LLM-Guided-Evolution-Generic/.venv/bin/activate
+SCRIPT_DIR=$(dirname "$0")
+pushd $SCRIPT_DIR > /dev/null # go to script dir
+source ../.venv/bin/activate  # activate uv environment
+popd > /dev/null  # return to original working directory
 
 export SERVER_HOSTNAME=$(hostname)
 
-HOSTNAME_FILE="/home/madewolu9/madewolu9_ICE/LLMGE01/LLM-Guided-Evolution-Generic/hostname.log"
+# get hostname file
+pushd $SCRIPT_DIR/.. > /dev/null # go to script dir
+HOSTNAME_FILE=$(pwd)"/hostname.log"
+popd > /dev/null  # return to original working directory
 
 echo "Writing server hostname '$SERVER_HOSTNAME' to file: $HOSTNAME_FILE"
 echo "$SERVER_HOSTNAME" > "$HOSTNAME_FILE"
