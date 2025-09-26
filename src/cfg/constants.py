@@ -48,7 +48,7 @@ else:
 # EVAL_RUNLINE = 'python {} -bs 216 -network "models.llmge_models.{MODEL}_{}" {}
 # Point-Transformers
 RUNLINE_TMP = 'model.file={}_{}.py'
-EVAL_RUNLINE = 'python {} {}'
+EVAL_RUNLINE = 'uv run python {} {}'
 """
 Evolution Constants/Params
 """
