@@ -21,6 +21,6 @@ export SERVER_HOSTNAME=$(hostname)
 
 echo "INFO: Setting up the environment..."
 
-source /home/madewolu9/madewolu9_ICE/LLMGE01/LLM-Guided-Evolution-Generic/.venv/bin/activate
+save_dir=${0:-titanic_test}
 
-uv run python run_improved.py point_transformers_test
+uv run python run_improved.py ${save_dir)

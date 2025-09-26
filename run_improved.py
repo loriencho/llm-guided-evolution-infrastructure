@@ -24,7 +24,7 @@ def print_ancestry(data):
         print(f"\t{data[gene]['MUTATE_TYPE']}")
 
 def load_yaml(file_path=constants.SLURM_CONFIG_DIR):
-    with open(f'{file_path}/slurm_config.yaml', 'r') as file:
+    with open(os.path.join(file_path, 'slurm_config.yaml'), 'r') as file:
         config = yaml.safe_load(file)
     return config
 

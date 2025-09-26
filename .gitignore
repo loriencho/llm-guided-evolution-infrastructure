@@ -12,3 +12,5 @@ sota/Pointnet_Pointnet2_pytorch/results/
 first_test/
 data/
 .DS_Store
+mistralai
+**/*.egg-info

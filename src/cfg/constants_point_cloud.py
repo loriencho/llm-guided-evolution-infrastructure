@@ -2,16 +2,13 @@ import os
 import sys
 import numpy as np
 import torch
-import platform
 
 # ROOT_DIR = "/home/hice1/amcdaniel39/scratch/llm-guided-evolution-fork"
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(ROOT_DIR, "data/titanic")
-SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Titanic')
+SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Point-Transformers')
 SEED_NETWORK = os.path.join(SOTA_ROOT, 'models/Menghao/model.py')
-MODEL = "model"
-# Path to local LLM model path used by server.py for LLM operations
-MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/mixtral"
+MODEL = "model" 
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
 TRAIN_FILE = os.path.join(SOTA_ROOT, "train_cls.py") 
 
@@ -34,7 +31,7 @@ if LOCAL:
 else: 
 	RUN_COMMAND = 'sbatch'
 	DELAYED_CHECK = True
-MACOS = platform.system() == "Darwin"
+MACOS = False
 RUNLINE_AMP = ''
 if torch.mps.is_available():
 	DEVICE = 'mps'
@@ -60,15 +57,15 @@ NUM_EOT_ELITES = 10
 GENERATION = 0
 PROB_QC = 0.0
 PROB_EOT = 0.25
-num_generations = 100 # Number of generations
-start_population_size = 512  # Starting population size
+num_generations = 57 # Number of generations
+start_population_size = 32  # Starting population size
 # start_population_size = 144   # Size of the population 124=72
 #population_size = 44 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
-population_size = 256 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
+population_size = 8 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
 crossover_probability = 0.35  # Probability of mating two individuals
 mutation_probability = 0.8 # Probability of mutating an individual
-num_elites = 100
-hof_size = 300
+num_elites = 44
+hof_size = 100
 """
 Misc. Non-sense
 """
