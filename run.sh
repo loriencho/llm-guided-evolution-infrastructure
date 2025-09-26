@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:2
 #SBATCH -t 7-00:00   # Runtime in D-HH:MM
 # request a GPU on the following list
-#SBATCH -C "A100-40GB|A100-80GB|H100|V100-16GB|V100-32GB|RTX6000|A40|L40S|NVIDIAA10080GBPCIe"
+#SBATCH -C "A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S|NVIDIAA10080GBPCIe"
 
 echo "launching LLM Guided Evolution"
 hostname
@@ -23,4 +23,4 @@ echo "INFO: Setting up the environment..."
 
 source /home/madewolu9/madewolu9_ICE/LLMGE01/LLM-Guided-Evolution-Generic/.venv/bin/activate
 
-python run_improved.py point_transformers_test
+uv run python run_improved.py point_transformers_test
