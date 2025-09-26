@@ -1,8 +1,9 @@
 #!/bin/bash
 #SBATCH --job-name=LLMGE01_Server
 #SBATCH -t 08:00:00
-#SBATCH -G 1
-#SBATCH -C "H200"
+#SBATCH --nodes=1
+#SBATCH -G 2
+#SBATCH -C "A100-80GB|H100|H200"
 #SBATCH --mem 160G
 #SBATCH -c 16
 
@@ -14,7 +15,7 @@ module load cuda
 module load uv
 
 # Make sure CUDA can see all GPUs
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=0,1
 #export MKL_THREADING_LAYER=GNU
 
 export SERVER_HOSTNAME=$(hostname)
