@@ -16,7 +16,6 @@ module load uv
 
 # Make sure CUDA can see all GPUs
 export CUDA_VISIBLE_DEVICES=0,1
-#export MKL_THREADING_LAYER=GNU
 
 export SERVER_HOSTNAME=$(hostname)
 
