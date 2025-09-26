@@ -7,6 +7,8 @@ from torch import bfloat16
 import argparse
 from cfg.constants import *
 from utils.print_utils import box_print
+from pathlib import Path
+
 from llm_utils import (split_file, submit_mixtral, submit_mixtral_hf, 
                        llm_code_qc, str2bool, generate_augmented_code, 
                        extract_note, clean_code_from_llm, retrieve_base_code)
@@ -35,8 +37,10 @@ def augment_network(input_filename='network.py', output_filename='network_x.py',
     # python_network_txt = prompt_log + '# --OPTION--'.join(parts)
     python_network_txt = '# --OPTION--'.join(parts)
     # Write the text to the file
-    with open(output_filename, 'w') as file:
-        file.write(python_network_txt)
+    output_file = Path(output_filename)
+    output_file.parent.mkdir(exist_ok=True, parents=True)
+    output_file.write_text(python_network_txt)
+
         
     box_print(f"Python code saved to {os.path.basename(output_filename)}", print_bbox_len=120, new_line_end=False)
     print('Job Done')
