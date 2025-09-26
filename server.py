@@ -9,9 +9,6 @@ from src.cfg.constants import *
 
 app = FastAPI(title="LLM API", version="1.0")
 
-# Path To Local Large Language Model
-MODEL_PATH = "LLM_MODEL_PATH"
-
 BATCH_SIZE = 8  # num of LLM requests to process at once
 BATCH_WAIT_TIME = 2  # max wait time for batch to fill in s
 

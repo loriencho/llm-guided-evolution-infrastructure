@@ -322,7 +322,7 @@ Code Workflow
             1. Download python version and unzip it.
             2. Put `split.py` into the directory `cifar-10-python`  
          
-                `python split.py`
+                `uv run python split.py`
                 
                 Now you get the cifar10 raw image in the directory `cifar10`
 
@@ -351,7 +351,7 @@ Code Workflow
 
         .. code-block:: markdown
 
-            `python split.py`
+            `uv run python split.py`
 
         - This command will format the cifar-10-bathces-py folder and create another directory called cifar-10, with the test and train data.
 

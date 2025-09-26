@@ -9,8 +9,7 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 DATA_PATH = os.path.join(ROOT_DIR, "data/titanic")
 SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Titanic')
 SEED_NETWORK = os.path.join(SOTA_ROOT, 'models/Menghao/model.py')
-MODEL = 'model'
-OUTPUT_DIR = 'output'  # path for GA output
+MODEL = "model"
 # Path to local LLM model path used by server.py for LLM operations
 MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/mixtral"
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 

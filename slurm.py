@@ -34,8 +34,7 @@ module load anaconda3
 export CUDA_VISIBLE_DEVICES=0
 export MKL_THREADING_LAYER=GNU 
 export SERVER_HOSTNAME=$(hostname)
-source {constants.ENVIRONMENT_DIR}/bin/activate
-python run_improved.py point_transformers_test
+uv run python run_improved.py point_transformers_test
 """
         replace_script_configuration("run.sh", runsh_config_lines + run_sh)
 
@@ -46,10 +45,9 @@ echo "Launching AIsurBL"
 hostname
 module load gcc/13.2.0
 source ~/.bashrc
-source {constants.ENVIRONMENT_DIR}/bin/activate
 # Set the TOKENIZERS_PARALLELISM environment variable if needed
 export TOKENIZERS_PARALLELISM=false
-python llm_crossover.py '{constants.SEED_NETWORK}' '{constants.SOTA_ROOT}/models/Menghao/model_x.py' '{constants.SOTA_ROOT}/models/Menghao/model_z.py'  --top_p 0.15   --temperature 0.1 --apply_quality_control 'True' --bit 8
+uv run python llm_crossover.py '{constants.SEED_NETWORK}' '{constants.SOTA_ROOT}/models/Menghao/model_x.py' '{constants.SOTA_ROOT}/models/Menghao/model_z.py'  --top_p 0.15   --temperature 0.1 --apply_quality_control 'True' --bit 8
 """
         replace_script_configuration("src/mixt.sh", mixtsh_config_lines + mixt_sh)
 
@@ -63,7 +61,6 @@ hostname
 module load cuda
 module load anaconda3
 # Activate Virtual environment
-source {constants.ENVIRONMENT_DIR}/bin/activate
 export LD_LIBRARY_PATH=~/.conda/envs/llm_guided_env/lib/python3.12/site-packages/nvidia/nvjitlink/lib:$LD_LIBRARY_PATH
 # Set the TOKENIZERS_PARALLELISM environment variable if needed
 # export TOKENIZERS_PARALLELISM=false
