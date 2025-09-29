@@ -15,6 +15,9 @@ MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-I
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
 TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py") 
 
+# TODO: Adding this here, I think it's supposed to parse from the command line
+OUTPUT_DIR = "titanic_test"
+
 CLUSTER = "pace-ice"
 LLM_MODEL = 'llama3.3'
 ENVIRONMENT_DIR = os.path.join(ROOT_DIR, ".venv")

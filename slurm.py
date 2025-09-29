@@ -27,7 +27,8 @@ if __name__ == "__main__":
 
         runsh_config_lines = "\n".join(content[indices[0]+1:indices[1]])
 
-        run_sh = f"""echo "launching LLM Guided Evolution"
+        run_sh = f"""
+echo "launching LLM Guided Evolution"
 hostname
 
 export SERVER_HOSTNAME=$(hostname)
