@@ -35,5 +35,12 @@ You can test this by running `uv run eval.py` to get out a false positive and fa
 ## Set Up LLM-GE
 By default, LLM-GE is set up to run to evolve an image classifier for the CIFAR-10 dataset. We will need to change the configurations to work with the Titanic problem, as well as prepare our evolution to run on pace-ice.
 
+Ensure that your settings are up to date in src/cfg/constants_titanic.py, and then constants.py is currently symlinked to it.
+
+You will then prepare your scripts by running `uv run slurm.py`. This will generate bash files that you can submit to slurm
+
+Next you will need to submit an inference server that the LLM-GE will use for mating and mutating individuals. You will do this by running: `sbatch server.sh`, this will submit the server script that slurm.py created.
+
+Monitor the output and then when you are ready, you will run `sbatch run.sh` to kick off an evolution!
 
 
