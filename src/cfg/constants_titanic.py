@@ -6,16 +6,16 @@ import platform
 
 # ROOT_DIR = "/home/hice1/amcdaniel39/scratch/llm-guided-evolution-fork"
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA_PATH = os.path.join(ROOT_DIR, "data/titanic")
+DATA_PATH = os.path.join(ROOT_DIR, "sota/titanic/data")
 SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Titanic')
-SEED_NETWORK = os.path.join(SOTA_ROOT, 'models/Menghao/model.py')
+SEED_NETWORK = os.path.join(SOTA_ROOT, 'model.py')
 MODEL = "model"
 # Path to local LLM model path used by server.py for LLM operations
-MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/mixtral"
+MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/"
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
-TRAIN_FILE = os.path.join(SOTA_ROOT, "train_cls.py") 
+TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py") 
 
-CLUSTER = "ice-hammer"
+CLUSTER = "pace-ice"
 LLM_MODEL = 'llama3.3'
 ENVIRONMENT_DIR = os.path.join(ROOT_DIR, ".venv")
 SLURM_CONFIG_DIR = os.path.join(ROOT_DIR, "slurm-config/")
@@ -49,11 +49,11 @@ else:
 # EVAL_RUNLINE = 'python {} -bs 216 -network "models.llmge_models.{MODEL}_{}" {}
 # Point-Transformers
 RUNLINE_TMP = 'model.file={}_{}.py'
-EVAL_RUNLINE = 'uv run python {} {}'
+EVAL_RUNLINE = 'uv run python {} -model {}'
 """
 Evolution Constants/Params
 """
-FITNESS_WEIGHTS = (1.0, -1.0)
+FITNESS_WEIGHTS = (-1.0, -1.0)
 INVALID_FITNESS_MAX = tuple([float(x*np.inf*-1) for x in FITNESS_WEIGHTS])
 PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
 NUM_EOT_ELITES = 10

@@ -29,12 +29,9 @@ if __name__ == "__main__":
 
         run_sh = f"""echo "launching LLM Guided Evolution"
 hostname
-module load cuda
-module load anaconda3
-export CUDA_VISIBLE_DEVICES=0
-export MKL_THREADING_LAYER=GNU 
+
 export SERVER_HOSTNAME=$(hostname)
-uv run python run_improved.py point_transformers_test
+uv run python run_improved.py titanic_test
 """
         replace_script_configuration("run.sh", runsh_config_lines + run_sh)
 
@@ -56,14 +53,9 @@ uv run python llm_crossover.py '{constants.SEED_NETWORK}' '{constants.SOTA_ROOT}
         python_script = "\n".join(content[indices[6]+1:indices[7]]) + f"""
 echo "Launching Python Evaluation"
 hostname
-# Load GCC version 9.2.0
-# module load gcc/13.2.0
+
 module load cuda
-module load anaconda3
-# Activate Virtual environment
-export LD_LIBRARY_PATH=~/.conda/envs/llm_guided_env/lib/python3.12/site-packages/nvidia/nvjitlink/lib:$LD_LIBRARY_PATH
-# Set the TOKENIZERS_PARALLELISM environment variable if needed
-# export TOKENIZERS_PARALLELISM=false
+
 # Run Python script
 {{}}
 """
@@ -87,15 +79,24 @@ source {constants.ENVIRONMENT_DIR}/bin/activate
 
         local_llm_server = f"""
 echo "launching LLM Server"
+
 hostname
-module load cuda/12.2.2
-source {constants.ENVIRONMENT_DIR}/bin/activate
+
+module load cuda
+module load uv
+
+# Make sure CUDA can see all GPUs
+export CUDA_VISIBLE_DEVICES=0,1
+
 export SERVER_HOSTNAME=$(hostname)
-HOSTNAME_FILE={constants.HOSTNAME_DIR}
+
+HOSTNAME_FILE=$(pwd)"/hostname.log"
+
 echo "Writing server hostname '$SERVER_HOSTNAME' to file: $HOSTNAME_FILE"
 echo "$SERVER_HOSTNAME" > "$HOSTNAME_FILE"
 echo "Starting LLM server on host: $SERVER_HOSTNAME"
-uvicorn server:app --host $SERVER_HOSTNAME --port 8000 --workers 1 --no-access-log 
+
+uv run uvicorn server:app --host $SERVER_HOSTNAME --port 8137 --workers 1
 """           
 
         local_llm_server_config = "\n".join(content[indices[10]+1:indices[11]])

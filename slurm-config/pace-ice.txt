@@ -3,11 +3,9 @@ run.sh
 #!/bin/bash
 #SBATCH --job-name=llm_opt
 #SBATCH -t 8:00:00              	
-#SBATCH --mem-per-gpu 16G
+#SBATCH --mem 16G
 #SBATCH -n 1                         
 #SBATCH -N 1
-#SBATCH --gres=gpu:1
-#SBATCH -C "A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S"
 ------
 
 
@@ -36,7 +34,6 @@ python-bash-script
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:1
 #SBATCH -G 1
-#SBATCH -C "A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S"
 #SBATCH --mem-per-gpu 16G
 #SBATCH -n 12
 #SBATCH -N 1
@@ -64,7 +61,8 @@ server-sh
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:2
 #SBATCH -G 2
-#SBATCH --mem-per-gpu 16G
+#SBATCH -C "A100-80GB|H100|H200"
+#SBATCH --mem 160GB
 #SBATCH -n 12
 #SBATCH -N 1
 ------
