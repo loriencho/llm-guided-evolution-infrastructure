@@ -51,8 +51,10 @@ else:
 # RUNLINE_TMP = f"-data {DATA_PATH} -end_lr 0.001 -seed 21 -val_r 0.2 {RUNLINE_AMP} -epoch 200"
 # EVAL_RUNLINE = 'python {} -bs 216 -network "models.llmge_models.{MODEL}_{}" {}
 # Point-Transformers
-RUNLINE_TMP = 'model.file={}_{}.py'
-EVAL_RUNLINE = 'uv run python {} -model {}'
+
+# resolves to {MODEL}_{gene_id}
+RUNLINE_TMP = '{}_{}'
+EVAL_RUNLINE = 'uv run python {} -model {} -variant_dir {VARIANT_DIR}'
 """
 Evolution Constants/Params
 """
@@ -64,10 +66,10 @@ GENERATION = 0
 PROB_QC = 0.0
 PROB_EOT = 0.25
 num_generations = 100 # Number of generations
-start_population_size = 512  # Starting population size
+start_population_size = 128  # Starting population size
 # start_population_size = 144   # Size of the population 124=72
 #population_size = 44 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
-population_size = 256 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
+population_size = 128 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
 crossover_probability = 0.35  # Probability of mating two individuals
 mutation_probability = 0.8 # Probability of mutating an individual
 num_elites = 100

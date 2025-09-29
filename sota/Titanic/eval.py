@@ -4,6 +4,7 @@ import os
 
 from pathlib import Path as p
 from os.path import join as pj
+import sys
 
 
 import pandas as pd
@@ -41,11 +42,15 @@ def get_args():
     parser.add_argument('-model', type=str, default="model", help="model file")
     parser.add_argument('-save_dir', type=str, default="trained", help="path where the trained model will be saved")
     parser.add_argument('-random_seed', type=int, default=42, help="random seed to use for deterministic evaluation")
+    parser.add_argument('-variant_dir', type=str, default='models', help="directory where models will be written by LLM-GE")
     return parser.parse_args()
 
 
 
 if __name__ == '__main__':
+    script_directory = p(__file__).parent.resolve()
+    os.chdir(script_directory)
+
     args = get_args()
 
     # Set the random seeds for deterministic results
@@ -54,6 +59,7 @@ if __name__ == '__main__':
 
     # This is LLM Guided Code
     # Import the module dynamically
+    sys.path.append(args.variant_dir)
     model_module = importlib.import_module(args.model)
 
 
