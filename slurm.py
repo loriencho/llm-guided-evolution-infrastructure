@@ -56,6 +56,7 @@ echo "Launching Python Evaluation"
 hostname
 
 module load cuda
+export CUDA_VISIBLE_DEVICES=0
 
 # Run Python script
 {{}}
@@ -65,15 +66,10 @@ module load cuda
         llm_script =  llm_bash_config +  f"""
 echo "Launching AIsurBL"
 hostname
-# Load GCC version 9.2.0
-# module load gcc/13.2.0
-# module load cuda/11.8
+
 module load cuda
-module load anaconda3
-# Activate Virtual environment
-source {constants.ENVIRONMENT_DIR}/bin/activate
-# Set the TOKENIZERS_PARALLELISM environment variable if needed
-# export TOKENIZERS_PARALLELISM=false
+export CUDA_VISIBLE_DEVICES=0
+
 # Run Python script
 {{}}
 """     
