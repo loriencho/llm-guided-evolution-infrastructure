@@ -39,10 +39,10 @@ def create_save_dir(save_root):
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-model', type=str, default="model", help="model file")
-    parser.add_argument('-save_dir', type=str, default="trained", help="path where the trained model will be saved")
-    parser.add_argument('-random_seed', type=int, default=42, help="random seed to use for deterministic evaluation")
-    parser.add_argument('-variant_dir', type=str, default='models', help="directory where models will be written by LLM-GE")
+    parser.add_argument('--model', type=str, default="model", help="model file")
+    parser.add_argument('--save_dir', type=str, default="trained", help="path where the trained model will be saved")
+    parser.add_argument('--random_seed', type=int, default=42, help="random seed to use for deterministic evaluation")
+    parser.add_argument('--variant_dir', type=str, default='models', help="directory where models will be written by LLM-GE")
     return parser.parse_args()
 
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     Defines an Output Filename
     gene_id is a unique identifier for the experiment or model.
     """
-    filename = f'results/{gene_id}_results.txt'
+    filename = os.path.abspath(f'results/{gene_id}_results.txt')
     
     dir_path = os.path.dirname(filename)
 

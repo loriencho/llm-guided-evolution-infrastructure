@@ -58,6 +58,7 @@ echo "Launching Python Evaluation"
 hostname
 
 module load cuda
+module load uv
 export CUDA_VISIBLE_DEVICES=0
 
 # Run Python script

@@ -43,4 +43,18 @@ Next you will need to submit an inference server that the LLM-GE will use for ma
 
 Monitor the output and then when you are ready, you will run `sbatch run.sh` to kick off an evolution!
 
+Since the `run.sh` script and the `server.sh` script only run for 8 hours each you will have to resubmit the jobs after they time out. You can automate this process using the `-d afterany:<job_id>` command for sbatch. This will make the next job run only after the previous job has completed. You can use this command to build a dependancy chain that will execute one job after another until all jobs complete. Here is an example:
 
+```
+[amcdaniel39@atl1-1-02-003-19-1 llm-guided-evolution-fork]$ sbatch server.sh
+Submitted batch job 3194630
+[amcdaniel39@atl1-1-02-003-19-1 llm-guided-evolution-fork]$ sbatch -d afterany:3194630 server.sh
+Submitted batch job 3198458
+[amcdaniel39@atl1-1-02-003-19-1 llm-guided-evolution-fork]$ sbatch -d afterany:3198458 server.sh
+Submitted batch job 3198460
+[amcdaniel39@atl1-1-02-003-19-1 llm-guided-evolution-fork]$ sbatch -d afterany:3198460 server.sh
+Submitted batch job 3198461
+[amcdaniel39@atl1-1-02-003-19-1 llm-guided-evolution-fork]$ sbatch -d afterany:3198461 server.sh
+```
+
+These commands will make 5 server processes run one after another, effectively letting the server run for 40 hours! You can do this same thing with the `run.sh` script to make the evolution run for much longer than 8 hours.
