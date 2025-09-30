@@ -1,4 +1,5 @@
 from sklearn.ensemble import RandomForestClassifier
+import numpy as np
 
 # --OPTION--
 class Model:

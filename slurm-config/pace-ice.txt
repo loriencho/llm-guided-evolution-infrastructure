@@ -13,7 +13,7 @@ mixt.sh
 ------
 #!/bin/bash
 #SBATCH --job-name=AIsur_x1
-#SBATCH -t 8-00:00
+#SBATCH -t 8:00:00
 #SBATCH --gres=gpu:3
 #SBATCH -C "A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S"
 #SBATCH --mem 10G
@@ -23,7 +23,7 @@ mixt.sh
 
 llm-gpu
 ------
-A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S
+
 ------
 
 
@@ -45,9 +45,6 @@ llm-bash-script
 #!/bin/bash
 #SBATCH --job-name=llm_oper
 #SBATCH -t 8:00:00
-#SBATCH --gres=gpu:1
-#SBATCH -G 1
-#SBATCH -C {}
 #SBATCH --mem-per-gpu 16G
 #SBATCH -c 12
 #SBATCH -N 1
@@ -57,13 +54,12 @@ llm-bash-script
 server-sh
 ------
 #!/bin/bash
-#SBATCH --job-name=llm_server
-#SBATCH -t 8:00:00
-#SBATCH --gres=gpu:2
+#SBATCH --job-name=LLMGE01_Server
+#SBATCH -t 08:00:00
+#SBATCH --nodes=1
 #SBATCH -G 2
 #SBATCH -C "A100-80GB|H100|H200"
 #SBATCH --mem 160G
 #SBATCH -c 16
-#SBATCH -N 1
 ------
 

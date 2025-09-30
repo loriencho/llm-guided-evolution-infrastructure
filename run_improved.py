@@ -16,6 +16,7 @@ from src.utils.print_utils import print_population, print_scores, box_print, pri
 from src.llm_utils import split_file, retrieve_base_code, mutate_prompts
 from src.cfg.constants import *
 from src.cfg import constants
+import glob
 
 def print_ancestry(data):
     for gene in data.keys():
@@ -158,7 +159,10 @@ def write_bash_script(input_filename_x=f'{SOTA_ROOT}/{SEED_NETWORK}',
     else:
         raise ValueError("Invalid python_file argument")
     config = load_yaml()
-    bash_script_content = config['llm_bash_script'].format(config['gpu_selection'], python_runline)
+    if len(config['gpu_selection']) > 0:
+        bash_script_content = config['llm_bash_script'].format(config['gpu_selection'], python_runline)
+    else:
+        bash_script_content = config['llm_bash_script'].format(python_runline)
     return bash_script_content
 
 def create_bash_file(file_path, **kwargs):
@@ -781,7 +785,7 @@ def load_checkpoint(folder_name="checkpoints", checkpoint_file=None):
     if not os.path.exists(folder_name):
         return None, None
     if checkpoint_file is None:
-        checkpoint_files = sorted(os.listdir(folder_name), key=extract_generation, reverse=True)
+        checkpoint_files = sorted(glob.glob(os.path.join(folder_name, 'checkpoint_gen_*.pkl')), key=extract_generation, reverse=True)
         checkpoint_file = checkpoint_files[0] if checkpoint_files else None
     if checkpoint_file:
         filepath = os.path.join(folder_name, checkpoint_file)
