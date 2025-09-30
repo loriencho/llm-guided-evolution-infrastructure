@@ -309,7 +309,7 @@ def create_individual(container, temp_min=0.05, temp_max=0.4):
 def submit_run(gene_id):
     def write_bash_script_py(gene_id, train_file=f'{TRAIN_FILE}'):
         model_file_override = RUNLINE_TMP.format(MODEL, gene_id) 
-        python_runline = EVAL_RUNLINE.format(train_file, model_file_override)
+        python_runline = EVAL_RUNLINE.format(train_file, model_file_override, VARIANT_DIR=VARIANT_DIR)
         config = load_yaml()
         bash_script_content = config['python_bash_script'].format(python_runline)
         return bash_script_content
