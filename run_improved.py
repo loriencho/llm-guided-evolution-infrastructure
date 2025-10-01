@@ -11,7 +11,7 @@ import subprocess
 import yaml
 import numpy as np
 from deap import base, creator, tools
-from deap.tools import HallOfFame
+from deap.tools import HallOfFame, ParetoFront
 from src.utils.print_utils import print_population, print_scores, box_print, print_job_info
 from src.llm_utils import split_file, retrieve_base_code, mutate_prompts
 from src.cfg.constants import *
@@ -813,7 +813,7 @@ def createPopulation():
     population = toolbox.population(n=start_population_size)
     box_print("Batch Checking Created Genes", print_bbox_len=60, new_line_end=False)
     delayed_creation_check(population)
-    hof = tools.HallOfFame(hof_size)
+    hof = tools.ParetoFront()
 
 # Define the problem
 creator.create("FitnessMulti", base.Fitness, weights=FITNESS_WEIGHTS)  # Adjust weights as needed
@@ -867,7 +867,7 @@ if __name__ == "__main__":
         population = toolbox.population(n=start_population_size)
         box_print("Batch Checking Created Genes", print_bbox_len=60, new_line_end=False)
         delayed_creation_check(population)
-        hof = tools.HallOfFame(hof_size)
+        hof = tools.ParetoFront()
 
     # Evaluate the entire population
     for ind in population:
