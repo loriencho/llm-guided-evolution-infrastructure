@@ -779,7 +779,8 @@ def save_checkpoint(gen, folder_name="checkpoints"):
     print(f"Checkpoint saved as {filename}")
 
 def extract_generation(filename):
-    return int(filename.split('_')[2].split('.')[0])
+    real_filename = os.path.split(filename)[1]  # ignore folders if provided
+    return int(real_filename.split('_')[2].split('.')[0])
 
 def load_checkpoint(folder_name="checkpoints", checkpoint_file=None):
     if not os.path.exists(folder_name):
@@ -792,7 +793,8 @@ def load_checkpoint(folder_name="checkpoints", checkpoint_file=None):
         with open(filepath, 'rb') as file:
             checkpoint_data = pickle.load(file)
         print(f"Loaded checkpoint from {filepath}")
-        start_gen = int(checkpoint_file.split('_')[2].split('.')[0])
+        checkpoint_filename = os.path.split(checkpoint_file)[1]
+        start_gen = int(checkpoint_filename.split('_')[2].split('.')[0])
         start_gen = start_gen + 1
         return checkpoint_data, start_gen
     return None, None
