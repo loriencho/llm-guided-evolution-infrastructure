@@ -788,13 +788,13 @@ def load_checkpoint(folder_name="checkpoints", checkpoint_file=None):
     if checkpoint_file is None:
         checkpoint_files = sorted(glob.glob(os.path.join(folder_name, 'checkpoint_gen_*.pkl')), key=extract_generation, reverse=True)
         checkpoint_file = checkpoint_files[0] if checkpoint_files else None
+        checkpoint_file = os.path.split(checkpoint_file)[1]
     if checkpoint_file:
         filepath = os.path.join(folder_name, checkpoint_file)
         with open(filepath, 'rb') as file:
             checkpoint_data = pickle.load(file)
         print(f"Loaded checkpoint from {filepath}")
-        checkpoint_filename = os.path.split(checkpoint_file)[1]
-        start_gen = int(checkpoint_filename.split('_')[2].split('.')[0])
+        start_gen = int(checkpoint_file.split('_')[2].split('.')[0])
         start_gen = start_gen + 1
         return checkpoint_data, start_gen
     return None, None
