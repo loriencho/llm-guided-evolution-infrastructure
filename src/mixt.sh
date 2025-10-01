@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=AIsur_x1
-#SBATCH -t 8-00:00
+#SBATCH -t 8:00:00
 #SBATCH --gres=gpu:3
 #SBATCH -C "A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S"
 #SBATCH --mem 10G
@@ -8,13 +8,8 @@
 echo "Launching AIsurBL"
 hostname
 module load gcc/13.2.0
+module load uv
 source ~/.bashrc
 # Set the TOKENIZERS_PARALLELISM environment variable if needed
 export TOKENIZERS_PARALLELISM=false
-
-# get root dir
-pushd $SCRIPT_DIR/.. > /dev/null # go to script dir
-ROOT_DIR=$(pwd)
-popd > /dev/null  # return to original working directory
-
-uv run python llm_crossover.py "${ROOT_DIR}/sota/Point-Transformers/models/Menghao/model.py" "${ROOT_DIR}/sota/Point-Transformers/models/Menghao/model_x.py" "${ROOT_DIR}/sota/Point-Transformers/models/Menghao/model_z.py"  --top_p 0.15   --temperature 0.1 --apply_quality_control 'True' --bit 8
+uv run python llm_crossover.py '/storage/ice1/8/2/amcdaniel39/llm-guided-evolution-fork/sota/Titanic/model.py' '/storage/ice1/8/2/amcdaniel39/llm-guided-evolution-fork/sota/Titanic/models/Menghao/model_x.py' '/storage/ice1/8/2/amcdaniel39/llm-guided-evolution-fork/sota/Titanic/models/Menghao/model_z.py'  --top_p 0.15   --temperature 0.1 --apply_quality_control 'True' --bit 8

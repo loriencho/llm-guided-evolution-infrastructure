@@ -30,6 +30,7 @@ if __name__ == "__main__":
         run_sh = f"""
 echo "launching LLM Guided Evolution"
 hostname
+module load uv
 
 export SERVER_HOSTNAME=$(hostname)
 uv run python run_improved.py titanic_test
@@ -42,6 +43,7 @@ uv run python run_improved.py titanic_test
 echo "Launching AIsurBL"
 hostname
 module load gcc/13.2.0
+module load uv
 source ~/.bashrc
 # Set the TOKENIZERS_PARALLELISM environment variable if needed
 export TOKENIZERS_PARALLELISM=false
@@ -49,13 +51,14 @@ uv run python llm_crossover.py '{constants.SEED_NETWORK}' '{constants.SOTA_ROOT}
 """
         replace_script_configuration("src/mixt.sh", mixtsh_config_lines + mixt_sh)
 
-        llm_gpu = content[indices[4]+1:indices[5]][0]
+        llm_gpu = content[indices[4]+1:indices[5]][0].strip(" \n")
 
         python_script = "\n".join(content[indices[6]+1:indices[7]]) + f"""
 echo "Launching Python Evaluation"
 hostname
 
 module load cuda
+module load uv
 export CUDA_VISIBLE_DEVICES=0
 
 # Run Python script

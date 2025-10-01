@@ -54,7 +54,7 @@ else:
 
 # resolves to {MODEL}_{gene_id}
 RUNLINE_TMP = '{}_{}'
-EVAL_RUNLINE = "uv run python {} -model {} -variant_dir {VARIANT_DIR}"
+EVAL_RUNLINE = "uv run python {} --model {} --variant_dir {VARIANT_DIR}"
 """
 Evolution Constants/Params
 """
