@@ -11,7 +11,7 @@ import subprocess
 import yaml
 import numpy as np
 from deap import base, creator, tools
-from deap.tools import HallOfFame
+from deap.tools import HallOfFame, ParetoFront
 from src.utils.print_utils import print_population, print_scores, box_print, print_job_info
 from src.llm_utils import split_file, retrieve_base_code, mutate_prompts
 from src.cfg.constants import *
@@ -779,7 +779,8 @@ def save_checkpoint(gen, folder_name="checkpoints"):
     print(f"Checkpoint saved as {filename}")
 
 def extract_generation(filename):
-    return int(filename.split('_')[2].split('.')[0])
+    real_filename = os.path.split(filename)[1]  # ignore folders if provided
+    return int(real_filename.split('_')[2].split('.')[0])
 
 def load_checkpoint(folder_name="checkpoints", checkpoint_file=None):
     if not os.path.exists(folder_name):
@@ -787,6 +788,7 @@ def load_checkpoint(folder_name="checkpoints", checkpoint_file=None):
     if checkpoint_file is None:
         checkpoint_files = sorted(glob.glob(os.path.join(folder_name, 'checkpoint_gen_*.pkl')), key=extract_generation, reverse=True)
         checkpoint_file = checkpoint_files[0] if checkpoint_files else None
+        checkpoint_file = os.path.split(checkpoint_file)[1]
     if checkpoint_file:
         filepath = os.path.join(folder_name, checkpoint_file)
         with open(filepath, 'rb') as file:
@@ -811,7 +813,7 @@ def createPopulation():
     population = toolbox.population(n=start_population_size)
     box_print("Batch Checking Created Genes", print_bbox_len=60, new_line_end=False)
     delayed_creation_check(population)
-    hof = tools.HallOfFame(hof_size)
+    hof = tools.ParetoFront()
 
 # Define the problem
 creator.create("FitnessMulti", base.Fitness, weights=FITNESS_WEIGHTS)  # Adjust weights as needed
@@ -865,7 +867,7 @@ if __name__ == "__main__":
         population = toolbox.population(n=start_population_size)
         box_print("Batch Checking Created Genes", print_bbox_len=60, new_line_end=False)
         delayed_creation_check(population)
-        hof = tools.HallOfFame(hof_size)
+        hof = tools.ParetoFront()
 
     # Evaluate the entire population
     for ind in population:
