@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=LLMGE01_Server
-#SBATCH -t 08:00:00
+#SBATCH -t 8:00:00
 #SBATCH --nodes=1
 #SBATCH -G 2
 #SBATCH -C "A100-80GB|H100|H200"

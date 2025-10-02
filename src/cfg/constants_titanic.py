@@ -17,6 +17,7 @@ TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py")
 
 # TODO: Adding this here, I think it's supposed to parse from the command line
 OUTPUT_DIR = "titanic_test"
+PORT=8137
 
 CLUSTER = "pace-ice"
 LLM_MODEL = 'llama3.3'
