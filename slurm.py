@@ -96,7 +96,7 @@ echo "Writing server hostname '$SERVER_HOSTNAME' to file: $HOSTNAME_FILE"
 echo "$SERVER_HOSTNAME" > "$HOSTNAME_FILE"
 echo "Starting LLM server on host: $SERVER_HOSTNAME"
 
-uv run uvicorn server:app --host $SERVER_HOSTNAME --port 8137 --workers 1
+uv run uvicorn server:app --host $SERVER_HOSTNAME --port {constants.PORT} --workers 1
 """           
 
         local_llm_server_config = "\n".join(content[indices[10]+1:indices[11]])

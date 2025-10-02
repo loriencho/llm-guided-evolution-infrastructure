@@ -260,7 +260,7 @@ def get_llm_server_hostname():
         hostname = f.readline().strip() 
     return hostname
 
-def submit_mixtral_local(prompt, max_new_tokens=850, temperature=0.2, top_p=0.15, server_url=f"http://{os.getenv('SERVER_HOSTNAME', 'localhost')}:8137/generate", return_gen=False):
+def submit_mixtral_local(prompt, max_new_tokens=850, temperature=0.2, top_p=0.15, server_url=f"http://{os.getenv('SERVER_HOSTNAME', 'localhost')}:{PORT}/generate", return_gen=False):
     
     payload = {
         "prompt": prompt,
@@ -275,7 +275,7 @@ def submit_mixtral_local(prompt, max_new_tokens=850, temperature=0.2, top_p=0.15
     
     print(llm_hostname)
 
-    server_url = f"http://{llm_hostname}:8137/generate"
+    server_url = f"http://{llm_hostname}:{PORT}/generate"
     
     try:
         response = requests.post(server_url, headers=headers, json=payload)
