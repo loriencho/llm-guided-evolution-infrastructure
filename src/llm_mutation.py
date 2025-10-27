@@ -15,7 +15,19 @@ from pathlib import Path
 
 def augment_network(input_filename='network.py', output_filename='network_x.py', template_txt=None,
                     top_p=0.15, temperature=0.1, apply_quality_control=False, inference_submission=False):
-    
+    """
+    Pick a random section of code in a Python file (default is 'network.py'), send it to the LLM with a prompt template to be changed/improved.
+    The new code is then saved at 'output_filename'
+
+    Args:
+        input_filename (str, optional): input file directory. Defaults to 'network.py'.
+        output_filename (str, optional): output file directory. Defaults to 'network_x.py'.
+        template_txt (_type_, optional): template file directory. Defaults to None.
+        top_p (float, optional): nucleaus sampling method to decide which words are generated. Defaults to 0.15.
+        temperature (float, optional): temperature. Defaults to 0.1.
+        apply_quality_control (bool, optional): Defaults to False.
+        inference_submission (bool, optional): True - large scale usage with PACE-ICE. Defaults to False.
+    """
     print(f'Loading {input_filename} code')
     parts = split_file(input_filename)
     augment_idx = np.random.randint(1, len(parts))
