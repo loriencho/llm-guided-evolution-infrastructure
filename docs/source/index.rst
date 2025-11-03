@@ -17,7 +17,8 @@ Welcome to the documentation for Large Language Model \(LLM\) Guided Evolution \
    seed_algorithms
    point_cloud
    api
-   
+   titanic_for_vip_bootcamp
+   api_for_titanic
 
 
 

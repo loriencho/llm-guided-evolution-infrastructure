@@ -37,10 +37,18 @@ html_static_path = ['_static']
 import sys
 from pathlib import Path
 
+# sys.path.insert(0, str(Path('..', '..', 'sota', 'Titanic').resolve()))
+# sys.path.insert(0, str(Path('..', '..', 'sota').resolve()))
+# sys.path.insert(0, str(Path('..', '..')))
+
 sys.path.insert(0, str(Path('..', '..', 'src', 'utils').resolve()))
 sys.path.insert(0, str(Path('..', '..', 'src', 'cfg').resolve()))
 sys.path.insert(0, str(Path('..', '..', 'src').resolve()))
+sys.path.insert(0, str(Path('..', '..', 'sota', 'Titanic').resolve()))
 sys.path.insert(0, str(Path('..', '..').resolve()))
+
+autodoc_mock_imports = ["sklearn"]
+
 print(sys.path)
 # apidoc_modules = [
 #     {'path': '../../run_imporved.py', 'destination': 'source/'},
