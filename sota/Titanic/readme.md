@@ -1,39 +1,244 @@
-# README For VIP Bootcamp Students
-## Working on PACE-ICE
-LLM-GE is resource intensive when running with local LLMS. There are ways to configure LLM-GE to run with API calls, but for this readme, we are going to use local models.
-You will want to begin by logging on to PACE-ICE. You can do this by following the instructions [Here](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042100).
+# LLM-Guided Evolution on Titanic Dataset with PACE-ICE
+## Overview
 
-Once logged into PACE-ICE, you will land on a login node. 
-> [!IMPORTANT]
-> You should not be doing any work on a login node, as soon as you land on one you should put yourself on a remote session on a compute node. 
-> For this guide, we recommend requesting a GPU for this session so that you can ensure you set up a proper environment. You can do so with `srun -G 1 --pty bash`.
+So far in this bootcamp, you’ve implemented baseline **Scikit-learn (or other)** models and a **MOGP approach** for the Titanic dataset.  
+Now, you’re in the **final step** — working with **LLM-Guided Evolution (LLM-GE)** on **PACE-ICE**, Georgia Tech’s high-performance computing cluster.  
 
-We recommend installing a tool called uv for Python package management. Instructions for the install can be found [Here](https://docs.astral.sh/uv/getting-started/installation/). But on this system, you can simply type `curl -LsSf https://astral.sh/uv/install.sh | sh`.
+This stage focuses on running your evolutionary LLM experiments efficiently, monitoring results, and analyzing your Pareto frontiers comparing FPR/FNR (or FP/FN) tradeoffs against your previous methods.
 
-Once uv is installed, you can set up your Python environment from within your LLM-GE directory by running `uv sync --cache-dir ~/scratch/.uv`.
+---
+## Understanding PACE-ICE and the Cluster Environment
 
-> [!NOTE]
-> When running on PACE-ICE you have a limited quote in your home directory, which is why we specify using the cache folder on the scratch partition, where your quota is much larger
+**PACE-ICE** is Georgia Tech’s interactive computing **cluster** — a group of powerful connected machines (called **nodes**) that share resources like GPUs and memory.  
+You’ll use it to run experiments that would be too slow or heavy for your laptop.
 
-## Preparing Titanic Problem
-We don't want to check in data into our repository, so instead we check in scripts to pull the data. We have prepared a script to download the titanic dataset here, but you will have to first set up an API key with kaggle to utilize it. If you don't want to go through this, you can simply drop the train.csv file into sota/Titanic/data. Otherwise, please follow the instructions [Here](https://github.com/Kaggle/kaggle-api/blob/main/docs/README.md#api-credentials).
+Basic structure:
+- **Login node:** the entry point — for setup only.  
+- **Compute node:** where your code actually runs.  
+- **SLURM scheduler:** manages job queues and assigns resources across users.
 
-After following the instructions, from the sota/Titanic directory, run the command `uv run ./pull_data.sh`.
+In short: you connect → request compute → submit jobs → SLURM runs them when resources are available.
 
-You can run the example preprocessing script with `uv run preprocess.py` to produce the data/processed_train.csv file expected by the model template script.
+> If you’ve never used Georgia Tech VPN before, download the client [here](https://vpn.gatech.edu/global-protect/getsoftwarepage.esp).  
+> Once installed, set the **portal address** to `vpn.gatech.edu`, log in with Duo 2FA — and you’re connected.  
+> This step is **essential** to access PACE-ICE.
 
->[!NOTE]
-> LLM-GE is set up to run code borrowed from the [Titanic Top Solution](https://www.kaggle.com/code/soham1024/titanic-data-science-eda-with-meme-solution) notebook. To get comparable results to your previous experiments, you will need to put your own pre-processing code into this sota/Titanic pipeline by replacing the preprocess.py to export your own data/processed_train.csv file.
+For step-by-step PACE-ICE login and onboarding instructions (accounts, Duo, connecting to nodes) see Georgia Tech's KB article: https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042100
 
-When running LLM-GE, it will expect that:
-- data will be in data/processed_train.csv with truth data
-- a seed model will be in model.py and conform to the scikit api
-- eval script will run, import the model, train and score on the processed_train.csv
+---
+## Step 1 — Connect to PACE-ICE
 
-You can test this by running `uv run eval.py` to get out a false positive and false negative score.
+In your terminal:
 
-## Set Up LLM-GE
-By default, LLM-GE is set up to run to evolve an image classifier for the CIFAR-10 dataset. We will need to change the configurations to work with the Titanic problem, as well as prepare our evolution to run on pace-ice.
+```bash
+ssh your_gtid@login-ice.pace.gatech.edu
+srun -G 1 --pty bash
+```
 
+`ssh` connects you to the cluster’s login node.
 
+`srun` moves you to a compute node (where the real work happens).
 
+The `-G 1` flag requests one GPU for your session.
+
+You’ll know you’re on a compute node if your terminal prompt looks like `atl1-1-03-013-8-0.pace.gatech.edu`.
+
+## Step 2 — Repository Setup
+
+Your scratch directory already exists on PACE. It’s your large-quota workspace for all experiments.
+
+Clone the repository (HTTPS is simplest):
+
+```bash
+cd ~/scratch
+git clone https://github.com/jasonzutty/llm-guided-evolution-fork.git
+cd llm-guided-evolution-fork
+git fetch --all
+git checkout MosesTheRedSea-main
+git pull
+```
+
+Always work inside `~/scratch` — your home directory has limited space.
+
+## Step 3 — Setting Up the Python Environment
+
+The project uses `uv`, a fast tool for managing Python environments.
+
+To install it:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+Then, inside your repo folder, sync dependencies (this installs all needed packages):
+
+```bash
+uv sync --cache-dir ~/scratch/.uv
+```
+
+This builds an isolated Python environment stored under your scratch space.
+
+## Step 4 — Setting Up Kaggle Access
+
+The Titanic dataset is downloaded via the Kaggle API.
+You’ll need your Kaggle credentials (`kaggle.json`).
+
+From your laptop:
+
+```bash
+scp /path/to/kaggle.json your_gtid@login-ice.pace.gatech.edu:~/.config/kaggle/kaggle.json
+```
+
+On the cluster:
+
+```bash
+mkdir -p ~/.config/kaggle
+chmod 600 ~/.config/kaggle/kaggle.json
+```
+
+This ensures your credentials are securely stored.
+
+## Step 5 — Configure Before Running
+
+Before you run anything, make these first changes inside `~/scratch/llm-guided-evolution-fork/src/cfg/constants_titanic.py`:
+
+- Edit `preprocess.py` in `sota/Titanic/` so that the data matches how your team prepared it for previous parts.
+- Your preprocessing should produce the same features and target columns as before.
+
+- Choose a unique `PORT` number and set it in `constants_titanic.py`.
+	- This prevents multiple teams or users from overwriting each other’s runs.
+
+- If your team decides to, adjust `num_generations`, `population_size`, and similar parameters to fit your team’s plan.
+
+Once configured, prepare your data and check the pipeline:
+
+```bash
+cd sota/Titanic
+uv run ./pull_data.sh
+uv run preprocess.py
+uv run eval.py
+```
+
+Confirm that `eval.py` prints the expected output (e.g., FPR/FNR or counts).
+
+## Step 6 — Generate Job Scripts
+
+From the project root:
+
+```bash
+cd ~/scratch/llm-guided-evolution-fork
+uv run slurm.py
+```
+
+This creates:
+
+- `server.sh` — starts the LLM inference server
+- `run.sh` — runs the LLM-GE evolution process
+
+## Step 7 — Submit and Monitor Jobs
+
+Submit:
+
+```bash
+sbatch server.sh
+sbatch run.sh
+```
+
+Monitor:
+
+```bash
+squeue -u $USER
+tail -f server_*.out
+tail -f run_*.out
+```
+
+Cancel by job ID or class name:
+
+```bash
+scancel <jobid>
+scancel -n llm_oper     # Example: cancel specific class of jobs
+scancel -n llm_opt
+```
+
+Job states:
+
+- `PD` → Pending (waiting)
+- `R` → Running
+- `CG` → Completing
+
+## Step 8 — Chaining Jobs for Continuous Runs
+
+Each SLURM job runs for about 8 hours. To automate longer runs, you can chain jobs sequentially, one after another:
+
+```bash
+sbatch server.sh
+# Suppose this prints: Submitted batch job 3376242
+sbatch -d afterany:3376242 server.sh
+sbatch -d afterany:3376243 server.sh
+```
+
+You should always chain each job off the one before it, not all off the same starting job.
+This ensures they run one at a time in order without overlap.
+
+You can apply the same idea to your `run.sh` jobs.
+
+Note on dependency flags: `-d after:<jobid>` makes the next job start only if the specified job finishes successfully; `-d afterany:<jobid>` starts the next job regardless of the previous job's exit status. Use `afterany:` if you want resilience to failures or timeouts.
+
+You can also chain your run jobs so they automatically start once your server goes up — that way you don’t have to babysit it. For example:
+
+```bash
+sbatch server.sh
+# Suppose this prints: Submitted batch job 3376242
+sbatch -d after:3376242 run.sh
+```
+
+## Step 9 — Understanding and Analyzing Outputs
+
+After jobs complete, you’ll see several output files:
+
+| File | Location | Description |
+|---|---|---|
+| `server_*.out` | Project root | Logs from the inference server (node, port, errors) |
+| `run_*.out` | Project root | Logs showing LLM prompts, responses, and model generations |
+| `*_results.txt` | `/results` | Each contains model metrics — FPR/FNR or counts depending on your `eval.py` |
+| `checkpoints/` | `/titanic_test/checkpoints/` | Pickled (.pkl) population snapshots per generation |
+| `model_*.py` | Run folders | Generated model code from LLM-GE |
+| `hostname.log` | Root | Node name and connection log for debugging |
+
+Make sure your `eval.py` outputs are in the same format (rates or counts) as your earlier Scikit/MOGP work so you can make clean comparisons.
+
+### What to Do with These Outputs
+
+Your job now is to make sense of these results.
+Develop your own scripts and approaches to:
+
+- Aggregate and summarize results across generations
+- Visualize Pareto frontiers (FPR vs FNR)
+- Show changes and improvements over time
+- Automate progress updates while runs are still ongoing
+
+You’re encouraged to design creative visualization and aggregation methods — this analysis is a key part of your engineering insight.
+
+## Step 10 — Deliverables
+
+At a minimum, your presentation and report should:
+
+- Summarize and compare results across Scikit, MOGP, and LLM-GE
+- Plot Pareto frontiers for each approach
+- Discuss tradeoffs and observed trends
+
+However, as emerging engineers, you’re expected to go deeper —
+analyze why certain tradeoffs appeared, what drove model improvements, and what the LLM’s behavior revealed about guided evolution.
+
+Present both your findings and your approach in your midterm presentation.
+
+## Notes and Best Practices
+
+- Always run on a compute node, not the login node.
+- Choose unique ports to avoid server collisions.
+- Be patient — PACE job queues can take time.
+- Focus on understanding outputs more than re-running setups.
+
+Good luck!
+For any issues or debugging questions, the Discord server is the best resource for real-time help and collaboration.
