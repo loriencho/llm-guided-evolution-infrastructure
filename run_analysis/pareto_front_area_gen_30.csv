@@ -1,0 +1,8 @@
+,pareto_front_area
+llama3-focus_fitness.csv,74904.81845068932
+deepseek-focus_fitness.csv,49877.68576782942
+llama-extreme_fitness.csv,121426.95510077477
+qwen-normal_fitness.csv,56166.369861513376
+deepseek-extreme_fitness.csv,46591.95094975829
+mean,69793.55602611303
+std,30873.894606142327
