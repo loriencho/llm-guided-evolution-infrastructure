@@ -20,3 +20,8 @@ output/
 **/results/
 **/llmge_models/
 slurm-*.out
+*.pkl
+src/island_temp_script.sh
+cifar10
+uv.lock
+pareto_fronts

@@ -5,12 +5,13 @@ description = "llm-guided-evolution, virtual envrionment that includes packages 
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "deap==1.4.1",
+    "deap==1.4.3",
     "flake8>=7.2.0",
     "furo>=2024.8.6",
     "google-genai>=1.12.1",
     "numpy>=2.0.2",
     "pytest>=8.3.5",
+    "sphinx>=8.2.3",
     "sphinx>=8.2.3",
     "torch==2.6.0",
     "torchvision",
@@ -28,4 +29,5 @@ dependencies = [
     "pandas>=2.3.2",
     "scikit-learn>=1.7.2",
     "imblearn",
+    "matplotlib",
 ]
