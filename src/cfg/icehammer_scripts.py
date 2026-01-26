@@ -78,5 +78,5 @@ module load cuda
 export HF_HOME=
 
 # Run Python script
-uv run python run_improved.py {} --global_path {} --llm_model {}
+uv run python run_improved.py {} --global_path {} --llm_model {} --prompt_group {}
 """

@@ -79,5 +79,5 @@ module load cuda/12
 export HF_HOME=/storage/ice-shared/vip-vvk/llm_storage/
 
 # Run Python script
-uv run python run_improved.py {} --global_path {} --llm_model {}
+uv run python run_improved.py {} --global_path {} --llm_model {} --prompt_group {}
 """

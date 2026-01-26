@@ -1,4 +1,5 @@
 import os
+import re
 import argparse
 import glob
 from deap import base, creator, tools
@@ -117,7 +118,7 @@ def check4job_completion(job_id, local_output=None, check_interval=60, timeout=3
         
 
 
-def unpackIslands(num_islands, checkpoints) -> list[Island]:
+def unpackIslands(island_specs, checkpoints) -> list[Island]:
     """
     Unpacks islands from the checkpoints directory.
 
@@ -135,10 +136,10 @@ def unpackIslands(num_islands, checkpoints) -> list[Island]:
     """
     islands = []
     global_path = os.path.join(checkpoints, "global_data")
-    for i in range(num_islands):
-        curr_llm = ISLAND_LLMS[i]
-        print("Unpacking island " + curr_llm, flush=True)
-        checkpoint_path = os.path.join(checkpoints, "island_" + curr_llm)
+    for llm_name, prompt_group in island_specs:
+        prompt_slug = re.sub(r"[^a-zA-Z0-9_-]", "-", prompt_group)
+        print(f"Unpacking island {llm_name} ({prompt_group})", flush=True)
+        checkpoint_path = os.path.join(checkpoints, f"island_{llm_name}_{prompt_slug}")
         global_path = os.path.join(checkpoints, GLOBAL_DATA_PATH)
         checkpoint, start_gen, global_data = load_checkpoint(folder_name=checkpoint_path, global_path=global_path)
         
@@ -189,7 +190,7 @@ def packIslands(islands: list[Island], gen: int):
         }
         save_checkpoint(gen=gen, folder_name=island_path, global_path=None, checkpoint_data=checkpoint_data)
 
-def migrateIslands(topology, num_islands, checkpoints, gen):
+def migrateIslands(topology, island_specs, checkpoints, gen):
     """
     Migrates individuals between islands based on the specified topology.
 
@@ -209,7 +210,7 @@ def migrateIslands(topology, num_islands, checkpoints, gen):
     None
     """
     print("UNPACKING ISLANDS")
-    islands = unpackIslands(num_islands, checkpoints)
+    islands = unpackIslands(island_specs, checkpoints)
     
     print("MIGRATING INDIVIDUALS")
     migrate(topology, islands)
@@ -293,23 +294,62 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run Generation')
     # Add arguments
     parser.add_argument('checkpoints', type=str, help='Save Dir')
-    parser.add_argument('--num_islands', type=int, help='Number of Islands', default=2)
+    parser.add_argument('--num_islands', type=int, help='Number of Islands', default=None)
+    parser.add_argument('--llms', type=str, help='Comma-separated LLMs for islands (overrides ISLAND_LLMS)', default=None)
+    parser.add_argument('--prompt_groups', type=str, help='Comma-separated prompt groups/globs aligned to islands', default=None)
+    parser.add_argument('--prompt_group', type=str, help='Deprecated: single prompt group to apply to all islands', default=None)
     # Parse the arguments
     args = parser.parse_args()
     island_script = "src/island_temp_script.sh"
     checkpoints = args.checkpoints
-    num_islands = args.num_islands
 
-    if num_islands > MAX_ISLANDS:
+    def parse_csv(arg_val):
+        if not arg_val:
+            return []
+        return [item.strip() for item in arg_val.split(',') if item.strip()]
+
+    cli_llms = parse_csv(args.llms)
+    cli_prompts = parse_csv(args.prompt_groups)
+
+    # Backwards compatibility: --prompt_group applies to all unless prompt_groups provided
+    if args.prompt_group and not cli_prompts:
+        cli_prompts = [args.prompt_group.strip()]
+
+    base_llms = cli_llms if cli_llms else ISLAND_LLMS
+    base_prompts = cli_prompts if cli_prompts else [DEFAULT_PROMPT_GROUP]
+
+    if len(base_llms) == 0:
+        print("No LLMs provided and ISLAND_LLMS is empty; cannot launch islands.")
+        exit(1)
+
+    # Build island specs: align lengths, or compute cartesian product when both lists have length >1 and differ
+    island_specs = []
+    if len(base_llms) == len(base_prompts):
+        island_specs = list(zip(base_llms, base_prompts))
+    elif len(base_llms) == 1 and len(base_prompts) > 1:
+        island_specs = [(base_llms[0], pg) for pg in base_prompts]
+    elif len(base_prompts) == 1 and len(base_llms) > 1:
+        island_specs = [(llm, base_prompts[0]) for llm in base_llms]
+    else:
+        # different sizes >1: cartesian product
+        for llm in base_llms:
+            for pg in base_prompts:
+                island_specs.append((llm, pg))
+
+    num_islands = args.num_islands if args.num_islands is not None else len(island_specs)
+    if num_islands != len(island_specs):
+        print(f"num_islands ({num_islands}) does not match derived island specs ({len(island_specs)}). Adjust args or omit num_islands.")
+        exit(1)
+
+    if not cli_llms and num_islands > MAX_ISLANDS:
         print("Number of islands exceeds maximum allowed: " + str(MAX_ISLANDS))
         exit(1)
 
-
     # initialize the graph topology
     islands_list = []
-    for i in range(num_islands):
-        curr_llm = ISLAND_LLMS[i]
-        checkpoint_path = os.path.join(checkpoints, "island_" + curr_llm)
+    for llm_name, prompt_group in island_specs:
+        prompt_slug = re.sub(r"[^a-zA-Z0-9_-]", "-", prompt_group)
+        checkpoint_path = os.path.join(checkpoints, f"island_{llm_name}_{prompt_slug}")
         island = Island(checkpoint_path, [])
         islands_list.append(island) 
     topology = generate_graph_topology(islands_list, Topology.FULL)
@@ -323,12 +363,11 @@ if __name__ == "__main__":
         job_ids = []
 
         # submit island generation jobs
-        for i in range(num_islands):
-            curr_llm = ISLAND_LLMS[i]
-            print("Generating Island " + curr_llm, flush=True)
-            checkpoint_path = os.path.join(checkpoints, "island_" + curr_llm)
-            
-            job_id = submit_run(island_script, ISLANDS_BASH_SCRIPT_TEMPLATE.format(curr_llm, checkpoint_path, global_path, curr_llm))
+        for llm_name, prompt_group in island_specs:
+            prompt_slug = re.sub(r"[^a-zA-Z0-9_-]", "-", prompt_group)
+            print(f"Generating Island {llm_name} with prompts {prompt_group}", flush=True)
+            checkpoint_path = os.path.join(checkpoints, f"island_{llm_name}_{prompt_slug}")
+            job_id = submit_run(island_script, ISLANDS_BASH_SCRIPT_TEMPLATE.format(llm_name, checkpoint_path, global_path, llm_name, prompt_group))
             job_ids.append(job_id)
         
         # check island generation jobs for completion
@@ -342,25 +381,10 @@ if __name__ == "__main__":
             print("Error occured in loop, job not done")
             break
 
-        '''
-        # mutate prompts
-        print("Mutating Prompts")
-        prompt_job_ids = submit_mutate_prompts(LLM_MIXTRAL)
-        done = True
-        for i in range(len(prompt_job_ids)):
-            done = check4job_completion(prompt_job_ids[i])
-            if not done:
-                break
-
-        if not done:
-            print("Error occured in loop, job not done")
-            break
-        '''
-
         # migrate individuals between islands
         if migration_gen != 0:
             print("Starting island migration on era " + str(era), flush=True)
-            migrateIslands(topology, num_islands, checkpoints, era * migration_gen)
+            migrateIslands(topology, island_specs, checkpoints, era * migration_gen)
 
         print("Finished era " + str(era), flush=True)
     

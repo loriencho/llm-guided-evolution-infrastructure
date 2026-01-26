@@ -19,6 +19,14 @@ from src.cfg.constants import *
 from src.cfg import constants
 import glob
 
+# Runtime-configurable prompt glob and LLM defaults
+global PROMPT_GLOB
+PROMPT_GLOB = PROMPTS if "PROMPTS" in globals() else "templates/Testing/Normal/*.txt"
+DEFAULT_LLM_MODEL = globals().get("LLM_MIXTRAL", globals().get("LLM_MODEL", None))
+AVAILABLE_LLM_MODELS = globals().get("ISLAND_LLMS", [])
+if not AVAILABLE_LLM_MODELS and globals().get("LLM_MODEL"):
+    AVAILABLE_LLM_MODELS = [globals()["LLM_MODEL"]]
+
 def print_ancestry(data):
     for gene in data.keys():
         print(f'gene: {gene}')
@@ -29,6 +37,21 @@ def load_yaml(file_path=constants.SLURM_CONFIG_DIR):
     with open(os.path.join(file_path, 'slurm_config.yaml'), 'r') as file:
         config = yaml.safe_load(file)
     return config
+
+
+def resolve_prompt_glob(prompt_group_arg):
+    """Resolve the prompt glob pattern from CLI input or defaults."""
+    base_glob = PROMPT_GLOB
+    if prompt_group_arg:
+        cleaned = prompt_group_arg.strip()
+        if cleaned.startswith('templates/') or cleaned.startswith('/'):
+            candidate = cleaned
+        else:
+            candidate = os.path.join('templates', cleaned)
+        if not candidate.endswith('.txt') and '*' not in candidate:
+            candidate = os.path.join(candidate, '*.txt')
+        return candidate
+    return base_glob
 
 def update_ancestry(gene_id_child, gene_id_parent, ancestry, mutation_type=None, gene_id_parent2=None):
     """
@@ -109,7 +132,9 @@ def generate_template(PROB_EOT, GEN_COUNT, TOP_N_GENES, SOTA_ROOT, SEED_NETWORK,
         mute_type = "EoT"
     else:
         print("\t‣ Normal Prompts")
-        prompt_templates = glob.glob(f'{ROOT_DIR}/{PROMPTS}')
+        prompt_templates = glob.glob(os.path.join(ROOT_DIR, PROMPT_GLOB))
+        if not prompt_templates:
+            raise FileNotFoundError(f"No prompt templates found with glob: {PROMPT_GLOB}")
         template_path = np.random.choice(prompt_templates)
         mute_type = os.path.basename(template_path).split('.')[0]  # Assuming the file extension needs to be removed
         with open(template_path, 'r') as file:
@@ -144,7 +169,6 @@ def write_bash_script(llm_model,
         template_txt, mute_type = generate_template(PROB_EOT, GEN_COUNT, TOP_N_GENES, 
                                                     SOTA_ROOT, SEED_NETWORK, ROOT_DIR, llm_model)
         if GEN_COUNT >= 0: # this does not need to happen at creation of population
-            GLOBAL_DATA_ANCESTRY = update_ancestry(gene_id_child, gene_id_parent, GLOBAL_DATA_ANCESTRY, 
             GLOBAL_DATA_ANCESTRY = update_ancestry(gene_id_child, gene_id_parent, GLOBAL_DATA_ANCESTRY, 
                                                     mutation_type=mute_type, gene_id_parent2=None)
         out_dir = os.path.join(OUTPUT_DIR, str(GENERATION))
@@ -921,16 +945,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run Generation')
     # Add arguments
     parser.add_argument('checkpoints', type=str, help='Save Dir')
-    parser.add_argument('--llm_model', type=str, help='Which LLM to use', default=LLM_MIXTRAL)
+    parser.add_argument('--llm_model', type=str, help='Which LLM to use', default=DEFAULT_LLM_MODEL)
     parser.add_argument('--global_path', type=str, help='Path to global variables', default=ROOT_DIR)
+    parser.add_argument('--prompt_group', type=str, help='Prompt group or glob (relative to templates/)', default=None)
     # Parse the arguments
     args = parser.parse_args()
     llm_model = args.llm_model
 
+    PROMPT_GLOB = resolve_prompt_glob(args.prompt_group)
+
     print(DNA_TXT)
     print("ISLAND llm_model: ", llm_model)
+    print(f"Prompt glob: {PROMPT_GLOB}")
 
-    if not llm_model or llm_model not in ISLAND_LLMS:
+    if AVAILABLE_LLM_MODELS and (not llm_model or llm_model not in AVAILABLE_LLM_MODELS):
         print("Error in Island Generation: No LLM specified. Exiting script")
         exit(1)
 

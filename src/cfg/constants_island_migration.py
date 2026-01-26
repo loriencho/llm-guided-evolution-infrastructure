@@ -16,7 +16,9 @@ else:
 GLOBAL_DATA_PATH = "global_data"
 SLURM_OUTPUT_PATH = "run_job_outputs/"
 
-PROMPTS = "templates/Testing/<prompt_type>/*.txt"
+DEFAULT_PROMPT_GROUP = "Testing/Normal"
+PROMPT_GROUP_TEMPLATE = "templates/Testing/{prompt_group}/*.txt"
+PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/*.txt"
 
 #: DATA_PATH absolute or relative to ExquisiteNetV2
 DATA_PATH = os.path.join(ROOT_DIR, 'cifar10')

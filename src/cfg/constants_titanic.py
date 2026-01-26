@@ -15,6 +15,10 @@ MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-I
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
 TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py") 
 
+# Prompt templates glob relative to the repository root
+DEFAULT_PROMPT_GROUP = "Testing/Normal"
+PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/*.txt"
+
 # TODO: Adding this here, I think it's supposed to parse from the command line
 OUTPUT_DIR = "titanic_test"
 PORT=8137
