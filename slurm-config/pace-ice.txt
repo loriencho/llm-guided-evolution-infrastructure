@@ -6,6 +6,7 @@ run.sh
 #SBATCH --mem 16G
 #SBATCH -c 4                         
 #SBATCH -N 1
+#SBATCH --output=run_job_outputs/islands/slurm-%j.out
 ------
 
 
@@ -15,7 +16,7 @@ mixt.sh
 #SBATCH --job-name=AIsur_x1
 #SBATCH -t 5:00:00
 #SBATCH --gres=gpu:3
-#SBATCH -C "A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S"
+#SBATCH -C "H200"
 #SBATCH --mem 10G
 #SBATCH -c 48
 ------
@@ -23,7 +24,7 @@ mixt.sh
 
 llm-gpu
 ------
-A100-40GB|A100-80GB|H100|H200|V100-16GB|V100-32GB|RTX6000|A40|L40S
+H200
 ------
 
 
@@ -37,6 +38,7 @@ python-bash-script
 #SBATCH --mem 16G
 #SBATCH -c 12
 #SBATCH -N 1
+#SBATCH --output=run_job_outputs/evaluation/slurm-%j.out
 ------
 
 
@@ -50,6 +52,7 @@ llm-bash-script
 #SBATCH -C {}
 #SBATCH -c 2
 #SBATCH -N 1
+#SBATCH --output=run_job_outputs/evolution/slurm-%j.out
 ------
 
 
@@ -60,8 +63,9 @@ server-sh
 #SBATCH -t 8:00:00
 #SBATCH --nodes=1
 #SBATCH -G 2
-#SBATCH -C "A100-80GB|H100|H200"
+#SBATCH -C "H200"
 #SBATCH --mem 160G
 #SBATCH -c 16
+#SBATCH --output=run_job_outputs/server/slurm-%j.out
 ------
 

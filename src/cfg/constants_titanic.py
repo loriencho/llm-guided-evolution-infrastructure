@@ -15,9 +15,12 @@ MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-I
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
 TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py") 
 
+# Where Slurm job outputs are written (matches sbatch --output paths)
+SLURM_OUTPUT_PATH = "run_job_outputs/"
+
 # Prompt templates glob relative to the repository root
-DEFAULT_PROMPT_GROUP = "Testing/Normal"
-PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/*.txt"
+DEFAULT_PROMPT_GROUP = "FixedPrompts"
+PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/**/*.txt"
 
 # TODO: Adding this here, I think it's supposed to parse from the command line
 OUTPUT_DIR = "titanic_test"
@@ -25,6 +28,19 @@ PORT=8137
 
 CLUSTER = "pace-ice"
 LLM_MODEL = 'llama3.3'
+
+# Available LLM identifiers
+LLM_QWEN = 'qwen25'
+LLM_MIXTRAL = 'mixtral'
+LLM_LLAMA3 = 'llama3'
+LLM_GEMMA2 = 'gemma2'
+LLM_GEMMA3 = 'gemma3'
+LLM_DEEPSEEK = 'deepseek'
+LLM_GEMINI = 'gemini'
+
+# LLMs allowed for island runs
+ISLAND_LLMS = [LLM_QWEN, LLM_MIXTRAL, LLM_DEEPSEEK, LLM_LLAMA3, LLM_GEMMA2, LLM_GEMMA3, LLM_GEMINI]
+
 ENVIRONMENT_DIR = os.path.join(ROOT_DIR, ".venv")
 SLURM_CONFIG_DIR = os.path.join(ROOT_DIR, "slurm-config/")
 LOCAL_LLM = True
@@ -32,7 +48,7 @@ HOSTNAME_DIR = os.path.join(ROOT_DIR, "hostname.log")
 
 QC_CHECK_BOOL = False
 HUGGING_FACE_BOOL = False
-INFERENCE_SUBMISSION = True
+INFERENCE_SUBMISSION = False
 CUF_TIMEOUT = 20000
 
 LOCAL = False
@@ -70,15 +86,17 @@ NUM_EOT_ELITES = 10
 GENERATION = 0
 PROB_QC = 0.0
 PROB_EOT = 0.25
-num_generations = 100 # Number of generations
-start_population_size = 128  # Starting population size
+num_generations = 50 # Number of generations
+start_population_size = 32  # Starting population size
 # start_population_size = 144   # Size of the population 124=72
 #population_size = 44 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
-population_size = 128 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
+population_size = 32 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
 crossover_probability = 0.35  # Probability of mating two individuals
 mutation_probability = 0.8 # Probability of mutating an individual
-num_elites = 100
-hof_size = 300
+num_elites = 8
+hof_size = 100
+max_gen_attempts = 5
+migration_gen = 0
 """
 Misc. Non-sense
 """

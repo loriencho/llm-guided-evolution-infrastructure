@@ -30,4 +30,5 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "imblearn",
     "matplotlib",
+    "tensorflow>=2.20.0",
 ]

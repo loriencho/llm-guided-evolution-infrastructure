@@ -40,7 +40,17 @@ def clean_code_from_llm(code_from_llm):
         #return ""
 
 def get_llm_code_generator(llm_model):
-    if INFERENCE_SUBMISSION is False:
+    # Prefer the local uvicorn-hosted model when configured
+    if LOCAL_LLM:
+        if llm_model in (LLM_MIXTRAL, LLM_LLAMA3, 'llama3.3'):
+            llm_code_generator = submit_mixtral_local
+        elif llm_model == LLM_DEEPSEEK:
+            llm_code_generator = submit_deepseek_local
+        else:
+            print("NO LLM SPECIFIED: USING LOCAL MIXTRAL")
+            llm_code_generator = submit_mixtral_local
+        qc_func = llm_code_qc_hf  # uses local server for QC prompt too
+    elif INFERENCE_SUBMISSION is False:
         if llm_model == LLM_MIXTRAL:
             llm_code_generator = submit_mixtral
         elif llm_model == LLM_QWEN:

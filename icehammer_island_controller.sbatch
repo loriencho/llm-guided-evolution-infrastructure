@@ -3,7 +3,7 @@
 #SBATCH -t 30-00:00
 #SBATCH -n 16
 #SBATCH -N 1
-#SBATCH --output=run_job_outputs/Report-%j.out
+#SBATCH --output=run_job_outputs/islands/Report_islands-%j.out
 
 cd $SLURM_SUBMIT_DIR
 echo "launching AIsurBL"

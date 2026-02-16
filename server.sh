@@ -3,9 +3,10 @@
 #SBATCH -t 8:00:00
 #SBATCH --nodes=1
 #SBATCH -G 2
-#SBATCH -C "A100-80GB|H100|H200"
+#SBATCH -C "H200"
 #SBATCH --mem 160G
 #SBATCH -c 16
+#SBATCH --output=run_job_outputs/server/slurm-%j.out
 echo "launching LLM Server"
 
 hostname

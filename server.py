@@ -49,6 +49,9 @@ class LLMModel:
         self.tokenizer = transformers.AutoTokenizer.from_pretrained(MODEL_PATH)
         print("tokenizer created")
         
+        # decoder-only models need left padding for correct generation order
+        self.tokenizer.padding_side = "left"
+
         # for batching, need to set pad tokens
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
@@ -225,3 +228,10 @@ async def root():
     return {"message": "LLM API is running!"}
 
 print('Server running with server-side batching!')
+
+
+@app.on_event("startup")
+async def preload_model():
+    """Load the model at process start so first request is fast."""
+    model = LLMModel()
+    await model.start_batch_processor()

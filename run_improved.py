@@ -10,6 +10,7 @@ import argparse
 import subprocess
 import yaml
 import numpy as np
+import re
 from deap import base, creator, tools
 from deap.tools import HallOfFame, ParetoFront
 from functools import partial
@@ -21,7 +22,7 @@ import glob
 
 # Runtime-configurable prompt glob and LLM defaults
 global PROMPT_GLOB
-PROMPT_GLOB = PROMPTS if "PROMPTS" in globals() else "templates/Testing/Normal/*.txt"
+PROMPT_GLOB = PROMPTS if "PROMPTS" in globals() else "templates/Testing/Normal/**/*.txt"
 DEFAULT_LLM_MODEL = globals().get("LLM_MIXTRAL", globals().get("LLM_MODEL", None))
 AVAILABLE_LLM_MODELS = globals().get("ISLAND_LLMS", [])
 if not AVAILABLE_LLM_MODELS and globals().get("LLM_MODEL"):
@@ -49,7 +50,7 @@ def resolve_prompt_glob(prompt_group_arg):
         else:
             candidate = os.path.join('templates', cleaned)
         if not candidate.endswith('.txt') and '*' not in candidate:
-            candidate = os.path.join(candidate, '*.txt')
+            candidate = os.path.join(candidate, '**', '*.txt')
         return candidate
     return base_glob
 
@@ -132,7 +133,7 @@ def generate_template(PROB_EOT, GEN_COUNT, TOP_N_GENES, SOTA_ROOT, SEED_NETWORK,
         mute_type = "EoT"
     else:
         print("\t‣ Normal Prompts")
-        prompt_templates = glob.glob(os.path.join(ROOT_DIR, PROMPT_GLOB))
+        prompt_templates = glob.glob(os.path.join(ROOT_DIR, PROMPT_GLOB), recursive=True)
         if not prompt_templates:
             raise FileNotFoundError(f"No prompt templates found with glob: {PROMPT_GLOB}")
         template_path = np.random.choice(prompt_templates)
@@ -151,6 +152,7 @@ def write_bash_script(llm_model,
                       output_filename=f'{VARIANT_DIR}/{MODEL}_x.py',
                       python_file='src/llm_mutation.py', 
                       top_p=0.1, temperature=0.2,
+                      gpu=None,
                      ):
     
     print("WRITING write_bash_script, llm_model: ", llm_model)
@@ -184,7 +186,7 @@ def write_bash_script(llm_model,
                                                 mutation_type=None, gene_id_parent2=gene_id_parent2)
         
         temp_text = f"{python_file} {input_filename_x} {input_filename_y} {output_filename} --top_p {top_p} --temperature {temperature}"
-        python_runline = f"uv run python {temp_text} --apply_quality_control '{QC_CHECK_BOOL}' --llm_model {llm_model} --inference_submission {INFERENCE_SUBMISSION}"
+        python_runline = f"uv run python {temp_text} --apply_quality_control '{QC_CHECK_BOOL}' --llm_model {llm_model}"
     else:
         raise ValueError("Invalid python_file argument")
     config = load_yaml()
@@ -849,49 +851,39 @@ def save_checkpoint(gen, folder_name="checkpoints", global_path=None, checkpoint
         pickle.dump(checkpoint_data, file)
     print(f"Population data saved as {filename}")
 
-def extract_generation(filename):
-    real_filename = os.path.split(filename)[1]  # ignore folders if provided
-    return int(real_filename.split('_')[2].split('.')[0])
+GEN_PATTERNS = {
+    "checkpoint": re.compile(r"^checkpoint_gen_(\d+)\.pkl$"),
+    "global": re.compile(r"^global_gen_(\d+)\.pkl$"),
+}
 
-def load_checkpoint(folder_name="checkpoints", checkpoint_file=None):
-    if not os.path.exists(folder_name):
-        return None, None
-    if checkpoint_file is None:
-        checkpoint_files = sorted(glob.glob(os.path.join(folder_name, 'checkpoint_gen_*.pkl')), key=extract_generation, reverse=True)
-        if checkpoint_file is not None:
-            checkpoint_file = os.path.split(checkpoint_files[0])[1]
-        else:
-            checkpoint_file = None
-    if checkpoint_file:
-        filepath = os.path.join(folder_name, checkpoint_file)
-        with open(filepath, 'rb') as file:
-            checkpoint_data = pickle.load(file)
-        print(f"Loaded checkpoint from {filepath}")
-        start_gen = int(checkpoint_file.split('_')[2].split('.')[0])
-        start_gen = start_gen + 1
-        return checkpoint_data, start_gen
-    return None, None
+def extract_generation(filename, kind):
+    """Parse generation number from a checkpoint/global filename; return None if it doesn't match."""
+    matcher = GEN_PATTERNS[kind].match(os.path.basename(filename))
+    return int(matcher.group(1)) if matcher else None
 
 def load_checkpoint(folder_name="checkpoints", checkpoint_file=None, global_path="checkpoints", global_file=None):
     if not os.path.exists(folder_name) or not os.path.exists(global_path):
         print("Path does not exist, returning none for checkpoints")
         return None, None, None
-    population_data = []
+
+    population_data = None
     start_gen = 0
     global_data = {}
+
     if checkpoint_file is None:
-        checkpoint_files = sorted(os.listdir(folder_name), key=extract_generation, reverse=True)
+        checkpoint_candidates = [f for f in os.listdir(folder_name) if extract_generation(f, "checkpoint") is not None]
+        checkpoint_files = sorted(checkpoint_candidates, key=lambda f: extract_generation(f, "checkpoint"), reverse=True)
         checkpoint_file = checkpoint_files[0] if checkpoint_files else None
     if checkpoint_file:
         filepath = os.path.join(folder_name, checkpoint_file)
         with open(filepath, 'rb') as file:
             population_data = pickle.load(file)
         print(f"Loaded population data from {filepath}")
-        start_gen = int(checkpoint_file.split('_')[2].split('.')[0])
-        start_gen = start_gen + 1
-    
+        start_gen = extract_generation(checkpoint_file, "checkpoint") + 1
+
     if global_file is None:
-        global_files = sorted(os.listdir(global_path), key=extract_generation, reverse=True)
+        global_candidates = [f for f in os.listdir(global_path) if extract_generation(f, "global") is not None]
+        global_files = sorted(global_candidates, key=lambda f: extract_generation(f, "global"), reverse=True)
         global_file = global_files[0] if global_files else None
     if global_file:
         filepath = os.path.join(global_path, global_file)

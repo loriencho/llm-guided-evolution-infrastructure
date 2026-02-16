@@ -4,6 +4,7 @@
 #SBATCH --mem 16G
 #SBATCH -c 4
 #SBATCH -N 1
+#SBATCH --output=run_job_outputs/islands/slurm-%j.out
 echo "launching LLM Guided Evolution"
 hostname
 module load uv
