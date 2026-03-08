@@ -27,7 +27,7 @@
       generate_template
       load_checkpoint
       mutate_prompts
-      print_ancestery
+      print_ancestry
       print_job_info
       print_population
       print_scores
