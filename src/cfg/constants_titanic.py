@@ -3,6 +3,7 @@ import sys
 import numpy as np
 import torch
 import platform
+import src.cfg.pace_ice_scripts as pace_ice
 
 # ROOT_DIR = "/home/hice1/amcdaniel39/scratch/llm-guided-evolution-fork"
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -28,6 +29,7 @@ PORT=8137
 
 CLUSTER = "pace-ice"
 LLM_MODEL = 'llama3.3'
+PACE_ICE = True
 
 # Available LLM identifiers
 LLM_QWEN = 'qwen25'
@@ -45,6 +47,17 @@ ENVIRONMENT_DIR = os.path.join(ROOT_DIR, ".venv")
 SLURM_CONFIG_DIR = os.path.join(ROOT_DIR, "slurm-config/")
 LOCAL_LLM = True
 HOSTNAME_DIR = os.path.join(ROOT_DIR, "hostname.log")
+
+# Multi-island settings
+GLOBAL_DATA_PATH = "global_data"
+PROMPT_GROUP_TEMPLATE = "templates/{prompt_group}/**/*.txt"
+MAX_ISLANDS = len(ISLAND_LLMS)
+
+if PACE_ICE:
+	LLM_GPU = pace_ice.LLM_GPU
+	PYTHON_BASH_SCRIPT_TEMPLATE = pace_ice.PYTHON_BASH_SCRIPT_TEMPLATE
+	LLM_BASH_SCRIPT_TEMPLATE = pace_ice.LLM_BASH_SCRIPT_TEMPLATE
+	ISLANDS_BASH_SCRIPT_TEMPLATE = pace_ice.ISLANDS_BASH_SCRIPT_TEMPLATE
 
 QC_CHECK_BOOL = False
 HUGGING_FACE_BOOL = False
@@ -86,7 +99,7 @@ NUM_EOT_ELITES = 10
 GENERATION = 0
 PROB_QC = 0.0
 PROB_EOT = 0.25
-num_generations = 50 # Number of generations
+num_generations = 5 # Number of generations
 start_population_size = 32  # Starting population size
 # start_population_size = 144   # Size of the population 124=72
 #population_size = 44 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
@@ -96,7 +109,7 @@ mutation_probability = 0.8 # Probability of mutating an individual
 num_elites = 8
 hof_size = 100
 max_gen_attempts = 5
-migration_gen = 0
+migration_gen = 5
 """
 Misc. Non-sense
 """

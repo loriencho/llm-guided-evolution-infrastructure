@@ -1,12 +1,20 @@
+import os
+import sys
 import re
 import time
 import glob
 import numpy as np
 import transformers
 import argparse
+from pathlib import Path
+
+# Ensure repo root is on sys.path so `src` imports work even when launched from nested dirs
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+
 from cfg.constants import *
 from utils.print_utils import box_print
-from pathlib import Path
 
 from llm_utils import (split_file, submit_mixtral, submit_mixtral_hf, 
                        llm_code_qc, str2bool, generate_augmented_code, 

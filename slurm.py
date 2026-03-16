@@ -32,6 +32,10 @@ echo "launching LLM Guided Evolution"
 hostname
 module load uv
 
+export UV_CACHE_DIR="${{TMPDIR:-${{SLURM_TMPDIR:-/tmp}}}}/uv-cache-${{SLURM_JOB_ID:-$$}}"
+mkdir -p "$UV_CACHE_DIR"
+echo "Using UV cache: $UV_CACHE_DIR"
+
 export SERVER_HOSTNAME=$(hostname)
 uv run python run_improved.py titanic_test
 """
@@ -47,6 +51,9 @@ module load uv
 source ~/.bashrc
 # Set the TOKENIZERS_PARALLELISM environment variable if needed
 export TOKENIZERS_PARALLELISM=false
+export UV_CACHE_DIR="${{TMPDIR:-${{SLURM_TMPDIR:-/tmp}}}}/uv-cache-${{SLURM_JOB_ID:-$$}}"
+mkdir -p "$UV_CACHE_DIR"
+echo "Using UV cache: $UV_CACHE_DIR"
 uv run python llm_crossover.py '{constants.SEED_NETWORK}' '{constants.SOTA_ROOT}/models/Menghao/model_x.py' '{constants.SOTA_ROOT}/models/Menghao/model_z.py'  --top_p 0.15   --temperature 0.1 --apply_quality_control 'True' --bit 8
 """
         replace_script_configuration("src/mixt.sh", mixtsh_config_lines + mixt_sh)
@@ -60,6 +67,9 @@ hostname
 module load cuda
 module load uv
 export CUDA_VISIBLE_DEVICES=0
+export UV_CACHE_DIR="${{TMPDIR:-${{SLURM_TMPDIR:-/tmp}}}}/uv-cache-${{SLURM_JOB_ID:-$$}}"
+mkdir -p "$UV_CACHE_DIR"
+echo "Using UV cache: $UV_CACHE_DIR"
 
 # Run Python script
 {{}}
@@ -71,7 +81,11 @@ echo "Launching AIsurBL"
 hostname
 
 module load cuda
+module load uv
 export CUDA_VISIBLE_DEVICES=0
+export UV_CACHE_DIR="${{TMPDIR:-${{SLURM_TMPDIR:-/tmp}}}}/uv-cache-${{SLURM_JOB_ID:-$$}}"
+mkdir -p "$UV_CACHE_DIR"
+echo "Using UV cache: $UV_CACHE_DIR"
 
 # Run Python script
 {{}}
@@ -80,6 +94,9 @@ export CUDA_VISIBLE_DEVICES=0
         local_llm_server = f"""
 echo "launching LLM Server"
 
+# Optional chained submission count to work around walltime limits
+COUNT=${{1:-1}}
+
 hostname
 
 module load cuda
@@ -87,6 +104,9 @@ module load uv
 
 # Make sure CUDA can see all GPUs
 export CUDA_VISIBLE_DEVICES=0,1
+export UV_CACHE_DIR="${{TMPDIR:-${{SLURM_TMPDIR:-/tmp}}}}/uv-cache-${{SLURM_JOB_ID:-$$}}"
+mkdir -p "$UV_CACHE_DIR"
+echo "Using UV cache: $UV_CACHE_DIR"
 
 export SERVER_HOSTNAME=$(hostname)
 
@@ -94,7 +114,11 @@ HOSTNAME_FILE=$(pwd)"/hostname.log"
 
 echo "Writing server hostname '$SERVER_HOSTNAME' to file: $HOSTNAME_FILE"
 echo "$SERVER_HOSTNAME" > "$HOSTNAME_FILE"
-echo "Starting LLM server on host: $SERVER_HOSTNAME"
+echo "Starting LLM server on host: $SERVER_HOSTNAME (count=$COUNT)"
+
+# Submit the paired island-controller job from here so the two stay in sync. Can also be used with run.sh
+echo "Submitting island controller (count=$COUNT)"
+sbatch pace_ice_island_controller.sbatch "$COUNT" "$SLURM_JOB_ID"
 
 uv run uvicorn server:app --host $SERVER_HOSTNAME --port {constants.PORT} --workers 1
 """           

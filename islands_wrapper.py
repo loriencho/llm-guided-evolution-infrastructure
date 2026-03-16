@@ -284,8 +284,9 @@ def get_generation(global_path):
 
     max_gen = 0
     for fname in os.listdir(global_path):
-        gen = extract_generation(fname)
-        max_gen = max(max_gen, gen)
+        gen = extract_generation(fname, "global")
+        if gen is not None:
+            max_gen = max(max_gen, gen)
 
     return max_gen if max_gen > 0 else 1
 

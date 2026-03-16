@@ -1,6 +1,13 @@
 import os
+import sys
 import argparse
 import random
+
+# Ensure repo root is on sys.path so `src` imports work from generated bash scripts
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+
 from cfg.constants import *
 from utils.print_utils import box_print
 from llm_utils import (split_file, submit_mixtral, submit_mixtral_hf, 

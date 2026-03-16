@@ -10,8 +10,12 @@
 # This is the first argument passed to the script, which is the number of iterations
 # Usage: sbatch pace_ice_island_controller.sbatch <number_of_iterations>
 # Example: sbatch pace_ice_island_controller.sbatch 10
-# This is a workaround for pace_ice time limits
+# This is a workaround for pace_ice time limits.
+# Restart loop is synchronized with server.sh:
+# - server.sh submits this controller for the same COUNT
+# - this controller submits the next server.sh iteration
 COUNT=$1
+PREV_SERVER_JOB_ID=${2:-}
 
 cd $SLURM_SUBMIT_DIR
 echo "launching AIsurBL"
@@ -23,14 +27,21 @@ module load cuda/12
 # LLM_Storage on PACE-ICE
 export HF_HOME=/storage/ice-shared/vip-vvk/llm_storage/
 
-# Change to the directory where the script is located (replace <username> with your actual username)
-cd /home/hice1/<username>/scratch/llm-guided-evolution-Island-Migration
+# Change to the repository root
+cd /home/hice1/hyu462/scratch/llm-guided-evolution-infrastructure
 
-# Starts running Island Migration (replace <directory_name> with the directory you want to store the .pkl files of each generation in)
-uv run python islands_wrapper.py <directory_name> --num_islands 1
+# Starts running Island Migration with 3 islands (same LLM, three prompt groups)
+uv run python islands_wrapper.py titanic_islands_run \
+    --num_islands 3 \
+    --llms llama3 \
+    --prompt_groups "titanic/focused,titanic/general,titanic/roleplay"
 
 if (( COUNT > 1 )); then
     NEXT_COUNT=$((COUNT - 1))
-    echo "Launching next iteration with count: $NEXT_COUNT"
-    uv run sbatch pace_ice_island_controller.sbatch "$NEXT_COUNT"
+    if [[ -n "$PREV_SERVER_JOB_ID" ]]; then
+        echo "Stopping previous server job: $PREV_SERVER_JOB_ID"
+        scancel "$PREV_SERVER_JOB_ID"
+    fi
+    echo "Controller completed; launching next server iteration with count: $NEXT_COUNT"
+    sbatch server.sh "$NEXT_COUNT"
 fi

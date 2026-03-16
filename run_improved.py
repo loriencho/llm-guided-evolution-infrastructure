@@ -11,6 +11,8 @@ import subprocess
 import yaml
 import numpy as np
 import re
+import urllib.request
+import urllib.error
 from deap import base, creator, tools
 from deap.tools import HallOfFame, ParetoFront
 from functools import partial
@@ -28,6 +30,8 @@ AVAILABLE_LLM_MODELS = globals().get("ISLAND_LLMS", [])
 if not AVAILABLE_LLM_MODELS and globals().get("LLM_MODEL"):
     AVAILABLE_LLM_MODELS = [globals()["LLM_MODEL"]]
 
+LLM_SERVER_READY = False
+
 def print_ancestry(data):
     for gene in data.keys():
         print(f'gene: {gene}')
@@ -38,6 +42,15 @@ def load_yaml(file_path=constants.SLURM_CONFIG_DIR):
     with open(os.path.join(file_path, 'slurm_config.yaml'), 'r') as file:
         config = yaml.safe_load(file)
     return config
+
+
+def fill_template_slots(template, *values):
+    rendered = template
+    for value in values:
+        if "{}" not in rendered:
+            raise ValueError("Template does not contain enough '{}' placeholders")
+        rendered = rendered.replace("{}", str(value), 1)
+    return rendered
 
 
 def resolve_prompt_glob(prompt_group_arg):
@@ -190,10 +203,15 @@ def write_bash_script(llm_model,
     else:
         raise ValueError("Invalid python_file argument")
     config = load_yaml()
-    if len(config['gpu_selection']) > 0:
-        bash_script_content = config['llm_bash_script'].format(config['gpu_selection'], python_runline)
+    llm_tpl = config['llm_bash_script']
+    placeholder_count = llm_tpl.count("{}")
+
+    # If the template provides a slot for GPU selection (>=2 placeholders), fill both;
+    # otherwise, only fill the runline to avoid emitting the gpu_selection as a bare command.
+    if len(config['gpu_selection']) > 0 and placeholder_count >= 2:
+        bash_script_content = fill_template_slots(llm_tpl, config['gpu_selection'], python_runline)
     else:
-        bash_script_content = config['llm_bash_script'].format(python_runline)
+        bash_script_content = fill_template_slots(llm_tpl, python_runline)
     return bash_script_content
 
 def create_bash_file(file_path, **kwargs):
@@ -208,11 +226,69 @@ def create_bash_file(file_path, **kwargs):
         file.write(bash_script_content)
     print(f"\t‣ Bash script saved to {file_path}", flush=True)
 
+
+def wait_for_llm_server(timeout=3600, check_interval=10):
+    """Wait for local LLM server hostname file and HTTP endpoint to become ready."""
+    global LLM_SERVER_READY
+
+    if not LOCAL_LLM:
+        return True
+    if LLM_SERVER_READY:
+        return True
+
+    env_timeout = os.getenv("LLM_SERVER_READY_TIMEOUT")
+    env_interval = os.getenv("LLM_SERVER_READY_CHECK_INTERVAL")
+    if env_timeout:
+        timeout = int(env_timeout)
+    if env_interval:
+        check_interval = int(env_interval)
+
+    start_time = time.time()
+    hostname = None
+    last_error = None
+
+    while time.time() - start_time <= timeout:
+        if os.path.exists(HOSTNAME_DIR):
+            try:
+                with open(HOSTNAME_DIR, 'r') as file:
+                    hostname = file.readline().strip()
+            except OSError as err:
+                last_error = err
+
+        if hostname:
+            server_url = f"http://{hostname}:{PORT}/"
+            try:
+                with urllib.request.urlopen(server_url, timeout=5) as response:
+                    if 200 <= response.status < 300:
+                        LLM_SERVER_READY = True
+                        print(f"\t☑ LLM server is ready at {server_url}", flush=True)
+                        return True
+            except urllib.error.URLError as err:
+                last_error = err
+            except TimeoutError as err:
+                last_error = err
+
+        elapsed = round(time.time() - start_time)
+        print(
+            f"\t‣ Waiting for LLM server readiness ({elapsed}s/{timeout}s). "
+            f"Host file: {HOSTNAME_DIR}",
+            flush=True,
+        )
+        time.sleep(check_interval)
+
+    print(f"\t☠ Timed out waiting for LLM server readiness after {timeout}s", flush=True)
+    if last_error is not None:
+        print(f"\t‣ Last readiness error: {last_error}", flush=True)
+    return False
+
 def submit_bash(file_path, **kwargs):
     """ This should be general for subbing anything and returning:
         successful_sub_flag 
         job_id
     """
+    if not wait_for_llm_server():
+        return False, None, None
+
     create_bash_file(file_path, **kwargs)
     result = subprocess.run([RUN_COMMAND, file_path], capture_output=True, text=True)
     local_output = None
@@ -242,15 +318,25 @@ def check_contents_for_error(contents):
     Returns:
     bool: True if job completed successfully, False if error, None if neither.  
     """
-    # Check for error indicators in the file
-    if "traceback" in contents.lower() or "slurmstepd: error" in contents.lower():
+    contents_lower = contents.lower()
+    # Check for explicit error indicators
+    if "traceback" in contents_lower or "slurmstepd: error" in contents_lower:
         print("\t☠ Error Found in LLM Job Output.", flush=True)
         return False
-    elif "job done" in contents.lower():
+    # Check for Slurm time-limit or cancellation
+    if "cancelled at" in contents_lower or "due to time limit" in contents_lower:
+        print("\t☠ Job was cancelled (time limit or manual cancellation).", flush=True)
+        return False
+    # Success check
+    if "job done" in contents_lower:
         print("\t☑ LLM Job Completed Successfully.", flush=True)
         return True
-    else:
-        return None
+    # If Slurm Epilog has been written but the job never printed "job done",
+    # the job ended abnormally (OOM, node failure, etc.)
+    if "begin slurm epilog" in contents_lower:
+        print("\t☠ Job ended without completion (Slurm Epilog present, no 'job done').", flush=True)
+        return False
+    return None
         
 def check4job_completion(job_id, local_output=None, check_interval=60, timeout=3600*30, extension=""):
     """
@@ -348,7 +434,7 @@ def submit_run(gene_id):
         model_file_override = RUNLINE_TMP.format(MODEL, gene_id) 
         python_runline = EVAL_RUNLINE.format(train_file, model_file_override, VARIANT_DIR=VARIANT_DIR)
         config = load_yaml()
-        bash_script_content = config['python_bash_script'].format(python_runline)
+        bash_script_content = fill_template_slots(config['python_bash_script'], python_runline)
         return bash_script_content
 
     # This is for subbing the python code
@@ -936,7 +1022,7 @@ if __name__ == "__main__":
     # Set Cluter Configurations
     parser = argparse.ArgumentParser(description='Run Generation')
     # Add arguments
-    parser.add_argument('checkpoints', type=str, help='Save Dir')
+    parser.add_argument('--checkpoints', type=str, help='Save Dir')
     parser.add_argument('--llm_model', type=str, help='Which LLM to use', default=DEFAULT_LLM_MODEL)
     parser.add_argument('--global_path', type=str, help='Path to global variables', default=ROOT_DIR)
     parser.add_argument('--prompt_group', type=str, help='Prompt group or glob (relative to templates/)', default=None)
