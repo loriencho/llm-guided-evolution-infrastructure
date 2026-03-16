@@ -1,7 +1,7 @@
 # Market Making – HFT Backtesting & Seed Strategy Evaluation
 
 This directory contains the **High-Frequency Trading (HFT) backtesting pipeline** and the **seed trading strategies** used by the LLM-Guided Evolution system.  
-The goal of this module is to evaluate market-making strategies (seeds or evolved variants) using a realistic, order-book-driven backtest and produce standardized fitness scores for the genetic algorithm.
+The goal of this module is to evaluate market-making strategies (seeds or evolved variants) using a realistic, order-book-driven backtest and produce standardized fitness scores for the genetic algorithm. The LLM-powered code mutation through LLM-GE, backtested evaluation, and fitness-guided selection allows the pipeline to discover and refine high-frequency crypto market-making strategies without requiring manual strategy design.
 
 ---
 
@@ -170,6 +170,8 @@ Use this notebook to:
 ---
 
 ## How This Fits Into LLM-Guided Evolution
+
+The MarketMaking folder serves as the crypto domain module within the LLM-Guided Evolution (LLM-GE) pipeline. The `seeds/` act as the initial population genes fed into the genetic algorithm. From these seeds, the LLM-GE system applies LLM-driven mutation and crossover operators (via `llm_mutation.py` and `llm_crossover.py`) to generate evolved strategy variants. Each variant is evaluated by `eval.py` which runs a realistic order-book-driven HFT backtest using hftbacktest on BTC/USDT data and computes a composite fitness score, a weighted combination of ROI (40%) and Sharpe Ratio (60%), that the NSGA-II genetic algorithm uses to select the best-performing strategies for the next generation. 
 
 1. Seed models in `seeds/` are used as **base strategies**.  
 2. The evolutionary system mutates & crosses them to create new variants in `models/`.  
