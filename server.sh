@@ -31,8 +31,8 @@ echo "Writing server hostname '$SERVER_HOSTNAME' to file: $HOSTNAME_FILE"
 echo "$SERVER_HOSTNAME" > "$HOSTNAME_FILE"
 echo "Starting LLM server on host: $SERVER_HOSTNAME (count=$COUNT)"
 
-# Submit the paired island-controller job from here so the two stay in sync. Can also be used with run.sh
+# Submit the paired island-controller job from here so the two stay in sync
 echo "Submitting island controller (count=$COUNT)"
-sbatch pace_ice_island_controller.sbatch "$COUNT" "$SLURM_JOB_ID"
+sbatch island_controller.sbatch "$COUNT" "$SLURM_JOB_ID"
 
 uv run uvicorn server:app --host $SERVER_HOSTNAME --port 8137 --workers 1

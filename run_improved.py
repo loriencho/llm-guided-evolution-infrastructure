@@ -17,7 +17,7 @@ from deap import base, creator, tools
 from deap.tools import HallOfFame, ParetoFront
 from functools import partial
 from src.utils.print_utils import print_population, print_scores, box_print, print_job_info
-from src.llm_utils import split_file, retrieve_base_code, mutate_prompts
+from src.llm_utils import split_file, retrieve_base_code
 from src.cfg.constants import *
 from src.cfg import constants
 import glob

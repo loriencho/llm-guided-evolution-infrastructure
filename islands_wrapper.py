@@ -220,50 +220,6 @@ def migrateIslands(topology, island_specs, checkpoints, gen):
     packIslands(islands, gen)
 
 
-
-def submit_mutate_prompts(llm_model, n=5):
-    """
-    Submits a bash script to mutate prompts using the specified LLM model.
-    
-    Parameters
-    ----------
-    llm_model : str
-        The LLM model to use for mutation.
-    n : int
-        The number of templates to mutate.
-
-    Returns
-    -------
-    list prompt_job_ids
-        A list of job IDs for the submitted mutation jobs.
-    """
-    prompt_job_ids = []
-    templates = np.random.choice(glob.glob(f'{ROOT_DIR}/templates/FixedPrompts/*/*.txt'), n)
-    file_path = './mutate_prompts_temp.sh'
-    for i, template in enumerate(templates):
-        python_runline = f"python src/llm_prompt_mutation.py --llm_model {llm_model} --template {template}"
-        script = LLM_BASH_SCRIPT_TEMPLATE.format(LLM_GPU, python_runline)
-
-        with open(file_path, 'w') as file:
-            file.write(script)
-        print(f"\t‣ Bash Script Saved to {file_path}")
-
-        job_id = None
-        successful_sub_flag = False
-        result = subprocess.run([RUN_COMMAND, file_path], capture_output=True, text=True)
-        if result.returncode == 0:
-            print("\t‣ Script Submitted Successfully.\n\t‣ Output:", result.stdout.strip())
-            successful_sub_flag = True
-            job_id = result.stdout.split('job ')[-1].strip()
-        else:
-            print("\t‣ Failed to Submit script.\n\t‣ Error:", result.stderr.strip())
-            successful_sub_flag = False
-            job_id = None
-        
-        prompt_job_ids.append(job_id)
-    return prompt_job_ids
-    
-
 def get_generation(global_path):
     """
     Scans the directory at global_path for checkpoint .pkl files and returns
@@ -368,7 +324,7 @@ if __name__ == "__main__":
             prompt_slug = re.sub(r"[^a-zA-Z0-9_-]", "-", prompt_group)
             print(f"Generating Island {llm_name} with prompts {prompt_group}", flush=True)
             checkpoint_path = os.path.join(checkpoints, f"island_{llm_name}_{prompt_slug}")
-            job_id = submit_run(island_script, ISLANDS_BASH_SCRIPT_TEMPLATE.format(llm_name, checkpoint_path, global_path, llm_name, prompt_group))
+            job_id = submit_run(island_script, ISLANDS_BASH_SCRIPT_TEMPLATE.format(checkpoint_path, global_path, llm_name, prompt_group))
             job_ids.append(job_id)
         
         # check island generation jobs for completion

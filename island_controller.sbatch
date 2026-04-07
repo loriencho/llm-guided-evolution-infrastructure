@@ -6,14 +6,9 @@
 #SBATCH --output=run_job_outputs/islands/Report_islands-%j.out
 #SBATCH --gres=gpu:1
 #SBATCH -C intel
-
-# This is the first argument passed to the script, which is the number of iterations
-# Usage: sbatch pace_ice_island_controller.sbatch <number_of_iterations>
-# Example: sbatch pace_ice_island_controller.sbatch 10
-# This is a workaround for pace_ice time limits.
-# Restart loop is synchronized with server.sh:
-# - server.sh submits this controller for the same COUNT
-# - this controller submits the next server.sh iteration
+# Island controller arguments:
+# $1 (COUNT): Number of remaining restart iterations
+# $2 (PREV_SERVER_JOB_ID): Job ID of the currently-running server (to cancel)
 COUNT=$1
 PREV_SERVER_JOB_ID=${2:-}
 
@@ -22,13 +17,13 @@ echo "launching AIsurBL"
 echo "Started on `/bin/hostname`"
 echo "$COUNT iterations remaining"
 
-module load cuda/12
+module load cuda
 
-# LLM_Storage on PACE-ICE
+# LLM_Storage
 export HF_HOME=/storage/ice-shared/vip-vvk/llm_storage/
 
 # Change to the repository root
-cd /home/hice1/hyu462/scratch/llm-guided-evolution-infrastructure
+cd /home/hice1/<username>/scratch/llm-guided-evolution-infrastructure
 
 # Starts running Island Migration with 3 islands (same LLM, three prompt groups)
 uv run python islands_wrapper.py titanic_islands_run \
