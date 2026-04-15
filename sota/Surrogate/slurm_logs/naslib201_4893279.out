@@ -1,0 +1,3635 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-15-2026 17:37:10
+Job ID:    4893279
+User ID:   mgullapalli6
+Account:   math
+Job name:  codenas
+Partition: coe-gpu
+QOS:       coe-ice
+---------------------------------------
+SEED: 1
+RUN_BASELINES: false
+SURROGATE: mlp
+TRIALS: 1
+Wed Apr 15 17:37:10 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 80GB HBM3          On  |   00000000:0A:00.0 Off |                    0 |
+| N/A   34C    P0            105W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+RUN_BASELINES: False
+SURROGATE: mlp
+Running Both Baselines and LLM method.
+Experiment Configuration:
+Dataset: cifar100
+Search Space: nasbench201
+Seed: 1
+Number of Initial Samples: 50
+Expansion Size (k): 10
+Number of Search Epochs: 800
+Number of Candidates: 100
+Size of Ensemble: 3
+Patched Bananas optimizer for batch acquisition function.
+Monkey-patched Bananas.new_epoch for profiling.
+[Patch] Applying Minimal Fixes...
+[Patch] Primitives are now lightweight. Graph creation should be <0.001s.
+[Patch] NasBench201SearchSpace is now hollow and safe.
+
+
+=== TRIAL 1/1 ===
+
+
+>>> RUNNING: rea (Predictor: Default) <<<
+Configuration saved to run_nb201/nasbench201/cifar100/Default_rea/1/config.txt
+No trajectory found on optimizer.
+No candidate_log found on optimizer.
+
+
+>>> RUNNING: bananas (Predictor: CustomMLP) <<<
+Loading fixed test set from cache: fixed_test_set_nasbench201_cifar100.pkl
+[Bananas Optimizer] Test set generation complete: 1000 architectures
+Injecting Custom Predictor: CustomMLP
+Configuration saved to run_nb201/nasbench201/cifar100/CustomMLP_bananas/1/config.txt
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.53 seconds.
+[CustomMLP] Training completed in 0.45 seconds.
+[CustomMLP] Training completed in 0.45 seconds.
+[Debug] Fit finished in 1.43s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0018s
+[Debug] Selection finished in 0.01s
+Epoch 50: Surrogate Test Kendall Tau = 0.2520, MSE = 123.479577
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.46 seconds.
+[CustomMLP] Training completed in 0.46 seconds.
+[CustomMLP] Training completed in 0.46 seconds.
+[Debug] Fit finished in 1.37s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 60: Surrogate Test Kendall Tau = 0.2075, MSE = 130.957341
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.65 seconds.
+[CustomMLP] Training completed in 0.65 seconds.
+[CustomMLP] Training completed in 0.65 seconds.
+[Debug] Fit finished in 1.95s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 70: Surrogate Test Kendall Tau = 0.2824, MSE = 112.070026
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.66 seconds.
+[CustomMLP] Training completed in 0.66 seconds.
+[CustomMLP] Training completed in 0.66 seconds.
+[Debug] Fit finished in 1.98s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 80: Surrogate Test Kendall Tau = 0.3053, MSE = 106.430149
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.67 seconds.
+[CustomMLP] Training completed in 0.67 seconds.
+[CustomMLP] Training completed in 0.67 seconds.
+[Debug] Fit finished in 2.01s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 90: Surrogate Test Kendall Tau = 0.3247, MSE = 107.172936
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.87 seconds.
+[CustomMLP] Training completed in 0.87 seconds.
+[CustomMLP] Training completed in 0.87 seconds.
+[Debug] Fit finished in 2.62s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 100: Surrogate Test Kendall Tau = 0.3430, MSE = 100.465243
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.88 seconds.
+[CustomMLP] Training completed in 0.89 seconds.
+[CustomMLP] Training completed in 0.88 seconds.
+[Debug] Fit finished in 2.65s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 110: Surrogate Test Kendall Tau = 0.3871, MSE = 98.408533
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 0.89 seconds.
+[CustomMLP] Training completed in 0.89 seconds.
+[CustomMLP] Training completed in 0.90 seconds.
+[Debug] Fit finished in 2.68s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 120: Surrogate Test Kendall Tau = 0.3421, MSE = 104.600788
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.14 seconds.
+[CustomMLP] Training completed in 1.13 seconds.
+[CustomMLP] Training completed in 1.14 seconds.
+[Debug] Fit finished in 3.41s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 130: Surrogate Test Kendall Tau = 0.3870, MSE = 98.554695
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.15 seconds.
+[CustomMLP] Training completed in 1.15 seconds.
+[CustomMLP] Training completed in 1.15 seconds.
+[Debug] Fit finished in 3.45s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 140: Surrogate Test Kendall Tau = 0.3390, MSE = 102.537177
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.16 seconds.
+[CustomMLP] Training completed in 1.16 seconds.
+[CustomMLP] Training completed in 1.16 seconds.
+[Debug] Fit finished in 3.48s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 150: Surrogate Test Kendall Tau = 0.3505, MSE = 100.447953
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.17 seconds.
+[CustomMLP] Training completed in 1.16 seconds.
+[CustomMLP] Training completed in 1.18 seconds.
+[Debug] Fit finished in 3.51s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0016s
+[Debug] Selection finished in 0.00s
+Epoch 160: Surrogate Test Kendall Tau = 0.3609, MSE = 99.561393
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.40 seconds.
+[CustomMLP] Training completed in 1.39 seconds.
+[CustomMLP] Training completed in 1.42 seconds.
+[Debug] Fit finished in 4.21s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0016s
+[Debug] Selection finished in 0.00s
+Epoch 170: Surrogate Test Kendall Tau = 0.3345, MSE = 98.362374
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.43 seconds.
+[CustomMLP] Training completed in 1.39 seconds.
+[CustomMLP] Training completed in 1.42 seconds.
+[Debug] Fit finished in 4.25s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 180: Surrogate Test Kendall Tau = 0.3474, MSE = 98.521133
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.42 seconds.
+[CustomMLP] Training completed in 1.42 seconds.
+[CustomMLP] Training completed in 1.42 seconds.
+[Debug] Fit finished in 4.25s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0016s
+[Debug] Selection finished in 0.00s
+Epoch 190: Surrogate Test Kendall Tau = 0.3537, MSE = 101.557827
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.66 seconds.
+[CustomMLP] Training completed in 1.65 seconds.
+[CustomMLP] Training completed in 1.66 seconds.
+[Debug] Fit finished in 4.97s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 200: Surrogate Test Kendall Tau = 0.3502, MSE = 98.926354
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.67 seconds.
+[CustomMLP] Training completed in 1.68 seconds.
+[CustomMLP] Training completed in 1.67 seconds.
+[Debug] Fit finished in 5.01s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 210: Surrogate Test Kendall Tau = 0.3584, MSE = 97.001003
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.68 seconds.
+[CustomMLP] Training completed in 1.70 seconds.
+[CustomMLP] Training completed in 1.68 seconds.
+[Debug] Fit finished in 5.07s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 220: Surrogate Test Kendall Tau = 0.3580, MSE = 96.894226
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.91 seconds.
+[CustomMLP] Training completed in 1.92 seconds.
+[CustomMLP] Training completed in 1.88 seconds.
+[Debug] Fit finished in 5.72s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 230: Surrogate Test Kendall Tau = 0.3675, MSE = 93.588438
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.93 seconds.
+[CustomMLP] Training completed in 1.93 seconds.
+[CustomMLP] Training completed in 1.93 seconds.
+[Debug] Fit finished in 5.80s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 240: Surrogate Test Kendall Tau = 0.3650, MSE = 99.288134
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 1.91 seconds.
+[CustomMLP] Training completed in 1.93 seconds.
+[CustomMLP] Training completed in 1.93 seconds.
+[Debug] Fit finished in 5.77s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 250: Surrogate Test Kendall Tau = 0.3702, MSE = 97.064553
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.18 seconds.
+[CustomMLP] Training completed in 2.14 seconds.
+[CustomMLP] Training completed in 2.14 seconds.
+[Debug] Fit finished in 6.45s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 260: Surrogate Test Kendall Tau = 0.3680, MSE = 95.218613
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.16 seconds.
+[CustomMLP] Training completed in 2.17 seconds.
+[CustomMLP] Training completed in 2.14 seconds.
+[Debug] Fit finished in 6.48s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0016s
+[Debug] Selection finished in 0.00s
+Epoch 270: Surrogate Test Kendall Tau = 0.3616, MSE = 98.775165
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.17 seconds.
+[CustomMLP] Training completed in 2.20 seconds.
+[CustomMLP] Training completed in 2.19 seconds.
+[Debug] Fit finished in 6.55s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 280: Surrogate Test Kendall Tau = 0.3762, MSE = 95.822098
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.40 seconds.
+[CustomMLP] Training completed in 2.42 seconds.
+[CustomMLP] Training completed in 2.42 seconds.
+[Debug] Fit finished in 7.24s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 290: Surrogate Test Kendall Tau = 0.3863, MSE = 95.467453
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.40 seconds.
+[CustomMLP] Training completed in 2.43 seconds.
+[CustomMLP] Training completed in 2.44 seconds.
+[Debug] Fit finished in 7.28s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 300: Surrogate Test Kendall Tau = 0.3884, MSE = 95.202595
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.47 seconds.
+[CustomMLP] Training completed in 2.49 seconds.
+[CustomMLP] Training completed in 2.47 seconds.
+[Debug] Fit finished in 7.43s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 310: Surrogate Test Kendall Tau = 0.3923, MSE = 94.394837
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.46 seconds.
+[CustomMLP] Training completed in 2.41 seconds.
+[CustomMLP] Training completed in 2.47 seconds.
+[Debug] Fit finished in 7.34s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 320: Surrogate Test Kendall Tau = 0.4065, MSE = 91.416597
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.69 seconds.
+[CustomMLP] Training completed in 2.68 seconds.
+[CustomMLP] Training completed in 2.66 seconds.
+[Debug] Fit finished in 8.03s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 330: Surrogate Test Kendall Tau = 0.4040, MSE = 91.444308
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.75 seconds.
+[CustomMLP] Training completed in 2.70 seconds.
+[CustomMLP] Training completed in 2.70 seconds.
+[Debug] Fit finished in 8.16s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 340: Surrogate Test Kendall Tau = 0.3806, MSE = 94.017643
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.74 seconds.
+[CustomMLP] Training completed in 2.70 seconds.
+[CustomMLP] Training completed in 2.69 seconds.
+[Debug] Fit finished in 8.13s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 350: Surrogate Test Kendall Tau = 0.3937, MSE = 92.922573
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.96 seconds.
+[CustomMLP] Training completed in 2.93 seconds.
+[CustomMLP] Training completed in 2.94 seconds.
+[Debug] Fit finished in 8.84s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0018s
+[Debug] Selection finished in 0.00s
+Epoch 360: Surrogate Test Kendall Tau = 0.3964, MSE = 94.381389
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.98 seconds.
+[CustomMLP] Training completed in 2.97 seconds.
+[CustomMLP] Training completed in 2.98 seconds.
+[Debug] Fit finished in 8.93s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 370: Surrogate Test Kendall Tau = 0.3951, MSE = 94.753646
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 2.99 seconds.
+[CustomMLP] Training completed in 3.02 seconds.
+[CustomMLP] Training completed in 2.98 seconds.
+[Debug] Fit finished in 8.98s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 380: Surrogate Test Kendall Tau = 0.4221, MSE = 90.804206
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 3.16 seconds.
+[CustomMLP] Training completed in 3.19 seconds.
+[CustomMLP] Training completed in 3.21 seconds.
+[Debug] Fit finished in 9.56s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0016s
+[Debug] Selection finished in 0.00s
+Epoch 390: Surrogate Test Kendall Tau = 0.4176, MSE = 92.499673
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 3.22 seconds.
+[CustomMLP] Training completed in 3.15 seconds.
+[CustomMLP] Training completed in 3.17 seconds.
+[Debug] Fit finished in 9.54s
+[Debug] Generating 100 candidates...
+[Debug] Generated candidates in 0.01s
+[Debug] Selecting best candidates...
+candidate count: 32, candidates: [Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+), Module(
+  (arch): Graph None-0.4952952, scope None, 0 nodes
+)]
+[Batch Acquisition] Processed 32 candidates in 0.0017s
+[Debug] Selection finished in 0.00s
+Epoch 400: Surrogate Test Kendall Tau = 0.4036, MSE = 94.310920
+[Debug] Evaluating architecture 10...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 9...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 8...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 7...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 6...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 5...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 4...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 3...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 2...
+[Debug] Evaluation finished in 0.00s
+[Debug] Evaluating architecture 1...
+[Debug] Evaluation finished in 0.00s
+[Debug] Starting Fit...
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Hyperparams set: {'num_layers': 3, 'layer_width': 128, 'batch_size': 32, 'lr': 0.001, 'regularization': 0.2, 'epochs': 200, 'loss': 'mse'}
+[CustomMLP] Training completed in 3.23 seconds.
