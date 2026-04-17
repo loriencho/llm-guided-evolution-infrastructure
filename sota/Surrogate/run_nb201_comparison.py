@@ -607,82 +607,89 @@ for i in range(NUM_TRIALS):
 
 
 
-    # --- EXPERIMENTS ---
+SURROGATE_REGISTRY = {
+    "xgboost": CustomXGBoost,
+    "mlp": CustomMLP,
+}
 
-    # 1. The "True" Baseline (No Predictor)
-    if RUN_BASELINES or RUN_ALL:
-        run_experiment("rea")
+DEFAULT_SURROGATE_CONFIG = {
+    # shared
+    "name": "xgboost",  # mutate this to switch model family
+    "corpus_path": "/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv",
+    "embedding_col": "codellama_python_7b_pytorch_code_exclude_helper_embedding",
+    "use_pca": False,
+    "pca_components": 128,
 
-    # 2c. The "Competitor" (Bananas with XGBoost Predictor)
-    if RUN_BASELINES or RUN_ALL:
-        if SURROGATE == "xgboost":
-            run_experiment(
-                "bananas",
-                predictor_cls=CustomXGBoost,
-                predictor_kwargs={
-                    "encoding_type": EncodingType.PATH, # Standard graph encoding
-                    "ss_type": "nasbench201",
-                    "hparams_from_file": False,
-                    "nthread": 4,
-                    "device": "cuda",
-                    "tree_method": "hist"
-                    # Hyperparams from NASLib Paper Table 2
-                    # "max_depth": 6,
-                    # "learning_rate": 0.3,
-                }
-            )
-        elif SURROGATE == "mlp":
-            run_experiment(
-                "bananas",
-                predictor_cls=CustomMLP,
-                predictor_kwargs={
-                    "encoding_type": EncodingType.PATH, # Standard graph encoding
-                    "ss_type": "nasbench201",
-                    "num_layers": 3,
-                    "layer_width": 128,
-                    "batch_size": 32,
-                    "lr": 0.001,
-                    "epochs": 200, 
-                    "loss": "mse"  # or 'mse'
-                }
-            )
+    # xgboost params
+    "ss_type": "nasbench201",
+    "hparams_from_file": False,
+    "nthread": 4,
+    "device": "cuda",
+    "tree_method": "hist",
 
-    # 3c. "Ours" (Bananas with LLM Embeddings + XGBoost Predictor)
-    if not RUN_BASELINES or RUN_ALL:
-        if SURROGATE == "xgboost":
-            run_experiment(
-                "bananas",
-                predictor_cls=LLM_NB201_Predictor,
-                predictor_kwargs={
-                    "base_predictor_cls": CustomXGBoost,
-                    "corpus_path": '/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv',
-                    "embedding_col": 'codellama_python_7b_pytorch_code_exclude_helper_embedding',
-                    "use_pca": False,
-                    "pca_components": 128,
-                    # Arguments for CustomXGBoost (passed via **kwargs)
-                    "ss_type": "nasbench201",
-                    "hparams_from_file": False,
-                    "nthread": 4,
-                    "device": "cuda",
-                    "tree_method": "hist"
-                }
-            )
-        elif SURROGATE == "mlp":
-            run_experiment(
-                "bananas",
-                predictor_cls=LLM_NB201_Predictor,
-                predictor_kwargs={
-                    "base_predictor_cls": CustomMLP,
-                    "corpus_path": '/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv',
-                    "embedding_col": 'codellama_python_7b_pytorch_code_exclude_helper_embedding',
-                    "use_pca": True,
-                    "pca_components": 128,
-                    # --- MLP Specific Hyperparams ---
-                    "num_layers": 3,
-                    "layer_width": 128,
-                    "batch_size": 32,
-                    "lr": 0.001,
-                    "epochs": 200, 
-                    "loss": "mse"  # or 'mse'
-                }
-            )
+    # mlp params
+    "num_layers": 3,
+    "layer_width": 128,
+    "batch_size": 32,
+    "lr": 1e-3,
+    "epochs": 200,
+    "loss": "mse",
+}
+
+def build_predictor_kwargs(cfg: dict) -> dict:
+    """
+    Converts a flat evolvable config into the kwargs expected by LLM_NB201_Predictor.
+    The config is intentionally flat so an LLM/evolution loop can mutate it easily.
+    """
+    name = cfg["name"]
+    if name not in SURROGATE_REGISTRY:
+        raise ValueError(f"Unknown surrogate: {name}")
+
+    predictor_kwargs = {
+        "base_predictor_cls": SURROGATE_REGISTRY[name],
+        "corpus_path": cfg["corpus_path"],
+        "embedding_col": cfg["embedding_col"],
+        "use_pca": cfg["use_pca"],
+        "pca_components": cfg["pca_components"],
+    }
+
+    if name == "xgboost":
+        predictor_kwargs.update({
+            "ss_type": cfg["ss_type"],
+            "hparams_from_file": cfg["hparams_from_file"],
+            "nthread": cfg["nthread"],
+            "device": cfg["device"],
+            "tree_method": cfg["tree_method"],
+        })
+    elif name == "mlp":
+        predictor_kwargs.update({
+            "num_layers": cfg["num_layers"],
+            "layer_width": cfg["layer_width"],
+            "batch_size": cfg["batch_size"],
+            "lr": cfg["lr"],
+            "epochs": cfg["epochs"],
+            "loss": cfg["loss"],
+        })
+
+    return predictor_kwargs
+
+
+# ----------------------------
+# Run experiment
+# ----------------------------
+
+if not RUN_BASELINES or RUN_ALL:
+    surrogate_cfg = DEFAULT_SURROGATE_CONFIG.copy()
+    surrogate_cfg["name"] = SURROGATE  # "xgboost" or "mlp"
+
+    # Optional: family-specific defaults
+    if SURROGATE == "mlp":
+        surrogate_cfg["use_pca"] = True
+    elif SURROGATE == "xgboost":
+        surrogate_cfg["use_pca"] = False
+
+    run_experiment(
+        "bananas",
+        predictor_cls=LLM_NB201_Predictor,
+        predictor_kwargs=build_predictor_kwargs(surrogate_cfg),
+    )
