@@ -1,0 +1,8 @@
+This code is part of a NASLib surrogate that relies on code-oriented architecture representations. The pipeline depends on a language model extracting useful signals from architecture code, so the representation needs to expose structure clearly.
+
+Improve the code to make architecture representations more semantically meaningful to a code-pretrained language model. Favor PyTorch-native, readable, structurally informative representations over abstract or opaque encodings.
+
+The current code block:
+```python
+{}
+```

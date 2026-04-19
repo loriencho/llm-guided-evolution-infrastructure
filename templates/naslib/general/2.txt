@@ -1,0 +1,8 @@
+Modify this NASLib surrogate code to improve downstream search performance, not just local regression fit. In this pipeline, weak surrogate decisions waste evaluation budget by sending training runs toward poor candidates.
+
+Focus on changes that are likely to help the surrogate guide architecture selection more effectively across many candidate architectures. Prefer robust improvements over flashy but brittle edits, and optimize for better search decisions under limited budget.
+
+The current code block:
+```python
+{}
+```

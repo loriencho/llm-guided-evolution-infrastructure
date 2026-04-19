@@ -1,0 +1,8 @@
+Improve this NASLib surrogate code to increase efficiency without reducing its usefulness for search. In the pipeline, cheaper and cleaner surrogate components allow more candidate architectures to be screened before expensive evaluations are launched.
+
+Favor edits that reduce token count, memory footprint, redundancy, or overfitting risk while preserving or improving the surrogate's ability to rank architectures well.
+
+The current code block:
+```python
+{}
+```
