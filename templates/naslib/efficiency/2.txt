@@ -1,0 +1,8 @@
+Modify this code from a surrogate-assisted NAS pipeline to be more efficient and more robust. The pipeline benefits when the surrogate remains lightweight enough to use repeatedly while still steering search toward good candidates.
+
+Prefer compact, high-signal representations and lightweight modeling choices that still preserve architecture semantics and ranking quality. Avoid unnecessary complexity unless it clearly supports better search guidance.
+
+The current code block:
+```python
+{}
+```

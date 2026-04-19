@@ -1,0 +1,8 @@
+This surrogate is used inside an evolutionary or BANANAS-style NAS loop where candidate ordering matters more than exact score prediction. Poor ordering sends the search toward weak regions of the architecture space and wastes evaluations.
+
+Improve this code accordingly. Prioritize edits that strengthen pairwise discrimination, ranking consistency, and selection usefulness during search.
+
+The current code block:
+```python
+{}
+```

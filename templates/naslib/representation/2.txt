@@ -1,0 +1,8 @@
+Modify this code with representation quality as the main objective. In this pipeline, the surrogate only works well if the architecture text exposes topology, operations, and important hyperparameters in a form a frozen code model can interpret.
+
+Prefer edits that make neural architectures easier for a frozen code model to interpret: preserve meaningful operation names, explicit structural flow, and useful hyperparameter information. Avoid unnecessary verbosity if the same semantics can be expressed more compactly, since token-efficient representations help the pipeline scale.
+
+The current code block:
+```python
+{}
+```
