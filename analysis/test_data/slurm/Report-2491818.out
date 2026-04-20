@@ -1,0 +1,686 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-18-2025 22:15:44
+Job ID:    2491818
+User ID:   jdamato9
+Account:   coc
+Job name:  IslandsController
+Partition: coe-gpu
+QOS:       coe-ice
+---------------------------------------
+launching AIsurBL
+Started on atl1-1-03-011-13-0.pace.gatech.edu
+
+CondaError: Run 'conda init' before 'conda deactivate'
+
+
+     active environment : llmIslandsEnv
+    active env location : /home/hice1/jdamato9/.conda/envs/llmIslandsEnv
+            shell level : 1
+       user config file : /home/hice1/jdamato9/.condarc
+ populated config files : 
+          conda version : 24.1.2
+    conda-build version : 3.27.0
+         python version : 3.10.13.final.0
+                 solver : libmamba (default)
+       virtual packages : __archspec=1=sapphirerapids
+                          __conda=24.1.2=0
+                          __cuda=12.5=0
+                          __glibc=2.34=0
+                          __linux=5.14.0=0
+                          __unix=0=0
+       base environment : /usr/local/pace-apps/manual/packages/anaconda3/2023.03  (read only)
+      conda av data dir : /usr/local/pace-apps/manual/packages/anaconda3/2023.03/etc/conda
+  conda av metadata url : None
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /usr/local/pace-apps/manual/packages/anaconda3/2023.03/pkgs
+                          /home/hice1/jdamato9/.conda/pkgs
+       envs directories : /home/hice1/jdamato9/.conda/envs
+                          /usr/local/pace-apps/manual/packages/anaconda3/2023.03/envs
+               platform : linux-64
+             user-agent : conda/24.1.2 requests/2.29.0 CPython/3.10.13 Linux/5.14.0-427.42.1.el9_4.x86_64 rhel/9.4 glibc/2.34 solver/libmamba conda-libmamba-solver/24.1.0 libmambapy/1.5.6 aau/0.4.3 c/67P6_vrxWH4s__sGQXdArg s/y7WtnQLhcYdzW1_qj4aIQg e/nKnPopfQY86YDwXIevKClA
+                UID:GID : 3436998:2626
+             netrc file : None
+           offline mode : False
+
+
+Starting generation 0
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2491820
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 480s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 540s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 601s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 661s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 721s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 781s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 841s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 901s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 961s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1021s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1081s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1141s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1201s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1261s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1321s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1381s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1441s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1501s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1561s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1621s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1682s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1742s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1802s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1862s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1922s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 1982s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2042s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2102s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2162s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2222s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2282s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2342s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2402s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2462s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2522s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2582s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2642s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2703s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2763s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2823s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2883s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 2943s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3003s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3063s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3123s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3183s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3243s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3303s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3363s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3423s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3483s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3543s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3604s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3664s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3724s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3784s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3844s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3904s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 3964s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4024s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4084s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4144s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4204s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4264s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4324s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4384s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4444s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4504s
+	‣ Waiting on check4job_completion LLM job: 2491820 Time: 4565s
+	☑ LLM Job Completed Successfully.
+Starting generation 1
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2492324
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2492324 Time: 480s
+	☑ LLM Job Completed Successfully.
+Starting generation 2
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2492389
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 480s
+	‣ Waiting on check4job_completion LLM job: 2492389 Time: 540s
+	☑ LLM Job Completed Successfully.
+Starting generation 3
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2492455
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 480s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 540s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 600s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 661s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 721s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 781s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 841s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 901s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 961s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1021s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1081s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1141s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1201s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1261s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1321s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1381s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1441s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1501s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1561s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1621s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1681s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1741s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1802s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1862s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1922s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 1982s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2042s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2102s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2162s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2222s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2282s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2342s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2402s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2462s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2522s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2582s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2642s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2702s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2762s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2822s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2882s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 2943s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3003s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3063s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3123s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3183s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3243s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3303s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3363s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3423s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3483s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3543s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3603s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3663s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3723s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3784s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3844s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3904s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 3964s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4024s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4084s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4144s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4204s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4264s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4324s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4384s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4444s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4504s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4564s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4624s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4684s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4744s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4804s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4864s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4925s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 4985s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 5045s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 5105s
+	‣ Waiting on check4job_completion LLM job: 2492455 Time: 5165s
+	☑ LLM Job Completed Successfully.
+Starting generation 4
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2493044
+	‣ Waiting on check4job_completion LLM job: 2493044 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2493044 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2493044 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2493044 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2493044 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2493044 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2493044 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 5
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2493107
+	‣ Waiting on check4job_completion LLM job: 2493107 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2493107 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2493107 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2493107 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2493107 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2493107 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2493107 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 6
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2493156
+	‣ Waiting on check4job_completion LLM job: 2493156 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2493156 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2493156 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2493156 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2493156 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2493156 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 7
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2493187
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 480s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 540s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 601s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 661s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 721s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 781s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 841s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 901s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 961s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1021s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1081s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1141s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1201s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1261s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1321s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1381s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1441s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1501s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1561s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1621s
+	‣ Waiting on check4job_completion LLM job: 2493187 Time: 1681s
+	☑ LLM Job Completed Successfully.
+Starting generation 8
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2493469
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 480s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 540s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 600s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 660s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 721s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 781s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 841s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 901s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 961s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1021s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1081s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1141s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1201s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1261s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1321s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1381s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1441s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1501s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1561s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1621s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1681s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1741s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1802s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1862s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1922s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 1982s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2042s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2102s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2162s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2222s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2282s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2342s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2402s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2462s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2522s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2582s
+	‣ Waiting on check4job_completion LLM job: 2493469 Time: 2642s
+	☑ LLM Job Completed Successfully.
+Starting generation 9
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2493809
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 480s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 540s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 601s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 661s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 721s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 781s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 841s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 901s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 961s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1021s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1081s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1141s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1201s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1261s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1321s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1381s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1441s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1501s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1561s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1622s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1682s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1742s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1802s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1862s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1922s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 1982s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2042s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2102s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2162s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2222s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2282s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2342s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2403s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2463s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2523s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2583s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2643s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2703s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2763s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2823s
+	‣ Waiting on check4job_completion LLM job: 2493809 Time: 2883s
+	☑ LLM Job Completed Successfully.
+Starting generation 10
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494140
+	‣ Waiting on check4job_completion LLM job: 2494140 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494140 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494140 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494140 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494140 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494140 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 11
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494170
+	‣ Waiting on check4job_completion LLM job: 2494170 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494170 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494170 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494170 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494170 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494170 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494170 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 12
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494206
+	‣ Waiting on check4job_completion LLM job: 2494206 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494206 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494206 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494206 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494206 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494206 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 13
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494242
+	‣ Waiting on check4job_completion LLM job: 2494242 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494242 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494242 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494242 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494242 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494242 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 14
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494279
+	‣ Waiting on check4job_completion LLM job: 2494279 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494279 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494279 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494279 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494279 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494279 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494279 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 15
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494311
+	‣ Waiting on check4job_completion LLM job: 2494311 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494311 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494311 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494311 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494311 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494311 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494311 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 16
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494352
+	‣ Waiting on check4job_completion LLM job: 2494352 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494352 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494352 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494352 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494352 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494352 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 17
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494374
+	‣ Waiting on check4job_completion LLM job: 2494374 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494374 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494374 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494374 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494374 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494374 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 18
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494412
+	‣ Waiting on check4job_completion LLM job: 2494412 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494412 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494412 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494412 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494412 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494412 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494412 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 19
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494446
+	‣ Waiting on check4job_completion LLM job: 2494446 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494446 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494446 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494446 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494446 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494446 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 20
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494479
+	‣ Waiting on check4job_completion LLM job: 2494479 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494479 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494479 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494479 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494479 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494479 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494479 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 21
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494511
+	‣ Waiting on check4job_completion LLM job: 2494511 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494511 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494511 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494511 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494511 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494511 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 22
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494547
+	‣ Waiting on check4job_completion LLM job: 2494547 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494547 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494547 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494547 Time: 240s
+	☑ LLM Job Completed Successfully.
+Starting generation 23
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494610
+	‣ Waiting on check4job_completion LLM job: 2494610 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494610 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494610 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494610 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494610 Time: 300s
+	☑ LLM Job Completed Successfully.
+Starting generation 24
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494660
+	‣ Waiting on check4job_completion LLM job: 2494660 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494660 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494660 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494660 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494660 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494660 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494660 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 25
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494695
+	‣ Waiting on check4job_completion LLM job: 2494695 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494695 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494695 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494695 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494695 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494695 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 26
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494719
+	‣ Waiting on check4job_completion LLM job: 2494719 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494719 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494719 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494719 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494719 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494719 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494719 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 27
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494747
+	‣ Waiting on check4job_completion LLM job: 2494747 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494747 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494747 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494747 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494747 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494747 Time: 360s
+	☑ LLM Job Completed Successfully.
+Starting generation 28
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494782
+	‣ Waiting on check4job_completion LLM job: 2494782 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494782 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494782 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494782 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494782 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494782 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494782 Time: 420s
+	☑ LLM Job Completed Successfully.
+Starting generation 29
+Generating Island llama3
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 2494823
+	‣ Waiting on check4job_completion LLM job: 2494823 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2494823 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2494823 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2494823 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2494823 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2494823 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2494823 Time: 420s
+	☑ LLM Job Completed Successfully.
+Finished evolutionary loop
+---------------------------------------
+Begin Slurm Epilog: Apr-19-2025 05:41:32
+Job ID:        2491818
+User ID:       jdamato9
+Account:       coc
+Job name:      IslandsController
+Resources:     cpu=4,gres/gpu:h100=1,mem=16G,node=1
+Rsrc Used:     cput=1-05:43:16,vmem=0,walltime=07:25:49,mem=416692K,energy_used=0
+Partition:     coe-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-03-011-13-0
+---------------------------------------

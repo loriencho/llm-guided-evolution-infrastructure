@@ -1,0 +1,376 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-16-2025 17:25:12
+Job ID:    2475747
+User ID:   jdamato9
+Account:   coc
+Job name:  LLM_Island_gemma3
+Partition: coe-gpu
+QOS:       coe-ice
+---------------------------------------
+launching AIsurBL
+Started on atl1-1-03-014-30-0.pace.gatech.edu
+
+CondaError: Run 'conda init' before 'conda deactivate'
+
+
+     active environment : llmIslandsEnv
+    active env location : /home/hice1/jdamato9/.conda/envs/llmIslandsEnv
+            shell level : 1
+       user config file : /home/hice1/jdamato9/.condarc
+ populated config files : 
+          conda version : 24.1.2
+    conda-build version : 3.27.0
+         python version : 3.10.13.final.0
+                 solver : libmamba (default)
+       virtual packages : __archspec=1=sapphirerapids
+                          __conda=24.1.2=0
+                          __cuda=12.5=0
+                          __glibc=2.34=0
+                          __linux=5.14.0=0
+                          __unix=0=0
+       base environment : /usr/local/pace-apps/manual/packages/anaconda3/2023.03  (read only)
+      conda av data dir : /usr/local/pace-apps/manual/packages/anaconda3/2023.03/etc/conda
+  conda av metadata url : None
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /usr/local/pace-apps/manual/packages/anaconda3/2023.03/pkgs
+                          /home/hice1/jdamato9/.conda/pkgs
+       envs directories : /home/hice1/jdamato9/.conda/envs
+                          /usr/local/pace-apps/manual/packages/anaconda3/2023.03/envs
+               platform : linux-64
+             user-agent : conda/24.1.2 requests/2.29.0 CPython/3.10.13 Linux/5.14.0-427.42.1.el9_4.x86_64 rhel/9.4 glibc/2.34 solver/libmamba conda-libmamba-solver/24.1.0 libmambapy/1.5.6 aau/0.4.3 c/67P6_vrxWH4s__sGQXdArg s/84VT6ZoX1uAMllZsEViciw e/nKnPopfQY86YDwXIevKClA
+                UID:GID : 3436998:2626
+             netrc file : None
+           offline mode : False
+
+
+
+⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣶⣶⠶⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣀⣹⣟⣛⣛⣻⣿⣿⣿⡾⠟⢉⣴⠟⢁⣴⠋⣹⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠈⠛⠛⣿⠉⢉⣩⠵⠚⠁⢀⡴⠛⠁⣠⠞⠁⣰⠏⠸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢻⣷⠋⠁⠀⢀⡴⠋⠀⢀⡴⠋⠀⣼⠃⠀⡼⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢻⣆⣠⡴⠋⠀⠀⣠⠟⠀⢀⡾⠁⠀⡼⠁⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠻⣯⡀⠀⢀⡼⠃⠀⢠⡟⠀⢀⡾⠁⢀⣾⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⠻⣶⣟⡀⠀⣰⠏⠀⢀⡾⠁⠀⣼⢹⣿⣀⣤⣤⣴⠶⢿⡿⠛⢛⣷⢶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠿⠶⠶⠾⠷⠶⠿⠛⢻⣟⠉⣥⠟⠁⣠⠟⠀⢠⠞⠁⣄⡿⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠞⠁⢀⡴⠋⠀⣴⠋⠀⣰⠟⠀⣤⡾⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡄⢠⠞⠁⢀⡾⠁⢀⡼⠃⢀⡴⠋⠀⢸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣷⠋⠀⣰⠏⠀⣠⠟⠀⣰⠟⠁⢀⡴⠛⣿⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣧⡼⠃⢀⡼⠋⢠⡞⠁⣠⣞⣋⣤⣶⣿⡟⠛⣿⠛⠛⣻⠟⠷⢶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣦⣾⣤⣴⣯⡶⠾⠟⠛⠉⠉⠉⣿⡇⢠⡏⠀⣰⠏⠀⢀⣼⠋⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⡾⠀⢰⠏⠀⢠⡞⠁⠀⣠⠞⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⠇⢠⠏⠀⣰⠋⠀⣠⠞⠁⠀⢀⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⢠⠟⢀⡼⠁⣠⠞⠁⣀⣴⢾⣿⣤⣿⣦⣄⣀⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡟⣠⠏⣠⠞⣁⣴⣾⣿⣿⣿⣿⣿⣿⡏⢹⡏⠛⠳⣦⣄⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢷⣾⣷⠿⠿⠛⠉⠀⠀⠈⠳⣬⣿⡟⣾⠁⠀⣼⠃⠉⠻⠆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣧⡏⠀⣼⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠁⡼⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣟⡼⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⣃⠀⠀
+
+ISLAND INTEGRATION llm_model:  gemma3
+Path does not exist, returning none for checkpoints
+
+**************************************************************************************************************
+*                                     CREATING POPULATION FROM SEED CODE                                     *
+**************************************************************************************************************
+
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxETo3NqDgJso00pZwFSG1Emq9.sh
+	‣ Output: Submitted batch job 2475807
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxsGvwlcm9CkX9ADSH7sZi0QgL.sh
+	‣ Output: Submitted batch job 2475809
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxt2WoKXWvjxoN89VojFK4Kn7m.sh
+	‣ Output: Submitted batch job 2475811
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxHdgQSofFJYLW6Zc8sTq6fo3T.sh
+	‣ Output: Submitted batch job 2475813
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXx1u9Ofmi9uBjDwpfIhJDw97Hw.sh
+	‣ Output: Submitted batch job 2475815
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxT2u4sGaLH6tSbLJ37FZeDSBl.sh
+	‣ Output: Submitted batch job 2475817
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxTCrXwiAV2rrYiVjUnFj5vXsl.sh
+	‣ Output: Submitted batch job 2475819
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxCN2R7JYRkoZb1QrxAPSJzapF.sh
+	‣ Output: Submitted batch job 2475821
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXx3Dud5IFnVNSZzc9F3R9yZgo9.sh
+	‣ Output: Submitted batch job 2475823
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxB6TFhYB88tHc5ZcXMDTGpF1L.sh
+	‣ Output: Submitted batch job 2475825
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxUIWM6ft3KJwvWeFZDChJKWbB.sh
+	‣ Output: Submitted batch job 2475827
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxnTlnXoIcqLZISaCkc7h9ks0L.sh
+	‣ Output: Submitted batch job 2475829
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxkWwiTmfvwv2SW2TLjTnwEII7.sh
+	‣ Output: Submitted batch job 2475831
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxWbUysvGuicT9qb1vLvwzmyUy.sh
+	‣ Output: Submitted batch job 2475833
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxYhsyyVg0Cv7WyY7OCEfzFD1T.sh
+	‣ Output: Submitted batch job 2475835
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxDm1vwOzC1siyoLnsV48Idgg5.sh
+	‣ Output: Submitted batch job 2475837
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXx0Uu6Ab0DKEm6E72J4Wdxmf0r.sh
+	‣ Output: Submitted batch job 2475839
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxrgZ7mRwQsFr0z4Y1dwor4JUm.sh
+	‣ Output: Submitted batch job 2475841
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxUB1To8TxdMoAUynoggQpE8up.sh
+	‣ Output: Submitted batch job 2475843
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxWTYjVEw272Fu7uQUa8vWxwVm.sh
+	‣ Output: Submitted batch job 2475845
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXx2H61ADCVc20auBHSnS2p4Pe7.sh
+	‣ Output: Submitted batch job 2475847
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxLbzobGEOdCRpkr57LWsaVmw3.sh
+	‣ Output: Submitted batch job 2475849
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxmqGN9g8xGkfQHaEnXQXDolWU.sh
+	‣ Output: Submitted batch job 2475851
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxtgf01rqT2B6R94NnBHX4Gwgv.sh
+	‣ Output: Submitted batch job 2475853
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxyIRGAJpEk8EgZjJtwUXZWI5M.sh
+	‣ Output: Submitted batch job 2475855
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxKLtmLNcIqaLRW5t3idiODIph.sh
+	‣ Output: Submitted batch job 2475857
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxbuRzJhQkCsyKONAR9eu0VRSd.sh
+	‣ Output: Submitted batch job 2475859
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxzruAshO5dBQhCRnkSqW1W7jX.sh
+	‣ Output: Submitted batch job 2475861
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXx0x4AgNNVmDtjPagE0fb3YrIs.sh
+	‣ Output: Submitted batch job 2475863
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxCLUzbCjz2n9ORTEpadsrKeBB.sh
+	‣ Output: Submitted batch job 2475865
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxbnuJpMqk0kTgv3vFICxWjI2r.sh
+	‣ Output: Submitted batch job 2475867
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  gemma3
+	‣ FixedPrompts
+	‣ Bash script saved to 0/xXxfkOcLLavz7qL9Epgpqj7JcH9.sh
+	‣ Output: Submitted batch job 2475869
+
+************************************************************
+*               Batch Checking Created Genes               *
+************************************************************
+Checking for Job Completion: 2475807 for xXxETo3NqDgJso00pZwFSG1Emq9
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 360s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 420s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 480s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 540s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 600s
+	‣ Waiting on check4job_completion LLM job: 2475807 Time: 660s
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 2475809 for xXxsGvwlcm9CkX9ADSH7sZi0QgL
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 2475811 for xXxt2WoKXWvjxoN89VojFK4Kn7m
+	‣ Waiting on check4job_completion LLM job: 2475811 Time: 60s
+	‣ Waiting on check4job_completion LLM job: 2475811 Time: 120s
+	‣ Waiting on check4job_completion LLM job: 2475811 Time: 180s
+	‣ Waiting on check4job_completion LLM job: 2475811 Time: 240s
+	‣ Waiting on check4job_completion LLM job: 2475811 Time: 300s
+	‣ Waiting on check4job_completion LLM job: 2475811 Time: 360s
+slurmstepd: error: *** JOB 2475747 ON atl1-1-03-014-30-0 CANCELLED AT 2025-04-16T17:45:16 ***
+---------------------------------------
+Begin Slurm Epilog: Apr-16-2025 17:45:18
+Job ID:        2475747
+User ID:       jdamato9
+Account:       coc
+Job name:      LLM_Island_gemma3
+Resources:     cpu=16,gres/gpu:h200=1,mem=16G,node=1
+Rsrc Used:     cput=05:21:20,vmem=0,walltime=00:20:05,mem=559864K,energy_used=0
+Partition:     coe-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-03-014-30-0
+---------------------------------------
