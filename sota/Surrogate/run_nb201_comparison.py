@@ -24,6 +24,9 @@ parser.add_argument('--run_baselines', action='store_true', help='Run baseline e
 parser.add_argument('--surrogate', type=str, default='mlp', choices=['xgboost', 'mlp'], help='Surrogate model type')
 parser.add_argument('--trials', type=int, default=1, help='Number of trials to run')
 parser.add_argument('--debug', action='store_true', help='stores trajectory_log and candudate_Log', default=True)
+parser.add_argument('--model', type=str, default='model', help='Model module name (LLM-GE evolved variant)')
+parser.add_argument('--variant_dir', type=str, default='models', help='Directory where LLM-GE writes model variants')
+parser.add_argument('--epochs', type=int, default=100, help='Number of BANANAS search epochs')
 custom_args, remaining = parser.parse_known_args()
 
 # Update sys.argv to only contain args that NASLib's parser understands
@@ -53,6 +56,20 @@ import json
 
 # Store custom args for use later in the script
 args = custom_args
+
+# --- LOAD EVOLVED MODEL CONFIG ---
+import importlib
+from pathlib import Path as _p
+_script_dir = _p(__file__).parent.resolve()
+_variant_dir = args.variant_dir if os.path.isabs(args.variant_dir) else str(_script_dir / args.variant_dir)
+sys.path.append(_variant_dir)
+_model_module = importlib.import_module(args.model)
+DEFAULT_SURROGATE_CONFIG = _model_module.DEFAULT_SURROGATE_CONFIG.copy()
+
+try:
+    gene_id = args.model.split('model_')[1]
+except:
+    gene_id = 'seed'
 
 class CustomXGBoost(XGBoost):
     def __init__(self, **kwargs):
@@ -136,16 +153,15 @@ class CustomMLP(MLPPredictor):
 config = utils.get_config_from_args(config_type="nas")
 config.dataset = "cifar100"
 config.search_space = "nasbench201" 
-config.out_dir = "/home/hice1/mgullapalli6/scratch/codenas/NASLib/results_nb201" # New output dir
-config.optimizer = "" 
+config.optimizer = ""
 config.search.seed = args.seed
 config.seed = args.seed
 config.save_arch_weights = False
 config.search.num_init = 50
 config.search.k = 10
-config.search.epochs = 800
+config.search.epochs = args.epochs
 config.search.num_candidates = 100
-config.out_dir = "run_nb201"
+config.out_dir = f"run_nb201/{gene_id}"
 config.debug_predictor = True
 config.search.num_ensemble = 3
 config.search.num_arches_to_mutate = 16
@@ -612,29 +628,6 @@ SURROGATE_REGISTRY = {
     "mlp": CustomMLP,
 }
 
-DEFAULT_SURROGATE_CONFIG = {
-    # shared
-    "name": "xgboost",  # mutate this to switch model family
-    "corpus_path": "/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv",
-    "embedding_col": "codellama_python_7b_pytorch_code_exclude_helper_embedding",
-    "use_pca": False,
-    "pca_components": 128,
-
-    # xgboost params
-    "ss_type": "nasbench201",
-    "hparams_from_file": False,
-    "nthread": 4,
-    "device": "cuda",
-    "tree_method": "hist",
-
-    # mlp params
-    "num_layers": 3,
-    "layer_width": 128,
-    "batch_size": 32,
-    "lr": 1e-3,
-    "epochs": 200,
-    "loss": "mse",
-}
 
 def build_predictor_kwargs(cfg: dict) -> dict:
     """
@@ -679,17 +672,38 @@ def build_predictor_kwargs(cfg: dict) -> dict:
 # ----------------------------
 
 if not RUN_BASELINES or RUN_ALL:
-    surrogate_cfg = DEFAULT_SURROGATE_CONFIG.copy()
-    surrogate_cfg["name"] = SURROGATE  # "xgboost" or "mlp"
+    start_time = time.time()
 
-    # Optional: family-specific defaults
-    if SURROGATE == "mlp":
-        surrogate_cfg["use_pca"] = True
-    elif SURROGATE == "xgboost":
-        surrogate_cfg["use_pca"] = False
-
-    run_experiment(
+    history = run_experiment(
         "bananas",
         predictor_cls=LLM_NB201_Predictor,
-        predictor_kwargs=build_predictor_kwargs(surrogate_cfg),
+        predictor_kwargs=build_predictor_kwargs(DEFAULT_SURROGATE_CONFIG),
     )
+
+    runtime = time.time() - start_time
+
+    # run_experiment saves surrogate metrics to a JSON inside config.out_dir
+    import glob as _glob
+    metrics_files = sorted(_glob.glob(f"{config.out_dir}/**/surrogate_metrics_*.json", recursive=True))
+    if metrics_files:
+        import json as _json
+        with open(metrics_files[-1]) as _f:
+            _m = _json.load(_f)
+        final_kendall_tau = _m["kendall_tau"][-1] if _m["kendall_tau"] else 0.0
+        final_mse = _m["mse"][-1] if _m["mse"] else 0.0
+    else:
+        print("Warning: no surrogate metrics JSON found — defaulting to worst-case values.")
+        final_kendall_tau = 0.0
+        final_mse = float('inf')
+
+    # Write LLM-GE results file
+    os.makedirs('results', exist_ok=True)
+    filename = os.path.abspath(f'results/{gene_id}_results.txt')
+    with open(filename, 'w') as _f:
+        _f.write(f"{final_kendall_tau},{final_mse},{runtime}")
+
+    print(f"Results written to {filename}")
+    print(f"  Kendall Tau: {final_kendall_tau:.4f}")
+    print(f"  MSE:         {final_mse:.6f}")
+    print(f"  Runtime (s): {runtime:.1f}")
+    print('=' * 120); print('job done'); print('=' * 120)
