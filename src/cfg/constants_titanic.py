@@ -6,13 +6,13 @@ import yaml
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(ROOT_DIR, "sota/titanic/data")
-SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Titanic')
+SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Surrogate')
 SEED_NETWORK = os.path.join(SOTA_ROOT, 'model.py')
 MODEL = "model"
 # Path to local LLM model path used by server.py for LLM operations
 MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/"
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
-TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py") 
+TRAIN_FILE = os.path.join(SOTA_ROOT, "run_nb201_comparison.py")
 
 # Where Slurm job outputs are written (matches sbatch --output paths)
 SLURM_OUTPUT_PATH = "run_job_outputs/"
@@ -93,7 +93,7 @@ EVAL_RUNLINE = "uv run python {} --model {} --variant_dir {VARIANT_DIR}"
 """
 Evolution Constants/Params
 """
-FITNESS_WEIGHTS = (-1.0, -1.0)
+FITNESS_WEIGHTS = (1.0, -1.0, -1.0)  # maximize kendall_tau, minimize mse, minimize runtime
 INVALID_FITNESS_MAX = tuple([float(x*np.inf*-1) for x in FITNESS_WEIGHTS])
 PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
 NUM_EOT_ELITES = 10
