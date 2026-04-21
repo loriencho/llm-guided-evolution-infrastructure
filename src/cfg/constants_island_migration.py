@@ -1,47 +1,40 @@
 import os
 import numpy as np
 import torch
+import platform
 import yaml
 
-# Whether we are running on PACE-ICE (True) or ICEHAMMER (False)
-PACE_ICE = True
-
-# Root directory of the repository
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Surrogate')
+SEED_NETWORK = os.path.join(SOTA_ROOT, 'model.py')
+MODEL = "model"
+DATA_PATH = SOTA_ROOT
+# Path to local LLM model path used by server.py for LLM operations
+MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/"
+VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
+TRAIN_FILE = os.path.join(SOTA_ROOT, "run_nb201_comparison.py")
+SURROGATE_CORPUS_PATH = "/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv"
+SURROGATE_RUN_DIR = os.path.join(SOTA_ROOT, "run_nb201")
+SURROGATE_RESULTS_DIR = os.path.join(SOTA_ROOT, "results")
+SURROGATE_SEARCH_SPACE = "nasbench201"
+SURROGATE_DATASET = "cifar100"
 
-GLOBAL_DATA_PATH = "global_data"
+# Where Slurm job outputs are written (matches sbatch --output paths)
 SLURM_OUTPUT_PATH = "run_job_outputs/"
 
-DEFAULT_PROMPT_GROUP = "Testing/Normal"
-PROMPT_GROUP_TEMPLATE = "templates/Testing/{prompt_group}/*.txt"
-PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/*.txt"
+# Prompt templates glob relative to the repository root
+DEFAULT_PROMPT_GROUP = "FixedPrompts"
+PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/**/*.txt"
 
-#: DATA_PATH absolute or relative to ExquisiteNetV2
-DATA_PATH = os.path.join(ROOT_DIR, 'cifar10')
-#: Location where the current seed repo resides
-SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/ExquisiteNetV2')
-#: Location where the network architecture for the seed resides
-SEED_NETWORK = os.path.join(SOTA_ROOT, "network.py")
-#: Whether to run llm-ge locally (True) or distribute across a slurm cluster  (False)
-LOCAL = False
-if LOCAL:
-    RUN_COMMAND = 'bash'
-    DELAYED_CHECK = False
-else: 
-    RUN_COMMAND = 'sbatch'
-    DELAYED_CHECK = True
+# TODO: Adding this here, I think it's supposed to parse from the command line
+OUTPUT_DIR = "titanic_test"
+PORT=8137
 
-#: Whether host uses macOS (True) and should use mps, or not (False) and should use cpu or cuda depending on what is available
-MACOS = False
-if torch.mps.is_available():
-    DEVICE = 'mps'
-    MACOS = True
-elif torch.cuda.is_available():
-    DEVICE = 'cuda'
-else:
-    DEVICE = 'cpu'
+CLUSTER = "pace-ice"
+LLM_MODEL = 'llama3.3'
+PACE_ICE = True
 
-# AVAILABLE LLMs
+# Available LLM identifiers
 LLM_QWEN = 'qwen25'
 LLM_MIXTRAL = 'mixtral'
 LLM_LLAMA3 = 'llama3'
@@ -50,74 +43,20 @@ LLM_GEMMA3 = 'gemma3'
 LLM_DEEPSEEK = 'deepseek'
 LLM_GEMINI = 'gemini'
 
-# API_KEYS
-try:
-    GEMINI_API_KEY = os.environ['GEMINI_API_KEY']
-except:
-    GEMINI_API_KEY = ''
+# LLMs allowed for island runs
+ISLAND_LLMS = [LLM_QWEN, LLM_MIXTRAL, LLM_DEEPSEEK, LLM_LLAMA3, LLM_GEMMA2, LLM_GEMMA3, LLM_GEMINI]
 
-ISLAND_LLMS =[LLM_LLAMA3, LLM_DEEPSEEK] # [LLM_QWEN, LLM_MIXTRAL, LLM_DEEPSEEK, LLM_LLAMA3, LLM_GEMMA2, LLM_GEMMA3, LLM_GEMINI]
+ENVIRONMENT_DIR = os.path.join(ROOT_DIR, ".venv")
+SLURM_CONFIG_DIR = os.path.join(ROOT_DIR, "slurm-config/")
+LOCAL_LLM = True
+HOSTNAME_DIR = os.path.join(ROOT_DIR, "hostname.log")
 
+# Multi-island settings
+GLOBAL_DATA_PATH = "global_data"
+PROMPT_GROUP_TEMPLATE = "templates/{prompt_group}/**/*.txt"
 MAX_ISLANDS = len(ISLAND_LLMS)
 
-# Evolution Constants/Params
-# --------------------------
-
-#: Tuple of fitness weights of length equal to the number of objectives.
-#: 1.0 indicates objective will be maximized, -1.0 for objective to by minimized.
-FITNESS_WEIGHTS = (1.0, -1.0)
-INVALID_FITNESS_MAX = tuple([float(x*np.inf*-1) for x in FITNESS_WEIGHTS])
-PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
-
-#: Number of elite individuals to utilize within the Evolution of Thought (EOT) operation
-NUM_EOT_ELITES = 4
-
-#: Cycle in the optimization and output directory where intermediate data will be stored.
-GENERATION = 0
-
-PROB_QC = 0.0 # Probability of running quality control checks on responses from the LLM
-PROB_EOT = 0.0 # Probability of running Evolution of Thought (EOT) on the responses from the LLM
-
-#: Number of generations to run for
-num_generations = 2  # Number of generations
-
-#: Number of generations between migrations
-migration_gen = 2 # Set to 0 to disable migrations (1 island runs)
-
-#: Population size for launching optimization
-start_population_size = 40
-
-#: Population size to utilize in each generation after optimization begins
-# population_size = 44 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
-population_size = 16
-
-#: Probability of mating two individuals
-crossover_probability = 0.35
-
-#: Probability of mutating an individual
-mutation_probability = 0.8
-
-#: Number of elites to consider
-num_elites = 8
-
-#: Number of individuals to keep in the hall of fame across the optimization
-hof_size = 100
-
-# Maximum number of attempts to generate a new individual before giving up
-max_gen_attempts = 5
-
-
-# Job Sub Constants/Params
-# ------------------------
-
-
-#: Whether (True) or not (False) you wish to run quality control checks on responses from the LLM
-QC_CHECK_BOOL = False
-#: Whether (True) or not (False) to submit LLM prompts remotely to sources such as hugging face.
-INFERENCE_SUBMISSION = False
-
 # Load SLURM templates from slurm_config.yaml (generated by slurm.py)
-SLURM_CONFIG_DIR = os.path.join(ROOT_DIR, "slurm-config/")
 _slurm_config_path = os.path.join(SLURM_CONFIG_DIR, 'slurm_config.yaml')
 if os.path.exists(_slurm_config_path):
     with open(_slurm_config_path, 'r') as _f:
@@ -133,7 +72,50 @@ else:
     LLM_BASH_SCRIPT_TEMPLATE = ''
     ISLANDS_BASH_SCRIPT_TEMPLATE = ''
 
+INFERENCE_SUBMISSION = False
 
+LOCAL = False
+if LOCAL:
+    RUN_COMMAND = 'bash'
+    DELAYED_CHECK = False
+else: 
+    RUN_COMMAND = 'sbatch'
+    DELAYED_CHECK = True
+MACOS = platform.system() == "Darwin"
+RUNLINE_AMP = ''
+if torch.mps.is_available():
+    DEVICE = 'mps'
+    MACOS = True
+    RUNLINE_AMP = "-amp"
+elif torch.cuda.is_available():
+    DEVICE = 'cuda'
+else:
+    DEVICE = 'cpu'
+
+# resolves to {MODEL}_{gene_id}
+RUNLINE_TMP = '{}_{}'
+EVAL_RUNLINE = "uv run python {} --model {} --variant_dir {VARIANT_DIR}"
+"""
+Evolution Constants/Params
+"""
+FITNESS_WEIGHTS = (1.0, -1.0, -1.0)  # maximize kendall_tau, minimize mse, minimize runtime
+INVALID_FITNESS_MAX = tuple([float(x*np.inf*-1) for x in FITNESS_WEIGHTS])
+PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
+NUM_EOT_ELITES = 10
+GENERATION = 0
+PROB_QC = 0.0
+PROB_EOT = 0.25
+num_generations = 5 # Number of generations
+start_population_size = 32  # Starting population size
+# start_population_size = 144   # Size of the population 124=72
+#population_size = 44 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
+population_size = 32 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover
+crossover_probability = 0.35  # Probability of mating two individuals
+mutation_probability = 0.8 # Probability of mutating an individual
+num_elites = 8
+hof_size = 100
+max_gen_attempts = 5
+migration_gen = 5
 """
 Misc. Non-sense
 """

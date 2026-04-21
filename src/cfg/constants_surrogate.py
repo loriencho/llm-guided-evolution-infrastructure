@@ -5,20 +5,27 @@ import platform
 import yaml
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA_PATH = os.path.join(ROOT_DIR, "sota/titanic/data")
 SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Surrogate')
 SEED_NETWORK = os.path.join(SOTA_ROOT, 'model.py')
 MODEL = "model"
+DATA_PATH = SOTA_ROOT
 # Path to local LLM model path used by server.py for LLM operations
 MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/"
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
 TRAIN_FILE = os.path.join(SOTA_ROOT, "run_nb201_comparison.py")
+SURROGATE_CORPUS_PATH = "/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv"
+SURROGATE_RUN_DIR = os.path.join(SOTA_ROOT, "run_nb201")
+SURROGATE_RESULTS_DIR = os.path.join(SOTA_ROOT, "results")
+SURROGATE_SEARCH_SPACE = "nasbench201"
+SURROGATE_DATASET = "cifar100"
 
 # Where Slurm job outputs are written (matches sbatch --output paths)
 SLURM_OUTPUT_PATH = "run_job_outputs/"
 
-# Prompt templates glob relative to the repository root
-DEFAULT_PROMPT_GROUP = "FixedPrompts"
+# Prompt templates glob relative to the repository root.
+# Use NASLib-specific prompts so surrogate evolution is asked to improve
+# search guidance rather than Titanic classification behavior.
+DEFAULT_PROMPT_GROUP = "naslib/general"
 PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/**/*.txt"
 
 # TODO: Adding this here, I think it's supposed to parse from the command line
