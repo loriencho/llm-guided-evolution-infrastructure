@@ -13,19 +13,33 @@ from scipy.stats import norm
 import sys
 import time
 import types
-import copy
 import argparse
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from src.cfg.constants_surrogate import (
+    MODEL as DEFAULT_MODEL_MODULE,
+    SURROGATE_CORPUS_PATH,
+    SURROGATE_DATASET,
+    SURROGATE_RESULTS_DIR,
+    SURROGATE_RUN_DIR,
+    SURROGATE_SEARCH_SPACE,
+    VARIANT_DIR as DEFAULT_VARIANT_DIR,
+)
 
 from trajectory_plots import surrogate_data_plots
 # --- PARSE CUSTOM ARGUMENTS FIRST (before any NASLib imports) ---
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument('--seed', type=int, default=242, help='Random seed for reproducibility')
 parser.add_argument('--run_baselines', action='store_true', help='Run baseline experiments')
-parser.add_argument('--surrogate', type=str, default='mlp', choices=['xgboost', 'mlp'], help='Surrogate model type')
+parser.add_argument('--surrogate', type=str, default=None, help='Override the surrogate family defined in the model module')
 parser.add_argument('--trials', type=int, default=1, help='Number of trials to run')
 parser.add_argument('--debug', action='store_true', help='stores trajectory_log and candudate_Log', default=True)
-parser.add_argument('--model', type=str, default='model', help='Model module name (LLM-GE evolved variant)')
-parser.add_argument('--variant_dir', type=str, default='models', help='Directory where LLM-GE writes model variants')
+parser.add_argument('--model', type=str, default=DEFAULT_MODEL_MODULE, help='Model module name (LLM-GE evolved variant)')
+parser.add_argument('--variant_dir', type=str, default=DEFAULT_VARIANT_DIR, help='Directory where LLM-GE writes model variants')
 parser.add_argument('--epochs', type=int, default=100, help='Number of BANANAS search epochs')
 custom_args, remaining = parser.parse_known_args()
 
@@ -42,10 +56,8 @@ from naslib.optimizers import RegularizedEvolution, Bananas, Npenas
 from naslib.defaults.trainer import Trainer
 
 from naslib.predictors.ensemble import Ensemble
-from naslib.predictors.trees.xgb import XGBoost
 from naslib.predictors.gp import VarSparseGPPredictor, GPPredictor
 from naslib.predictors.llm_enhanced_201 import LLM_NB201_Predictor 
-from naslib.predictors.mlp import MLPPredictor
 
 from naslib.optimizers.discrete.bananas import optimizer as bananas_opt
 from naslib.optimizers.discrete.bananas import acquisition_functions as acq_funcs
@@ -59,100 +71,25 @@ args = custom_args
 
 # --- LOAD EVOLVED MODEL CONFIG ---
 import importlib
-from pathlib import Path as _p
-_script_dir = _p(__file__).parent.resolve()
+_script_dir = Path(__file__).parent.resolve()
 _variant_dir = args.variant_dir if os.path.isabs(args.variant_dir) else str(_script_dir / args.variant_dir)
+if str(_script_dir) not in sys.path:
+    sys.path.insert(0, str(_script_dir))
 sys.path.append(_variant_dir)
 _model_module = importlib.import_module(args.model)
-DEFAULT_SURROGATE_CONFIG = _model_module.DEFAULT_SURROGATE_CONFIG.copy()
+surrogate_config = _model_module.get_surrogate_config(corpus_path=SURROGATE_CORPUS_PATH)
+if args.surrogate is not None:
+    surrogate_config["name"] = args.surrogate
 
 try:
     gene_id = args.model.split('model_')[1]
 except:
     gene_id = 'seed'
 
-class CustomXGBoost(XGBoost):
-    def __init__(self, **kwargs):
-        # 1. Define arguments allowed by BaseTree.__init__
-        base_valid_args = ['encoding_type', 'ss_type', 'zc', 'zc_only', 
-                           'hpo_wrapper', 'hparams_from_file']
-        
-        # 2. Split kwargs: 
-        # - base_args go to super().__init__
-        # - hyperparams go into the model config
-        base_args = {k: v for k, v in kwargs.items() if k in base_valid_args}
-        self.custom_hyperparams = {k: v for k, v in kwargs.items() if k not in base_valid_args}
-
-        # 3. Initialize Parent
-        super().__init__(**base_args)
-
-        # 4. Apply Hyperparameters
-        if self.hyperparams is None:
-            self.hyperparams = self.default_hyperparams.copy()
-        
-        # Inject our custom settings (nthread, max_depth, learning_rate, etc.)
-        self.hyperparams.update(self.custom_hyperparams)
-        
-        print(f"[CustomXGBoost] Hyperparams set: {self.hyperparams}")
-
-    def fit(self, xtrain, ytrain, train_info=None, params=None, **kwargs):
-        # Start timestamp
-        start = time.time()
-        # Re-apply custom hyperparams just in case fit() tries to reset them
-        if self.hyperparams is None:
-            self.hyperparams = self.default_hyperparams.copy()
-        self.hyperparams.update(self.custom_hyperparams)
-        
-        result = super().fit(xtrain, ytrain, train_info, params, **kwargs)
-
-        # End timestamp
-        end = time.time()
-        print(f"[CustomXGBoost] Training completed in {end - start:.2f} seconds.")
-        return result
-
-class CustomMLP(MLPPredictor):
-    def __init__(self, **kwargs):
-        # 1. Define arguments allowed by BasePredictor.__init__
-        # We must filter these out so we don't pass 'lr' or 'epochs' to the parent class
-        base_valid_args = ['encoding_type', 'ss_type', 'zc', 'zc_only', 
-                           'hpo_wrapper', 'hparams_from_file', 'config']
-        
-        # 2. Split kwargs into Base args and Hyperparameters
-        base_args = {k: v for k, v in kwargs.items() if k in base_valid_args}
-        self.custom_hyperparams = {k: v for k, v in kwargs.items() if k not in base_valid_args}
-
-        # 3. Initialize Parent (MLPPredictor)
-        super().__init__(**base_args)
-
-        # 4. Inject Hyperparameters
-        if self.hyperparams is None:
-            # Load defaults if not already present
-            self.hyperparams = self.default_hyperparams.copy()
-        
-        # Update with your custom values (e.g., batch_size, lr)
-        self.hyperparams.update(self.custom_hyperparams)
-        
-        print(f"[CustomMLP] Hyperparams set: {self.hyperparams}")
-
-    def fit(self, xtrain, ytrain, train_info=None, params=None, **kwargs):
-        # Start timestamp
-        start = time.time()
-        # Ensure custom hyperparams persist even if fit() tries to reset them
-        if self.hyperparams is None:
-            self.hyperparams = self.default_hyperparams.copy()
-        
-        self.hyperparams.update(self.custom_hyperparams)
-        
-        result = super().fit(xtrain, ytrain, train_info=train_info, epochs=self.hyperparams["epochs"], loss=self.hyperparams["loss"], **kwargs)
-        # End timestamp
-        end = time.time()
-        print(f"[CustomMLP] Training completed in {end - start:.2f} seconds.")
-        return result
-
 # --- CONFIGURATION ---
 config = utils.get_config_from_args(config_type="nas")
-config.dataset = "cifar100"
-config.search_space = "nasbench201" 
+config.dataset = SURROGATE_DATASET
+config.search_space = SURROGATE_SEARCH_SPACE 
 config.optimizer = ""
 config.search.seed = args.seed
 config.seed = args.seed
@@ -161,7 +98,7 @@ config.search.num_init = 50
 config.search.k = 10
 config.search.epochs = args.epochs
 config.search.num_candidates = 100
-config.out_dir = f"run_nb201/{gene_id}"
+config.out_dir = os.path.join(SURROGATE_RUN_DIR, gene_id)
 config.debug_predictor = True
 config.search.num_ensemble = 3
 config.search.num_arches_to_mutate = 16
@@ -175,7 +112,7 @@ NUM_TRIALS = args.trials
 DEBUG = args.debug
 
 print("RUN_BASELINES:", RUN_BASELINES)
-print("SURROGATE:", SURROGATE)
+print("SURROGATE:", SURROGATE or surrogate_config["name"])
 
 if RUN_ALL:
     print("Running Both Baselines and LLM method.")
@@ -620,53 +557,6 @@ for i in range(NUM_TRIALS):
             return trainer.optimizer.history
 
 
-
-
-
-SURROGATE_REGISTRY = {
-    "xgboost": CustomXGBoost,
-    "mlp": CustomMLP,
-}
-
-
-def build_predictor_kwargs(cfg: dict) -> dict:
-    """
-    Converts a flat evolvable config into the kwargs expected by LLM_NB201_Predictor.
-    The config is intentionally flat so an LLM/evolution loop can mutate it easily.
-    """
-    name = cfg["name"]
-    if name not in SURROGATE_REGISTRY:
-        raise ValueError(f"Unknown surrogate: {name}")
-
-    predictor_kwargs = {
-        "base_predictor_cls": SURROGATE_REGISTRY[name],
-        "corpus_path": cfg["corpus_path"],
-        "embedding_col": cfg["embedding_col"],
-        "use_pca": cfg["use_pca"],
-        "pca_components": cfg["pca_components"],
-    }
-
-    if name == "xgboost":
-        predictor_kwargs.update({
-            "ss_type": cfg["ss_type"],
-            "hparams_from_file": cfg["hparams_from_file"],
-            "nthread": cfg["nthread"],
-            "device": cfg["device"],
-            "tree_method": cfg["tree_method"],
-        })
-    elif name == "mlp":
-        predictor_kwargs.update({
-            "num_layers": cfg["num_layers"],
-            "layer_width": cfg["layer_width"],
-            "batch_size": cfg["batch_size"],
-            "lr": cfg["lr"],
-            "epochs": cfg["epochs"],
-            "loss": cfg["loss"],
-        })
-
-    return predictor_kwargs
-
-
 # ----------------------------
 # Run experiment
 # ----------------------------
@@ -677,7 +567,7 @@ if not RUN_BASELINES or RUN_ALL:
     history = run_experiment(
         "bananas",
         predictor_cls=LLM_NB201_Predictor,
-        predictor_kwargs=build_predictor_kwargs(DEFAULT_SURROGATE_CONFIG),
+        predictor_kwargs=_model_module.build_predictor_kwargs(surrogate_config),
     )
 
     runtime = time.time() - start_time
@@ -697,8 +587,8 @@ if not RUN_BASELINES or RUN_ALL:
         final_mse = float('inf')
 
     # Write LLM-GE results file
-    os.makedirs('results', exist_ok=True)
-    filename = os.path.abspath(f'results/{gene_id}_results.txt')
+    os.makedirs(SURROGATE_RESULTS_DIR, exist_ok=True)
+    filename = os.path.abspath(os.path.join(SURROGATE_RESULTS_DIR, f'{gene_id}_results.txt'))
     with open(filename, 'w') as _f:
         _f.write(f"{final_kendall_tau},{final_mse},{runtime}")
 
