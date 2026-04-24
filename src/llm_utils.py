@@ -82,7 +82,7 @@ def get_llm_code_generator(llm_model):
         qc_func = llm_code_qc_hf
     return llm_code_generator, qc_func
 
-def generate_augmented_code(txt2llm, augment_idx, apply_quality_control, top_p, llm_model, temperature):
+def generate_augmented_code(txt2llm, augment_idx, apply_quality_control, top_p, llm_model, temperature, max_new_tokens=LLM_MAX_NEW_TOKENS):
     """Generates augmented code using Mixtral."""
     print("LLM being used: ", llm_model)
     box_print("PROMPT TO LLM", print_bbox_len=60, new_line_end=False)
@@ -92,20 +92,20 @@ def generate_augmented_code(txt2llm, augment_idx, apply_quality_control, top_p, 
     
     if apply_quality_control:
         base_code = retrieve_base_code(augment_idx)
-        code_from_llm, generate_text = llm_code_generator(txt2llm, return_gen=True, top_p=top_p, temperature=temperature)
+        code_from_llm, generate_text = llm_code_generator(txt2llm, return_gen=True, top_p=top_p, temperature=temperature, max_new_tokens=max_new_tokens)
         temp, counter = None, 0 #default to run the quality control
         while counter < max_gen_attempts and (temp not in ["NC", "OOT", "MS", "ERROR"]): #counter to deal with stubborn 
             if temp == "NC": #regenerate based on error
                 prefix = "The code you generated did not contain a code output of the changes you mentioned. Make sure to include the altered code in your output.\n"
-                code_from_llm, generate_text = llm_code_generator(prefix + txt2llm, return_gen=True, top_p=top_p, temperature=temperature)
+                code_from_llm, generate_text = llm_code_generator(prefix + txt2llm, return_gen=True, top_p=top_p, temperature=temperature, max_new_tokens=max_new_tokens)
             elif temp == "OOT":
                 prefix = "The output you gave was cut short due to a limited number of tokens. Shorten your output to just include the altered code without the explanation.\n"
-                code_from_llm, generate_text = llm_code_generator(prefix + txt2llm, return_gen=True, top_p=top_p, temperature=temperature)
+                code_from_llm, generate_text = llm_code_generator(prefix + txt2llm, return_gen=True, top_p=top_p, temperature=temperature, max_new_tokens=max_new_tokens)
             elif temp == "MS":
                 prefix = "The code you generated was in multiple segments. When you output your altered code make sure it is in a single, complete code segment including the changes you made.\n"
-                code_from_llm, generate_text = llm_code_generator(prefix + txt2llm, return_gen=True, top_p=top_p, temperature=temperature)
+                code_from_llm, generate_text = llm_code_generator(prefix + txt2llm, return_gen=True, top_p=top_p, temperature=temperature, max_new_tokens=max_new_tokens)
             elif temp == "ERROR": #another unforseen error
-                code_from_llm, generate_text = llm_code_generator(txt2llm, return_gen=True, top_p=top_p, temperature=temperature) #just retry
+                code_from_llm, generate_text = llm_code_generator(txt2llm, return_gen=True, top_p=top_p, temperature=temperature, max_new_tokens=max_new_tokens) #just retry
             
             temp = qc_func(code_from_llm, base_code, generate_text)
             counter += 1
@@ -114,7 +114,7 @@ def generate_augmented_code(txt2llm, augment_idx, apply_quality_control, top_p, 
             return base_code
 
     else:
-        code_from_llm = llm_code_generator(txt2llm, top_p=top_p, temperature=temperature)
+        code_from_llm = llm_code_generator(txt2llm, top_p=top_p, temperature=temperature, max_new_tokens=max_new_tokens)
         box_print("TEXT FROM LLM", print_bbox_len=60, new_line_end=False)
         
         print(code_from_llm)
@@ -518,11 +518,11 @@ def get_llm_server_hostname():
         hostname = f.readline().strip() 
     return hostname
 
-def submit_mixtral_local(prompt, max_new_tokens=850, temperature=0.2, top_p=0.15, server_url=f"http://{os.getenv('SERVER_HOSTNAME', 'localhost')}:{PORT}/generate", return_gen=False):
+def submit_mixtral_local(prompt, max_new_tokens=LLM_MAX_NEW_TOKENS, temperature=0.2, top_p=0.15, server_url=f"http://{os.getenv('SERVER_HOSTNAME', 'localhost')}:{PORT}/generate", return_gen=False):
     
     payload = {
         "prompt": prompt,
-        "max_new_tokens": max_new_tokens, # can change to random between 800 - 1000 if needed
+        "max_new_tokens": max_new_tokens,
         "temperature": temperature,
         "top_p": top_p
     }
@@ -553,12 +553,12 @@ def submit_mixtral_local(prompt, max_new_tokens=850, temperature=0.2, top_p=0.15
         print(f"Request failed: {e}")
         return None
 
-def submit_deepseek_local(prompt, max_new_tokens=850, temperature=0.2, top_p=0.15, server_url=None, return_gen=False):
+def submit_deepseek_local(prompt, max_new_tokens=LLM_MAX_NEW_TOKENS, temperature=0.2, top_p=0.15, server_url=None, return_gen=False):
     if server_url is None:
         server_url = f"http://{get_llm_server_hostname()}:8000/generate"
     payload = {
         "prompt": prompt,
-        "max_new_tokens": max_new_tokens, # can change to random between 800 - 1000 if needed
+        "max_new_tokens": max_new_tokens,
         "temperature": temperature,
         "top_p": top_p
     }
