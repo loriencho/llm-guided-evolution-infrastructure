@@ -31,6 +31,7 @@ PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/**/*.txt"
 # TODO: Adding this here, I think it's supposed to parse from the command line
 OUTPUT_DIR = "titanic_test"
 PORT=8137
+LLM_MAX_NEW_TOKENS = int(os.getenv("LLM_MAX_NEW_TOKENS", "3000"))
 
 CLUSTER = "pace-ice"
 LLM_MODEL = 'llama3.3'
