@@ -1,0 +1,15 @@
+This block is part of a surrogate-assisted NAS pipeline where fitness rewards better ranking but penalizes wasted runtime. Make a mutation that improves the runtime-to-quality tradeoff without damaging compatibility.
+
+Strategy for this mutation:
+- Remove redundant computation, repeated dictionary updates, unnecessary printing, or heavyweight defaults if present.
+- Prefer deterministic, low-risk changes that keep the same public behavior but reduce overhead during many evolutionary evaluations.
+- For model hyperparameters, choose compact settings that still preserve ranking quality.
+- Do not remove useful architecture information, do not change class/function names, and do not alter expected return structures.
+- The output must import cleanly as a replacement for the current block.
+
+Return the full modified code block in one Python Markdown code fence.
+
+The current code block:
+```python
+{}
+```

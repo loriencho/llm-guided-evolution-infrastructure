@@ -1,0 +1,15 @@
+You are mutating a NAS surrogate configuration/code block. The current pipeline uses frozen code embeddings of architecture representations, optionally with PCA, then trains a predictor to guide BANANAS-style search. Create a conservative but meaningful edit that improves how the predictor uses embeddings.
+
+Strategy for this mutation:
+- Prefer changes that make embedding usage more robust: PCA dimension choices, normalization-friendly settings, smaller overfitting surface, and stable defaults.
+- If this block controls configuration, consider enabling PCA or adjusting pca_components only when it plausibly improves sample efficiency.
+- If this block builds kwargs, make the config path explicit and robust without changing the external interface.
+- The goal is not to invent a new architecture; the goal is to improve surrogate signal quality from frozen embeddings.
+- Keep the code compatible with existing evaluation scripts and NASLib predictor constructors.
+
+Return the full modified code block in one Markdown Python block.
+
+The current code block:
+```python
+{}
+```

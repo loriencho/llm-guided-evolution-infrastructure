@@ -1,0 +1,15 @@
+Improve this code block by making the surrogate selection more robust across search conditions. The pipeline can use tree-based and MLP-based predictors, and the best choice may depend on data size, embedding dimensionality, and runtime budget.
+
+Strategy for this mutation:
+- If the block contains configuration or registry logic, add a safe way to support stronger predictor selection without breaking current names.
+- Prefer simple adaptive defaults: tree-based models for low-data reliability, MLP only when enough data/epochs/settings make it reasonable.
+- Avoid large rewrites, new external dependencies, or changes that require modifying evaluation scripts.
+- Preserve the current interface used by get_surrogate_config(), build_predictor_kwargs(), CustomXGBoost, CustomMLP, and SURROGATE_REGISTRY.
+- Make the mutation deterministic and easy for the evaluator to import.
+
+Return the full modified code block only.
+
+The current code block:
+```python
+{}
+```
