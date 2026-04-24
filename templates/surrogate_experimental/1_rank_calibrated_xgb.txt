@@ -1,0 +1,15 @@
+You are improving one block of a NAS surrogate model used inside an LLM-guided evolutionary search pipeline. The evaluator rewards high architecture ranking quality, low error, and reasonable runtime. Make a targeted code mutation that improves the surrogate's ability to rank architectures, especially near the top of the candidate pool where search decisions matter most.
+
+Strategy for this mutation:
+- Prefer rank-aware changes over plain regression-only changes.
+- If the block contains XGBoost configuration or predictor kwargs, tune it toward stable ranking under small data: conservative depth, enough estimators, subsampling, regularization, and deterministic settings.
+- If the block contains model configuration, add or adjust hyperparameters that reduce overfitting and improve ordering quality.
+- If the block contains helper code, make it safer, deterministic, and compatible with NASLib.
+- Preserve public function names, class names, return types, tensor shapes, and expected imports.
+
+Do not rewrite unrelated parts of the system. Return the full modified code block only.
+
+The current code block:
+```python
+{}
+```
