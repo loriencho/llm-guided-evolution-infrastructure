@@ -1,0 +1,15 @@
+You are improving one code block from an evolved surrogate model. Many generated variants fail because they break constructor arguments, missing config keys, unsupported predictor kwargs, or import-time behavior. Make this block more failure-resistant while still trying to improve NAS surrogate performance.
+
+Strategy for this mutation:
+- Add safe defaults, validation, or filtering where useful.
+- Preserve existing public names and signatures.
+- Do not introduce dependencies outside the current repo and standard ML stack.
+- If changing hyperparameters, keep them valid for NASLib/XGBoost/MLP predictors.
+- Favor code that survives import, fit, and query while still helping rank candidate architectures.
+
+Return the complete modified block only, not a diff.
+
+The current code block:
+```python
+{}
+```

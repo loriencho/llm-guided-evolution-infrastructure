@@ -1,0 +1,15 @@
+This surrogate is used to select a small set of promising architectures from a much larger candidate pool. Improve this code block with top-k selection quality as the main goal, not average-case prediction alone.
+
+Strategy for this mutation:
+- Prefer changes that help separate the strongest candidates from mediocre ones.
+- Encourage stable predictions and lower variance across seeds.
+- If editing tree/model hyperparameters, use regularization and subsampling choices that improve generalization rather than memorization.
+- If editing representation/config logic, preserve architecture semantics and avoid token bloat.
+- Keep the mutation small enough that LLM-GE can evaluate it quickly and combine it with future mutations.
+
+Return only the full modified code block in Markdown Python format.
+
+The current code block:
+```python
+{}
+```
