@@ -12,7 +12,7 @@ DATA_PATH = SOTA_ROOT
 # Path to local LLM model path used by server.py for LLM operations
 MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/"
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
-TRAIN_FILE = os.path.join(SOTA_ROOT, "run_nb201_comparison.py")
+TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py")
 SURROGATE_CORPUS_PATH = "/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv"
 SURROGATE_RUN_DIR = os.path.join(SOTA_ROOT, "run_nb201")
 SURROGATE_RESULTS_DIR = os.path.join(SOTA_ROOT, "results")
