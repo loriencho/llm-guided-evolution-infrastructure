@@ -252,6 +252,7 @@ def wait_for_llm_server(timeout=3600, check_interval=10):
             try:
                 with open(HOSTNAME_DIR, 'r') as file:
                     hostname = file.readline().strip()
+                    print(f"LLM Server Hostname: {hostname}")
             except OSError as err:
                 last_error = err
 
@@ -1039,8 +1040,13 @@ if __name__ == "__main__":
     if AVAILABLE_LLM_MODELS and (not llm_model or llm_model not in AVAILABLE_LLM_MODELS):
         print("Error in Island Generation: No LLM specified. Exiting script")
         exit(1)
+    population_data, start_gen, global_data = None, None, None
 
-    population_data, start_gen, global_data = load_checkpoint(folder_name=args.checkpoints, global_path=args.global_path)
+    try:
+        population_data, start_gen, global_data = load_checkpoint(folder_name=args.checkpoints, global_path=args.global_path)
+    except Exception as e:
+        print(f"No previous checkpoint provided, starting from beginning")
+    
     if population_data:
         box_print("CHECKPOINT LOADED")
         GLOBAL_DATA = global_data["GLOBAL_DATA"]
