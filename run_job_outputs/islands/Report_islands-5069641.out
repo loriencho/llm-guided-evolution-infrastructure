@@ -1,0 +1,349 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-25-2026 20:25:51
+Job ID:    5069641
+User ID:   rliu437
+Account:   coc
+Job name:  IslandsController
+Partition: coe-gpu
+QOS:       coe-ice
+---------------------------------------
+launching AIsurBL
+Started on atl1-1-03-014-23-0.pace.gatech.edu
+
+⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣶⣶⠶⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣀⣹⣟⣛⣛⣻⣿⣿⣿⡾⠟⢉⣴⠟⢁⣴⠋⣹⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠈⠛⠛⣿⠉⢉⣩⠵⠚⠁⢀⡴⠛⠁⣠⠞⠁⣰⠏⠸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢻⣷⠋⠁⠀⢀⡴⠋⠀⢀⡴⠋⠀⣼⠃⠀⡼⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢻⣆⣠⡴⠋⠀⠀⣠⠟⠀⢀⡾⠁⠀⡼⠁⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠻⣯⡀⠀⢀⡼⠃⠀⢠⡟⠀⢀⡾⠁⢀⣾⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⠻⣶⣟⡀⠀⣰⠏⠀⢀⡾⠁⠀⣼⢹⣿⣀⣤⣤⣴⠶⢿⡿⠛⢛⣷⢶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠿⠶⠶⠾⠷⠶⠿⠛⢻⣟⠉⣥⠟⠁⣠⠟⠀⢠⠞⠁⣄⡿⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠞⠁⢀⡴⠋⠀⣴⠋⠀⣰⠟⠀⣤⡾⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡄⢠⠞⠁⢀⡾⠁⢀⡼⠃⢀⡴⠋⠀⢸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣷⠋⠀⣰⠏⠀⣠⠟⠀⣰⠟⠁⢀⡴⠛⣿⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣧⡼⠃⢀⡼⠋⢠⡞⠁⣠⣞⣋⣤⣶⣿⡟⠛⣿⠛⠛⣻⠟⠷⢶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣦⣾⣤⣴⣯⡶⠾⠟⠛⠉⠉⠉⣿⡇⢠⡏⠀⣰⠏⠀⢀⣼⠋⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⡾⠀⢰⠏⠀⢠⡞⠁⠀⣠⠞⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⠇⢠⠏⠀⣰⠋⠀⣠⠞⠁⠀⢀⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⢠⠟⢀⡼⠁⣠⠞⠁⣀⣴⢾⣿⣤⣿⣦⣄⣀⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡟⣠⠏⣠⠞⣁⣴⣾⣿⣿⣿⣿⣿⣿⡏⢹⡏⠛⠳⣦⣄⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢷⣾⣷⠿⠿⠛⠉⠀⠀⠈⠳⣬⣿⡟⣾⠁⠀⣼⠃⠉⠻⠆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣧⡏⠀⣼⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠁⡼⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣟⡼⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⣃⠀⠀
+
+ISLAND llm_model:  llama3
+Prompt glob: templates/titanic/general/**/*.txt
+Path does not exist, returning none for checkpoints
+
+**************************************************************************************************************
+*                                     CREATING POPULATION FROM SEED CODE                                     *
+**************************************************************************************************************
+
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+	‣ Waiting for LLM server readiness (0s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (10s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (20s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (30s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (40s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (50s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (60s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (70s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (80s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (90s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (100s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (110s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (120s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (130s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (140s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (150s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (160s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (170s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (180s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (190s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (200s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (210s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (220s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (230s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (240s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (250s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (260s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (270s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (280s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (290s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (300s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (310s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (320s/3600s). Host file: /storage/ice1/6/6/rliu437/llm-guided-evolution-infrastructure/hostname.log
+	☑ LLM server is ready at http://atl1-1-03-014-9-0.pace.gatech.edu:8137/
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxVzyNNbxH0NBoQr0w0j0EIq5a.sh
+	‣ Output: Submitted batch job 5069709
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxznhUNITorjVBbvyL1vIroQCj.sh
+	‣ Output: Submitted batch job 5069711
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxqqVz36qhgvboltiIiqmBL5Xg.sh
+	‣ Output: Submitted batch job 5069714
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxBMnIhIXkB1ytB62Q3KhLM7QH.sh
+	‣ Output: Submitted batch job 5069717
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxgTiaHEdvCvi8QQbt5Ap6ylOm.sh
+	‣ Output: Submitted batch job 5069720
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxnp0kM2bTNtzMMmyKdGpVEogk.sh
+	‣ Output: Submitted batch job 5069723
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxJXMYCOJZJOop5rm0ewp6hB6d.sh
+	‣ Output: Submitted batch job 5069726
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxBewEamaYSYfrZGYngGcTZevL.sh
+	‣ Output: Submitted batch job 5069729
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxjUbR3COidpGXEErvMmuKbEi1.sh
+	‣ Output: Submitted batch job 5069732
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxzHtG3sTxkuep3QafZm7oPB2W.sh
+	‣ Output: Submitted batch job 5069735
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx5EI7nN7x4IFBRyYn0Wng6fIv.sh
+	‣ Output: Submitted batch job 5069738
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxzUNO2Ym2cGqyTHgQwkyMlsqL.sh
+	‣ Output: Submitted batch job 5069741
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxOIw8uSv1PpURdoDBVkzDvGhl.sh
+	‣ Output: Submitted batch job 5069744
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx129YQDcXbBuetoaeOfH9q6MJ.sh
+	‣ Output: Submitted batch job 5069747
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxjOFzO75Lu6wszzJ2GVMacWDj.sh
+	‣ Output: Submitted batch job 5069750
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxoK2LaNDnpTPLGeQR3pU29AcG.sh
+	‣ Output: Submitted batch job 5069753
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxPETSxQmsDcKPFAvHVJ3BFxk3.sh
+	‣ Output: Submitted batch job 5069756
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxZALd1APSqkcEzbFXFJjse9tw.sh
+	‣ Output: Submitted batch job 5069759
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxkAOrTo7wqShMz3YtBmxNBhe5.sh
+	‣ Output: Submitted batch job 5069762
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxUl5zEql8V2LV8pGQuf1L5rzu.sh
+	‣ Output: Submitted batch job 5069765
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx0IDgEbHcxGAWHtZwy9LrDSa1.sh
+	‣ Output: Submitted batch job 5069768
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxVT3E8dmQCVpQvKTaow9LaMSH.sh
+	‣ Output: Submitted batch job 5069771
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxJnwrW8fHUq3TLB9rtNck6A5U.sh
+	‣ Output: Submitted batch job 5069774
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx1gKDGS458cNToe7a5D8J7rUB.sh
+	‣ Output: Submitted batch job 5069777
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxMjUpCMYzqlIvyVxcM7h248me.sh
+	‣ Output: Submitted batch job 5069780
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxDfhqlDuHAdOsBvYbvH1APENb.sh
+	‣ Output: Submitted batch job 5069783
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxP5brpb27ftJYi9juAGyR36yo.sh
+	‣ Output: Submitted batch job 5069786
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx4gydmvClz4ltWXc39U5BSaTy.sh
+	‣ Output: Submitted batch job 5069789
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxdwNI9tgT2MBgYy0wElUW9x89.sh
+	‣ Output: Submitted batch job 5069792
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxCqBTNpyuOGmp29HLyQafdf1h.sh
+	‣ Output: Submitted batch job 5069795
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx8NmV7QGyEI5fJg30kZda79qH.sh
+	‣ Output: Submitted batch job 5069798
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxfUnCJzZgZRLDBDDmydbWYosR.sh
+	‣ Output: Submitted batch job 5069801
+
+************************************************************
+*               Batch Checking Created Genes               *
+************************************************************
+Checking for Job Completion: 5069709 for xXxVzyNNbxH0NBoQr0w0j0EIq5a
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 60s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 120s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 180s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 240s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 300s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 360s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 420s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 480s Path: run_job_outputs/evolution/slurm-5069709.out
+	‣ Waiting on check4job_completion LLM job: 5069709 Time: 540s Path: run_job_outputs/evolution/slurm-5069709.out
