@@ -21,7 +21,7 @@ echo "SURROGATE: $SURROGATE"
 echo "TRIALS: $TRIALS"
 
 # Build the Python command
-PYTHON_CMD="python -u run_nb201_comparison.py --seed $SEED --surrogate $SURROGATE --trials $TRIALS"
+PYTHON_CMD="python -u eval.py --seed $SEED --surrogate $SURROGATE --trials $TRIALS"
 
 # Add --run_baselines flag if true
 if [ "$RUN_BASELINES" = "true" ]; then

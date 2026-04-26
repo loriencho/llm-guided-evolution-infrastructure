@@ -1,0 +1,302 @@
+[
+  {
+    "op_indices": null,
+    "generation": 50,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.78000004882813
+  },
+  {
+    "op_indices": null,
+    "generation": 51,
+    "predicted_accuracy": null,
+    "true_accuracy": 65.39999997558594
+  },
+  {
+    "op_indices": null,
+    "generation": 52,
+    "predicted_accuracy": null,
+    "true_accuracy": 63.78000006103515
+  },
+  {
+    "op_indices": null,
+    "generation": 53,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.76000004882812
+  },
+  {
+    "op_indices": null,
+    "generation": 54,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.73999992675782
+  },
+  {
+    "op_indices": null,
+    "generation": 55,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.73999987792969
+  },
+  {
+    "op_indices": null,
+    "generation": 56,
+    "predicted_accuracy": null,
+    "true_accuracy": 71.27999986572266
+  },
+  {
+    "op_indices": null,
+    "generation": 57,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.08000006103515
+  },
+  {
+    "op_indices": null,
+    "generation": 58,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.64000002441406
+  },
+  {
+    "op_indices": null,
+    "generation": 59,
+    "predicted_accuracy": null,
+    "true_accuracy": 63.859999865722656
+  },
+  {
+    "op_indices": null,
+    "generation": 60,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.55999992675781
+  },
+  {
+    "op_indices": null,
+    "generation": 61,
+    "predicted_accuracy": null,
+    "true_accuracy": 68.0400000366211
+  },
+  {
+    "op_indices": null,
+    "generation": 62,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.3199999633789
+  },
+  {
+    "op_indices": null,
+    "generation": 63,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.88000001220703
+  },
+  {
+    "op_indices": null,
+    "generation": 64,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.45999998779297
+  },
+  {
+    "op_indices": null,
+    "generation": 65,
+    "predicted_accuracy": null,
+    "true_accuracy": 64.28000002441406
+  },
+  {
+    "op_indices": null,
+    "generation": 66,
+    "predicted_accuracy": null,
+    "true_accuracy": 68.69999997558594
+  },
+  {
+    "op_indices": null,
+    "generation": 67,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.95999989013671
+  },
+  {
+    "op_indices": null,
+    "generation": 68,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.97999989013672
+  },
+  {
+    "op_indices": null,
+    "generation": 69,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.59999989013671
+  },
+  {
+    "op_indices": null,
+    "generation": 70,
+    "predicted_accuracy": null,
+    "true_accuracy": 68.73999992675782
+  },
+  {
+    "op_indices": null,
+    "generation": 71,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.77999997558594
+  },
+  {
+    "op_indices": null,
+    "generation": 72,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.88
+  },
+  {
+    "op_indices": null,
+    "generation": 73,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.91999995117187
+  },
+  {
+    "op_indices": null,
+    "generation": 74,
+    "predicted_accuracy": null,
+    "true_accuracy": 65.03999999389649
+  },
+  {
+    "op_indices": null,
+    "generation": 75,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.91999992675781
+  },
+  {
+    "op_indices": null,
+    "generation": 76,
+    "predicted_accuracy": null,
+    "true_accuracy": 68.6999999633789
+  },
+  {
+    "op_indices": null,
+    "generation": 77,
+    "predicted_accuracy": null,
+    "true_accuracy": 53.58000002441406
+  },
+  {
+    "op_indices": null,
+    "generation": 78,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.61999993896484
+  },
+  {
+    "op_indices": null,
+    "generation": 79,
+    "predicted_accuracy": null,
+    "true_accuracy": 68.45999987792969
+  },
+  {
+    "op_indices": null,
+    "generation": 80,
+    "predicted_accuracy": null,
+    "true_accuracy": 65.09999992675782
+  },
+  {
+    "op_indices": null,
+    "generation": 81,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.29999998779297
+  },
+  {
+    "op_indices": null,
+    "generation": 82,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.5799998779297
+  },
+  {
+    "op_indices": null,
+    "generation": 83,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.01999998779297
+  },
+  {
+    "op_indices": null,
+    "generation": 84,
+    "predicted_accuracy": null,
+    "true_accuracy": 66.13999996337891
+  },
+  {
+    "op_indices": null,
+    "generation": 85,
+    "predicted_accuracy": null,
+    "true_accuracy": 67.60000002441406
+  },
+  {
+    "op_indices": null,
+    "generation": 86,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.31999987792969
+  },
+  {
+    "op_indices": null,
+    "generation": 87,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.80000001220704
+  },
+  {
+    "op_indices": null,
+    "generation": 88,
+    "predicted_accuracy": null,
+    "true_accuracy": 67.35999999389648
+  },
+  {
+    "op_indices": null,
+    "generation": 89,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.1599999267578
+  },
+  {
+    "op_indices": null,
+    "generation": 90,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.25999991455078
+  },
+  {
+    "op_indices": null,
+    "generation": 91,
+    "predicted_accuracy": null,
+    "true_accuracy": 71.23999997558593
+  },
+  {
+    "op_indices": null,
+    "generation": 92,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.29999995117187
+  },
+  {
+    "op_indices": null,
+    "generation": 93,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.09999991455078
+  },
+  {
+    "op_indices": null,
+    "generation": 94,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.80000001220704
+  },
+  {
+    "op_indices": null,
+    "generation": 95,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.57999990234374
+  },
+  {
+    "op_indices": null,
+    "generation": 96,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.89999992675781
+  },
+  {
+    "op_indices": null,
+    "generation": 97,
+    "predicted_accuracy": null,
+    "true_accuracy": 69.9799999633789
+  },
+  {
+    "op_indices": null,
+    "generation": 98,
+    "predicted_accuracy": null,
+    "true_accuracy": 70.15999993896484
+  },
+  {
+    "op_indices": null,
+    "generation": 99,
+    "predicted_accuracy": null,
+    "true_accuracy": 72.20000001220703
+  }
+]
