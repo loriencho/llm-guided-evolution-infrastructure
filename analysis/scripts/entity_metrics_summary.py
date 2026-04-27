@@ -185,9 +185,9 @@ def write_markdown_report(path: Path, rows: list[dict]) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Build an entity-level summary and Markdown report from run_metrics.csv")
-    parser.add_argument("--input", default="results/analysis/run_metrics.csv")
-    parser.add_argument("--output", default="results/analysis/entity_metrics_summary.csv")
-    parser.add_argument("--report-output", default="results/analysis/entity_metrics_report.md")
+    parser.add_argument("--input", default="analysis/results/analysis/run_metrics.csv")
+    parser.add_argument("--output", default="analysis/results/analysis/entity_metrics_summary.csv")
+    parser.add_argument("--report-output", default="analysis/results/analysis/entity_metrics_report.md")
     args = parser.parse_args()
 
     input_file = Path(args.input)

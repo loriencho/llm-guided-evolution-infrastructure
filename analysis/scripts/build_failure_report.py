@@ -142,9 +142,9 @@ def write_markdown_report(path: Path, rows: list[dict]) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Build a failure report from slurm_summary.csv")
-    parser.add_argument("--input", default="results/analysis/slurm_summary.csv")
-    parser.add_argument("--counts-output", default="results/analysis/failure_counts.csv")
-    parser.add_argument("--report-output", default="results/analysis/failure_report.md")
+    parser.add_argument("--input", default="analysis/results/analysis/slurm_summary.csv")
+    parser.add_argument("--counts-output", default="analysis/results/analysis/failure_counts.csv")
+    parser.add_argument("--report-output", default="analysis/results/analysis/failure_report.md")
     args = parser.parse_args()
 
     input_file = Path(args.input)
