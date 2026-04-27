@@ -1,0 +1,40 @@
+You are improving a Python solver for the AtCoder Heuristic Contest problem AHC020 (Broadcasting). The full problem statement follows.
+
+---
+AHC020 — Broadcasting
+
+You are given a weighted planar undirected graph G with N vertices and M edges. Vertex i is at coordinates (x_i, y_i), and edge j connects vertices u_j and v_j with weight w_j. You are also given coordinates of K residents; resident k is at (a_k, b_k). Vertex 1 (the AtCoder office) is at (0, 0).
+
+For each edge, set its power to ON or OFF. For each vertex i, set an integer output strength P_i with 0 <= P_i <= 5000.
+
+Let E' be the set of ON edges and G' the subgraph induced by them. Let V' be the connected component of vertex 1 in G'. For every i in V', any resident inside the closed disk of radius P_i around (x_i, y_i) receives the broadcast.
+
+Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{j in E'} w_j.
+
+Constraints: N = 100, 100 <= M <= 300, 2000 <= K <= 5000, |coords| <= 10000, every resident is within Euclidean 5000 of at least one station.
+
+Input format (stdin):
+N M K
+x_1 y_1
+...
+x_N y_N
+u_1 v_1 w_1
+...
+u_M v_M w_M
+a_1 b_1
+...
+a_K b_K
+
+Output format (stdout):
+P_1 ... P_N
+B_1 ... B_M
+
+Fitness is the pair (S_total, T_total) summed over a fixed set of test instances, with both objectives minimized. If a solution fails to cover all K residents on an instance, a large coverage penalty dominates the score, so always make sure your output is valid AND covers everyone. Faster solutions and lower-cost solutions can both be Pareto-optimal — focus on improving solution quality (lowering S) without blowing up runtime.
+---
+
+Improve the following Python solver to substantially lower the per-instance score S while keeping the output valid (all residents covered, output format correct). Replace or upgrade the algorithm — for example, prune redundant ON edges with an MST/Steiner-style step, choose P_i values more carefully so each station's disk is shared across many residents, or both. Adding helper functions is encouraged.
+
+The current code block:
+```python
+{}
+```

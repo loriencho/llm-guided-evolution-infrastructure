@@ -1,0 +1,6 @@
+Replace the algorithm in this AHC020 solver with a stronger one. Promising directions: (a) Steiner-tree / MST relaxation over the set of active stations to choose ON edges; (b) set-cover-style greedy where each station's radius is chosen jointly with which residents it serves; (c) iterative pruning of expensive ON edges with re-computation of P_i on the remaining component. Adding helper functions and using heapq, scipy.spatial, or numpy is encouraged.
+
+The current code block:
+```python
+{}
+```

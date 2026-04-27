@@ -1,0 +1,6 @@
+Modify this AHC020 solver to make a meaningful jump along the (S_total, T_total) Pareto front. Try a warm-started bounded local search: a fast greedy assignment to start, then a strict-budget improvement loop (simulated annealing / hill-climbing). Enforce the wall-clock budget so the solver never exceeds it.
+
+The current code block:
+```python
+{}
+```

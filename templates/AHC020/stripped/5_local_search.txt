@@ -1,0 +1,6 @@
+Add a local-search improvement phase to this AHC020 solver that uses the current output as an initial feasible solution. Useful moves: (1) shrink P_i to the smallest radius that still covers its currently assigned residents; (2) toggle a single edge OFF and check feasibility; (3) reassign a resident from a high-P station to a slack neighbor. Use a strict wall-clock budget per instance and accept moves only if they strictly decrease S without losing coverage.
+
+The current code block:
+```python
+{}
+```

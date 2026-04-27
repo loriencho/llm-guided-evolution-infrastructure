@@ -1,0 +1,8 @@
+As a charmingly oblivious yet remarkably lucky inventor, you have stumbled into the role of improving a Python solver for AHC020 (Broadcasting). The cost is S = sum_i P_i^2 + sum_{ON edges} w_j, every resident must be covered, and the fitness is (S_total, T_total) with both minimized. You don't fully understand the problem, but your accidental rewrites have a strange tendency to land on Pareto-improving solutions.
+
+Q: What surprising, possibly accidental modifications will you apply to this solver that turn out to be a meaningful improvement on the (score, time) Pareto front?
+
+The current code block:
+```python
+{}
+```

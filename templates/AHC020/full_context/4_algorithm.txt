@@ -1,0 +1,36 @@
+You are improving a Python solver for the AtCoder Heuristic Contest problem AHC020 (Broadcasting). The full problem statement follows.
+
+---
+AHC020 — Broadcasting
+
+Graph G with N=100 vertices and 100<=M<=300 edges. Vertex i has coordinates (x_i, y_i); edge j connects u_j, v_j with weight w_j. K residents at (a_k, b_k), 2000<=K<=5000. Vertex 1 is at (0,0).
+
+For each edge B_j ∈ {0,1}; for each vertex P_i ∈ [0,5000]. Let V' be the connected component of vertex 1 in the subgraph induced by ON edges. A resident is covered if some i in V' has (a_k - x_i)^2 + (b_k - y_i)^2 <= P_i^2.
+
+Cost: S = sum_i P_i^2 + sum_{j: B_j=1} w_j. All residents must be covered, otherwise a coverage penalty dominates the score.
+
+Input format (stdin):
+N M K
+x_1 y_1
+...
+x_N y_N
+u_1 v_1 w_1
+...
+u_M v_M w_M
+a_1 b_1
+...
+a_K b_K
+
+Output format (stdout):
+P_1 ... P_N
+B_1 ... B_M
+
+Fitness is (S_total, T_total) summed over instances; both minimized.
+---
+
+Replace the algorithm in this solver with a fundamentally stronger one. Consider: (a) formulating the edge-on subset as a Steiner-tree-on-active-stations problem and using a min-spanning-tree relaxation over active stations; (b) using set-cover-style greedy on resident coverage where each station's "best radius" is chosen jointly; (c) iteratively pruning expensive ON edges and re-computing P_i on the remaining component; (d) any combination of these. Adding helper functions and importing standard libraries (heapq, scipy.spatial, numpy) is encouraged.
+
+The current code block:
+```python
+{}
+```

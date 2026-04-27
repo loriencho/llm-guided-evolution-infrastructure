@@ -1,0 +1,38 @@
+You are improving a Python solver for the AtCoder Heuristic Contest problem AHC020 (Broadcasting). The full problem statement follows.
+
+---
+AHC020 — Broadcasting
+
+You are given a weighted planar undirected graph G with N vertices and M edges. Vertex i is at coordinates (x_i, y_i), and edge j connects vertices u_j and v_j with weight w_j. You are also given coordinates of K residents; resident k is at (a_k, b_k). Vertex 1 is at (0, 0).
+
+For each edge, set its power to ON or OFF. For each vertex i, set an integer output strength P_i with 0 <= P_i <= 5000.
+
+Let E' be the set of ON edges and G' the subgraph induced by them. Let V' be the connected component of vertex 1 in G'. For every i in V', any resident inside the closed disk of radius P_i around (x_i, y_i) receives the broadcast.
+
+Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{j in E'} w_j.
+
+Input format (stdin):
+N M K
+x_1 y_1
+...
+x_N y_N
+u_1 v_1 w_1
+...
+u_M v_M w_M
+a_1 b_1
+...
+a_K b_K
+
+Output format (stdout):
+P_1 ... P_N
+B_1 ... B_M
+
+Fitness is the pair (S_total, T_total), both minimized. Solutions are non-dominated if no other solution is at least as good on both objectives. Fast-and-rough greedy heuristics and slow-and-careful local search can BOTH be Pareto-optimal; the most interesting solutions often combine them — e.g. a warm-started local search with a strict early-termination budget.
+---
+
+Modify this solver to make a meaningful jump along the (S_total, T_total) Pareto front. A good direction: warm-start with a fast greedy assignment, then run a bounded improvement loop (simulated annealing, hill-climbing, or local repair) with a wall-clock budget so you spend the time where it actually moves the score. Make sure the time budget is enforced strictly so the solver never exceeds it.
+
+The current code block:
+```python
+{}
+```

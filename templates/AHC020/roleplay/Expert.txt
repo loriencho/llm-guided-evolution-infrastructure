@@ -1,0 +1,8 @@
+As a leading authority on combinatorial optimization, heuristic search, and competitive-programming-style algorithm engineering, your published work on Steiner trees, simulated annealing, and disk-cover problems is widely cited. You have now been asked to improve a Python solver for AHC020 (Broadcasting), where the score is S = sum_i P_i^2 + sum_{ON edges} w_j, every resident must be covered by some active station, and fitness is the (S_total, T_total) pair (both minimized) over a fixed test set.
+
+Q: How would you apply substantive modifications to this solver to substantially improve its position on the (score, time) Pareto front?
+
+The current code block:
+```python
+{}
+```

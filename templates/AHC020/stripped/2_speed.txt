@@ -1,0 +1,6 @@
+Reduce the runtime of this AHC020 broadcasting solver without regressing solution quality (or with only a small score regression in exchange for a much faster runtime). Hotspots to consider: nearest-station lookups (KD-tree, grid bucketing, vectorized numpy), Python overhead in tight loops, and redundant recomputation. Output must remain valid (every resident covered).
+
+The current code block:
+```python
+{}
+```
