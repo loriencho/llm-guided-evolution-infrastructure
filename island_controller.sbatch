@@ -6,7 +6,6 @@
 #SBATCH --output=run_job_outputs/islands/Report_islands-%j.out
 #SBATCH --gres=gpu:1
 #SBATCH -C intel
-#SBATCH -G 1
 # Island controller arguments:
 # $1 (COUNT): Number of remaining restart iterations
 # $2 (PREV_SERVER_JOB_ID): Job ID of the currently-running server (to cancel)

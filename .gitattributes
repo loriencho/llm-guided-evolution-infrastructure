@@ -1,8 +1,0 @@
-sota/Surrogate/naslib/data/nb201_cifar100_full_training.pickle filter=lfs diff=lfs merge=lfs -text
-sota/Surrogate/naslib/data/nb201_cifar10_full_training.pickle filter=lfs diff=lfs merge=lfs -text
-sota/Surrogate/naslib/data/nb201_ImageNet16_full_training.pickle filter=lfs diff=lfs merge=lfs -text
-sota/Surrogate/naslib/data/nb301_full_training.pickle filter=lfs diff=lfs merge=lfs -text
-sota/Surrogate/naslib/data/nb_nlp.pickle filter=lfs diff=lfs merge=lfs -text
-sota/Surrogate/naslib/data/nbnlp_v01.zip filter=lfs diff=lfs merge=lfs -text
-sota/Surrogate/naslib/data/nasbench_only108.pkl filter=lfs diff=lfs merge=lfs -text
-sota/Surrogate/naslib/data/nb201_all.pickle filter=lfs diff=lfs merge=lfs -text

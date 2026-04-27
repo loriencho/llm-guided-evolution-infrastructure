@@ -3,7 +3,6 @@
 #SBATCH -t 8:00:00
 #SBATCH --mem 16G
 #SBATCH -c 4
-#SBATCH -G 1
 #SBATCH -N 1
 #SBATCH --output=run_job_outputs/islands/slurm-%j.out
 

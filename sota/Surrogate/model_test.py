@@ -1,11 +1,11 @@
-# --OPTION--
-# MLP model
 import time
 
 from naslib.predictors.mlp import MLPPredictor
+from naslib.predictors.trees.xgb import XGBoost
+
 
 DEFAULT_SURROGATE_CONFIG = {
-    "name": "mlp",
+    "name": "xgboost",
     "embedding_col": "codellama_python_7b_pytorch_code_exclude_helper_embedding",
     "use_pca": False,
     "pca_components": 128,
@@ -22,12 +22,13 @@ DEFAULT_SURROGATE_CONFIG = {
     "loss": "mse",
 }
 
+
 def get_surrogate_config(base_cfg=None, **runtime_constants):
     cfg = DEFAULT_SURROGATE_CONFIG.copy() if base_cfg is None else base_cfg.copy()
     cfg.update({key: value for key, value in runtime_constants.items() if value is not None})
     return cfg
 
-class CustomMLP(MLPPredictor):
+class CustomXGBoost(XGBoost):
     def __init__(self, **kwargs):
         base_valid_args = [
             "encoding_type",
@@ -36,7 +37,6 @@ class CustomMLP(MLPPredictor):
             "zc_only",
             "hpo_wrapper",
             "hparams_from_file",
-            "config",
         ]
         base_args = {k: v for k, v in kwargs.items() if k in base_valid_args}
         self.custom_hyperparams = {k: v for k, v in kwargs.items() if k not in base_valid_args}
@@ -47,7 +47,7 @@ class CustomMLP(MLPPredictor):
             self.hyperparams = self.default_hyperparams.copy()
         self.hyperparams.update(self.custom_hyperparams)
 
-        print(f"[CustomMLP] Hyperparams set: {self.hyperparams}")
+        print(f"[CustomXGBoost] Hyperparams set: {self.hyperparams}")
 
     def fit(self, xtrain, ytrain, train_info=None, params=None, **kwargs):
         start = time.time()
@@ -55,20 +55,16 @@ class CustomMLP(MLPPredictor):
             self.hyperparams = self.default_hyperparams.copy()
         self.hyperparams.update(self.custom_hyperparams)
 
-        result = super().fit(
-            xtrain,
-            ytrain,
-            train_info=train_info,
-            epochs=self.hyperparams["epochs"],
-            loss=self.hyperparams["loss"],
-            **kwargs,
-        )
-        print(f"[CustomMLP] Training completed in {time.time() - start:.2f} seconds.")
+        result = super().fit(xtrain, ytrain, train_info, params, **kwargs)
+
+        print(f"[CustomXGBoost] Training completed in {time.time() - start:.2f} seconds.")
         return result
 
 SURROGATE_REGISTRY = {
-    "mlp": CustomMLP,
+    "xgboost": CustomXGBoost
 }
+
+
 def build_predictor_kwargs(cfg):
     name = cfg["name"]
     if name not in SURROGATE_REGISTRY:
@@ -83,14 +79,27 @@ def build_predictor_kwargs(cfg):
         "use_pca": cfg["use_pca"],
         "pca_components": cfg["pca_components"],
     }
-    predictor_kwargs.update(
-        {
-            "num_layers": cfg["num_layers"],
-            "layer_width": cfg["layer_width"],
-            "batch_size": cfg["batch_size"],
-            "lr": cfg["lr"],
-            "epochs": cfg["epochs"],
-            "loss": cfg["loss"],
-        }
-    )
+
+    if name == "xgboost":
+        predictor_kwargs.update(
+            {
+                "ss_type": cfg["ss_type"],
+                "hparams_from_file": cfg["hparams_from_file"],
+                "nthread": cfg["nthread"],
+                "device": cfg["device"],
+                "tree_method": cfg["tree_method"],
+            }
+        )
+    elif name == "mlp":
+        predictor_kwargs.update(
+            {
+                "num_layers": cfg["num_layers"],
+                "layer_width": cfg["layer_width"],
+                "batch_size": cfg["batch_size"],
+                "lr": cfg["lr"],
+                "epochs": cfg["epochs"],
+                "loss": cfg["loss"],
+            }
+        )
+
     return predictor_kwargs
