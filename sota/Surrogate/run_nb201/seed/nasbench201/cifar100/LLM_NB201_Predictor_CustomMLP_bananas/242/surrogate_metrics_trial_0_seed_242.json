@@ -1,0 +1,33 @@
+{
+  "experiment_id": "LLM_CustomMLP_bananas",
+  "optimizer_type": "bananas",
+  "predictor_class": "LLM_NB201_Predictor",
+  "base_predictor": "CustomMLP",
+  "surrogate_type": "mlp",
+  "uses_llm": true,
+  "dataset": "cifar100",
+  "seed": 242,
+  "trial": 0,
+  "epochs": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "kendall_tau": [
+    0.54945983454024,
+    0.5563991069056814,
+    0.5576844539508671,
+    0.5522613227381655,
+    0.5577070352966604
+  ],
+  "mse": [
+    57.987660738622,
+    58.882038492159104,
+    58.086922781573584,
+    56.83008397258783,
+    58.45739854366994
+  ],
+  "config_str": "LLM_NB201_Predictor_CustomMLP_bananas"
+}

@@ -1,0 +1,83 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-20-2026 23:25:53
+Job ID:    5027467
+User ID:   mgullapalli6
+Account:   math
+Job name:  IslandsController
+Partition: coe-gpu
+QOS:       coe-ice
+---------------------------------------
+launching AIsurBL
+Started on atl1-1-03-015-16-0.pace.gatech.edu
+1 iterations remaining
+Starting era 1
+Generating Island llama3 with prompts titanic/focused
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027472
+Generating Island llama3 with prompts titanic/general
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027473
+Generating Island llama3 with prompts titanic/roleplay
+	‣ Bash Script Saved to src/island_temp_script.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027474
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 60s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 120s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 180s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 240s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 300s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 360s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 420s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 480s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 540s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 600s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 660s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 720s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 780s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 840s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 900s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 960s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1020s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1080s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1140s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1200s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1260s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1320s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1380s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1440s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1500s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1560s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1620s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1680s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1741s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1801s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1861s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1921s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 1981s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2041s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2101s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2161s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2221s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2281s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2341s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2401s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2461s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2521s Path: run_job_outputs/islands/Report_islands-5027472.out
+	‣ Waiting on check4job_completion LLM job: 5027472 Time: 2581s Path: run_job_outputs/islands/Report_islands-5027472.out
+	☠ Error Found in LLM Job Output.
+Error occured in loop, job not done
+Finished evolutionary loop
+---------------------------------------
+Begin Slurm Epilog: Apr-21-2026 00:09:38
+Job ID:        5027467
+User ID:       mgullapalli6
+Account:       math
+Job name:      IslandsController
+Resources:     cpu=16,gres/gpu:h200=1,mem=16G,node=1
+Rsrc Used:     cput=11:40:16,vmem=0,walltime=00:43:46,mem=641104K,energy_used=0
+Partition:     coe-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-03-015-16-0
+---------------------------------------

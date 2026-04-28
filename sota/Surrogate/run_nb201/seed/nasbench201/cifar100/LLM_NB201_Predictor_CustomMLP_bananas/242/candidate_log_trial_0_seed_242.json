@@ -1,0 +1,2562 @@
+[
+  {
+    "generation": 50,
+    "arch_index": 210,
+    "op_indices": [
+      0,
+      2,
+      3,
+      1,
+      0,
+      0
+    ],
+    "predicted_accuracy": 67.11750030517578,
+    "acquisition_value": 67.21466875375478,
+    "selected": false,
+    "true_accuracy": 67.63999986572266
+  },
+  {
+    "generation": 50,
+    "arch_index": 12955,
+    "op_indices": [
+      0,
+      1,
+      3,
+      3,
+      0,
+      4
+    ],
+    "predicted_accuracy": 64.09416961669922,
+    "acquisition_value": 64.1745482218932,
+    "selected": false,
+    "true_accuracy": 66.01999993896484
+  },
+  {
+    "generation": 50,
+    "arch_index": 13030,
+    "op_indices": [
+      0,
+      1,
+      1,
+      4,
+      0,
+      4
+    ],
+    "predicted_accuracy": 48.94755935668945,
+    "acquisition_value": 47.90837791902707,
+    "selected": false,
+    "true_accuracy": 49.45999999389648
+  },
+  {
+    "generation": 50,
+    "arch_index": 9780,
+    "op_indices": [
+      0,
+      1,
+      1,
+      3,
+      0,
+      3
+    ],
+    "predicted_accuracy": 66.26968383789062,
+    "acquisition_value": 66.3302982064995,
+    "selected": false,
+    "true_accuracy": 66.51999986572265
+  },
+  {
+    "generation": 50,
+    "arch_index": 11673,
+    "op_indices": [
+      3,
+      4,
+      1,
+      3,
+      3,
+      3
+    ],
+    "predicted_accuracy": 68.73991394042969,
+    "acquisition_value": 68.92138305196691,
+    "selected": true,
+    "true_accuracy": 63.859999865722656
+  },
+  {
+    "generation": 50,
+    "arch_index": 9920,
+    "op_indices": [
+      0,
+      4,
+      1,
+      4,
+      0,
+      3
+    ],
+    "predicted_accuracy": 55.1733512878418,
+    "acquisition_value": 54.07564879334467,
+    "selected": false,
+    "true_accuracy": 62.560000024414066
+  },
+  {
+    "generation": 50,
+    "arch_index": 4732,
+    "op_indices": [
+      2,
+      1,
+      4,
+      2,
+      2,
+      1
+    ],
+    "predicted_accuracy": 67.71749114990234,
+    "acquisition_value": 67.66055528909193,
+    "selected": false,
+    "true_accuracy": 68.13999996337891
+  },
+  {
+    "generation": 50,
+    "arch_index": 12859,
+    "op_indices": [
+      4,
+      1,
+      4,
+      2,
+      0,
+      4
+    ],
+    "predicted_accuracy": 57.589599609375,
+    "acquisition_value": 57.680770709413835,
+    "selected": false,
+    "true_accuracy": 49.26000000610352
+  },
+  {
+    "generation": 50,
+    "arch_index": 11562,
+    "op_indices": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "predicted_accuracy": 71.81302642822266,
+    "acquisition_value": 72.10879736682726,
+    "selected": true,
+    "true_accuracy": 70.78000004882813
+  },
+  {
+    "generation": 50,
+    "arch_index": 11987,
+    "op_indices": [
+      2,
+      2,
+      4,
+      0,
+      4,
+      3
+    ],
+    "predicted_accuracy": 67.1761703491211,
+    "acquisition_value": 67.00063387324585,
+    "selected": false,
+    "true_accuracy": 67.11999998779297
+  },
+  {
+    "generation": 50,
+    "arch_index": 8141,
+    "op_indices": [
+      1,
+      3,
+      0,
+      0,
+      3,
+      2
+    ],
+    "predicted_accuracy": 66.7923583984375,
+    "acquisition_value": 67.77048230661124,
+    "selected": false,
+    "true_accuracy": 69.83999995117188
+  },
+  {
+    "generation": 50,
+    "arch_index": 6888,
+    "op_indices": [
+      3,
+      2,
+      0,
+      0,
+      1,
+      2
+    ],
+    "predicted_accuracy": 68.97269439697266,
+    "acquisition_value": 68.84618226225592,
+    "selected": false,
+    "true_accuracy": 70.14000006103515
+  },
+  {
+    "generation": 50,
+    "arch_index": 14398,
+    "op_indices": [
+      3,
+      4,
+      0,
+      0,
+      3,
+      4
+    ],
+    "predicted_accuracy": 63.05232620239258,
+    "acquisition_value": 63.257806727516375,
+    "selected": false,
+    "true_accuracy": 61.41999997558594
+  },
+  {
+    "generation": 50,
+    "arch_index": 13853,
+    "op_indices": [
+      3,
+      0,
+      4,
+      0,
+      2,
+      4
+    ],
+    "predicted_accuracy": 62.351131439208984,
+    "acquisition_value": 62.91494269315507,
+    "selected": false,
+    "true_accuracy": 62.13999997558594
+  },
+  {
+    "generation": 50,
+    "arch_index": 11208,
+    "op_indices": [
+      3,
+      1,
+      3,
+      4,
+      2,
+      3
+    ],
+    "predicted_accuracy": 68.97954559326172,
+    "acquisition_value": 69.05991864090272,
+    "selected": true,
+    "true_accuracy": 69.08000006103515
+  },
+  {
+    "generation": 50,
+    "arch_index": 10558,
+    "op_indices": [
+      3,
+      1,
+      2,
+      4,
+      1,
+      3
+    ],
+    "predicted_accuracy": 67.19791412353516,
+    "acquisition_value": 67.1747124833394,
+    "selected": false,
+    "true_accuracy": 67.02000001220703
+  },
+  {
+    "generation": 50,
+    "arch_index": 14893,
+    "op_indices": [
+      3,
+      3,
+      0,
+      4,
+      3,
+      4
+    ],
+    "predicted_accuracy": 64.42679595947266,
+    "acquisition_value": 64.38800264899878,
+    "selected": false,
+    "true_accuracy": 66.67999993896484
+  },
+  {
+    "generation": 50,
+    "arch_index": 8515,
+    "op_indices": [
+      0,
+      3,
+      0,
+      3,
+      3,
+      2
+    ],
+    "predicted_accuracy": 69.9517593383789,
+    "acquisition_value": 70.53095850813294,
+    "selected": true,
+    "true_accuracy": 69.76000004882812
+  },
+  {
+    "generation": 50,
+    "arch_index": 967,
+    "op_indices": [
+      2,
+      3,
+      3,
+      2,
+      1,
+      0
+    ],
+    "predicted_accuracy": 69.81979370117188,
+    "acquisition_value": 69.80943752800553,
+    "selected": true,
+    "true_accuracy": 69.73999987792969
+  },
+  {
+    "generation": 50,
+    "arch_index": 4090,
+    "op_indices": [
+      0,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "predicted_accuracy": 67.43212127685547,
+    "acquisition_value": 66.60878314239194,
+    "selected": false,
+    "true_accuracy": 61.67999995117187
+  },
+  {
+    "generation": 50,
+    "arch_index": 8068,
+    "op_indices": [
+      3,
+      3,
+      2,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 68.75698852539062,
+    "acquisition_value": 69.01836380563289,
+    "selected": true,
+    "true_accuracy": 69.64000002441406
+  },
+  {
+    "generation": 50,
+    "arch_index": 8073,
+    "op_indices": [
+      3,
+      4,
+      2,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 67.18543243408203,
+    "acquisition_value": 67.54470917767821,
+    "selected": false,
+    "true_accuracy": 69.99999990234375
+  },
+  {
+    "generation": 50,
+    "arch_index": 6446,
+    "op_indices": [
+      1,
+      4,
+      2,
+      1,
+      0,
+      2
+    ],
+    "predicted_accuracy": 62.43644332885742,
+    "acquisition_value": 62.682235214703184,
+    "selected": false,
+    "true_accuracy": 67.44000002441406
+  },
+  {
+    "generation": 50,
+    "arch_index": 11821,
+    "op_indices": [
+      1,
+      4,
+      2,
+      4,
+      3,
+      3
+    ],
+    "predicted_accuracy": 62.158451080322266,
+    "acquisition_value": 62.29615046682448,
+    "selected": false,
+    "true_accuracy": 66.83999987792969
+  },
+  {
+    "generation": 50,
+    "arch_index": 6278,
+    "op_indices": [
+      3,
+      0,
+      1,
+      0,
+      0,
+      2
+    ],
+    "predicted_accuracy": 66.02562713623047,
+    "acquisition_value": 65.78673105847373,
+    "selected": false,
+    "true_accuracy": 68.1999999633789
+  },
+  {
+    "generation": 50,
+    "arch_index": 6285,
+    "op_indices": [
+      0,
+      2,
+      1,
+      0,
+      0,
+      2
+    ],
+    "predicted_accuracy": 68.8488540649414,
+    "acquisition_value": 68.83172826709114,
+    "selected": false,
+    "true_accuracy": 69.47999997558594
+  },
+  {
+    "generation": 50,
+    "arch_index": 9308,
+    "op_indices": [
+      3,
+      1,
+      2,
+      4,
+      4,
+      2
+    ],
+    "predicted_accuracy": 66.46868896484375,
+    "acquisition_value": 66.32092910115932,
+    "selected": false,
+    "true_accuracy": 68.04000006103516
+  },
+  {
+    "generation": 50,
+    "arch_index": 9318,
+    "op_indices": [
+      3,
+      3,
+      2,
+      4,
+      4,
+      2
+    ],
+    "predicted_accuracy": 66.533447265625,
+    "acquisition_value": 66.69679526284287,
+    "selected": false,
+    "true_accuracy": 68.73999986572265
+  },
+  {
+    "generation": 50,
+    "arch_index": 4792,
+    "op_indices": [
+      2,
+      3,
+      1,
+      3,
+      2,
+      1
+    ],
+    "predicted_accuracy": 70.7076644897461,
+    "acquisition_value": 70.76367332958456,
+    "selected": true,
+    "true_accuracy": 63.78000006103515
+  },
+  {
+    "generation": 50,
+    "arch_index": 4642,
+    "op_indices": [
+      2,
+      3,
+      0,
+      2,
+      2,
+      1
+    ],
+    "predicted_accuracy": 69.9802017211914,
+    "acquisition_value": 70.20197202201571,
+    "selected": true,
+    "true_accuracy": 70.73999992675782
+  },
+  {
+    "generation": 50,
+    "arch_index": 8007,
+    "op_indices": [
+      2,
+      1,
+      0,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 69.13592529296875,
+    "acquisition_value": 69.12967919573718,
+    "selected": true,
+    "true_accuracy": 71.27999986572266
+  },
+  {
+    "generation": 50,
+    "arch_index": 10657,
+    "op_indices": [
+      2,
+      1,
+      1,
+      0,
+      2,
+      3
+    ],
+    "predicted_accuracy": 70.73969268798828,
+    "acquisition_value": 70.79225362714443,
+    "selected": true,
+    "true_accuracy": 65.39999997558594
+  },
+  {
+    "generation": 60,
+    "arch_index": 11212,
+    "op_indices": [
+      2,
+      2,
+      3,
+      4,
+      2,
+      3
+    ],
+    "predicted_accuracy": 69.86691284179688,
+    "acquisition_value": 69.89887706190488,
+    "selected": true,
+    "true_accuracy": 69.95999989013671
+  },
+  {
+    "generation": 60,
+    "arch_index": 1587,
+    "op_indices": [
+      2,
+      2,
+      3,
+      2,
+      2,
+      0
+    ],
+    "predicted_accuracy": 70.84284973144531,
+    "acquisition_value": 71.09317088363133,
+    "selected": true,
+    "true_accuracy": 70.88000001220703
+  },
+  {
+    "generation": 60,
+    "arch_index": 10932,
+    "op_indices": [
+      2,
+      1,
+      2,
+      2,
+      2,
+      3
+    ],
+    "predicted_accuracy": 72.57288360595703,
+    "acquisition_value": 72.97032708587616,
+    "selected": true,
+    "true_accuracy": 69.55999992675781
+  },
+  {
+    "generation": 60,
+    "arch_index": 10947,
+    "op_indices": [
+      2,
+      4,
+      2,
+      2,
+      2,
+      3
+    ],
+    "predicted_accuracy": 71.5072021484375,
+    "acquisition_value": 70.80475113938418,
+    "selected": true,
+    "true_accuracy": 70.45999998779297
+  },
+  {
+    "generation": 60,
+    "arch_index": 8070,
+    "op_indices": [
+      0,
+      4,
+      2,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 65.6749038696289,
+    "acquisition_value": 65.74955408306991,
+    "selected": false,
+    "true_accuracy": 67.86000001220702
+  },
+  {
+    "generation": 60,
+    "arch_index": 8690,
+    "op_indices": [
+      0,
+      3,
+      2,
+      4,
+      3,
+      2
+    ],
+    "predicted_accuracy": 69.49130249023438,
+    "acquisition_value": 70.13669284497908,
+    "selected": true,
+    "true_accuracy": 68.69999997558594
+  },
+  {
+    "generation": 60,
+    "arch_index": 8692,
+    "op_indices": [
+      2,
+      3,
+      2,
+      4,
+      3,
+      2
+    ],
+    "predicted_accuracy": 70.04460144042969,
+    "acquisition_value": 69.82864635921372,
+    "selected": true,
+    "true_accuracy": 70.97999989013672
+  },
+  {
+    "generation": 60,
+    "arch_index": 6817,
+    "op_indices": [
+      2,
+      3,
+      2,
+      4,
+      0,
+      2
+    ],
+    "predicted_accuracy": 69.03759765625,
+    "acquisition_value": 69.45907557377943,
+    "selected": true,
+    "true_accuracy": 69.59999989013671
+  },
+  {
+    "generation": 60,
+    "arch_index": 13417,
+    "op_indices": [
+      2,
+      3,
+      1,
+      2,
+      1,
+      4
+    ],
+    "predicted_accuracy": 65.67758178710938,
+    "acquisition_value": 65.27613449970896,
+    "selected": false,
+    "true_accuracy": 65.22000001220704
+  },
+  {
+    "generation": 60,
+    "arch_index": 15162,
+    "op_indices": [
+      2,
+      2,
+      1,
+      1,
+      4,
+      4
+    ],
+    "predicted_accuracy": 63.76625061035156,
+    "acquisition_value": 63.29513609144555,
+    "selected": false,
+    "true_accuracy": 61.94000002441406
+  },
+  {
+    "generation": 60,
+    "arch_index": 2594,
+    "op_indices": [
+      4,
+      3,
+      3,
+      0,
+      4,
+      0
+    ],
+    "predicted_accuracy": 60.624996185302734,
+    "acquisition_value": 60.662461619965455,
+    "selected": false,
+    "true_accuracy": 52.759999993896486
+  },
+  {
+    "generation": 60,
+    "arch_index": 2990,
+    "op_indices": [
+      0,
+      3,
+      4,
+      3,
+      4,
+      0
+    ],
+    "predicted_accuracy": 61.3675651550293,
+    "acquisition_value": 62.095134735990705,
+    "selected": false,
+    "true_accuracy": 52.91999997558594
+  },
+  {
+    "generation": 60,
+    "arch_index": 4140,
+    "op_indices": [
+      0,
+      3,
+      0,
+      3,
+      1,
+      1
+    ],
+    "predicted_accuracy": 63.683990478515625,
+    "acquisition_value": 63.7632664248118,
+    "selected": false,
+    "true_accuracy": 59.219999981689455
+  },
+  {
+    "generation": 60,
+    "arch_index": 3771,
+    "op_indices": [
+      1,
+      4,
+      0,
+      0,
+      1,
+      1
+    ],
+    "predicted_accuracy": 47.04848098754883,
+    "acquisition_value": 47.19476081289101,
+    "selected": false,
+    "true_accuracy": 58.19999999389648
+  },
+  {
+    "generation": 60,
+    "arch_index": 5068,
+    "op_indices": [
+      3,
+      3,
+      2,
+      0,
+      3,
+      1
+    ],
+    "predicted_accuracy": 68.32764434814453,
+    "acquisition_value": 68.3598699167314,
+    "selected": false,
+    "true_accuracy": 68.9600000366211
+  },
+  {
+    "generation": 60,
+    "arch_index": 4492,
+    "op_indices": [
+      2,
+      3,
+      4,
+      0,
+      2,
+      1
+    ],
+    "predicted_accuracy": 67.15628814697266,
+    "acquisition_value": 67.13835880195755,
+    "selected": false,
+    "true_accuracy": 68.36000001220702
+  },
+  {
+    "generation": 60,
+    "arch_index": 6302,
+    "op_indices": [
+      2,
+      0,
+      2,
+      0,
+      0,
+      2
+    ],
+    "predicted_accuracy": 71.21749114990234,
+    "acquisition_value": 71.38424617671522,
+    "selected": true,
+    "true_accuracy": 68.0400000366211
+  },
+  {
+    "generation": 60,
+    "arch_index": 3327,
+    "op_indices": [
+      2,
+      0,
+      3,
+      1,
+      0,
+      1
+    ],
+    "predicted_accuracy": 66.67683410644531,
+    "acquisition_value": 66.46677053002901,
+    "selected": false,
+    "true_accuracy": 68.11999993896484
+  },
+  {
+    "generation": 60,
+    "arch_index": 240,
+    "op_indices": [
+      0,
+      3,
+      4,
+      1,
+      0,
+      0
+    ],
+    "predicted_accuracy": 58.08990478515625,
+    "acquisition_value": 57.977342081865686,
+    "selected": false,
+    "true_accuracy": 56.33999998168945
+  },
+  {
+    "generation": 60,
+    "arch_index": 2640,
+    "op_indices": [
+      0,
+      3,
+      0,
+      1,
+      4,
+      0
+    ],
+    "predicted_accuracy": 58.3864631652832,
+    "acquisition_value": 58.09899027194615,
+    "selected": false,
+    "true_accuracy": 54.820000024414064
+  },
+  {
+    "generation": 60,
+    "arch_index": 4907,
+    "op_indices": [
+      2,
+      1,
+      1,
+      4,
+      2,
+      1
+    ],
+    "predicted_accuracy": 65.91231536865234,
+    "acquisition_value": 65.89342197571443,
+    "selected": false,
+    "true_accuracy": 63.69999998168945
+  },
+  {
+    "generation": 60,
+    "arch_index": 7532,
+    "op_indices": [
+      2,
+      1,
+      1,
+      0,
+      2,
+      2
+    ],
+    "predicted_accuracy": 70.79276275634766,
+    "acquisition_value": 70.68530882134385,
+    "selected": true,
+    "true_accuracy": 64.28000002441406
+  },
+  {
+    "generation": 60,
+    "arch_index": 1927,
+    "op_indices": [
+      2,
+      0,
+      2,
+      0,
+      3,
+      0
+    ],
+    "predicted_accuracy": 68.25029754638672,
+    "acquisition_value": 68.45702100683481,
+    "selected": false,
+    "true_accuracy": 69.3199999633789
+  },
+  {
+    "generation": 60,
+    "arch_index": 7552,
+    "op_indices": [
+      2,
+      0,
+      2,
+      0,
+      2,
+      2
+    ],
+    "predicted_accuracy": 71.48535919189453,
+    "acquisition_value": 71.26495538646002,
+    "selected": true,
+    "true_accuracy": 70.3199999633789
+  },
+  {
+    "generation": 60,
+    "arch_index": 9813,
+    "op_indices": [
+      3,
+      2,
+      2,
+      3,
+      0,
+      3
+    ],
+    "predicted_accuracy": 69.37325286865234,
+    "acquisition_value": 69.24477045779474,
+    "selected": false,
+    "true_accuracy": 69.91999991455079
+  },
+  {
+    "generation": 60,
+    "arch_index": 9795,
+    "op_indices": [
+      0,
+      4,
+      1,
+      3,
+      0,
+      3
+    ],
+    "predicted_accuracy": 61.947723388671875,
+    "acquisition_value": 61.41446733889917,
+    "selected": false,
+    "true_accuracy": 64.99999992675781
+  },
+  {
+    "generation": 60,
+    "arch_index": 13944,
+    "op_indices": [
+      4,
+      3,
+      2,
+      1,
+      2,
+      4
+    ],
+    "predicted_accuracy": 65.28021240234375,
+    "acquisition_value": 65.66645474772247,
+    "selected": false,
+    "true_accuracy": 67.7400000366211
+  },
+  {
+    "generation": 60,
+    "arch_index": 12693,
+    "op_indices": [
+      3,
+      3,
+      2,
+      1,
+      0,
+      4
+    ],
+    "predicted_accuracy": 66.16790771484375,
+    "acquisition_value": 65.93405318650177,
+    "selected": false,
+    "true_accuracy": 68.10000002441406
+  },
+  {
+    "generation": 60,
+    "arch_index": 7357,
+    "op_indices": [
+      2,
+      1,
+      4,
+      3,
+      1,
+      2
+    ],
+    "predicted_accuracy": 67.91702270507812,
+    "acquisition_value": 68.41252865795761,
+    "selected": false,
+    "true_accuracy": 68.15999995117187
+  },
+  {
+    "generation": 60,
+    "arch_index": 13407,
+    "op_indices": [
+      2,
+      1,
+      1,
+      2,
+      1,
+      4
+    ],
+    "predicted_accuracy": 63.889739990234375,
+    "acquisition_value": 63.87925934733164,
+    "selected": false,
+    "true_accuracy": 59.19999998779297
+  },
+  {
+    "generation": 60,
+    "arch_index": 9273,
+    "op_indices": [
+      3,
+      4,
+      0,
+      4,
+      4,
+      2
+    ],
+    "predicted_accuracy": 62.294246673583984,
+    "acquisition_value": 62.240272073766725,
+    "selected": false,
+    "true_accuracy": 64.88
+  },
+  {
+    "generation": 60,
+    "arch_index": 3011,
+    "op_indices": [
+      1,
+      2,
+      0,
+      4,
+      4,
+      0
+    ],
+    "predicted_accuracy": 58.76116943359375,
+    "acquisition_value": 58.431021127088535,
+    "selected": false,
+    "true_accuracy": 67.69999991455079
+  },
+  {
+    "generation": 70,
+    "arch_index": 10222,
+    "op_indices": [
+      2,
+      4,
+      3,
+      1,
+      1,
+      3
+    ],
+    "predicted_accuracy": 69.39651489257812,
+    "acquisition_value": 69.09906697135798,
+    "selected": true,
+    "true_accuracy": 65.03999999389649
+  },
+  {
+    "generation": 70,
+    "arch_index": 10167,
+    "op_indices": [
+      2,
+      3,
+      1,
+      1,
+      1,
+      3
+    ],
+    "predicted_accuracy": 68.99466705322266,
+    "acquisition_value": 68.42847901059993,
+    "selected": true,
+    "true_accuracy": 53.58000002441406
+  },
+  {
+    "generation": 70,
+    "arch_index": 12260,
+    "op_indices": [
+      0,
+      2,
+      0,
+      3,
+      4,
+      3
+    ],
+    "predicted_accuracy": 67.85513305664062,
+    "acquisition_value": 67.34632075770408,
+    "selected": false,
+    "true_accuracy": 64.57999995117187
+  },
+  {
+    "generation": 70,
+    "arch_index": 15015,
+    "op_indices": [
+      0,
+      3,
+      0,
+      0,
+      4,
+      4
+    ],
+    "predicted_accuracy": 59.14033508300781,
+    "acquisition_value": 59.452228847874544,
+    "selected": false,
+    "true_accuracy": 42.79999996948242
+  },
+  {
+    "generation": 70,
+    "arch_index": 6237,
+    "op_indices": [
+      2,
+      2,
+      4,
+      4,
+      4,
+      1
+    ],
+    "predicted_accuracy": 62.21757507324219,
+    "acquisition_value": 62.43801238984894,
+    "selected": false,
+    "true_accuracy": 61.819999963378905
+  },
+  {
+    "generation": 70,
+    "arch_index": 4732,
+    "op_indices": [
+      2,
+      1,
+      4,
+      2,
+      2,
+      1
+    ],
+    "predicted_accuracy": 67.47917938232422,
+    "acquisition_value": 67.37810944217863,
+    "selected": false,
+    "true_accuracy": 68.13999996337891
+  },
+  {
+    "generation": 70,
+    "arch_index": 8127,
+    "op_indices": [
+      2,
+      0,
+      0,
+      0,
+      3,
+      2
+    ],
+    "predicted_accuracy": 68.1531753540039,
+    "acquisition_value": 68.36456060918921,
+    "selected": true,
+    "true_accuracy": 70.61999993896484
+  },
+  {
+    "generation": 70,
+    "arch_index": 14502,
+    "op_indices": [
+      2,
+      0,
+      0,
+      1,
+      3,
+      4
+    ],
+    "predicted_accuracy": 64.19574737548828,
+    "acquisition_value": 64.23549384592451,
+    "selected": false,
+    "true_accuracy": 65.56000002441407
+  },
+  {
+    "generation": 70,
+    "arch_index": 7614,
+    "op_indices": [
+      4,
+      2,
+      4,
+      0,
+      2,
+      2
+    ],
+    "predicted_accuracy": 66.33295440673828,
+    "acquisition_value": 66.18866198050402,
+    "selected": false,
+    "true_accuracy": 65.66000000610352
+  },
+  {
+    "generation": 70,
+    "arch_index": 10874,
+    "op_indices": [
+      4,
+      4,
+      4,
+      1,
+      2,
+      3
+    ],
+    "predicted_accuracy": 60.17784118652344,
+    "acquisition_value": 59.196874964066566,
+    "selected": false,
+    "true_accuracy": 57.39999996948242
+  },
+  {
+    "generation": 70,
+    "arch_index": 10653,
+    "op_indices": [
+      3,
+      0,
+      1,
+      0,
+      2,
+      3
+    ],
+    "predicted_accuracy": 67.6025161743164,
+    "acquisition_value": 66.89339728245383,
+    "selected": false,
+    "true_accuracy": 67.61999986572266
+  },
+  {
+    "generation": 70,
+    "arch_index": 9403,
+    "op_indices": [
+      3,
+      0,
+      1,
+      0,
+      0,
+      3
+    ],
+    "predicted_accuracy": 64.10552978515625,
+    "acquisition_value": 63.86706246851338,
+    "selected": false,
+    "true_accuracy": 63.63999992675781
+  },
+  {
+    "generation": 70,
+    "arch_index": 946,
+    "op_indices": [
+      1,
+      4,
+      2,
+      2,
+      1,
+      0
+    ],
+    "predicted_accuracy": 60.7848014831543,
+    "acquisition_value": 60.41918689293094,
+    "selected": false,
+    "true_accuracy": 65.67999995727538
+  },
+  {
+    "generation": 70,
+    "arch_index": 989,
+    "op_indices": [
+      4,
+      2,
+      4,
+      2,
+      1,
+      0
+    ],
+    "predicted_accuracy": 62.027496337890625,
+    "acquisition_value": 62.566813333115114,
+    "selected": false,
+    "true_accuracy": 66.00000003662109
+  },
+  {
+    "generation": 70,
+    "arch_index": 6442,
+    "op_indices": [
+      2,
+      3,
+      2,
+      1,
+      0,
+      2
+    ],
+    "predicted_accuracy": 71.38488006591797,
+    "acquisition_value": 71.2898949653336,
+    "selected": true,
+    "true_accuracy": 68.73999992675782
+  },
+  {
+    "generation": 70,
+    "arch_index": 182,
+    "op_indices": [
+      2,
+      1,
+      2,
+      1,
+      0,
+      0
+    ],
+    "predicted_accuracy": 66.04683685302734,
+    "acquisition_value": 66.05505017944776,
+    "selected": false,
+    "true_accuracy": 66.99999993896485
+  },
+  {
+    "generation": 70,
+    "arch_index": 7765,
+    "op_indices": [
+      0,
+      3,
+      0,
+      2,
+      2,
+      2
+    ],
+    "predicted_accuracy": 69.9186782836914,
+    "acquisition_value": 69.90703583941264,
+    "selected": true,
+    "true_accuracy": 70.88
+  },
+  {
+    "generation": 70,
+    "arch_index": 7140,
+    "op_indices": [
+      0,
+      3,
+      0,
+      2,
+      1,
+      2
+    ],
+    "predicted_accuracy": 68.25353240966797,
+    "acquisition_value": 68.12745159978162,
+    "selected": false,
+    "true_accuracy": 70.81999995117188
+  },
+  {
+    "generation": 70,
+    "arch_index": 14817,
+    "op_indices": [
+      2,
+      3,
+      2,
+      3,
+      3,
+      4
+    ],
+    "predicted_accuracy": 68.71581268310547,
+    "acquisition_value": 68.73115024001858,
+    "selected": true,
+    "true_accuracy": 68.6999999633789
+  },
+  {
+    "generation": 70,
+    "arch_index": 5267,
+    "op_indices": [
+      2,
+      3,
+      0,
+      2,
+      3,
+      1
+    ],
+    "predicted_accuracy": 69.06261444091797,
+    "acquisition_value": 68.79883532337755,
+    "selected": true,
+    "true_accuracy": 69.91999992675781
+  },
+  {
+    "generation": 70,
+    "arch_index": 5448,
+    "op_indices": [
+      3,
+      4,
+      2,
+      3,
+      3,
+      1
+    ],
+    "predicted_accuracy": 67.93729400634766,
+    "acquisition_value": 67.90909376121805,
+    "selected": false,
+    "true_accuracy": 68.29999993896485
+  },
+  {
+    "generation": 70,
+    "arch_index": 5393,
+    "op_indices": [
+      3,
+      3,
+      0,
+      3,
+      3,
+      1
+    ],
+    "predicted_accuracy": 66.04097747802734,
+    "acquisition_value": 66.2212336766009,
+    "selected": false,
+    "true_accuracy": 67.39999995117188
+  },
+  {
+    "generation": 70,
+    "arch_index": 4828,
+    "op_indices": [
+      3,
+      0,
+      3,
+      3,
+      2,
+      1
+    ],
+    "predicted_accuracy": 67.10836029052734,
+    "acquisition_value": 67.09144023972775,
+    "selected": false,
+    "true_accuracy": 67.61999991455077
+  },
+  {
+    "generation": 70,
+    "arch_index": 4848,
+    "op_indices": [
+      3,
+      4,
+      3,
+      3,
+      2,
+      1
+    ],
+    "predicted_accuracy": 68.04254150390625,
+    "acquisition_value": 67.52802164346917,
+    "selected": false,
+    "true_accuracy": 66.66000001220704
+  },
+  {
+    "generation": 70,
+    "arch_index": 7848,
+    "op_indices": [
+      3,
+      4,
+      3,
+      2,
+      2,
+      2
+    ],
+    "predicted_accuracy": 70.149169921875,
+    "acquisition_value": 69.85808248715773,
+    "selected": true,
+    "true_accuracy": 70.91999995117187
+  },
+  {
+    "generation": 70,
+    "arch_index": 8081,
+    "op_indices": [
+      1,
+      1,
+      3,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 64.49736785888672,
+    "acquisition_value": 64.83002435273939,
+    "selected": false,
+    "true_accuracy": 62.51999986572265
+  },
+  {
+    "generation": 70,
+    "arch_index": 8439,
+    "op_indices": [
+      4,
+      2,
+      2,
+      2,
+      3,
+      2
+    ],
+    "predicted_accuracy": 70.60989379882812,
+    "acquisition_value": 70.6104223706234,
+    "selected": true,
+    "true_accuracy": 69.77999997558594
+  },
+  {
+    "generation": 70,
+    "arch_index": 310,
+    "op_indices": [
+      0,
+      2,
+      2,
+      2,
+      0,
+      0
+    ],
+    "predicted_accuracy": 68.47270202636719,
+    "acquisition_value": 68.35663596719304,
+    "selected": true,
+    "true_accuracy": 68.45999987792969
+  },
+  {
+    "generation": 70,
+    "arch_index": 6757,
+    "op_indices": [
+      2,
+      1,
+      0,
+      4,
+      0,
+      2
+    ],
+    "predicted_accuracy": 66.4766616821289,
+    "acquisition_value": 67.13686340406173,
+    "selected": false,
+    "true_accuracy": 68.30000002441406
+  },
+  {
+    "generation": 70,
+    "arch_index": 608,
+    "op_indices": [
+      3,
+      1,
+      4,
+      4,
+      0,
+      0
+    ],
+    "predicted_accuracy": 58.435089111328125,
+    "acquisition_value": 58.92396541312267,
+    "selected": false,
+    "true_accuracy": 61.960000036621096
+  },
+  {
+    "generation": 70,
+    "arch_index": 3137,
+    "op_indices": [
+      2,
+      2,
+      0,
+      0,
+      0,
+      1
+    ],
+    "predicted_accuracy": 64.5524673461914,
+    "acquisition_value": 64.43956647179719,
+    "selected": false,
+    "true_accuracy": 66.76000006103516
+  },
+  {
+    "generation": 70,
+    "arch_index": 3249,
+    "op_indices": [
+      4,
+      4,
+      4,
+      0,
+      0,
+      1
+    ],
+    "predicted_accuracy": 48.452388763427734,
+    "acquisition_value": 48.24624616019911,
+    "selected": false,
+    "true_accuracy": 43.920000024414065
+  },
+  {
+    "generation": 80,
+    "arch_index": 8193,
+    "op_indices": [
+      3,
+      3,
+      2,
+      0,
+      3,
+      2
+    ],
+    "predicted_accuracy": 67.0677719116211,
+    "acquisition_value": 67.37524880236387,
+    "selected": false,
+    "true_accuracy": 70.10000004882812
+  },
+  {
+    "generation": 80,
+    "arch_index": 8698,
+    "op_indices": [
+      3,
+      4,
+      2,
+      4,
+      3,
+      2
+    ],
+    "predicted_accuracy": 67.45881652832031,
+    "acquisition_value": 67.11923647561123,
+    "selected": false,
+    "true_accuracy": 69.26000001220703
+  },
+  {
+    "generation": 80,
+    "arch_index": 5035,
+    "op_indices": [
+      0,
+      2,
+      1,
+      0,
+      3,
+      1
+    ],
+    "predicted_accuracy": 65.79854583740234,
+    "acquisition_value": 65.87802316194748,
+    "selected": false,
+    "true_accuracy": 61.859999963378904
+  },
+  {
+    "generation": 80,
+    "arch_index": 5050,
+    "op_indices": [
+      0,
+      0,
+      2,
+      0,
+      3,
+      1
+    ],
+    "predicted_accuracy": 66.1747055053711,
+    "acquisition_value": 66.22403459681901,
+    "selected": false,
+    "true_accuracy": 68.51999989013672
+  },
+  {
+    "generation": 80,
+    "arch_index": 13927,
+    "op_indices": [
+      2,
+      0,
+      2,
+      1,
+      2,
+      4
+    ],
+    "predicted_accuracy": 65.1944351196289,
+    "acquisition_value": 65.06761323765716,
+    "selected": false,
+    "true_accuracy": 68.62000001220703
+  },
+  {
+    "generation": 80,
+    "arch_index": 13847,
+    "op_indices": [
+      2,
+      4,
+      3,
+      0,
+      2,
+      4
+    ],
+    "predicted_accuracy": 66.78058624267578,
+    "acquisition_value": 67.21608102612888,
+    "selected": false,
+    "true_accuracy": 66.07999995117187
+  },
+  {
+    "generation": 80,
+    "arch_index": 14822,
+    "op_indices": [
+      2,
+      4,
+      2,
+      3,
+      3,
+      4
+    ],
+    "predicted_accuracy": 68.245361328125,
+    "acquisition_value": 68.49710074775305,
+    "selected": true,
+    "true_accuracy": 66.13999996337891
+  },
+  {
+    "generation": 80,
+    "arch_index": 449,
+    "op_indices": [
+      4,
+      4,
+      2,
+      3,
+      0,
+      0
+    ],
+    "predicted_accuracy": 57.41493606567383,
+    "acquisition_value": 57.68797201229341,
+    "selected": false,
+    "true_accuracy": 57.099999957275394
+  },
+  {
+    "generation": 80,
+    "arch_index": 8478,
+    "op_indices": [
+      3,
+      0,
+      4,
+      2,
+      3,
+      2
+    ],
+    "predicted_accuracy": 67.9261703491211,
+    "acquisition_value": 68.29736003431367,
+    "selected": true,
+    "true_accuracy": 67.60000002441406
+  },
+  {
+    "generation": 80,
+    "arch_index": 14718,
+    "op_indices": [
+      3,
+      3,
+      3,
+      2,
+      3,
+      4
+    ],
+    "predicted_accuracy": 64.9349594116211,
+    "acquisition_value": 65.24583044117286,
+    "selected": false,
+    "true_accuracy": 67.49999991455078
+  },
+  {
+    "generation": 80,
+    "arch_index": 6405,
+    "op_indices": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      2
+    ],
+    "predicted_accuracy": 61.3317985534668,
+    "acquisition_value": 61.56008410619423,
+    "selected": false,
+    "true_accuracy": 58.319999963378905
+  },
+  {
+    "generation": 80,
+    "arch_index": 7907,
+    "op_indices": [
+      2,
+      1,
+      1,
+      3,
+      2,
+      2
+    ],
+    "predicted_accuracy": 68.80329132080078,
+    "acquisition_value": 70.1639072121401,
+    "selected": true,
+    "true_accuracy": 65.09999992675782
+  },
+  {
+    "generation": 80,
+    "arch_index": 4417,
+    "op_indices": [
+      2,
+      3,
+      1,
+      0,
+      2,
+      1
+    ],
+    "predicted_accuracy": 64.89112854003906,
+    "acquisition_value": 65.1684253814525,
+    "selected": false,
+    "true_accuracy": 64.98000006103516
+  },
+  {
+    "generation": 80,
+    "arch_index": 5647,
+    "op_indices": [
+      2,
+      4,
+      0,
+      0,
+      4,
+      1
+    ],
+    "predicted_accuracy": 58.26920700073242,
+    "acquisition_value": 58.7917149519664,
+    "selected": false,
+    "true_accuracy": 65.74000001220703
+  },
+  {
+    "generation": 80,
+    "arch_index": 11583,
+    "op_indices": [
+      3,
+      1,
+      3,
+      2,
+      3,
+      3
+    ],
+    "predicted_accuracy": 67.58177947998047,
+    "acquisition_value": 67.7120073137746,
+    "selected": true,
+    "true_accuracy": 69.1599999267578
+  },
+  {
+    "generation": 80,
+    "arch_index": 5306,
+    "op_indices": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      1
+    ],
+    "predicted_accuracy": 65.3345718383789,
+    "acquisition_value": 65.43561025692665,
+    "selected": false,
+    "true_accuracy": 67.61999995117188
+  },
+  {
+    "generation": 80,
+    "arch_index": 8511,
+    "op_indices": [
+      1,
+      2,
+      0,
+      3,
+      3,
+      2
+    ],
+    "predicted_accuracy": 68.87825775146484,
+    "acquisition_value": 68.1366842428612,
+    "selected": true,
+    "true_accuracy": 69.80000001220704
+  },
+  {
+    "generation": 80,
+    "arch_index": 11010,
+    "op_indices": [
+      0,
+      2,
+      0,
+      3,
+      2,
+      3
+    ],
+    "predicted_accuracy": 69.85674285888672,
+    "acquisition_value": 69.90319414788453,
+    "selected": true,
+    "true_accuracy": 70.29999998779297
+  },
+  {
+    "generation": 80,
+    "arch_index": 7811,
+    "op_indices": [
+      1,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "predicted_accuracy": 68.57879638671875,
+    "acquisition_value": 68.88089581983219,
+    "selected": true,
+    "true_accuracy": 69.01999998779297
+  },
+  {
+    "generation": 80,
+    "arch_index": 7411,
+    "op_indices": [
+      1,
+      2,
+      1,
+      4,
+      1,
+      2
+    ],
+    "predicted_accuracy": 63.8314323425293,
+    "acquisition_value": 63.83622696459359,
+    "selected": false,
+    "true_accuracy": 63.659999938964845
+  },
+  {
+    "generation": 80,
+    "arch_index": 13865,
+    "op_indices": [
+      0,
+      3,
+      4,
+      0,
+      2,
+      4
+    ],
+    "predicted_accuracy": 63.97796630859375,
+    "acquisition_value": 63.88428308395611,
+    "selected": false,
+    "true_accuracy": 55.40000002441406
+  },
+  {
+    "generation": 80,
+    "arch_index": 1335,
+    "op_indices": [
+      0,
+      2,
+      3,
+      0,
+      2,
+      0
+    ],
+    "predicted_accuracy": 68.03633880615234,
+    "acquisition_value": 68.1042937153674,
+    "selected": true,
+    "true_accuracy": 67.35999999389648
+  },
+  {
+    "generation": 80,
+    "arch_index": 14089,
+    "op_indices": [
+      4,
+      2,
+      3,
+      2,
+      2,
+      4
+    ],
+    "predicted_accuracy": 67.14651489257812,
+    "acquisition_value": 67.25952779874311,
+    "selected": false,
+    "true_accuracy": 67.10000006103516
+  },
+  {
+    "generation": 80,
+    "arch_index": 15361,
+    "op_indices": [
+      1,
+      2,
+      4,
+      2,
+      4,
+      4
+    ],
+    "predicted_accuracy": 62.338863372802734,
+    "acquisition_value": 62.245483913009274,
+    "selected": false,
+    "true_accuracy": 61.77999998779297
+  },
+  {
+    "generation": 80,
+    "arch_index": 8078,
+    "op_indices": [
+      3,
+      0,
+      3,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 68.6165542602539,
+    "acquisition_value": 68.26895602980441,
+    "selected": true,
+    "true_accuracy": 69.31999987792969
+  },
+  {
+    "generation": 80,
+    "arch_index": 6703,
+    "op_indices": [
+      3,
+      0,
+      3,
+      3,
+      0,
+      2
+    ],
+    "predicted_accuracy": 65.9233169555664,
+    "acquisition_value": 65.74845968588468,
+    "selected": false,
+    "true_accuracy": 69.22000004882813
+  },
+  {
+    "generation": 80,
+    "arch_index": 8188,
+    "op_indices": [
+      3,
+      2,
+      2,
+      0,
+      3,
+      2
+    ],
+    "predicted_accuracy": 66.77811431884766,
+    "acquisition_value": 66.7462454150403,
+    "selected": false,
+    "true_accuracy": 69.17999986572265
+  },
+  {
+    "generation": 80,
+    "arch_index": 8686,
+    "op_indices": [
+      1,
+      2,
+      2,
+      4,
+      3,
+      2
+    ],
+    "predicted_accuracy": 69.20130157470703,
+    "acquisition_value": 69.39247716105618,
+    "selected": true,
+    "true_accuracy": 69.5799998779297
+  },
+  {
+    "generation": 80,
+    "arch_index": 14257,
+    "op_indices": [
+      2,
+      1,
+      0,
+      4,
+      2,
+      4
+    ],
+    "predicted_accuracy": 65.04647064208984,
+    "acquisition_value": 65.02311728054148,
+    "selected": false,
+    "true_accuracy": 69.75999989013673
+  },
+  {
+    "generation": 80,
+    "arch_index": 14258,
+    "op_indices": [
+      3,
+      1,
+      0,
+      4,
+      2,
+      4
+    ],
+    "predicted_accuracy": 63.69287109375,
+    "acquisition_value": 64.32150155668035,
+    "selected": false,
+    "true_accuracy": 68.3799999633789
+  },
+  {
+    "generation": 80,
+    "arch_index": 8018,
+    "op_indices": [
+      3,
+      3,
+      0,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 67.28734588623047,
+    "acquisition_value": 67.3460470056788,
+    "selected": false,
+    "true_accuracy": 70.78000006103515
+  },
+  {
+    "generation": 80,
+    "arch_index": 8643,
+    "op_indices": [
+      3,
+      3,
+      0,
+      4,
+      3,
+      2
+    ],
+    "predicted_accuracy": 66.2999496459961,
+    "acquisition_value": 66.56340065713911,
+    "selected": false,
+    "true_accuracy": 70.04000001220703
+  },
+  {
+    "generation": 90,
+    "arch_index": 1938,
+    "op_indices": [
+      3,
+      2,
+      2,
+      0,
+      3,
+      0
+    ],
+    "predicted_accuracy": 67.99384307861328,
+    "acquisition_value": 67.01037436523606,
+    "selected": false,
+    "true_accuracy": 68.25999993896484
+  },
+  {
+    "generation": 90,
+    "arch_index": 318,
+    "op_indices": [
+      3,
+      3,
+      2,
+      2,
+      0,
+      0
+    ],
+    "predicted_accuracy": 66.81977844238281,
+    "acquisition_value": 66.11752534133575,
+    "selected": false,
+    "true_accuracy": 68.97999998779297
+  },
+  {
+    "generation": 90,
+    "arch_index": 11012,
+    "op_indices": [
+      2,
+      2,
+      0,
+      3,
+      2,
+      3
+    ],
+    "predicted_accuracy": 70.32146453857422,
+    "acquisition_value": 69.36147423590012,
+    "selected": false,
+    "true_accuracy": 72.19999998779296
+  },
+  {
+    "generation": 90,
+    "arch_index": 11063,
+    "op_indices": [
+      3,
+      2,
+      2,
+      3,
+      2,
+      3
+    ],
+    "predicted_accuracy": 69.16694641113281,
+    "acquisition_value": 69.23709048380893,
+    "selected": false,
+    "true_accuracy": 68.95999998779297
+  },
+  {
+    "generation": 90,
+    "arch_index": 1552,
+    "op_indices": [
+      2,
+      0,
+      2,
+      2,
+      2,
+      0
+    ],
+    "predicted_accuracy": 70.21131134033203,
+    "acquisition_value": 70.03790310690721,
+    "selected": true,
+    "true_accuracy": 72.20000001220703
+  },
+  {
+    "generation": 90,
+    "arch_index": 927,
+    "op_indices": [
+      2,
+      0,
+      2,
+      2,
+      1,
+      0
+    ],
+    "predicted_accuracy": 68.1630859375,
+    "acquisition_value": 68.99878234241503,
+    "selected": false,
+    "true_accuracy": 70.78000006103515
+  },
+  {
+    "generation": 90,
+    "arch_index": 6322,
+    "op_indices": [
+      2,
+      4,
+      2,
+      0,
+      0,
+      2
+    ],
+    "predicted_accuracy": 69.57471466064453,
+    "acquisition_value": 69.1631116106206,
+    "selected": false,
+    "true_accuracy": 68.17999992675782
+  },
+  {
+    "generation": 90,
+    "arch_index": 3442,
+    "op_indices": [
+      2,
+      3,
+      2,
+      2,
+      0,
+      1
+    ],
+    "predicted_accuracy": 69.10842895507812,
+    "acquisition_value": 68.61807362264335,
+    "selected": false,
+    "true_accuracy": 67.32000001220703
+  },
+  {
+    "generation": 90,
+    "arch_index": 8197,
+    "op_indices": [
+      2,
+      4,
+      2,
+      0,
+      3,
+      2
+    ],
+    "predicted_accuracy": 71.37451934814453,
+    "acquisition_value": 71.69793989785836,
+    "selected": true,
+    "true_accuracy": 69.29999995117187
+  },
+  {
+    "generation": 90,
+    "arch_index": 7695,
+    "op_indices": [
+      0,
+      4,
+      2,
+      1,
+      2,
+      2
+    ],
+    "predicted_accuracy": 68.34872436523438,
+    "acquisition_value": 68.42209513058984,
+    "selected": false,
+    "true_accuracy": 67.86000003662109
+  },
+  {
+    "generation": 90,
+    "arch_index": 8975,
+    "op_indices": [
+      0,
+      0,
+      4,
+      1,
+      4,
+      2
+    ],
+    "predicted_accuracy": 58.02634811401367,
+    "acquisition_value": 58.913181440054665,
+    "selected": false,
+    "true_accuracy": 57.49999999389649
+  },
+  {
+    "generation": 90,
+    "arch_index": 8985,
+    "op_indices": [
+      0,
+      2,
+      4,
+      1,
+      4,
+      2
+    ],
+    "predicted_accuracy": 67.077880859375,
+    "acquisition_value": 66.11780098978286,
+    "selected": false,
+    "true_accuracy": 63.93999987792969
+  },
+  {
+    "generation": 90,
+    "arch_index": 4717,
+    "op_indices": [
+      2,
+      3,
+      3,
+      2,
+      2,
+      1
+    ],
+    "predicted_accuracy": 69.68729400634766,
+    "acquisition_value": 69.9236710920414,
+    "selected": false,
+    "true_accuracy": 69.20000004882813
+  },
+  {
+    "generation": 90,
+    "arch_index": 5912,
+    "op_indices": [
+      2,
+      2,
+      1,
+      2,
+      4,
+      1
+    ],
+    "predicted_accuracy": 65.38988494873047,
+    "acquisition_value": 64.53509245537732,
+    "selected": false,
+    "true_accuracy": 60.97999998168945
+  },
+  {
+    "generation": 90,
+    "arch_index": 9685,
+    "op_indices": [
+      0,
+      2,
+      2,
+      2,
+      0,
+      3
+    ],
+    "predicted_accuracy": 71.17761993408203,
+    "acquisition_value": 72.47156169428001,
+    "selected": true,
+    "true_accuracy": 70.25999991455078
+  },
+  {
+    "generation": 90,
+    "arch_index": 6557,
+    "op_indices": [
+      2,
+      1,
+      2,
+      2,
+      0,
+      2
+    ],
+    "predicted_accuracy": 70.78396606445312,
+    "acquisition_value": 70.9817883041175,
+    "selected": true,
+    "true_accuracy": 70.09999991455078
+  },
+  {
+    "generation": 90,
+    "arch_index": 8511,
+    "op_indices": [
+      1,
+      2,
+      0,
+      3,
+      3,
+      2
+    ],
+    "predicted_accuracy": 70.32677459716797,
+    "acquisition_value": 70.97551100743567,
+    "selected": true,
+    "true_accuracy": 69.80000001220704
+  },
+  {
+    "generation": 90,
+    "arch_index": 6627,
+    "op_indices": [
+      2,
+      0,
+      0,
+      3,
+      0,
+      2
+    ],
+    "predicted_accuracy": 68.03678894042969,
+    "acquisition_value": 69.82265686015771,
+    "selected": false,
+    "true_accuracy": 70.05999987792968
+  },
+  {
+    "generation": 90,
+    "arch_index": 11058,
+    "op_indices": [
+      3,
+      1,
+      2,
+      3,
+      2,
+      3
+    ],
+    "predicted_accuracy": 68.80011749267578,
+    "acquisition_value": 68.50246785342713,
+    "selected": false,
+    "true_accuracy": 68.39999997558594
+  },
+  {
+    "generation": 90,
+    "arch_index": 1533,
+    "op_indices": [
+      3,
+      1,
+      1,
+      2,
+      2,
+      0
+    ],
+    "predicted_accuracy": 66.08853149414062,
+    "acquisition_value": 67.11529836853825,
+    "selected": false,
+    "true_accuracy": 65.73999993896484
+  },
+  {
+    "generation": 90,
+    "arch_index": 6511,
+    "op_indices": [
+      1,
+      2,
+      0,
+      2,
+      0,
+      2
+    ],
+    "predicted_accuracy": 69.53582000732422,
+    "acquisition_value": 70.24881801942286,
+    "selected": true,
+    "true_accuracy": 70.15999993896484
+  },
+  {
+    "generation": 90,
+    "arch_index": 6603,
+    "op_indices": [
+      3,
+      0,
+      4,
+      2,
+      0,
+      2
+    ],
+    "predicted_accuracy": 67.53853607177734,
+    "acquisition_value": 67.69105819806369,
+    "selected": false,
+    "true_accuracy": 68.00000000610352
+  },
+  {
+    "generation": 90,
+    "arch_index": 9212,
+    "op_indices": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      2
+    ],
+    "predicted_accuracy": 69.62683868408203,
+    "acquisition_value": 70.88860725689266,
+    "selected": true,
+    "true_accuracy": 69.57999990234374
+  },
+  {
+    "generation": 90,
+    "arch_index": 7957,
+    "op_indices": [
+      2,
+      1,
+      3,
+      3,
+      2,
+      2
+    ],
+    "predicted_accuracy": 70.44577026367188,
+    "acquisition_value": 70.8455948848768,
+    "selected": true,
+    "true_accuracy": 69.89999992675781
+  },
+  {
+    "generation": 90,
+    "arch_index": 13463,
+    "op_indices": [
+      3,
+      2,
+      3,
+      2,
+      1,
+      4
+    ],
+    "predicted_accuracy": 67.09027862548828,
+    "acquisition_value": 65.79197431643257,
+    "selected": false,
+    "true_accuracy": 68.85999998779297
+  },
+  {
+    "generation": 90,
+    "arch_index": 14093,
+    "op_indices": [
+      3,
+      3,
+      3,
+      2,
+      2,
+      4
+    ],
+    "predicted_accuracy": 67.09479522705078,
+    "acquisition_value": 67.83487550966613,
+    "selected": false,
+    "true_accuracy": 70.23999993896484
+  },
+  {
+    "generation": 90,
+    "arch_index": 8617,
+    "op_indices": [
+      2,
+      3,
+      4,
+      3,
+      3,
+      2
+    ],
+    "predicted_accuracy": 69.45757293701172,
+    "acquisition_value": 70.26139981959874,
+    "selected": true,
+    "true_accuracy": 69.9799999633789
+  },
+  {
+    "generation": 90,
+    "arch_index": 8240,
+    "op_indices": [
+      0,
+      3,
+      4,
+      0,
+      3,
+      2
+    ],
+    "predicted_accuracy": 68.87625122070312,
+    "acquisition_value": 68.74287327273306,
+    "selected": false,
+    "true_accuracy": 66.02000002441406
+  },
+  {
+    "generation": 90,
+    "arch_index": 6507,
+    "op_indices": [
+      2,
+      1,
+      0,
+      2,
+      0,
+      2
+    ],
+    "predicted_accuracy": 69.1799087524414,
+    "acquisition_value": 69.62674744687973,
+    "selected": false,
+    "true_accuracy": 71.5399999633789
+  },
+  {
+    "generation": 90,
+    "arch_index": 6467,
+    "op_indices": [
+      2,
+      3,
+      3,
+      1,
+      0,
+      2
+    ],
+    "predicted_accuracy": 68.96241760253906,
+    "acquisition_value": 69.8878182073934,
+    "selected": false,
+    "true_accuracy": 69.54000006103516
+  },
+  {
+    "generation": 90,
+    "arch_index": 8077,
+    "op_indices": [
+      2,
+      0,
+      3,
+      4,
+      2,
+      2
+    ],
+    "predicted_accuracy": 71.56002807617188,
+    "acquisition_value": 71.99155083852158,
+    "selected": true,
+    "true_accuracy": 71.23999997558593
+  },
+  {
+    "generation": 90,
+    "arch_index": 8652,
+    "op_indices": [
+      2,
+      0,
+      1,
+      4,
+      3,
+      2
+    ],
+    "predicted_accuracy": 68.73297119140625,
+    "acquisition_value": 67.9121727278009,
+    "selected": false,
+    "true_accuracy": 68.57999998779297
+  }
+]

@@ -1,0 +1,2915 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-20-2026 23:28:58
+Job ID:    5027474
+User ID:   mgullapalli6
+Account:   math
+Job name:  IslandsController
+Partition: coe-gpu
+QOS:       coe-ice
+---------------------------------------
+launching AIsurBL
+Started on atl1-1-03-010-25-0.pace.gatech.edu
+
+⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣶⣶⠶⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣀⣹⣟⣛⣛⣻⣿⣿⣿⡾⠟⢉⣴⠟⢁⣴⠋⣹⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠈⠛⠛⣿⠉⢉⣩⠵⠚⠁⢀⡴⠛⠁⣠⠞⠁⣰⠏⠸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢻⣷⠋⠁⠀⢀⡴⠋⠀⢀⡴⠋⠀⣼⠃⠀⡼⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢻⣆⣠⡴⠋⠀⠀⣠⠟⠀⢀⡾⠁⠀⡼⠁⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠻⣯⡀⠀⢀⡼⠃⠀⢠⡟⠀⢀⡾⠁⢀⣾⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⠻⣶⣟⡀⠀⣰⠏⠀⢀⡾⠁⠀⣼⢹⣿⣀⣤⣤⣴⠶⢿⡿⠛⢛⣷⢶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠿⠶⠶⠾⠷⠶⠿⠛⢻⣟⠉⣥⠟⠁⣠⠟⠀⢠⠞⠁⣄⡿⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠞⠁⢀⡴⠋⠀⣴⠋⠀⣰⠟⠀⣤⡾⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡄⢠⠞⠁⢀⡾⠁⢀⡼⠃⢀⡴⠋⠀⢸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣷⠋⠀⣰⠏⠀⣠⠟⠀⣰⠟⠁⢀⡴⠛⣿⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣧⡼⠃⢀⡼⠋⢠⡞⠁⣠⣞⣋⣤⣶⣿⡟⠛⣿⠛⠛⣻⠟⠷⢶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣦⣾⣤⣴⣯⡶⠾⠟⠛⠉⠉⠉⣿⡇⢠⡏⠀⣰⠏⠀⢀⣼⠋⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⡾⠀⢰⠏⠀⢠⡞⠁⠀⣠⠞⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⠇⢠⠏⠀⣰⠋⠀⣠⠞⠁⠀⢀⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⢠⠟⢀⡼⠁⣠⠞⠁⣀⣴⢾⣿⣤⣿⣦⣄⣀⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡟⣠⠏⣠⠞⣁⣴⣾⣿⣿⣿⣿⣿⣿⡏⢹⡏⠛⠳⣦⣄⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢷⣾⣷⠿⠿⠛⠉⠀⠀⠈⠳⣬⣿⡟⣾⠁⠀⣼⠃⠉⠻⠆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣧⡏⠀⣼⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠁⡼⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣟⡼⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⣃⠀⠀
+
+ISLAND llm_model:  llama3
+Prompt glob: templates/titanic/roleplay/**/*.txt
+Path does not exist, returning none for checkpoints
+
+**************************************************************************************************************
+*                                     CREATING POPULATION FROM SEED CODE                                     *
+**************************************************************************************************************
+
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+	‣ Waiting for LLM server readiness (0s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (10s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (20s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (30s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (40s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (50s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (60s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (70s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (80s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (90s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (100s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (110s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (120s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (130s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (140s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (150s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (160s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (170s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (180s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (190s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (200s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (210s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (220s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (230s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (240s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (250s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (260s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (270s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (280s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (290s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (300s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (310s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	‣ Waiting for LLM server readiness (320s/3600s). Host file: /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/hostname.log
+	☑ LLM server is ready at http://atl1-1-03-015-9-0.pace.gatech.edu:8137/
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx3NsFg06WCIONEFIsfClURpy2.sh
+	‣ Output: Submitted batch job 5027600
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxfFlYJtLgUTdsfhXacVGFuPek.sh
+	‣ Output: Submitted batch job 5027601
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxFNbqNHEaHjHlhH5qFBBvOOcX.sh
+	‣ Output: Submitted batch job 5027602
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxhDJSxnrmMxDfOmnU40aW5yaV.sh
+	‣ Output: Submitted batch job 5027603
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxfQiAyFWI5sjiPKbnpn7NENPE.sh
+	‣ Output: Submitted batch job 5027604
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx9lPVLVu0KUdQLFiw54pFKtl3.sh
+	‣ Output: Submitted batch job 5027605
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx2aLDx54UjaxKIDyUCB6K0n0y.sh
+	‣ Output: Submitted batch job 5027606
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxdVqH1jJVcez0NlYwDQDzAWXC.sh
+	‣ Output: Submitted batch job 5027607
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxi7WtoZsc9zJdoA74tNfmaYZH.sh
+	‣ Output: Submitted batch job 5027608
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxPUpnDcZaYalXj5SvNp16UlAf.sh
+	‣ Output: Submitted batch job 5027609
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx6ObgKbq7eurNTiHN4AGUu0Dm.sh
+	‣ Output: Submitted batch job 5027610
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxp8SDIyZjkKzW3us4o7x8voUP.sh
+	‣ Output: Submitted batch job 5027611
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxVeH56R2ByW28t1HWWptyAXuM.sh
+	‣ Output: Submitted batch job 5027612
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxM2Iepjm1lszPMQOdzQyzgvMP.sh
+	‣ Output: Submitted batch job 5027613
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxQBVYLM1we16Gzf5nFsbzJmdZ.sh
+	‣ Output: Submitted batch job 5027614
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxdd1D0C1hUTmq0NNuKFT0SGY3.sh
+	‣ Output: Submitted batch job 5027615
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxiNkBu1safLr081OgXuvgA78i.sh
+	‣ Output: Submitted batch job 5027616
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxb6AmW8FA1T9m95pjDlEGbUOp.sh
+	‣ Output: Submitted batch job 5027617
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx965CaDWZT8zlpOm5vAHrqBIc.sh
+	‣ Output: Submitted batch job 5027618
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxjcp2A6gMr6WTXu8rO1Xdkk0Q.sh
+	‣ Output: Submitted batch job 5027619
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxXvGh5g7ugZqJ4W4FlLaZLGET.sh
+	‣ Output: Submitted batch job 5027620
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxZUZNHzMqJZJg8pqZwR3fyLY5.sh
+	‣ Output: Submitted batch job 5027621
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxjSUoiJGRx8KMAhfv0HxJdZFe.sh
+	‣ Output: Submitted batch job 5027622
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxFZuXG5k0IAElHyNdncoUFgC4.sh
+	‣ Output: Submitted batch job 5027623
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxASVuiDvA7HzqKbgrYeIngPCT.sh
+	‣ Output: Submitted batch job 5027624
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxkRxjyFr8Aq9fFXaYm5Zq73tn.sh
+	‣ Output: Submitted batch job 5027625
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXx15K1GYLVPwXBg0b4xs3Vi6CE.sh
+	‣ Output: Submitted batch job 5027626
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxrEgH9lNbmxXqiQnZBFvJpGh7.sh
+	‣ Output: Submitted batch job 5027627
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxTvQenlSdGXjF9MM7srpMtfwf.sh
+	‣ Output: Submitted batch job 5027628
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxRF2rp0fevJA6S6MKo2LsdbPH.sh
+	‣ Output: Submitted batch job 5027629
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxleNCQgyMVo2QOodVrYh6ERaO.sh
+	‣ Output: Submitted batch job 5027630
+
+************************************************************
+*                    Create Individual                     *
+************************************************************
+WRITING write_bash_script, llm_model:  llama3
+	‣ Normal Prompts
+	‣ Bash script saved to titanic_test/0/xXxdaPTPbtahShxWXUGoNFH5o21.sh
+	‣ Output: Submitted batch job 5027631
+
+************************************************************
+*               Batch Checking Created Genes               *
+************************************************************
+Checking for Job Completion: 5027600 for xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 60s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 120s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 180s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 240s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 300s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 360s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 420s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 480s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 540s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 600s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 660s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 720s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 780s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 840s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 900s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 960s Path: run_job_outputs/evolution/slurm-5027600.out
+	‣ Waiting on check4job_completion LLM job: 5027600 Time: 1020s Path: run_job_outputs/evolution/slurm-5027600.out
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027601 for xXxfFlYJtLgUTdsfhXacVGFuPek
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027602 for xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027603 for xXxhDJSxnrmMxDfOmnU40aW5yaV
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027604 for xXxfQiAyFWI5sjiPKbnpn7NENPE
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027605 for xXx9lPVLVu0KUdQLFiw54pFKtl3
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027606 for xXx2aLDx54UjaxKIDyUCB6K0n0y
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027607 for xXxdVqH1jJVcez0NlYwDQDzAWXC
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027608 for xXxi7WtoZsc9zJdoA74tNfmaYZH
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027609 for xXxPUpnDcZaYalXj5SvNp16UlAf
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027610 for xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027611 for xXxp8SDIyZjkKzW3us4o7x8voUP
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027612 for xXxVeH56R2ByW28t1HWWptyAXuM
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027613 for xXxM2Iepjm1lszPMQOdzQyzgvMP
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027614 for xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027615 for xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027616 for xXxiNkBu1safLr081OgXuvgA78i
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027617 for xXxb6AmW8FA1T9m95pjDlEGbUOp
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027618 for xXx965CaDWZT8zlpOm5vAHrqBIc
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027619 for xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027620 for xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027621 for xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027622 for xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027623 for xXxFZuXG5k0IAElHyNdncoUFgC4
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027624 for xXxASVuiDvA7HzqKbgrYeIngPCT
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027625 for xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027626 for xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027627 for xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027628 for xXxTvQenlSdGXjF9MM7srpMtfwf
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027629 for xXxRF2rp0fevJA6S6MKo2LsdbPH
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027630 for xXxleNCQgyMVo2QOodVrYh6ERaO
+	☑ LLM Job Completed Successfully.
+Checking for Job Completion: 5027631 for xXxdaPTPbtahShxWXUGoNFH5o21
+	☑ LLM Job Completed Successfully.
+
+**************************************************************************************************************
+*                                      SUBMITTING MODELS CREATED BY LLM                                      *
+**************************************************************************************************************
+
+
+************************************************************
+*                  Checking Model Runs: 0                  *
+************************************************************
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx3NsFg06WCIONEFIsfClURpy2.py
+	‣ Bash Script Saved to titanic_test/0/xXx3NsFg06WCIONEFIsfClURpy2_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027753
+	‣ Running py File for xXx3NsFg06WCIONEFIsfClURpy2, 5027753
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx3NsFg06WCIONEFIsfClURpy2.py
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxfFlYJtLgUTdsfhXacVGFuPek.py
+	‣ Bash Script Saved to titanic_test/0/xXxfFlYJtLgUTdsfhXacVGFuPek_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027754
+	‣ Running py File for xXxfFlYJtLgUTdsfhXacVGFuPek, 5027754
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxfFlYJtLgUTdsfhXacVGFuPek.py
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxFNbqNHEaHjHlhH5qFBBvOOcX.py
+	‣ Bash Script Saved to titanic_test/0/xXxFNbqNHEaHjHlhH5qFBBvOOcX_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027755
+	‣ Running py File for xXxFNbqNHEaHjHlhH5qFBBvOOcX, 5027755
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxFNbqNHEaHjHlhH5qFBBvOOcX.py
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxhDJSxnrmMxDfOmnU40aW5yaV.py
+	‣ Bash Script Saved to titanic_test/0/xXxhDJSxnrmMxDfOmnU40aW5yaV_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027756
+	‣ Running py File for xXxhDJSxnrmMxDfOmnU40aW5yaV, 5027756
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxhDJSxnrmMxDfOmnU40aW5yaV.py
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxfQiAyFWI5sjiPKbnpn7NENPE.py
+	‣ Bash Script Saved to titanic_test/0/xXxfQiAyFWI5sjiPKbnpn7NENPE_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027757
+	‣ Running py File for xXxfQiAyFWI5sjiPKbnpn7NENPE, 5027757
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxfQiAyFWI5sjiPKbnpn7NENPE.py
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx9lPVLVu0KUdQLFiw54pFKtl3.py
+	‣ Bash Script Saved to titanic_test/0/xXx9lPVLVu0KUdQLFiw54pFKtl3_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027758
+	‣ Running py File for xXx9lPVLVu0KUdQLFiw54pFKtl3, 5027758
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx9lPVLVu0KUdQLFiw54pFKtl3.py
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx2aLDx54UjaxKIDyUCB6K0n0y.py
+	‣ Bash Script Saved to titanic_test/0/xXx2aLDx54UjaxKIDyUCB6K0n0y_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027759
+	‣ Running py File for xXx2aLDx54UjaxKIDyUCB6K0n0y, 5027759
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx2aLDx54UjaxKIDyUCB6K0n0y.py
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxdVqH1jJVcez0NlYwDQDzAWXC.py
+	‣ Bash Script Saved to titanic_test/0/xXxdVqH1jJVcez0NlYwDQDzAWXC_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027760
+	‣ Running py File for xXxdVqH1jJVcez0NlYwDQDzAWXC, 5027760
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxdVqH1jJVcez0NlYwDQDzAWXC.py
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxi7WtoZsc9zJdoA74tNfmaYZH.py
+	‣ Bash Script Saved to titanic_test/0/xXxi7WtoZsc9zJdoA74tNfmaYZH_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027761
+	‣ Running py File for xXxi7WtoZsc9zJdoA74tNfmaYZH, 5027761
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxi7WtoZsc9zJdoA74tNfmaYZH.py
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxPUpnDcZaYalXj5SvNp16UlAf.py
+	‣ Bash Script Saved to titanic_test/0/xXxPUpnDcZaYalXj5SvNp16UlAf_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027762
+	‣ Running py File for xXxPUpnDcZaYalXj5SvNp16UlAf, 5027762
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxPUpnDcZaYalXj5SvNp16UlAf.py
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx6ObgKbq7eurNTiHN4AGUu0Dm.py
+	‣ Bash Script Saved to titanic_test/0/xXx6ObgKbq7eurNTiHN4AGUu0Dm_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027763
+	‣ Running py File for xXx6ObgKbq7eurNTiHN4AGUu0Dm, 5027763
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx6ObgKbq7eurNTiHN4AGUu0Dm.py
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxp8SDIyZjkKzW3us4o7x8voUP.py
+	‣ Bash Script Saved to titanic_test/0/xXxp8SDIyZjkKzW3us4o7x8voUP_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027764
+	‣ Running py File for xXxp8SDIyZjkKzW3us4o7x8voUP, 5027764
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxp8SDIyZjkKzW3us4o7x8voUP.py
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxVeH56R2ByW28t1HWWptyAXuM.py
+	‣ Bash Script Saved to titanic_test/0/xXxVeH56R2ByW28t1HWWptyAXuM_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027765
+	‣ Running py File for xXxVeH56R2ByW28t1HWWptyAXuM, 5027765
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxVeH56R2ByW28t1HWWptyAXuM.py
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxM2Iepjm1lszPMQOdzQyzgvMP.py
+	‣ Bash Script Saved to titanic_test/0/xXxM2Iepjm1lszPMQOdzQyzgvMP_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027766
+	‣ Running py File for xXxM2Iepjm1lszPMQOdzQyzgvMP, 5027766
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxM2Iepjm1lszPMQOdzQyzgvMP.py
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxQBVYLM1we16Gzf5nFsbzJmdZ.py
+	‣ Bash Script Saved to titanic_test/0/xXxQBVYLM1we16Gzf5nFsbzJmdZ_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027767
+	‣ Running py File for xXxQBVYLM1we16Gzf5nFsbzJmdZ, 5027767
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxQBVYLM1we16Gzf5nFsbzJmdZ.py
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxdd1D0C1hUTmq0NNuKFT0SGY3.py
+	‣ Bash Script Saved to titanic_test/0/xXxdd1D0C1hUTmq0NNuKFT0SGY3_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027768
+	‣ Running py File for xXxdd1D0C1hUTmq0NNuKFT0SGY3, 5027768
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxdd1D0C1hUTmq0NNuKFT0SGY3.py
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxiNkBu1safLr081OgXuvgA78i.py
+	‣ Bash Script Saved to titanic_test/0/xXxiNkBu1safLr081OgXuvgA78i_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027769
+	‣ Running py File for xXxiNkBu1safLr081OgXuvgA78i, 5027769
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxiNkBu1safLr081OgXuvgA78i.py
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxb6AmW8FA1T9m95pjDlEGbUOp.py
+	‣ Bash Script Saved to titanic_test/0/xXxb6AmW8FA1T9m95pjDlEGbUOp_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027770
+	‣ Running py File for xXxb6AmW8FA1T9m95pjDlEGbUOp, 5027770
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxb6AmW8FA1T9m95pjDlEGbUOp.py
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx965CaDWZT8zlpOm5vAHrqBIc.py
+	‣ Bash Script Saved to titanic_test/0/xXx965CaDWZT8zlpOm5vAHrqBIc_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027771
+	‣ Running py File for xXx965CaDWZT8zlpOm5vAHrqBIc, 5027771
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx965CaDWZT8zlpOm5vAHrqBIc.py
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxjcp2A6gMr6WTXu8rO1Xdkk0Q.py
+	‣ Bash Script Saved to titanic_test/0/xXxjcp2A6gMr6WTXu8rO1Xdkk0Q_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027772
+	‣ Running py File for xXxjcp2A6gMr6WTXu8rO1Xdkk0Q, 5027772
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxjcp2A6gMr6WTXu8rO1Xdkk0Q.py
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxXvGh5g7ugZqJ4W4FlLaZLGET.py
+	‣ Bash Script Saved to titanic_test/0/xXxXvGh5g7ugZqJ4W4FlLaZLGET_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027773
+	‣ Running py File for xXxXvGh5g7ugZqJ4W4FlLaZLGET, 5027773
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxXvGh5g7ugZqJ4W4FlLaZLGET.py
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxZUZNHzMqJZJg8pqZwR3fyLY5.py
+	‣ Bash Script Saved to titanic_test/0/xXxZUZNHzMqJZJg8pqZwR3fyLY5_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027774
+	‣ Running py File for xXxZUZNHzMqJZJg8pqZwR3fyLY5, 5027774
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxZUZNHzMqJZJg8pqZwR3fyLY5.py
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxjSUoiJGRx8KMAhfv0HxJdZFe.py
+	‣ Bash Script Saved to titanic_test/0/xXxjSUoiJGRx8KMAhfv0HxJdZFe_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027775
+	‣ Running py File for xXxjSUoiJGRx8KMAhfv0HxJdZFe, 5027775
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxjSUoiJGRx8KMAhfv0HxJdZFe.py
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxFZuXG5k0IAElHyNdncoUFgC4.py
+	‣ Bash Script Saved to titanic_test/0/xXxFZuXG5k0IAElHyNdncoUFgC4_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027776
+	‣ Running py File for xXxFZuXG5k0IAElHyNdncoUFgC4, 5027776
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxFZuXG5k0IAElHyNdncoUFgC4.py
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxASVuiDvA7HzqKbgrYeIngPCT.py
+	‣ Bash Script Saved to titanic_test/0/xXxASVuiDvA7HzqKbgrYeIngPCT_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027777
+	‣ Running py File for xXxASVuiDvA7HzqKbgrYeIngPCT, 5027777
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxASVuiDvA7HzqKbgrYeIngPCT.py
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxkRxjyFr8Aq9fFXaYm5Zq73tn.py
+	‣ Bash Script Saved to titanic_test/0/xXxkRxjyFr8Aq9fFXaYm5Zq73tn_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027778
+	‣ Running py File for xXxkRxjyFr8Aq9fFXaYm5Zq73tn, 5027778
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxkRxjyFr8Aq9fFXaYm5Zq73tn.py
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx15K1GYLVPwXBg0b4xs3Vi6CE.py
+	‣ Bash Script Saved to titanic_test/0/xXx15K1GYLVPwXBg0b4xs3Vi6CE_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027779
+	‣ Running py File for xXx15K1GYLVPwXBg0b4xs3Vi6CE, 5027779
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXx15K1GYLVPwXBg0b4xs3Vi6CE.py
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxrEgH9lNbmxXqiQnZBFvJpGh7.py
+	‣ Bash Script Saved to titanic_test/0/xXxrEgH9lNbmxXqiQnZBFvJpGh7_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027780
+	‣ Running py File for xXxrEgH9lNbmxXqiQnZBFvJpGh7, 5027780
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxrEgH9lNbmxXqiQnZBFvJpGh7.py
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxTvQenlSdGXjF9MM7srpMtfwf.py
+	‣ Bash Script Saved to titanic_test/0/xXxTvQenlSdGXjF9MM7srpMtfwf_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027781
+	‣ Running py File for xXxTvQenlSdGXjF9MM7srpMtfwf, 5027781
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxTvQenlSdGXjF9MM7srpMtfwf.py
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxRF2rp0fevJA6S6MKo2LsdbPH.py
+	‣ Bash Script Saved to titanic_test/0/xXxRF2rp0fevJA6S6MKo2LsdbPH_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027782
+	‣ Running py File for xXxRF2rp0fevJA6S6MKo2LsdbPH, 5027782
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxRF2rp0fevJA6S6MKo2LsdbPH.py
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxleNCQgyMVo2QOodVrYh6ERaO.py
+	‣ Bash Script Saved to titanic_test/0/xXxleNCQgyMVo2QOodVrYh6ERaO_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027783
+	‣ Running py File for xXxleNCQgyMVo2QOodVrYh6ERaO, 5027783
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxleNCQgyMVo2QOodVrYh6ERaO.py
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxdaPTPbtahShxWXUGoNFH5o21.py
+	‣ Bash Script Saved to titanic_test/0/xXxdaPTPbtahShxWXUGoNFH5o21_model.sh
+	‣ Script Submitted Successfully.
+	‣ Output: Submitted batch job 5027784
+	‣ Running py File for xXxdaPTPbtahShxWXUGoNFH5o21, 5027784
+Checking for: SOTA_ROOT /storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/sota/Surrogate/models/llmge_models/model_xXxdaPTPbtahShxWXUGoNFH5o21.py
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 17 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 1                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 18 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 2                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 19 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 3                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 20 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 4                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 21 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 5                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 22 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 6                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 23 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 7                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 24 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 8                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 25 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                  Checking Model Runs: 9                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	‣ Still Waiting On: Gene: xXx3NsFg06WCIONEFIsfClURpy2
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027600, Model Job-ID: 5027753
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	‣ Still Waiting On: Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027601, Model Job-ID: 5027754
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	‣ Still Waiting On: Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027602, Model Job-ID: 5027755
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	‣ Still Waiting On: Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027603, Model Job-ID: 5027756
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	‣ Still Waiting On: Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027604, Model Job-ID: 5027757
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	‣ Still Waiting On: Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027605, Model Job-ID: 5027758
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	‣ Still Waiting On: Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027606, Model Job-ID: 5027759
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	‣ Still Waiting On: Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027607, Model Job-ID: 5027760
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	‣ Still Waiting On: Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027608, Model Job-ID: 5027761
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	‣ Still Waiting On: Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027609, Model Job-ID: 5027762
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	‣ Still Waiting On: Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027610, Model Job-ID: 5027763
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 26 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                 Checking Model Runs: 10                  *
+************************************************************
+Checking the Results for Gene: xXx3NsFg06WCIONEFIsfClURpy2
+Checked Path: run_job_outputs/evaluation/slurm-5027753.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxfFlYJtLgUTdsfhXacVGFuPek
+Checked Path: run_job_outputs/evaluation/slurm-5027754.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxFNbqNHEaHjHlhH5qFBBvOOcX
+Checked Path: run_job_outputs/evaluation/slurm-5027755.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxhDJSxnrmMxDfOmnU40aW5yaV
+Checked Path: run_job_outputs/evaluation/slurm-5027756.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxfQiAyFWI5sjiPKbnpn7NENPE
+Checked Path: run_job_outputs/evaluation/slurm-5027757.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXx9lPVLVu0KUdQLFiw54pFKtl3
+Checked Path: run_job_outputs/evaluation/slurm-5027758.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXx2aLDx54UjaxKIDyUCB6K0n0y
+Checked Path: run_job_outputs/evaluation/slurm-5027759.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxdVqH1jJVcez0NlYwDQDzAWXC
+Checked Path: run_job_outputs/evaluation/slurm-5027760.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxi7WtoZsc9zJdoA74tNfmaYZH
+Checked Path: run_job_outputs/evaluation/slurm-5027761.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxPUpnDcZaYalXj5SvNp16UlAf
+Checked Path: run_job_outputs/evaluation/slurm-5027762.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXx6ObgKbq7eurNTiHN4AGUu0Dm
+Checked Path: run_job_outputs/evaluation/slurm-5027763.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	‣ Still Waiting On: Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027611, Model Job-ID: 5027764
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	‣ Still Waiting On: Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027612, Model Job-ID: 5027765
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	‣ Still Waiting On: Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027613, Model Job-ID: 5027766
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	‣ Still Waiting On: Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027614, Model Job-ID: 5027767
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	‣ Still Waiting On: Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027615, Model Job-ID: 5027768
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	‣ Still Waiting On: Gene: xXxiNkBu1safLr081OgXuvgA78i
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027616, Model Job-ID: 5027769
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	‣ Still Waiting On: Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027617, Model Job-ID: 5027770
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	‣ Still Waiting On: Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027618, Model Job-ID: 5027771
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	‣ Still Waiting On: Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027619, Model Job-ID: 5027772
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	‣ Still Waiting On: Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027620, Model Job-ID: 5027773
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	‣ Still Waiting On: Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027621, Model Job-ID: 5027774
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	‣ Still Waiting On: Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027622, Model Job-ID: 5027775
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	‣ Still Waiting On: Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027623, Model Job-ID: 5027776
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 27 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                 Checking Model Runs: 11                  *
+************************************************************
+Checking the Results for Gene: xXxp8SDIyZjkKzW3us4o7x8voUP
+Checked Path: run_job_outputs/evaluation/slurm-5027764.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxVeH56R2ByW28t1HWWptyAXuM
+Checked Path: run_job_outputs/evaluation/slurm-5027765.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxM2Iepjm1lszPMQOdzQyzgvMP
+Checked Path: run_job_outputs/evaluation/slurm-5027766.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxQBVYLM1we16Gzf5nFsbzJmdZ
+Checked Path: run_job_outputs/evaluation/slurm-5027767.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxdd1D0C1hUTmq0NNuKFT0SGY3
+Checked Path: run_job_outputs/evaluation/slurm-5027768.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxiNkBu1safLr081OgXuvgA78i
+Checked Path: run_job_outputs/evaluation/slurm-5027769.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxb6AmW8FA1T9m95pjDlEGbUOp
+Checked Path: run_job_outputs/evaluation/slurm-5027770.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXx965CaDWZT8zlpOm5vAHrqBIc
+Checked Path: run_job_outputs/evaluation/slurm-5027771.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxjcp2A6gMr6WTXu8rO1Xdkk0Q
+Checked Path: run_job_outputs/evaluation/slurm-5027772.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxXvGh5g7ugZqJ4W4FlLaZLGET
+Checked Path: run_job_outputs/evaluation/slurm-5027773.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxZUZNHzMqJZJg8pqZwR3fyLY5
+Checked Path: run_job_outputs/evaluation/slurm-5027774.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxjSUoiJGRx8KMAhfv0HxJdZFe
+Checked Path: run_job_outputs/evaluation/slurm-5027775.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxFZuXG5k0IAElHyNdncoUFgC4
+Checked Path: run_job_outputs/evaluation/slurm-5027776.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	‣ Still Waiting On: Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027625, Model Job-ID: 5027778
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	‣ Still Waiting On: Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027626, Model Job-ID: 5027779
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	‣ Still Waiting On: Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027627, Model Job-ID: 5027780
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	‣ Still Waiting On: Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027628, Model Job-ID: 5027781
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	‣ Still Waiting On: Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027629, Model Job-ID: 5027782
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	‣ Still Waiting On: Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027630, Model Job-ID: 5027783
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	‣ Still Waiting On: Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 28 min, Status: running eval
+	‣ LLM Job-ID: 5027631, Model Job-ID: 5027784
+Delayed...
+
+************************************************************
+*                 Checking Model Runs: 12                  *
+************************************************************
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 29 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Checking the Results for Gene: xXxkRxjyFr8Aq9fFXaYm5Zq73tn
+Checked Path: run_job_outputs/evaluation/slurm-5027778.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXx15K1GYLVPwXBg0b4xs3Vi6CE
+Checked Path: run_job_outputs/evaluation/slurm-5027779.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxrEgH9lNbmxXqiQnZBFvJpGh7
+Checked Path: run_job_outputs/evaluation/slurm-5027780.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxTvQenlSdGXjF9MM7srpMtfwf
+Checked Path: run_job_outputs/evaluation/slurm-5027781.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxRF2rp0fevJA6S6MKo2LsdbPH
+Checked Path: run_job_outputs/evaluation/slurm-5027782.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxleNCQgyMVo2QOodVrYh6ERaO
+Checked Path: run_job_outputs/evaluation/slurm-5027783.out
+	☠ Error Found in LLM Job Output.
+Checking the Results for Gene: xXxdaPTPbtahShxWXUGoNFH5o21
+Checked Path: run_job_outputs/evaluation/slurm-5027784.out
+	☠ Error Found in LLM Job Output.
+Delayed...
+
+************************************************************
+*                 Checking Model Runs: 13                  *
+************************************************************
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	‣ Still Waiting On: Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+	‣ Fitness: None, Submission Flag: True
+	‣ Runtime: 30 min, Status: running eval
+	‣ LLM Job-ID: 5027624, Model Job-ID: 5027777
+Delayed...
+
+************************************************************
+*                 Checking Model Runs: 14                  *
+************************************************************
+Checking the Results for Gene: xXxASVuiDvA7HzqKbgrYeIngPCT
+Checked Path: run_job_outputs/evaluation/slurm-5027777.out
+	☑ LLM Job Completed Successfully.
+Traceback (most recent call last):
+  File "/storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/run_improved.py", line 1064, in <module>
+    check_and_update_fitness(population)
+  File "/storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/run_improved.py", line 600, in check_and_update_fitness
+    ind.fitness.values = fitness_tuple
+    ^^^^^^^^^^^^^^^^^^
+  File "/storage/ice1/2/5/mgullapalli6/tmp/llm-guided-evolution-infrastructure/.venv/lib/python3.12/site-packages/deap/base.py", line 188, in setValues
+    assert len(values) == len(self.weights), "Assigned values have not the same length than fitness weights"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Assigned values have not the same length than fitness weights
+---------------------------------------
+Begin Slurm Epilog: Apr-21-2026 00:06:54
+Job ID:        5027474
+User ID:       mgullapalli6
+Account:       math
+Job name:      IslandsController
+Resources:     cpu=16,gres/gpu:h100=1,mem=16G,node=1
+Rsrc Used:     cput=10:07:12,vmem=0,walltime=00:37:57,mem=858896K,energy_used=0
+Partition:     coe-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-03-010-25-0
+---------------------------------------
