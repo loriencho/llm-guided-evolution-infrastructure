@@ -191,6 +191,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
@@ -202,6 +203,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -254,7 +261,19 @@
 <a class="viewcode-back" href="../api_docs/llm_mutation.html#llm_mutation.augment_network">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">augment_network</span><span class="p">(</span><span class="n">input_filename</span><span class="o">=</span><span class="s1">&#39;network.py&#39;</span><span class="p">,</span> <span class="n">output_filename</span><span class="o">=</span><span class="s1">&#39;network_x.py&#39;</span><span class="p">,</span> <span class="n">template_txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inference_submission</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Pick a random section of code in a Python file (default is &#39;network.py&#39;), send it to the LLM with a prompt template to be changed/improved.</span>
+<span class="sd">    The new code is then saved at &#39;output_filename&#39;</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_filename (str, optional): input file directory. Defaults to &#39;network.py&#39;.</span>
+<span class="sd">        output_filename (str, optional): output file directory. Defaults to &#39;network_x.py&#39;.</span>
+<span class="sd">        template_txt (_type_, optional): template file directory. Defaults to None.</span>
+<span class="sd">        top_p (float, optional): nucleaus sampling method to decide which words are generated. Defaults to 0.15.</span>
+<span class="sd">        temperature (float, optional): temperature. Defaults to 0.1.</span>
+<span class="sd">        apply_quality_control (bool, optional): Defaults to False.</span>
+<span class="sd">        inference_submission (bool, optional): True - large scale usage with PACE-ICE. Defaults to False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Loading </span><span class="si">{</span><span class="n">input_filename</span><span class="si">}</span><span class="s1"> code&#39;</span><span class="p">)</span>
     <span class="n">parts</span> <span class="o">=</span> <span class="n">split_file</span><span class="p">(</span><span class="n">input_filename</span><span class="p">)</span>
     <span class="n">augment_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">))</span>

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Adding Your Seed Algorithms" href="seed_algorithms.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Setting up LLM-GE and run on CIFAR-10" href="setting_up.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
         <title>LLM-GE 1.0 documentation</title>
@@ -192,6 +192,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
@@ -203,6 +204,12 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/model.html">model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -247,14 +254,43 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="setting_up.html">Setting up LLM-GE and run on CIFAR-10</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#code-base-setup">Code Base - Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#large-language-model-guided-evolution-llmge-repository">Large Language Model Guided Evolution (LLMGE) Repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setting_up.html#id1">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting_up.html#clone-repository">Clone Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting_up.html#llm-ge-codebase-structure">LLM-GE Codebase Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting_up.html#setting-up-the-python-environment">Setting up the Python Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#testing-and-data-preparation">Testing and Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#running-the-experiments">Running the Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#clean-up">Clean Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up.html#notes">Notes</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="point_cloud.html">Point Cloud Classification Optimization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="point_cloud.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="point_cloud.html#pointnet">PointNet++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="point_cloud.html#point-transformers">Point Transformers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="point_cloud.html#code-base-setup">Code Base - Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="point_cloud.html#pace-ice-setup">Pace-Ice Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="point_cloud.html#large-language-model-guided-evolution-repository">Large Language Model Guided Evolution Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point_cloud.html#code-base-setup">Code Base - Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="point_cloud.html#github-repository">Github Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="point_cloud.html#pace-ice-setup">Pace-Ice Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="point_cloud.html#important-links">Important Links</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="point_cloud.html#large-language-model-guided-evolution-repository">Large Language Model Guided Evolution Repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="point_cloud.html#id2">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="point_cloud.html#llm-ge-codebase-structure">LLM-GE Codebase Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="point_cloud.html#code-breakdown">Code Breakdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="point_cloud.html#exquisitenetv2">ExquisiteNetV2</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
@@ -263,6 +299,54 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/llm_utils.html">llm_utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#understanding-pace-ice-and-the-cluster-environment">Understanding PACE-ICE and the Cluster Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-1-connect-to-pace-ice">Step 1 — Connect to PACE-ICE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-2-repository-setup">Step 2 — Repository Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-3-setting-up-the-python-environment">Step 3 — Setting Up the Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-4-setting-up-kaggle-access">Step 4 — Setting Up Kaggle Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-5-configure-before-running">Step 5 — Configure Before Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-6-generate-job-scripts">Step 6 — Generate Job Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-7-submit-and-monitor-jobs">Step 7 — Submit and Monitor Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-8-chaining-jobs-for-continuous-runs">Step 8 — Chaining Jobs for Continuous Runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-9-understanding-and-analyzing-outputs">Step 9 — Understanding and Analyzing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#step-10-deliverables">Step 10 — Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="titanic_for_vip_bootcamp.html#notes-and-best-practices">Notes and Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_for_titanic.html">Titanic API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_for_titanic.html#model">Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/model.html">model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_for_titanic.html#evaluation-eval-py">Evaluation (eval.py)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_for_titanic.html#preprocessing-preprocess-py">Preprocessing (preprocess.py)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#reading-and-dropping-unneeded-columns">Reading and Dropping Unneeded Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#extracting-the-passenger-s-title">Extracting the Passenger’s Title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#grouping-and-standardizing-titles">Grouping and Standardizing Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#mapping-titles-to-numbers">Mapping Titles to Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#dropping-name-and-passenger-id">Dropping Name and Passenger ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#encoding-sex-as-numeric">Encoding Sex as Numeric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#estimating-and-filling-missing-ages">Estimating and Filling Missing Ages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#converting-age-to-categories">Converting Age to Categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#family-features-family-size-and-isalone">Family Features (Family Size and IsAlone)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#creating-age-class-interaction-feature">Creating Age-Class Interaction Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#processing-the-embarked-feature">Processing the Embarked Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#categorizing-fare">Categorizing Fare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_for_titanic.html#saving-the-processed-data">Saving the Processed Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marketmaking.html">Crypto MarketMaking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="marketmaking.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marketmaking.html#running-a-backtest">Running a Backtest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marketmaking.html#key-components">Key Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marketmaking.html#adding-a-strategy">Adding a Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marketmaking.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
 </ul>
@@ -274,12 +358,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="seed_algorithms.html">
+          <a class="next-page" href="setting_up.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Adding Your Seed Algorithms</div>
+                <div class="title">Setting up LLM-GE and run on CIFAR-10</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

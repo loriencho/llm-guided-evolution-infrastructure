@@ -191,6 +191,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
@@ -202,6 +203,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -373,6 +380,18 @@
                       <span class="n">top_p</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
                      
                      <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a Bash command string that can be written into a .sh script and executed on GPU clusters</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_filename_x (str): Path to the first parent model. Defaults to f&#39;{SOTA_ROOT}/network.py&#39;.</span>
+<span class="sd">        input_filename_y (str): Path to the second parent model. Defaults to None.</span>
+<span class="sd">        output_filename (str): Where the child network will be saved. Defaults to f&#39;{SOTA_ROOT}/models/network_x.py&#39;.</span>
+<span class="sd">        gpu (str): GPT type to request for job. Defaults to &#39;TeslaV100-PCIE-32GB&#39;.</span>
+<span class="sd">        python_file (str): Which script to run (llm_mutation.py or llm_crossover.py). Defaults to &#39;src/llm_mutation.py&#39;.</span>
+<span class="sd">        top_p (float): sampling parameters for LLM. Defaults to 0.1.</span>
+<span class="sd">        temperature (float): sampleing parameters for LLM. Defaults to 0.2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span><span class="w"> </span><span class="nf">fetch_gene</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;network_&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -421,6 +440,12 @@
 <div class="viewcode-block" id="create_bash_file">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.create_bash_file">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_bash_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create and save a Bash script file to our computer.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_path: where the script should be saved</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">bash_script_content</span> <span class="o">=</span> <span class="n">write_bash_script</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="c1"># Extract the directory from the file path</span>
     <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
@@ -438,7 +463,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">submit_bash</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; This should be general for subbing anything and returning:</span>
 <span class="sd">        successful_sub_flag </span>
-<span class="sd">        job_id</span>
+<span class="sd">        job_id.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">create_bash_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">RUN_COMMAND</span><span class="p">,</span> <span class="n">file_path</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -540,6 +565,15 @@
 <div class="viewcode-block" id="generate_random_string">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.generate_random_string">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_random_string</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a randomly generated string with specified length.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        length (int, optional): length of the randomly generated string. Defaults to 20.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: the randomly generated string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Define the characters that can be used in the string</span>
     <span class="n">characters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
     <span class="c1"># Generate a random string of specified length</span>
@@ -551,6 +585,17 @@
 <div class="viewcode-block" id="create_individual">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.create_individual">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_individual</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">temp_min</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">temp_max</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a new individual in the evolutionary process, then submit it as a job. We also update GLOBAL_DATA.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        container (Individual): A class representing individuals</span>
+<span class="sd">        temp_min (float, optional): Minimum value for temperature. Defaults to 0.05.</span>
+<span class="sd">        temp_max (float, optional): Maximum value for temperature. Defaults to 0.4.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        container: the individual</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;Create Individual&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">out_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">GENERATION</span><span class="p">)</span>
     <span class="n">gene_id</span> <span class="o">=</span> <span class="n">generate_random_string</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
@@ -590,7 +635,14 @@
 <div class="viewcode-block" id="submit_run">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.submit_run">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">submit_run</span><span class="p">(</span><span class="n">gene_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a Bash script to run training, save that script, submit it to the system, and record the job&#39;s status in GLOBAL_DATA.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span><span class="w"> </span><span class="nf">write_bash_script_py</span><span class="p">(</span><span class="n">gene_id</span><span class="p">,</span> <span class="n">train_file</span><span class="o">=</span><span class="s1">&#39;./sota/ExquisiteNetV2/train.py&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build and return a small bash script that runs a Python training job for a specific model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">MACOS</span><span class="p">:</span>
             <span class="n">tmp</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;-data </span><span class="si">{</span><span class="n">DATA_PATH</span><span class="si">}</span><span class="s2"> -end_lr 0.001 -seed 21 -val_r 0.2 -amp&quot;</span>
         <span class="k">else</span><span class="p">:</span>
@@ -603,12 +655,18 @@
 
     <span class="c1"># This is for subbing the python code</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">create_bash_file_py</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">gene_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create and save a bash script file that will be used to run or submit Python training job.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">bash_script_content</span> <span class="o">=</span> <span class="n">write_bash_script_py</span><span class="p">(</span><span class="n">gene_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bash_script_content</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">‣ Bash Script Saved to </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">submit_bash_py</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">gene_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create and execute a Bash file that submits a Python training Job and check if it succeeded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">create_bash_file_py</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">gene_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">job_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">successful_sub_flag</span> <span class="o">=</span> <span class="kc">False</span>
@@ -650,6 +708,12 @@
 <div class="viewcode-block" id="check4model2run">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.check4model2run">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">check4model2run</span><span class="p">(</span><span class="n">gene_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check for a given gene_id, whether a model file already exists. If it already exists, submit it for evaluation. </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gene_id (str): A unique identifier for a model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># model_path = os.path.join(str(GENERATION), f&#39;{gene_id}_model.txt&#39;)</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Checking for: SOTA_ROOT ./models/network_</span><span class="si">{</span><span class="n">gene_id</span><span class="si">}</span><span class="s1">.py&#39;</span><span class="p">)</span>
@@ -662,6 +726,9 @@
 <div class="viewcode-block" id="check4results">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.check4results">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">check4results</span><span class="p">(</span><span class="n">gene_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checking whether a specific model training job (identified by gene_id) has finished running and the status of the run.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">check4error</span><span class="p">(</span><span class="n">gene_id</span><span class="p">):</span>
         <span class="n">job_id</span> <span class="o">=</span> <span class="n">GLOBAL_DATA</span><span class="p">[</span><span class="n">gene_id</span><span class="p">][</span><span class="s1">&#39;results_job&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">GLOBAL_DATA</span><span class="p">[</span><span class="n">gene_id</span><span class="p">][</span><span class="s1">&#39;local_output&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -832,6 +899,10 @@
 <div class="viewcode-block" id="delayed_mate_check">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.delayed_mate_check">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">delayed_mate_check</span><span class="p">(</span><span class="n">offspring</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if any newly created individuals have delayed jobs that need to be checked for completion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">if</span> <span class="n">DELAYED_CHECK</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="n">offspring</span><span class="p">:</span>
             <span class="n">k</span> <span class="o">=</span> <span class="n">individual</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -864,6 +935,9 @@
 <div class="viewcode-block" id="delayed_creation_check">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.delayed_creation_check">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">delayed_creation_check</span><span class="p">(</span><span class="n">offspring</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if any newly created individuals are waiting to be ran.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">DELAYED_CHECK</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="n">offspring</span><span class="p">:</span>
             <span class="n">k</span> <span class="o">=</span> <span class="n">individual</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -923,6 +997,9 @@
 <div class="viewcode-block" id="customCrossover">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.customCrossover">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">customCrossover</span><span class="p">(</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Take two parent individuals and produces two new individuals by &quot;mating&quot;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">combine_elements</span><span class="p">(</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">,</span> <span class="n">temp_min</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">temp_max</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Combine elements of two individuals to create a new individual.</span>
@@ -1059,6 +1136,15 @@
 <div class="viewcode-block" id="remove_duplicates">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.remove_duplicates">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">remove_duplicates</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove duplicate individuals from a given population.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        population: the population</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: return the filtered list </span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">unique_individuals</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">seen_chromosomes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
@@ -1076,6 +1162,9 @@
 <div class="viewcode-block" id="save_checkpoint">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.save_checkpoint">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">save_checkpoint</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="n">folder_name</span><span class="o">=</span><span class="s2">&quot;checkpoints&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save the current progress of an evolutionary algorithm run, so that if the algorithm crashes, it can resume without losing data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">checkpoint_data</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;GLOBAL_DATA&quot;</span><span class="p">:</span> <span class="n">GLOBAL_DATA</span><span class="p">,</span>
@@ -1093,6 +1182,9 @@
 <div class="viewcode-block" id="load_checkpoint">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.load_checkpoint">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_checkpoint</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s2">&quot;checkpoints&quot;</span><span class="p">,</span> <span class="n">checkpoint_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Restore saved progress.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder_name</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">checkpoint_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1112,6 +1204,9 @@
 <div class="viewcode-block" id="true_nsga2">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.true_nsga2">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">true_nsga2</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    NSGA-II multi-objective optimization technique.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">pop</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">selNSGA2</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pop</span><span class="p">))</span> <span class="c1"># 10 diff</span>
     <span class="n">new_pop</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">selTournamentDCD</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="c1"># mults of 4</span>
     <span class="k">return</span> <span class="n">new_pop</span></div>
@@ -1121,6 +1216,9 @@
 <div class="viewcode-block" id="createPopulation">
 <a class="viewcode-back" href="../api_docs/run_improved.html#run_improved.createPopulation">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">createPopulation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize the population for evolutionary algorithm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">start_gen</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;CREATING POPULATION FROM SEED CODE&quot;</span><span class="p">)</span>
     <span class="n">population</span> <span class="o">=</span> <span class="n">toolbox</span><span class="o">.</span><span class="n">population</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">start_population_size</span><span class="p">)</span>

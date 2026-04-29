@@ -192,6 +192,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
@@ -203,6 +204,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -267,12 +274,19 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.check4model2run">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">check4model2run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gene_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#check4model2run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.check4model2run" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check for a given gene_id, whether a model file already exists. If it already exists, submit it for evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gene_id</strong> (<em>str</em>) – A unique identifier for a model</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.check4results">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">check4results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gene_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#check4results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.check4results" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checking whether a specific model training job (identified by gene_id) has finished running and the status of the run.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.check_and_update_fitness">
@@ -304,22 +318,45 @@ bool: True if job completed successfully, False if error, None if neither.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.createPopulation">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">createPopulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#createPopulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.createPopulation" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Initialize the population for evolutionary algorithm.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.create_bash_file">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">create_bash_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#create_bash_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.create_bash_file" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create and save a Bash script file to our computer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> – where the script should be saved</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.create_individual">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">create_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#create_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.create_individual" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generate a new individual in the evolutionary process, then submit it as a job. We also update GLOBAL_DATA.
+:param container: A class representing individuals
+:type container: Individual
+:param temp_min: Minimum value for temperature. Defaults to 0.05.
+:type temp_min: float, optional
+:param temp_max: Maximum value for temperature. Defaults to 0.4.
+:type temp_max: float, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the individual</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>container</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.customCrossover">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">customCrossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ind1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ind2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#customCrossover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.customCrossover" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Take two parent individuals and produces two new individuals by “mating”.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.customMutation">
@@ -344,12 +381,14 @@ bool: True if job completed successfully, False if error, None if neither.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.delayed_creation_check">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">delayed_creation_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offspring</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#delayed_creation_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.delayed_creation_check" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check if any newly created individuals are waiting to be ran.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.delayed_mate_check">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">delayed_mate_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offspring</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#delayed_mate_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.delayed_mate_check" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check if any newly created individuals have delayed jobs that need to be checked for completion.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.delayed_mutate_check">
@@ -376,7 +415,19 @@ bool: True if job completed successfully, False if error, None if neither.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.generate_random_string">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">generate_random_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#generate_random_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.generate_random_string" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a randomly generated string with specified length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>length</strong> (<em>int</em><em>, </em><em>optional</em>) – length of the randomly generated string. Defaults to 20.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the randomly generated string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.generate_template">
@@ -406,7 +457,8 @@ bool: True if job completed successfully, False if error, None if neither.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.load_checkpoint">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">load_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoints'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#load_checkpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.load_checkpoint" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Restore saved progress.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.print_ancestry">
@@ -416,30 +468,45 @@ bool: True if job completed successfully, False if error, None if neither.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.remove_duplicates">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">remove_duplicates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#remove_duplicates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.remove_duplicates" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove duplicate individuals from a given population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>population</strong> – the population</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return the filtered list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.save_checkpoint">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoints'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#save_checkpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.save_checkpoint" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Save the current progress of an evolutionary algorithm run, so that if the algorithm crashes, it can resume without losing data.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.submit_bash">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">submit_bash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#submit_bash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.submit_bash" title="Link to this definition">¶</a></dt>
 <dd><p>This should be general for subbing anything and returning:
 successful_sub_flag
-job_id</p>
+job_id.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.submit_run">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">submit_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gene_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#submit_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.submit_run" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create a Bash script to run training, save that script, submit it to the system, and record the job’s status in GLOBAL_DATA.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.true_nsga2">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">true_nsga2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#true_nsga2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.true_nsga2" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>NSGA-II multi-objective optimization technique.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.update_ancestry">
@@ -490,7 +557,21 @@ job_id</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="run_improved.write_bash_script">
 <span class="sig-prename descclassname"><span class="pre">run_improved.</span></span><span class="sig-name descname"><span class="pre">write_bash_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_filename_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/hice1/jzutty3/llm-guided-evolution/sota/ExquisiteNetV2/network.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_filename_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/hice1/jzutty3/llm-guided-evolution/sota/ExquisiteNetV2/models/network_x.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TeslaV100-PCIE-32GB'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'src/llm_mutation.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/run_improved.html#write_bash_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#run_improved.write_bash_script" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create a Bash command string that can be written into a .sh script and executed on GPU clusters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_filename_x</strong> (<em>str</em>) – Path to the first parent model. Defaults to f’{SOTA_ROOT}/network.py’.</p></li>
+<li><p><strong>input_filename_y</strong> (<em>str</em>) – Path to the second parent model. Defaults to None.</p></li>
+<li><p><strong>output_filename</strong> (<em>str</em>) – Where the child network will be saved. Defaults to f’{SOTA_ROOT}/models/network_x.py’.</p></li>
+<li><p><strong>gpu</strong> (<em>str</em>) – GPT type to request for job. Defaults to ‘TeslaV100-PCIE-32GB’.</p></li>
+<li><p><strong>python_file</strong> (<em>str</em>) – Which script to run (llm_mutation.py or llm_crossover.py). Defaults to ‘src/llm_mutation.py’.</p></li>
+<li><p><strong>top_p</strong> (<em>float</em>) – sampling parameters for LLM. Defaults to 0.1.</p></li>
+<li><p><strong>temperature</strong> (<em>float</em>) – sampleing parameters for LLM. Defaults to 0.2.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 

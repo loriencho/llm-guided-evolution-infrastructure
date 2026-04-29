@@ -191,6 +191,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
@@ -202,6 +203,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -282,7 +289,7 @@
 <div class="viewcode-block" id="generate_augmented_code">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.generate_augmented_code">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_augmented_code</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">augment_idx</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="p">,</span> <span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">inference_submission</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates augmented code using Mixtral.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates augmented code using LLM such as Mixtral, LLaMA 3, or Gemini.&quot;&quot;&quot;</span>
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;PROMPT TO LLM&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">)</span>
     
@@ -315,7 +322,7 @@
 <div class="viewcode-block" id="extract_note">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.extract_note">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">extract_note</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts note from the part if present.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts note labeled with # -- NOTE -- from the part if present.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="s2">&quot;# -- NOTE --&quot;</span> <span class="ow">in</span> <span class="n">txt</span><span class="p">:</span>
         <span class="n">note_txt</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;# -- NOTE --&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s1">&#39;# -- NOTE --</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">note_txt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;# -- NOTE --</span><span class="se">\n</span><span class="s1">&#39;</span>
@@ -326,6 +333,9 @@
 <div class="viewcode-block" id="split_file">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.split_file">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">split_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read a file and splits it into parts separated by # -- OPTION -- </span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
@@ -352,6 +362,11 @@
 <div class="viewcode-block" id="llm_code_qc">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">llm_code_qc</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">,</span> <span class="n">base_code</span><span class="p">,</span> <span class="n">generate_text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform quality control on the code generated by an LLM by comparing it </span>
+<span class="sd">    with the base code and refine by another LLM call</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: make parameter</span>
     <span class="n">template_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="s1">&#39;templates/llm_quality_control.txt&#39;</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">template_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
@@ -370,6 +385,9 @@
 <div class="viewcode-block" id="llm_code_qc_hf">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc_hf">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">llm_code_qc_hf</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">,</span> <span class="n">base_code</span><span class="p">,</span> <span class="n">generate_text</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform quality control on code (Hugging Face version)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: make parameter</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;llm_quality_control_p.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;llm_quality_control_p.txt&#39;</span><span class="p">])</span>
     <span class="n">template_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;templates/</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -565,6 +583,9 @@
 <div class="viewcode-block" id="mutate_prompts">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.mutate_prompts">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">mutate_prompts</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mutating prompt by submitting a rephrase request of the prompt to LLM </span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">templates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ROOT_DIR</span><span class="si">}</span><span class="s1">/templates/FixedPrompts/*/*.txt&#39;</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">template</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">templates</span><span class="p">):</span>
         <span class="n">path</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>

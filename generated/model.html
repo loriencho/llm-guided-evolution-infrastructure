@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Crypto MarketMaking" href="../marketmaking.html"><link rel="prev" title="Titanic API" href="../api_for_titanic.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
-        <title>llm-guided-evolution - LLM-GE 1.0 documentation</title>
+        <title>model - LLM-GE 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -191,22 +191,22 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/run_improved.html">run_improved</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/llm_crossover.html">llm_crossover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/llm_mutation.html">llm_mutation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run_improved.html">run_improved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llm_crossover.html">llm_crossover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llm_mutation.html">llm_mutation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
@@ -230,7 +230,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/api_docs/modules.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/generated/model.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -248,40 +248,17 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="llm-guided-evolution">
-<h1>llm-guided-evolution<a class="headerlink" href="#llm-guided-evolution" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="run_improved.html">run_improved module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.check4job_completion"><code class="docutils literal notranslate"><span class="pre">check4job_completion()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.check4model2run"><code class="docutils literal notranslate"><span class="pre">check4model2run()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.check4results"><code class="docutils literal notranslate"><span class="pre">check4results()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.check_and_update_fitness"><code class="docutils literal notranslate"><span class="pre">check_and_update_fitness()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.check_contents_for_error"><code class="docutils literal notranslate"><span class="pre">check_contents_for_error()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.createPopulation"><code class="docutils literal notranslate"><span class="pre">createPopulation()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.create_bash_file"><code class="docutils literal notranslate"><span class="pre">create_bash_file()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.create_individual"><code class="docutils literal notranslate"><span class="pre">create_individual()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.customCrossover"><code class="docutils literal notranslate"><span class="pre">customCrossover()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.customMutation"><code class="docutils literal notranslate"><span class="pre">customMutation()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.delayed_creation_check"><code class="docutils literal notranslate"><span class="pre">delayed_creation_check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.delayed_mate_check"><code class="docutils literal notranslate"><span class="pre">delayed_mate_check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.delayed_mutate_check"><code class="docutils literal notranslate"><span class="pre">delayed_mutate_check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.evalModel"><code class="docutils literal notranslate"><span class="pre">evalModel()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.generate_random_string"><code class="docutils literal notranslate"><span class="pre">generate_random_string()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.generate_template"><code class="docutils literal notranslate"><span class="pre">generate_template()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.load_checkpoint"><code class="docutils literal notranslate"><span class="pre">load_checkpoint()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.print_ancestry"><code class="docutils literal notranslate"><span class="pre">print_ancestry()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.remove_duplicates"><code class="docutils literal notranslate"><span class="pre">remove_duplicates()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">save_checkpoint()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.submit_bash"><code class="docutils literal notranslate"><span class="pre">submit_bash()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.submit_run"><code class="docutils literal notranslate"><span class="pre">submit_run()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.true_nsga2"><code class="docutils literal notranslate"><span class="pre">true_nsga2()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.update_ancestry"><code class="docutils literal notranslate"><span class="pre">update_ancestry()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.update_individual"><code class="docutils literal notranslate"><span class="pre">update_individual()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html#run_improved.write_bash_script"><code class="docutils literal notranslate"><span class="pre">write_bash_script()</span></code></a></li>
-</ul>
-</li>
-</ul>
+          <section id="module-model">
+<span id="model"></span><h1>model<a class="headerlink" href="#module-model" title="Link to this heading">¶</a></h1>
+<p class="rubric">Classes</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs_titanic/model.html#model.Model" title="model.Model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 
@@ -290,8 +267,26 @@
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="../marketmaking.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Crypto MarketMaking</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../api_for_titanic.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Titanic API</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
