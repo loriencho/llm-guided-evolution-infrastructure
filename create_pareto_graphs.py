@@ -8,7 +8,7 @@ RESULTS_DIR = './sota/Surrogate/results/'
 OUTPUT_DIR = os.path.join(RESULTS_DIR, 'plots')
 METRICS = ['Kendall_Tau', 'MSE', 'Runtime']
 KT_MAX = 1
-MSE_MAX = .5
+MSE_MAX = 500
 RUNTIME_MAX = 1000
 
 # Ensure the output directory exists
@@ -38,35 +38,31 @@ def load_data(directory):
     return pd.DataFrame(data, columns=METRICS)
 
 def get_pareto_front_2d(x_values, y_values, x_max=True, y_max=False):
-    """
-    Takes in 2 metrics that are objectives. This will then check each combination (x[i], y[i]) to see if it 
-    is pareto optimal. If yes, is_optimal[i] = true, else is_optimal[i]
-
-    Args:
-        x_values (pd Dataframe): The values of the first objective metric
-        y_values (pd Dataframe): The values of the second objective metric
-        x_max (bool): The boolean that controls if we want to maximize the first metric
-        y_max (bool): The boolean that controls if we want to maximize the second metric
-
-    Returns:
-        (list): a list of booleans that serves as a mask to tell other functions if a certain datapoint is pareto optimal
-    """
     pts = np.vstack((x_values, y_values)).T
     n_points = pts.shape[0]
     is_optimal = np.zeros(n_points, dtype=bool)
     
-    idx = np.lexsort((pts[:, 1] if y_max else -pts[:, 1], 
-                      -pts[:, 0] if x_max else pts[:, 0]))
+    # 1. TIE-BREAKING SORT:
+    # We sort X by your primary goal (Max or Min).
+    # CRITICAL: We sort Y by the goal as well so the "best" Y is first for each X.
+    # For Kendall Tau (Max) and Runtime (Min):
+    # This ensures if X=0.5, we see Runtime=60 before Runtime=100.
+    x_sort = -pts[:, 0] if x_max else pts[:, 0]
+    y_sort = pts[:, 1] if not y_max else -pts[:, 1]
+    
+    idx = np.lexsort((y_sort, x_sort))
     sorted_pts = pts[idx]
     
     current_best_y = -np.inf if y_max else np.inf
     
     for i, (x, y) in enumerate(sorted_pts):
         if y_max:
+            # Only mark optimal if it is STRICTLY better than the previous best Y
             if y > current_best_y:
                 is_optimal[idx[i]] = True
                 current_best_y = y
         else:
+            # Use < instead of <= to discard "stacked" points with the same Y
             if y < current_best_y:
                 is_optimal[idx[i]] = True
                 current_best_y = y
@@ -112,11 +108,11 @@ def plot_pareto_kt_mse(df, output_dir, trivial_points=None):
     # 4. Plotting
     plt.figure(figsize=(10, 6))
 
-    plt.xlim(0, 1)
-    plt.ylim(0, .5)
+    plt.xlim(0, KT_MAX)
+    plt.ylim(0, MSE_MAX)
     
     # --- ALL EXPERIMENTAL DATA ---
-    # These are the "sub-optimal" points
+    # --- THE PARETO LINE ---
     plt.scatter(
         df[x_col], df[y_col], 
         c='royalblue', 
@@ -125,8 +121,6 @@ def plot_pareto_kt_mse(df, output_dir, trivial_points=None):
         label='All Experimental Models', 
         zorder=1
     )
-    
-    # --- THE PARETO LINE ---
     # This draws the boundary through the optimal points
     plt.step(
         pareto_df[x_col], pareto_df[y_col], 
@@ -208,8 +202,8 @@ def plot_pareto_kt_runtime(df, output_dir, trivial_points=None, runtime_limit=50
     plt.figure(figsize=(10, 6))
     
     # Standardized Limits: KT (0-1), Runtime (User defined or data max)
-    plt.xlim(0, 1)
-    plt.ylim(0, runtime_limit)
+    plt.xlim(0, KT_MAX)
+    plt.ylim(0, RUNTIME_MAX)
 
     # Layer 1: All Models (Faded background)
     plt.scatter(
@@ -261,46 +255,47 @@ def plot_pareto_kt_runtime(df, output_dir, trivial_points=None, runtime_limit=50
 
 def plot_pareto_mse_runtime(df, output_dir, trivial_points=None, mse_limit=100, runtime_limit=500):
     """
-    Plots ALL individuals, not just optimal ones, but will plot pareto optimal points in a different color.
-    This plots mse vs runtime specifically.
-
-    Args:
-        df (pd DataFrame): The dataframe full of all result values for all individuals
-        output_dir (str): A string representation of a path to output the graphs
-        trivial_points (list(tuple(float))): a list of 2 tuples of numeric value that represents 2 trivial points on the graph
-    
-    Returns:
-        None
+    Plots all individuals and highlights the Pareto optimal front for MSE vs Runtime.
     """
     x_col = 'MSE'
     y_col = 'Runtime'
     
-    # 1. Get Pareto points (Both Min: x_max=False, y_max=False)
-    mask = get_pareto_front_2d(df[x_col].values, df[y_col].values, x_max=False, y_max=False)
-    pareto_df = df[mask].copy()
+    # 1. Generate the mask using the helper method (Minimizing both objectives)
+    is_optimal_mask = get_pareto_front_2d(
+        df[x_col].values, 
+        df[y_col].values, 
+        x_max=False, 
+        y_max=False
+    )
+    
+    # 2. Separate optimal points for the front
+    pareto_df = df[is_optimal_mask].copy()
 
-    # 2. Attach anchors (Trivial high-error/high-time baselines)
+    # 3. Handle Anchors/Trivial Points
+    # We add these to the pareto_df so the step-line includes them
     if trivial_points:
         triv_df = pd.DataFrame(trivial_points, columns=[x_col, y_col])
         pareto_df = pd.concat([pareto_df, triv_df], ignore_index=True)
     
-    # 3. Sort by MSE (X-axis)
+    # 4. Sort by X (MSE) to ensure the plt.step line draws correctly from left to right
     pareto_df = pareto_df.sort_values(by=x_col)
 
-    # 4. Plotting
+    # 5. Plotting
     plt.figure(figsize=(10, 6))
     plt.xlim(0, mse_limit)
     plt.ylim(0, runtime_limit)
 
-    # Layer 1: All Models
+    # Layer 1: All Models (Background)
     plt.scatter(df[x_col], df[y_col], c='purple', alpha=0.2, s=30, label='All Models', zorder=1)
     
-    # Layer 2: Pareto Line (where='post' to hug bottom-left)
+    # Layer 2: Pareto Line 
+    # 'where=post' creates the "staircase" effect hugging the bottom-left origin
     plt.step(pareto_df[x_col], pareto_df[y_col], where='post', color='darkviolet', lw=2.5, label='Front', zorder=3)
     
-    # Layer 3: Optimal Points
+    # Layer 3: Optimal Points (Points that make up the front)
     plt.scatter(pareto_df[x_col], pareto_df[y_col], color='darkviolet', edgecolor='black', s=70, zorder=4)
     
+    # Layer 4: Explicitly mark trivial anchors if they exist
     if trivial_points:
         t_x, t_y = zip(*trivial_points)
         plt.scatter(t_x, t_y, color='black', marker='x', s=120, label='Anchors', zorder=5)
@@ -311,6 +306,7 @@ def plot_pareto_mse_runtime(df, output_dir, trivial_points=None, mse_limit=100, 
     plt.legend()
     plt.grid(True, linestyle=':', alpha=0.6)
     
+    # Save Logic
     os.makedirs(output_dir, exist_ok=True)
     save_path = os.path.join(output_dir, 'pareto_mse_vs_runtime.png')
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
@@ -324,13 +320,13 @@ if __name__ == "__main__":
         # 1. KT (Max) vs MSE (Min)
         plot_pareto_kt_mse(
             df_results, OUTPUT_DIR, 
-            trivial_points=[(0.0, 100), (0.1, 80)]
+            trivial_points=[(0, 0), (1, 200)]
         )
         
         # 2. KT (Max) vs Runtime (Min)
         plot_pareto_kt_runtime(
             df_results, OUTPUT_DIR, 
-            trivial_points=[(0.0, 0), (1, 500)],
+            trivial_points=[(1, 300), (0, 0)],
             runtime_limit=600
         )
         
@@ -338,9 +334,7 @@ if __name__ == "__main__":
         # Anchor example: high error (100) at high runtime (500)
         plot_pareto_mse_runtime(
             df_results, OUTPUT_DIR, 
-            trivial_points=[(100, 500), (80, 450)],
-            mse_limit=110,
-            runtime_limit=600
+            trivial_points=[(0, 300), (200, 0)]
         )
         
         print("All three Pareto fronts have been generated.")
