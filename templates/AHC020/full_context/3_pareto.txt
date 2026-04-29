@@ -9,7 +9,7 @@ For each edge, set its power to ON or OFF. For each vertex i, set an integer out
 
 Let E' be the set of ON edges and G' the subgraph induced by them. Let V' be the connected component of vertex 1 in G'. For every i in V', any resident inside the closed disk of radius P_i around (x_i, y_i) receives the broadcast.
 
-Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{j in E'} w_j.
+Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{{j in E'}} w_j.
 
 Input format (stdin):
 N M K
@@ -27,10 +27,10 @@ Output format (stdout):
 P_1 ... P_N
 B_1 ... B_M
 
-Fitness is the pair (S_total, T_total), both minimized. Solutions are non-dominated if no other solution is at least as good on both objectives. Fast-and-rough greedy heuristics and slow-and-careful local search can BOTH be Pareto-optimal; the most interesting solutions often combine them — e.g. a warm-started local search with a strict early-termination budget.
+Fitness is the pair (score_total (MAXIMIZED, official AHC020 score) and time_total (MINIMIZED, wall-clock seconds). Solutions are non-dominated if no other solution is at least as good on both objectives. Fast-and-rough greedy heuristics and slow-and-careful local search can BOTH be Pareto-optimal; the most interesting solutions often combine them — e.g. a warm-started local search with a strict early-termination budget.
 ---
 
-Modify this solver to make a meaningful jump along the (S_total, T_total) Pareto front. A good direction: warm-start with a fast greedy assignment, then run a bounded improvement loop (simulated annealing, hill-climbing, or local repair) with a wall-clock budget so you spend the time where it actually moves the score. Make sure the time budget is enforced strictly so the solver never exceeds it.
+Modify this solver to make a meaningful jump along the (score_total, time_total) Pareto front. A good direction: warm-start with a fast greedy assignment, then run a bounded improvement loop (simulated annealing, hill-climbing, or local repair) with a wall-clock budget so you spend the time where it actually moves the score. Make sure the time budget is enforced strictly so the solver never exceeds it.
 
 The current code block:
 ```python

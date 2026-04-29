@@ -10,9 +10,19 @@ from os.path import join as pj
 import numpy as np
 
 
-LAMBDA = 10 ** 12
 T_MAX = 60.0
 DEFAULT_REPS = 3
+
+
+def instance_score(n_covered, K, S):
+    """Official AHC020 per-instance score (maximization).
+
+    If n < K:  round(10^6 * (n+1) / K)
+    If n == K: round(10^6 * (1 + 10^8 / (S + 10^7)))
+    """
+    if n_covered < K:
+        return round(1_000_000 * (n_covered + 1) / K)
+    return round(1_000_000 * (1 + 1e8 / (S + 1e7)))
 
 
 def create_save_dir(save_root):
@@ -127,10 +137,8 @@ def score_instance(P, B, N, M, K, coords, edges, residents):
                 n_covered += 1
                 break
 
-    base = cable_cost + power_cost
-    if n_covered < K:
-        return base + LAMBDA * (K - n_covered)
-    return base
+    S = cable_cost + power_cost
+    return n_covered, S
 
 
 def evaluate_one(model_module, input_text, reps, t_max):
@@ -150,18 +158,18 @@ def evaluate_one(model_module, input_text, reps, t_max):
         elapsed = time.perf_counter() - t0
 
         if elapsed > t_max:
-            return LAMBDA * K, t_max
+            return instance_score(0, K, 0), t_max
         if elapsed < best_time:
             best_time = elapsed
         last_output = out
 
     parsed = parse_output(last_output, N, M)
     if parsed is None:
-        return LAMBDA * K, best_time
+        return instance_score(0, K, 0), best_time
 
     P, B = parsed
-    s = score_instance(P, B, N, M, K, coords, edges, residents)
-    return s, best_time
+    n_covered, S = score_instance(P, B, N, M, K, coords, edges, residents)
+    return instance_score(n_covered, K, S), best_time
 
 
 if __name__ == '__main__':
@@ -187,18 +195,18 @@ if __name__ == '__main__':
     if not test_files:
         print(f"WARNING: no test cases found in {args.test_cases_dir}", file=sys.stderr)
 
-    S_total = 0.0
+    score_total = 0
     T_total = 0.0
 
     for tf in test_files:
         with open(tf, 'r') as f:
             input_text = f.read()
-        s_inst, t_inst = evaluate_one(model_module, input_text, args.reps, args.t_max)
-        print(f"  {tf.name}: S={s_inst:.0f} T={t_inst:.4f}s")
-        S_total += s_inst
+        score_inst, t_inst = evaluate_one(model_module, input_text, args.reps, args.t_max)
+        print(f"  {tf.name}: score={score_inst} T={t_inst:.4f}s")
+        score_total += score_inst
         T_total += t_inst
 
-    results_text = f"{S_total},{T_total}"
+    results_text = f"{score_total},{T_total}"
 
     filename = os.path.abspath(f'results/{gene_id}_results.txt')
     os.makedirs(os.path.dirname(filename), exist_ok=True)

@@ -1,4 +1,4 @@
-I AM ABOUT TO BE FIRED FROM MY JOB!!! MY MANAGER HAS TOLD ME I MUST IMPROVE THIS AHC020 BROADCASTING SOLVER IN A SIGNIFICANT WAY OR I WILL LOSE MY JOB AND HAVE NOTHING TO EAT. THE SCORE IS S = sum_i P_i^2 + sum_{ON edges} w_j, EVERY RESIDENT MUST BE COVERED, AND FITNESS IS (S_total, T_total) WITH BOTH MINIMIZED. PLEASE HELP ME AND DON'T MESS UP. MY CAREER AND LIFE DEPEND ON THIS!!!
+I AM ABOUT TO BE FIRED FROM MY JOB!!! MY MANAGER HAS TOLD ME I MUST IMPROVE THIS AHC020 BROADCASTING SOLVER IN A SIGNIFICANT WAY OR I WILL LOSE MY JOB AND HAVE NOTHING TO EAT. THE SCORE IS S = sum_i P_i^2 + sum_{{ON edges}} w_j, EVERY RESIDENT MUST BE COVERED, AND FITNESS IS (score_total, time_total) where score_total is MAXIMIZED (official AHC020 score, sum across instances) and time_total is MINIMIZED (wall-clock seconds, sum across instances). PLEASE HELP ME AND DON'T MESS UP. MY CAREER AND LIFE DEPEND ON THIS!!!
 
 Q: How can you apply significant modifications to this solver to substantially elevate its position on the (score, time) Pareto front?
 

@@ -3,7 +3,7 @@ You are improving a Python solver for the AtCoder Heuristic Contest problem AHC0
 ---
 AHC020 — Broadcasting
 
-N=100 stations on a planar weighted graph (100<=M<=300). 2000<=K<=5000 residents. For each edge set B_j ∈ {0,1} and for each vertex set P_i ∈ [0,5000]. Resident k is covered if it lies in the closed disk of some station i that is in the connected component of vertex 1 within the ON-edge subgraph. Cost S = sum P_i^2 + sum_{ON} w_j; all residents must be covered.
+N=100 stations on a planar weighted graph (100<=M<=300). 2000<=K<=5000 residents. For each edge set B_j ∈ {{0,1}} and for each vertex set P_i ∈ [0,5000]. Resident k is covered if it lies in the closed disk of some station i that is in the connected component of vertex 1 within the ON-edge subgraph. Cost S = sum P_i^2 + sum_{{ON}} w_j; all residents must be covered.
 
 Input format (stdin):
 N M K
@@ -21,7 +21,7 @@ Output format (stdout):
 P_1 ... P_N
 B_1 ... B_M
 
-Fitness is (S_total, T_total); both minimized.
+Fitness is (score_total (MAXIMIZED, official AHC020 score) and time_total (MINIMIZED, wall-clock seconds).
 ---
 
 Wrap the existing solver's output as an initial feasible solution and add a local-search improvement phase on top. Useful neighborhood moves: (1) reduce P_i to the smallest radius that still covers its currently assigned residents; (2) toggle a single edge OFF and check feasibility; (3) reassign residents from a high-P station to a nearby station with slack. Use a strict wall-clock budget (e.g. 1-3 seconds per instance) and accept moves only if they decrease S without losing coverage.

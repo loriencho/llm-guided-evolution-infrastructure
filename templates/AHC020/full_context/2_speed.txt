@@ -9,7 +9,7 @@ For each edge, set its power to ON or OFF. For each vertex i, set an integer out
 
 Let E' be the set of ON edges and G' the subgraph induced by them. Let V' be the connected component of vertex 1 in G'. For every i in V', any resident inside the closed disk of radius P_i around (x_i, y_i) receives the broadcast.
 
-Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{j in E'} w_j.
+Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{{j in E'}} w_j.
 
 Constraints: N = 100, 100 <= M <= 300, 2000 <= K <= 5000.
 
@@ -29,7 +29,7 @@ Output format (stdout):
 P_1 ... P_N
 B_1 ... B_M
 
-Fitness is the pair (S_total, T_total), both minimized. Lowering runtime moves the solution along the Pareto front even if score improves only modestly.
+Fitness is the pair (score_total (MAXIMIZED, official AHC020 score) and time_total (MINIMIZED, wall-clock seconds). Lowering runtime moves the solution along the Pareto front even if score improves only modestly.
 ---
 
 Reduce the runtime of the following solver while keeping the output valid (all K residents covered, output format correct). Look for inner-loop hotspots: nearest-station lookups (KD-tree, grid bucketing, or vectorized numpy), avoidable Python overhead, redundant recomputation across iterations, and unnecessary copies. Do not regress score quality unless it's a small price to pay for a much faster runtime.

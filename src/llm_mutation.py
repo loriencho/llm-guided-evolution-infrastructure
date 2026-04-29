@@ -38,7 +38,7 @@ def augment_network(input_filename='network.py', output_filename='network_x.py',
         template_txt = file.read()
     
     # add code to be augmented 
-    txt2llm = template_txt.format(code2llm.strip())
+    txt2llm = template_txt.replace("{}", code2llm.strip(), 1)
     code_from_llm = generate_augmented_code(txt2llm, augment_idx-1, apply_quality_control,
                                             top_p, llm_model, temperature)
     

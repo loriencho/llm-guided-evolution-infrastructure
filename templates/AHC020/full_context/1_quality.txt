@@ -9,7 +9,7 @@ For each edge, set its power to ON or OFF. For each vertex i, set an integer out
 
 Let E' be the set of ON edges and G' the subgraph induced by them. Let V' be the connected component of vertex 1 in G'. For every i in V', any resident inside the closed disk of radius P_i around (x_i, y_i) receives the broadcast.
 
-Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{j in E'} w_j.
+Cost: ON edge j costs w_j. Vertex i with strength P_i costs P_i^2. Total S = sum_i P_i^2 + sum_{{j in E'}} w_j.
 
 Constraints: N = 100, 100 <= M <= 300, 2000 <= K <= 5000, |coords| <= 10000, every resident is within Euclidean 5000 of at least one station.
 
@@ -29,10 +29,10 @@ Output format (stdout):
 P_1 ... P_N
 B_1 ... B_M
 
-Fitness is the pair (S_total, T_total) summed over a fixed set of test instances, with both objectives minimized. If a solution fails to cover all K residents on an instance, a large coverage penalty dominates the score, so always make sure your output is valid AND covers everyone. Faster solutions and lower-cost solutions can both be Pareto-optimal — focus on improving solution quality (lowering S) without blowing up runtime.
+Fitness is the pair (score_total, time_total) summed over a fixed set of test instances. score_total uses the official AHC020 per-instance scoring (MAXIMIZED): if n < K residents are covered, score = round(10^6 * (n+1)/K); if n == K, score = round(10^6 * (1 + 10^8 / (S + 10^7))). time_total is wall-clock seconds (MINIMIZED). Always cover every resident — partial coverage caps the per-instance score below 10^6, which any fully-covering solution beats. Lower cost S and faster runtimes both move along the Pareto front.
 ---
 
-Improve the following Python solver to substantially lower the per-instance score S while keeping the output valid (all residents covered, output format correct). Replace or upgrade the algorithm — for example, prune redundant ON edges with an MST/Steiner-style step, choose P_i values more carefully so each station's disk is shared across many residents, or both. Adding helper functions is encouraged.
+Improve the following Python solver to substantially lower the per-instance cost S while keeping the output valid (all residents covered, output format correct). Replace or upgrade the algorithm — for example, prune redundant ON edges with an MST/Steiner-style step, choose P_i values more carefully so each station's disk is shared across many residents, or both. Adding helper functions is encouraged.
 
 The current code block:
 ```python

@@ -1,4 +1,4 @@
-Improve this AHC020 broadcasting solver to lower the per-instance score S = sum_i P_i^2 + sum_{ON edges} w_j, keeping the output valid (every resident covered, output format `P_1 ... P_N` then `B_1 ... B_M`). Replacing the algorithm or adding helper functions is encouraged.
+Improve this AHC020 broadcasting solver to lower the per-instance cost S = sum_i P_i^2 + sum_{{ON edges}} w_j (lower S => higher official score = round(10^6 * (1 + 10^8 / (S + 10^7))) when all residents are covered). Keep the output valid: every resident must be covered, output format `P_1 ... P_N` then `B_1 ... B_M`. Replacing the algorithm or adding helper functions is encouraged.
 
 The current code block:
 ```python

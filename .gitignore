@@ -25,4 +25,5 @@ src/island_temp_script.sh
 cifar10
 uv.lock
 pareto_fronts
-*/run_job_outputs
+run_job_outputs
+*.out

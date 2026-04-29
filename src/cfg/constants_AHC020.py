@@ -91,8 +91,10 @@ EVAL_RUNLINE = "uv run python {} --model {} --variant_dir {VARIANT_DIR}"
 """
 Evolution Constants/Params
 """
-# Two objectives: (S_total, T_total), both minimized
-FITNESS_WEIGHTS = (-1.0, -1.0)
+# Two objectives: (score_total, T_total)
+# score_total uses official AHC020 scoring (maximized);
+# T_total is wall-clock seconds summed over instances (minimized).
+FITNESS_WEIGHTS = (1.0, -1.0)
 INVALID_FITNESS_MAX = tuple([float(x*np.inf*-1) for x in FITNESS_WEIGHTS])
 PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
 NUM_EOT_ELITES = 10

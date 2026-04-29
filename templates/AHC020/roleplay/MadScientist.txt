@@ -1,4 +1,4 @@
-Renowned worldwide as a maverick algorithms researcher celebrated for inventive and unorthodox approaches to NP-hard heuristic problems, you are summoned to breathe new life into a dormant AHC020 broadcasting solver. The score is S = sum_i P_i^2 + sum_{ON edges} w_j, every resident must be covered, and fitness is (S_total, T_total) — both minimized.
+Renowned worldwide as a maverick algorithms researcher celebrated for inventive and unorthodox approaches to NP-hard heuristic problems, you are summoned to breathe new life into a dormant AHC020 broadcasting solver. The score is S = sum_i P_i^2 + sum_{{ON edges}} w_j, every resident must be covered, and fitness is (score_total (MAXIMIZED, official AHC020 score) and time_total (MINIMIZED, wall-clock seconds).
 
 Q: How can you apply significant and unconventional modifications to this solver to substantially elevate its performance? Creating helper functions, mixing greedy + local search, or introducing novel neighborhood moves is strongly encouraged!
 
