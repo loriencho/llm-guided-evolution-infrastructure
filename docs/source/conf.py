@@ -45,11 +45,17 @@ sys.path.insert(0, str(Path('..', '..', 'src', 'utils').resolve()))
 sys.path.insert(0, str(Path('..', '..', 'src', 'cfg').resolve()))
 sys.path.insert(0, str(Path('..', '..', 'src').resolve()))
 sys.path.insert(0, str(Path('..', '..', 'sota', 'Titanic').resolve()))
+sys.path.insert(0, str(Path('..', '..', 'sota', 'MarketMaking').resolve()))
+sys.path.insert(0, str(Path('..', '..', 'sota', 'MarketMaking', 'seeds').resolve()))
 sys.path.insert(0, str(Path('..', '..').resolve()))
 
-autodoc_mock_imports = ["sklearn"]
+autodoc_mock_imports = [
+    "sklearn",
+    "hftbacktest",
+    "numba",
+]
 
-print(sys.path)
+#print(sys.path)
 # apidoc_modules = [
 #     {'path': '../../run_imporved.py', 'destination': 'source/'},
 #     {'path': '../../src/llm_crossover.py', 'destination': 'source/'},
