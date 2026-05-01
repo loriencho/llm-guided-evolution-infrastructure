@@ -13,6 +13,7 @@ mv -f slurm-*.out "$DEST_DIR/"                                                  
 mv -f 0 "$DEST_DIR/"                                                                    # LLM operation and gene evaluation bash scripts
 mv -f sota/ultralytics/ultralytics/cfg/models/llm/models/* "$DEST_DIR/"                 # LLM generated models
 mv -f sota/ultralytics/results/* "$DEST_DIR/"                                           # Model results from evaluation
+mv -f sota/ultralytics/run_results/* "$DEST_DIR/"                                           # Model results from evaluation
 
 # Run these if you need to move everything, otherwise, comment them out
 # Note: mv -f is used to overwrite existing files in the destination without prompt

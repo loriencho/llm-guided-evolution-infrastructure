@@ -1,10 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=test_coco2017
-#SBATCH -t 8:00:00              # Runtime in D-HH:MM
+#SBATCH -t 8:00:00
 #SBATCH --gres=gpu:2
-#SBATCH --mem 16G
-#SBATCH -c 1                    # number of CPU cores
-# All of the above settings are configured for running on the PACE-ICE HPC
+#SBATCH -G 2
+#SBATCH -C "H100|H200" # For yolo training
+#SBATCH --mem 224G	# prevent OOM errors for loading COCO2017
+#SBATCH -c 16 # 8 workers per GPU
 
 echo "launching test_coco2017"
 hostname

@@ -1,10 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=llm_opt
 #SBATCH -t 16:00:00                 # Maximum walltime allowed for CPU jobs
-#SBATCH --gres=gpu:0                # No GPUs for this job
 #SBATCH --nodes=1                   # Request 1 node
-#SBATCH --mem=0                     # Request all available memory on the node (as per your documentation)
+#SBATCH --exclusive                     # Request all available memory on the node (as per your documentation)
 #SBATCH -c 24                       # Request 48 threads (all 24 cores x 2 CPUs with hyperthreading for Gold 6226)
+
+export SCRATCH_DIR="/home/hice1/user/scratch/your_directory_here"
+
+# Force uv to use scratch for everything
+export UV_CACHE_DIR="$SCRATCH_DIR/your_uv_cache_dir"
+
 # All of the above settings are configured for running on the PACE-ICE HPC
 
 echo "launching LLM-Guided-Evolution"
