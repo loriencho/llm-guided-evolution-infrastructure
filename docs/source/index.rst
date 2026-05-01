@@ -15,7 +15,9 @@ Welcome to the documentation for Large Language Model \(LLM\) Guided Evolution \
 
    seed_algorithms
    point_cloud
+   object_det
    api
+   
 
 
 
