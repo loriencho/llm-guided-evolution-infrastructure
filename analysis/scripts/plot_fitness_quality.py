@@ -6,6 +6,10 @@ import os
 def generate_fitness_quality_chart(csv_path, output_path="results/analysis/fitness_quality_summary.png"):
     # Load the CSV
     df = pd.read_csv(csv_path)
+    if 'fitness_1' not in df.columns:
+        print("Missing column: fitness_1")
+        return
+    df['fitness_1'] = pd.to_numeric(df['fitness_1'], errors='coerce')
     
     # We will evaluate based on fitness_1
     # Missing / Malformed
@@ -56,4 +60,17 @@ def generate_fitness_quality_chart(csv_path, output_path="results/analysis/fitne
     print(f"Saved visualization to {output_path}")
 
 if __name__ == '__main__':
-    generate_fitness_quality_chart('results/analysis/entity_metrics_summary.csv')
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--input",
+        default="analysis/results/analysis/entity_metrics_summary.csv"
+    )
+    parser.add_argument(
+        "--output",
+        default="analysis/results/analysis/fitness_quality_summary.png"
+    )
+    args = parser.parse_args()
+
+    generate_fitness_quality_chart(args.input, args.output)

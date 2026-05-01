@@ -78,11 +78,11 @@ def build_dashboard_metrics(metric_rows: list[dict]) -> list[dict]:
 
 def main():
     parser = argparse.ArgumentParser(description="Export dashboard-ready data tables.")
-    parser.add_argument("--slurm-input", default="results/analysis/slurm_summary.csv")
-    parser.add_argument("--comparison-input", default="results/analysis/run_comparison.csv")
-    parser.add_argument("--failure-input", default="results/analysis/failure_counts.csv")
-    parser.add_argument("--metrics-input", default="results/analysis/run_metrics.csv")
-    parser.add_argument("--output-dir", default="results/analysis")
+    parser.add_argument("--slurm-input", default="analysis/results/analysis/slurm_summary.csv")
+    parser.add_argument("--comparison-input", default="analysis/results/analysis/run_comparison.csv")
+    parser.add_argument("--failure-input", default="analysis/results/analysis/failure_counts.csv")
+    parser.add_argument("--metrics-input", default="analysis/results/analysis/run_metrics.csv")
+    parser.add_argument("--output-dir", default="analysis/results/analysis")
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)

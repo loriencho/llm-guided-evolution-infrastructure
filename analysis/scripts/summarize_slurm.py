@@ -148,7 +148,7 @@ def main():
     )
     parser.add_argument(
         "--output",
-        default="results/analysis/slurm_summary.csv",
+        default="analysis/results/analysis/slurm_summary.csv",
         help="Output CSV path",
     )
     args = parser.parse_args()

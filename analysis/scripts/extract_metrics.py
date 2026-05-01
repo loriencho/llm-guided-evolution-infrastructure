@@ -15,7 +15,7 @@ JOB_ID_FROM_FILENAME_PATTERNS = [
 ]
 
 TEXT_METRIC_PATTERNS = [
-    ("generation", re.compile(r"\bgeneration\b[:=\s]+(\d+)", re.IGNORECASE)),
+    ("generation", re.compile(r"(?:STARTING\s+)?GENERATION[:=\s]+(\d+)", re.IGNORECASE)),    
     ("score", re.compile(r"\bscore\b[:=\s]+(-?\d+(?:\.\d+)?)", re.IGNORECASE)),
     ("fitness", re.compile(r"\bfitness\b[:=\s]+(-?\d+(?:\.\d+)?)", re.IGNORECASE)),
     ("accuracy", re.compile(r"\baccuracy\b[:=\s]+(-?\d+(?:\.\d+)?)", re.IGNORECASE)),
@@ -199,7 +199,7 @@ def collect_candidate_files(repo_root: Path) -> list[Path]:
             continue
 
         # Standalone pickle state files anywhere outside results/analysis
-        if path.suffix == ".pkl" and not rel.startswith("results/analysis/"):
+        if path.suffix == ".pkl" and not rel.startswith("analysis/results/analysis/"):
             files.append(path)
             continue
 
@@ -209,7 +209,7 @@ def collect_candidate_files(repo_root: Path) -> list[Path]:
 def main():
     parser = argparse.ArgumentParser(description="Extract metrics from logs and pickle state artifacts.")
     parser.add_argument("--input", default=".", help="Repository root or directory to scan")
-    parser.add_argument("--output", default="results/analysis/run_metrics.csv", help="Output CSV path")
+    parser.add_argument("--output", default="analysis/results/analysis/run_metrics.csv", help="Output CSV path")
     args = parser.parse_args()
 
     repo_root = Path(args.input).resolve()

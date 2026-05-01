@@ -1,1 +1,0 @@
-job_id,job_name,status,failure_reason,partition,node,walltime_used,memory_used_kb,score,fitness,accuracy,loss,best_score

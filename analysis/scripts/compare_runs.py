@@ -69,10 +69,10 @@ def build_metrics_by_job(rows: list[dict]) -> dict[str, dict]:
 
 def main():
     parser = argparse.ArgumentParser(description="Compare runs using analysis outputs.")
-    parser.add_argument("--slurm-input", default="results/analysis/slurm_summary.csv")
-    parser.add_argument("--inventory-input", default="results/analysis/run_inventory.csv")
-    parser.add_argument("--metrics-input", default="results/analysis/run_metrics.csv")
-    parser.add_argument("--output", default="results/analysis/run_comparison.csv")
+    parser.add_argument("--slurm-input", default="analysis/results/analysis/slurm_summary.csv")
+    parser.add_argument("--inventory-input", default="analysis/results/analysis/run_inventory.csv")
+    parser.add_argument("--metrics-input", default="analysis/results/analysis/run_metrics.csv")
+    parser.add_argument("--output", default="analysis/results/analysis/run_comparison.csv")
     args = parser.parse_args()
 
     slurm_rows = read_csv_rows(Path(args.slurm_input))

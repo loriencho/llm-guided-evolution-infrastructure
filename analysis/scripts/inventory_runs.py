@@ -119,7 +119,7 @@ def collect_files(repo_root: Path) -> list[Path]:
 def main():
     parser = argparse.ArgumentParser(description="Inventory run-related artifacts in the repository.")
     parser.add_argument("--input", default=".", help="Repository root or directory to scan")
-    parser.add_argument("--output", default="results/analysis/run_inventory.csv", help="Output CSV path")
+    parser.add_argument("--output", default="analysis/results/analysis/run_inventory.csv", help="Output CSV path")
     args = parser.parse_args()
 
     repo_root = Path(args.input).resolve()

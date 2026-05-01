@@ -16,8 +16,7 @@ import csv
 import matplotlib.pyplot as plt
 
 
-BASE_DIR = Path("analysis/results/analysis")
-
+BASE_DIR = Path(__file__).resolve().parents[1] / "results" / "analysis"
 RUN_METRICS_CSV = BASE_DIR / "run_metrics.csv"
 SLURM_SUMMARY_CSV = BASE_DIR / "slurm_summary.csv"
 RUN_COMPARISON_CSV = BASE_DIR / "run_comparison.csv"
@@ -472,14 +471,6 @@ def write_report(
         f.write("- Sudden stops, missing later generations, or very low max generation suggest the controller may have failed or stalled early.\n")
         f.write("- Compare this report with failure and controller activity reports to distinguish algorithmic failure from Slurm/orchestration failure.\n\n")
 
-        f.write("## Dashboard Placement\n\n")
-        f.write("Recommended dashboard section: **Controller Activity** or **Run Health**.\n\n")
-        f.write("This pairs well with:\n")
-        f.write("- Run Health: total runs, failed runs, failure reasons\n")
-        f.write("- Controller Activity: submitted child jobs, completed child jobs, wait events\n")
-        f.write("- Entity Fitness Quality: finite vs infinite vs missing\n")
-        f.write("- Top Individuals: leaderboard table\n")
-        f.write("- Pareto View: scatter plot plus Pareto-front summary\n")
 
 
 def main():

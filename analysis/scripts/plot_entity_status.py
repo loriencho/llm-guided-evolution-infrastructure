@@ -45,4 +45,17 @@ def generate_entity_status_chart(csv_path, output_path="results/analysis/entity_
     print(f"Saved visualization to {output_path}")
 
 if __name__ == '__main__':
-    generate_entity_status_chart('results/analysis/entity_metrics_summary.csv')
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--input",
+        default="analysis/results/analysis/entity_metrics_summary.csv"
+    )
+    parser.add_argument(
+        "--output",
+        default="analysis/results/analysis/entity_status_summary.png"
+    )
+    args = parser.parse_args()
+
+    generate_entity_status_chart(args.input, args.output)

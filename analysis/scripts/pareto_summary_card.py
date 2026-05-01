@@ -10,8 +10,7 @@ import re
 import matplotlib.pyplot as plt
 
 
-BASE_DIR = Path("analysis/results/analysis")
-
+BASE_DIR = Path(__file__).resolve().parents[1] / "results" / "analysis"
 INPUT_REPORT = BASE_DIR / "global_data_pareto_report.md"
 OUTPUT_REPORT = BASE_DIR / "pareto_kpi_summary.md"
 GRAPHS_DIR = BASE_DIR / "pareto_kpi_graphs"

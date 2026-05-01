@@ -1,1 +1,0 @@
-file_name,job_id,job_name,partition,qos,node,line_count,status_guess,failure_reason,walltime_used,memory_used_kb,hostname_hint,submitted_child_jobs,completed_child_jobs,wait_events,first_5_lines,last_5_lines

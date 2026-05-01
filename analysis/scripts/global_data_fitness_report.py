@@ -64,7 +64,7 @@ def main():
     )
     parser.add_argument(
         "--output",
-        default="results/analysis/global_data_pareto_report.md",
+        default="analysis/results/analysis/global_data_pareto_report.md",
         help="Output Markdown report path",
     )
     args = parser.parse_args()

@@ -7,6 +7,9 @@ def generate_controller_activity_chart(csv_path, output_path="results/analysis/c
     # Load the CSV
     df = pd.read_csv(csv_path)
     
+    for col in ['submitted_child_jobs', 'completed_child_jobs', 'wait_events']:
+        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+        
     # Filter for jobs that had some controller activity (submitted > 0)
     df_controller = df[df['submitted_child_jobs'] > 0].copy()
     
@@ -59,4 +62,17 @@ def generate_controller_activity_chart(csv_path, output_path="results/analysis/c
     print(f"Saved visualization to {output_path}")
 
 if __name__ == '__main__':
-    generate_controller_activity_chart('results/analysis/slurm_summary.csv')
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--input",
+        default="analysis/results/analysis/slurm_summary.csv"
+    )
+    parser.add_argument(
+        "--output",
+        default="analysis/results/analysis/controller_activity_summary.png"
+    )
+    args = parser.parse_args()
+
+    generate_controller_activity_chart(args.input, args.output)
