@@ -102,6 +102,45 @@ Constants and Path Variables
  
        #SBATCH -C "H100|H200"
        #SBATCH --gres=gpu:2
+
+dataset_subset.sh
+~~~~~~~~~~~~~~~~~
+
+   **Location:**
+
+   .. code-block:: bash
+
+      sota/ultralytics/ultralytics/data/scripts/dataset_subset.sh
+
+   This script downsizes the COCO 2017 training dataset (100,000+ images) to a smaller subset of size ``n``, while maintaining class balance so the data remains representative of the original.
+
+   **Parameters:**
+
+   - ``--n <int>``  
+     Number of images to include in the subset (default: ``50000``)
+
+   - ``--seed <int>``  
+     Random seed for reproducibility (default: ``0``)
+
+   - ``--coco_root <path>``  
+     Path to the original COCO dataset (images + labels in YOLO format)
+
+   - ``--coco_out_root <path>``  
+     Output directory where the subset will be created
+
+   **Output:**
+
+   Creates a new dataset directory containing:
+
+   - ``images/`` — symlinked subset of images  
+   - ``labels/`` — corresponding labels  
+   - ``train.txt`` — list of training images  
+   - ``coco2017_downsized.yaml`` — dataset config for Ultralytics  
+
+   **Notes:**
+
+   - Uses a **greedy class-balancing algorithm** to preserve class diversity  
+   - Files are **symlinked (not copied)** for efficiency    
  
 **coco.yaml**
  
