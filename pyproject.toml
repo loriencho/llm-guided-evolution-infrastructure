@@ -3,7 +3,7 @@ name = "llm-guided-evolution"
 version = "0.1.0"
 description = "llm-guided-evolution, virtual envrionment that includes packages necessary for local llm integration & model evalution."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12, <3.13"
 dependencies = [
     "deap==1.4.3",
     "flake8>=7.2.0",
@@ -26,9 +26,12 @@ dependencies = [
     "omegaconf",
     "pyyaml",
     "kaggle>=1.7.4.5",
-    "pandas>=2.3.2",
+    "pandas>=2.3.2, <3.0.0",
     "scikit-learn>=1.7.2",
     "imblearn",
     "matplotlib",
     "tensorflow>=2.20.0",
 ]
+
+[tool.pytest.ini_options]
+junit_logging = "system-out"
