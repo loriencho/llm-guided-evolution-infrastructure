@@ -192,24 +192,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../island_migration.html">Island Migration</a><input aria-label="Toggle navigation of Island Migration" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="model.html">model</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -261,10 +257,10 @@
 <td><p>Check for the completion of a job by searching for its output file and scanning for errors.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.check4model2run" title="run_improved.check4model2run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check4model2run</span></code></a>(gene_id)</p></td>
-<td><p>Check for a given gene_id, whether a model file already exists.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.check4results" title="run_improved.check4results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check4results</span></code></a>(gene_id)</p></td>
-<td><p>Checking whether a specific model training job (identified by gene_id) has finished running and the status of the run.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.check_and_update_fitness" title="run_improved.check_and_update_fitness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_and_update_fitness</span></code></a>(population[, ...])</p></td>
 <td><p>This function submits jobs and then if submitted it checks for four possibilities.</p></td>
@@ -272,26 +268,26 @@
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.check_contents_for_error" title="run_improved.check_contents_for_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_contents_for_error</span></code></a>(contents)</p></td>
 <td><p>Checks the output of a job for any signs of error.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.createPopulation" title="run_improved.createPopulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">createPopulation</span></code></a>()</p></td>
-<td><p>Initialize the population for evolutionary algorithm.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.create_bash_file" title="run_improved.create_bash_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_bash_file</span></code></a>(file_path, **kwargs)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.create_bash_file" title="run_improved.create_bash_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_bash_file</span></code></a>(file_path, **kwargs)</p></td>
-<td><p>Create and save a Bash script file to our computer.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.create_individual" title="run_improved.create_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_individual</span></code></a>(container, llm_model[, ...])</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.create_individual" title="run_improved.create_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_individual</span></code></a>(container[, temp_min, ...])</p></td>
-<td><p>Generate a new individual in the evolutionary process, then submit it as a job.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.create_population" title="run_improved.create_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_population</span></code></a>(n, llm_model)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.customCrossover" title="run_improved.customCrossover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">customCrossover</span></code></a>(ind1, ind2)</p></td>
-<td><p>Take two parent individuals and produces two new individuals by &quot;mating&quot;.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.customCrossover" title="run_improved.customCrossover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">customCrossover</span></code></a>(ind1, ind2, llm_model)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.customMutation" title="run_improved.customMutation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">customMutation</span></code></a>(individual, indpb[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.customMutation" title="run_improved.customMutation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">customMutation</span></code></a>(individual, llm_model, indpb)</p></td>
 <td><p>Custom mutation function that randomly changes the temperature parameter of the individual's task and assigns a new ID.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.delayed_creation_check" title="run_improved.delayed_creation_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delayed_creation_check</span></code></a>(offspring)</p></td>
-<td><p>Check if any newly created individuals are waiting to be ran.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.delayed_mate_check" title="run_improved.delayed_mate_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delayed_mate_check</span></code></a>(offspring)</p></td>
-<td><p>Check if any newly created individuals have delayed jobs that need to be checked for completion.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.delayed_mutate_check" title="run_improved.delayed_mutate_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delayed_mutate_check</span></code></a>(offspring)</p></td>
 <td><p>Iterates through list of offspring and checks status of running mutation jobs.</p></td>
@@ -299,17 +295,23 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.evalModel" title="run_improved.evalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evalModel</span></code></a>(individual)</p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.extract_generation" title="run_improved.extract_generation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_generation</span></code></a>(filename, kind)</p></td>
+<td><p>Parse generation number from a checkpoint/global filename; return None if it doesn't match.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.fill_template_slots" title="run_improved.fill_template_slots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_template_slots</span></code></a>(template, *values)</p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.generate_random_string" title="run_improved.generate_random_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_random_string</span></code></a>([length])</p></td>
-<td><p>Return a randomly generated string with specified length.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.generate_template" title="run_improved.generate_template"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_template</span></code></a>(PROB_EOT, GEN_COUNT, ...)</p></td>
 <td><p>Generates a template based on given probabilities and gene information.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.load_checkpoint" title="run_improved.load_checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_checkpoint</span></code></a>([folder_name, checkpoint_file])</p></td>
-<td><p>Restore saved progress.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.load_checkpoint" title="run_improved.load_checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_checkpoint</span></code></a>([folder_name, ...])</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate_prompts</span></code>([n])</p></td>
-<td><p>Mutating prompt by submitting a rephrase request of the prompt to LLM</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.load_yaml" title="run_improved.load_yaml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_yaml</span></code></a>([file_path])</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.print_ancestry" title="run_improved.print_ancestry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_ancestry</span></code></a>(data)</p></td>
 <td><p></p></td>
@@ -324,34 +326,40 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.remove_duplicates" title="run_improved.remove_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_duplicates</span></code></a>(population)</p></td>
-<td><p>Remove duplicate individuals from a given population.</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">retrieve_base_code</span></code>(idx)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.resolve_prompt_glob" title="run_improved.resolve_prompt_glob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_prompt_glob</span></code></a>(prompt_group_arg)</p></td>
+<td><p>Resolve the prompt glob pattern from CLI input or defaults.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">retrieve_base_code</span></code>(idx)</p></td>
 <td><p>Retrieves base code for quality control.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.save_checkpoint" title="run_improved.save_checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_checkpoint</span></code></a>(gen[, folder_name])</p></td>
-<td><p>Save the current progress of an evolutionary algorithm run, so that if the algorithm crashes, it can resume without losing data.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.save_checkpoint" title="run_improved.save_checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_checkpoint</span></code></a>(gen[, folder_name, ...])</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_file</span></code>(filename)</p></td>
-<td><p>Read a file and splits it into parts separated by # -- OPTION --</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_file</span></code>(filename)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.submit_bash" title="run_improved.submit_bash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_bash</span></code></a>(file_path, **kwargs)</p></td>
-<td><p>This should be general for subbing anything and returning: successful_sub_flag job_id.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.submit_bash" title="run_improved.submit_bash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_bash</span></code></a>(file_path, **kwargs)</p></td>
+<td><p>This should be general for subbing anything and returning: successful_sub_flag job_id</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.submit_run" title="run_improved.submit_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_run</span></code></a>(gene_id)</p></td>
-<td><p>Create a Bash script to run training, save that script, submit it to the system, and record the job's status in GLOBAL_DATA.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.submit_run" title="run_improved.submit_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_run</span></code></a>(gene_id)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.true_nsga2" title="run_improved.true_nsga2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true_nsga2</span></code></a>(pop, k)</p></td>
-<td><p>NSGA-II multi-objective optimization technique.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.true_nsga2" title="run_improved.true_nsga2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true_nsga2</span></code></a>(pop, k)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.update_ancestry" title="run_improved.update_ancestry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_ancestry</span></code></a>(gene_id_child, ...[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.update_ancestry" title="run_improved.update_ancestry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_ancestry</span></code></a>(gene_id_child, ...[, ...])</p></td>
 <td><p>Updates the ancestry data for a given child gene based on its parent(s).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.update_individual" title="run_improved.update_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_individual</span></code></a>(ind, new_gene_id[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.update_individual" title="run_improved.update_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_individual</span></code></a>(ind, new_gene_id[, ...])</p></td>
 <td><p>Update an individual based on the success or failure of a process.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.write_bash_script" title="run_improved.write_bash_script"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_bash_script</span></code></a>([input_filename_x, ...])</p></td>
-<td><p>Create a Bash command string that can be written into a .sh script and executed on GPU clusters</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.wait_for_llm_server" title="run_improved.wait_for_llm_server"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wait_for_llm_server</span></code></a>([timeout, check_interval])</p></td>
+<td><p>Wait for local LLM server hostname file and HTTP endpoint to become ready.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/run_improved.html#run_improved.write_bash_script" title="run_improved.write_bash_script"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_bash_script</span></code></a>(llm_model, job_name[, ...])</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -362,6 +370,12 @@
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">HallOfFame</span></code>(maxsize[, similar])</p></td>
 <td><p>The hall of fame contains the best individual that ever lived in the population during the evolution.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParetoFront</span></code>([similar])</p></td>
+<td><p>The Pareto front hall of fame contains all the non-dominated individuals that ever lived in the population.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial</span></code></p></td>
+<td><p>partial(func, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>keywords) - new function with partial application of the given arguments and keywords.</p></td>
 </tr>
 </tbody>
 </table>

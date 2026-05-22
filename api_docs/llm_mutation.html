@@ -192,24 +192,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../island_migration.html">Island Migration</a><input aria-label="Toggle navigation of Island Migration" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../generated/run_improved.html">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -252,23 +248,8 @@
 <span id="llm-mutation-module"></span><h1>llm_mutation module<a class="headerlink" href="#module-llm_mutation" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="llm_mutation.augment_network">
-<span class="sig-prename descclassname"><span class="pre">llm_mutation.</span></span><span class="sig-name descname"><span class="pre">augment_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'network.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'network_x.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template_txt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_quality_control</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_submission</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/llm_mutation.html#augment_network"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#llm_mutation.augment_network" title="Link to this definition">¶</a></dt>
-<dd><p>Pick a random section of code in a Python file (default is ‘network.py’), send it to the LLM with a prompt template to be changed/improved.
-The new code is then saved at ‘output_filename’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_filename</strong> (<em>str</em><em>, </em><em>optional</em>) – input file directory. Defaults to ‘network.py’.</p></li>
-<li><p><strong>output_filename</strong> (<em>str</em><em>, </em><em>optional</em>) – output file directory. Defaults to ‘network_x.py’.</p></li>
-<li><p><strong>template_txt</strong> (<em>_type_</em><em>, </em><em>optional</em>) – template file directory. Defaults to None.</p></li>
-<li><p><strong>top_p</strong> (<em>float</em><em>, </em><em>optional</em>) – nucleaus sampling method to decide which words are generated. Defaults to 0.15.</p></li>
-<li><p><strong>temperature</strong> (<em>float</em><em>, </em><em>optional</em>) – temperature. Defaults to 0.1.</p></li>
-<li><p><strong>apply_quality_control</strong> (<em>bool</em><em>, </em><em>optional</em>) – Defaults to False.</p></li>
-<li><p><strong>inference_submission</strong> (<em>bool</em><em>, </em><em>optional</em>) – True - large scale usage with PACE-ICE. Defaults to False.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-prename descclassname"><span class="pre">llm_mutation.</span></span><span class="sig-name descname"><span class="pre">augment_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'network.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'network_x.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template_txt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llm_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'deepseek'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_quality_control</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/llm_mutation.html#augment_network"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#llm_mutation.augment_network" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </section>
 

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="LLM-Guided Evolution on Titanic Dataset with PACE-ICE" href="../titanic_for_vip_bootcamp.html"><link rel="prev" title="llm_mutation" href="llm_mutation.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="prev" title="llm_mutation" href="llm_mutation.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
         <title>llm_utils - LLM-GE 1.0 documentation</title>
@@ -192,24 +192,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../island_migration.html">Island Migration</a><input aria-label="Toggle navigation of Island Migration" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="run_improved.html">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">llm_utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="model.html">model</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -261,31 +257,61 @@
 <td><p>Cleans the code received from LLM.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.extract_note" title="llm_utils.extract_note"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_note</span></code></a>(txt)</p></td>
-<td><p>Extracts note labeled with # -- NOTE -- from the part if present.</p></td>
+<td><p>Extracts note from the part if present.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.generate_augmented_code" title="llm_utils.generate_augmented_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_augmented_code</span></code></a>(txt2llm, ...[, ...])</p></td>
-<td><p>Generates augmented code using LLM such as Mixtral, LLaMA 3, or Gemini.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.generate_augmented_code" title="llm_utils.generate_augmented_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_augmented_code</span></code></a>(txt2llm, ...)</p></td>
+<td><p>Generates augmented code using Mixtral.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc" title="llm_utils.llm_code_qc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">llm_code_qc</span></code></a>(code_from_llm, base_code, ...)</p></td>
-<td><p>Perform quality control on the code generated by an LLM by comparing it with the base code and refine by another LLM call</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc_hf" title="llm_utils.llm_code_qc_hf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">llm_code_qc_hf</span></code></a>(code_from_llm, base_code[, ...])</p></td>
-<td><p>Perform quality control on code (Hugging Face version)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.mutate_prompts" title="llm_utils.mutate_prompts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate_prompts</span></code></a>([n])</p></td>
-<td><p>Mutating prompt by submitting a rephrase request of the prompt to LLM</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.retrieve_base_code" title="llm_utils.retrieve_base_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">retrieve_base_code</span></code></a>(idx)</p></td>
-<td><p>Retrieves base code for quality control.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.split_file" title="llm_utils.split_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_file</span></code></a>(filename)</p></td>
-<td><p>Read a file and splits it into parts separated by # -- OPTION --</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.str2bool" title="llm_utils.str2bool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str2bool</span></code></a>(v)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.get_llm_code_generator" title="llm_utils.get_llm_code_generator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_llm_code_generator</span></code></a>(llm_model)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_gemini_api" title="llm_utils.submit_gemini_api"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_gemini_api</span></code></a>(txt2gemini, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.get_llm_server_hostname" title="llm_utils.get_llm_server_hostname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_llm_server_hostname</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc" title="llm_utils.llm_code_qc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">llm_code_qc</span></code></a>(code_from_llm, base_code, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc_hf" title="llm_utils.llm_code_qc_hf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">llm_code_qc_hf</span></code></a>(code_from_llm, base_code[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.mutate_prompt" title="llm_utils.mutate_prompt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate_prompt</span></code></a>(llm_model, template[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_job_info</span></code>(job_dict[, short])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_population</span></code>(offspring, global_data)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_scores</span></code>(population, fitness_weights)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.retrieve_base_code" title="llm_utils.retrieve_base_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">retrieve_base_code</span></code></a>(idx)</p></td>
+<td><p>Retrieves base code for quality control.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.split_file" title="llm_utils.split_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_file</span></code></a>(filename)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.str2bool" title="llm_utils.str2bool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str2bool</span></code></a>(v)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_deepseek" title="llm_utils.submit_deepseek"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_deepseek</span></code></a>(txt2qwen[, max_new_tokens, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_deepseek_local" title="llm_utils.submit_deepseek_local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_deepseek_local</span></code></a>(prompt[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_gemini_api" title="llm_utils.submit_gemini_api"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_gemini_api</span></code></a>(txt2gemini, **kwargs)</p></td>
 <td><p>This function submits a model prompt to Gemini through its API</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_gemma2" title="llm_utils.submit_gemma2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_gemma2</span></code></a>(txt2gemma[, max_new_tokens, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_gemma2_hf" title="llm_utils.submit_gemma2_hf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_gemma2_hf</span></code></a>(txt2mixtral[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_gemma3" title="llm_utils.submit_gemma3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_gemma3</span></code></a>(txt2gemma[, max_new_tokens, ...])</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_llama3_hf" title="llm_utils.submit_llama3_hf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_llama3_hf</span></code></a>(txt2llama[, ...])</p></td>
 <td><p>This function submits a model prompt to Llama3 through the HuggingFace Inference API</p></td>
@@ -295,6 +321,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_mixtral_hf" title="llm_utils.submit_mixtral_hf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_mixtral_hf</span></code></a>(txt2mixtral[, ...])</p></td>
 <td><p>This function submits a model prompt to mixtral through the HuggingFace Inference API</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_mixtral_local" title="llm_utils.submit_mixtral_local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_mixtral_local</span></code></a>(prompt[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_utils.html#llm_utils.submit_qwen" title="llm_utils.submit_qwen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_qwen</span></code></a>(txt2qwen[, max_new_tokens, ...])</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -319,15 +351,7 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../titanic_for_vip_bootcamp.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
+          
           <a class="prev-page" href="llm_mutation.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">

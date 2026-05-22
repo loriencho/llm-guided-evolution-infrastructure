@@ -191,24 +191,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../island_migration.html">Island Migration</a><input aria-label="Toggle navigation of Island Migration" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../generated/run_improved.html">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -242,23 +238,23 @@
         </div>
         <article role="main" id="furo-main-content">
           <h1>Source code for llm_utils</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
-
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">transformers</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">bfloat16</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">bfloat16</span><span class="p">,</span> <span class="n">float16</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">utils.privit</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">cfg.constants</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">utils.print_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">box_print</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils.print_utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
-<span class="c1">#import fire</span>
-<span class="c1"># from llama import Llama</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">huggingface_hub</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">huggingface_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceClient</span>
@@ -266,8 +262,6 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">google</span><span class="w"> </span><span class="kn">import</span> <span class="n">genai</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">google.genai</span><span class="w"> </span><span class="kn">import</span> <span class="n">types</span>
-
-
 
 <div class="viewcode-block" id="retrieve_base_code">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.retrieve_base_code">[docs]</a>
@@ -277,65 +271,126 @@
     <span class="k">return</span> <span class="n">split_file</span><span class="p">(</span><span class="n">base_network</span><span class="p">)[</span><span class="mi">1</span><span class="p">:][</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
 
 
-
 <div class="viewcode-block" id="clean_code_from_llm">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.clean_code_from_llm">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">clean_code_from_llm</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Cleans the code received from LLM.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">code_from_llm</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Extract and clean code assuming it is enclosed in triple backticks</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">code_from_llm</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Print an error message if the code extraction fails</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Runtime Error: No code was generated or the format is incorrect.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;ERROR&quot;</span>  <span class="c1"># Return ERROR</span></div>
 
+        <span class="c1">#return &quot;&quot;</span>
+
+<div class="viewcode-block" id="get_llm_code_generator">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.get_llm_code_generator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_llm_code_generator</span><span class="p">(</span><span class="n">llm_model</span><span class="p">):</span>
+    <span class="c1"># Prefer the local uvicorn-hosted model when configured</span>
+    <span class="k">if</span> <span class="n">LOCAL_LLM</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">llm_model</span> <span class="ow">in</span> <span class="p">(</span><span class="n">LLM_MIXTRAL</span><span class="p">,</span> <span class="n">LLM_LLAMA3</span><span class="p">,</span> <span class="s1">&#39;llama3.3&#39;</span><span class="p">):</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral_local</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_DEEPSEEK</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_deepseek_local</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO LLM SPECIFIED: USING LOCAL MIXTRAL&quot;</span><span class="p">)</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral_local</span>
+        <span class="n">qc_func</span> <span class="o">=</span> <span class="n">llm_code_qc_hf</span>  <span class="c1"># uses local server for QC prompt too</span>
+    <span class="k">elif</span> <span class="n">INFERENCE_SUBMISSION</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_MIXTRAL</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_QWEN</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_qwen</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_GEMMA2</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_gemma2</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_GEMMA3</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_gemma3</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_DEEPSEEK</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_deepseek</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_LLAMA3</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_llama3_hf</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO LLM SPECIFIED: USING DEEPSEEK&quot;</span><span class="p">)</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_deepseek</span>
+        <span class="n">qc_func</span> <span class="o">=</span> <span class="n">llm_code_qc</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_MIXTRAL</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral_hf</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_LLAMA3</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_llama3_hf</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="s1">&#39;gemini&#39;</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_gemini_api</span>
+        <span class="k">elif</span> <span class="n">llm_model</span> <span class="o">==</span> <span class="n">LLM_GEMMA2</span><span class="p">:</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_gemma2_hf</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO LLM SPECIFIED: USING HF MIXTRAL&quot;</span><span class="p">)</span>
+            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral_hf</span>
+        <span class="n">qc_func</span> <span class="o">=</span> <span class="n">llm_code_qc_hf</span>
+    <span class="k">return</span> <span class="n">llm_code_generator</span><span class="p">,</span> <span class="n">qc_func</span></div>
 
 
 <div class="viewcode-block" id="generate_augmented_code">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.generate_augmented_code">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">generate_augmented_code</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">augment_idx</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="p">,</span> <span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">inference_submission</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates augmented code using LLM such as Mixtral, LLaMA 3, or Gemini.&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_augmented_code</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">augment_idx</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="p">,</span> <span class="n">top_p</span><span class="p">,</span> <span class="n">llm_model</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates augmented code using Mixtral.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LLM being used: &quot;</span><span class="p">,</span> <span class="n">llm_model</span><span class="p">)</span>
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;PROMPT TO LLM&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
-    <span class="k">if</span> <span class="n">inference_submission</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-        <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral</span>
-        <span class="n">qc_func</span> <span class="o">=</span> <span class="n">llm_code_qc</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">LLM_MODEL</span> <span class="o">==</span> <span class="s1">&#39;mixtral&#39;</span><span class="p">:</span>
-            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral_hf</span>
-        <span class="k">elif</span> <span class="n">LLM_MODEL</span> <span class="o">==</span> <span class="s1">&#39;llama3&#39;</span><span class="p">:</span>
-            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_llama3_hf</span>
-        <span class="k">elif</span> <span class="n">LLM_MODEL</span> <span class="o">==</span> <span class="s1">&#39;gemini&#39;</span><span class="p">:</span>
-            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_gemini_api</span>
-        <span class="n">qc_func</span> <span class="o">=</span> <span class="n">llm_code_qc_hf</span>
+    <span class="n">llm_code_generator</span><span class="p">,</span> <span class="n">qc_func</span> <span class="o">=</span> <span class="n">get_llm_code_generator</span><span class="p">(</span><span class="n">llm_model</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">apply_quality_control</span><span class="p">:</span>
         <span class="n">base_code</span> <span class="o">=</span> <span class="n">retrieve_base_code</span><span class="p">(</span><span class="n">augment_idx</span><span class="p">)</span>
         <span class="n">code_from_llm</span><span class="p">,</span> <span class="n">generate_text</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
-        <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">qc_func</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">,</span> <span class="n">base_code</span><span class="p">,</span> <span class="n">generate_text</span><span class="p">)</span>
+        <span class="n">temp</span><span class="p">,</span> <span class="n">counter</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span> <span class="c1">#default to run the quality control</span>
+        <span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="n">max_gen_attempts</span> <span class="ow">and</span> <span class="p">(</span><span class="n">temp</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;NC&quot;</span><span class="p">,</span> <span class="s2">&quot;OOT&quot;</span><span class="p">,</span> <span class="s2">&quot;MS&quot;</span><span class="p">,</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">]):</span> <span class="c1">#counter to deal with stubborn </span>
+            <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="s2">&quot;NC&quot;</span><span class="p">:</span> <span class="c1">#regenerate based on error</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;The code you generated did not contain a code output of the changes you mentioned. Make sure to include the altered code in your output.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">code_from_llm</span><span class="p">,</span> <span class="n">generate_text</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">txt2llm</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">temp</span> <span class="o">==</span> <span class="s2">&quot;OOT&quot;</span><span class="p">:</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;The output you gave was cut short due to a limited number of tokens. Shorten your output to just include the altered code without the explanation.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">code_from_llm</span><span class="p">,</span> <span class="n">generate_text</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">txt2llm</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">temp</span> <span class="o">==</span> <span class="s2">&quot;MS&quot;</span><span class="p">:</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;The code you generated was in multiple segments. When you output your altered code make sure it is in a single, complete code segment including the changes you made.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">code_from_llm</span><span class="p">,</span> <span class="n">generate_text</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">txt2llm</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">temp</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span> <span class="c1">#another unforseen error</span>
+                <span class="n">code_from_llm</span><span class="p">,</span> <span class="n">generate_text</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span> <span class="c1">#just retry</span>
+            
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">qc_func</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">,</span> <span class="n">base_code</span><span class="p">,</span> <span class="n">generate_text</span><span class="p">)</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="s2">&quot;NC&quot;</span> <span class="ow">or</span> <span class="n">temp</span> <span class="o">!=</span> <span class="s2">&quot;OOT&quot;</span> <span class="ow">or</span> <span class="n">temp</span> <span class="o">!=</span> <span class="s2">&quot;MS&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">base_code</span>
+
     <span class="k">else</span><span class="p">:</span>
         <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
         <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;TEXT FROM LLM&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
         <span class="nb">print</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">)</span>
-        <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">clean_code_from_llm</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">)</span>
+
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;CODE FROM LLM&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">clean_code_from_llm</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">)</span>
+
     <span class="nb">print</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">code_from_llm</span></div>
+    
+    <span class="k">return</span> <span class="n">code_from_llm</span> </div>
 
 
 <div class="viewcode-block" id="extract_note">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.extract_note">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">extract_note</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts note labeled with # -- NOTE -- from the part if present.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts note from the part if present.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="s2">&quot;# -- NOTE --&quot;</span> <span class="ow">in</span> <span class="n">txt</span><span class="p">:</span>
         <span class="n">note_txt</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;# -- NOTE --&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s1">&#39;# -- NOTE --</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">note_txt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;# -- NOTE --</span><span class="se">\n</span><span class="s1">&#39;</span>
     <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 
-<span class="c1"># Function to load and split the file</span>
 <div class="viewcode-block" id="split_file">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.split_file">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">split_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Read a file and splits it into parts separated by # -- OPTION -- </span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
@@ -362,11 +417,6 @@
 <div class="viewcode-block" id="llm_code_qc">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">llm_code_qc</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">,</span> <span class="n">base_code</span><span class="p">,</span> <span class="n">generate_text</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Perform quality control on the code generated by an LLM by comparing it </span>
-<span class="sd">    with the base code and refine by another LLM call</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: make parameter</span>
     <span class="n">template_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="s1">&#39;templates/llm_quality_control.txt&#39;</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">template_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
@@ -385,9 +435,6 @@
 <div class="viewcode-block" id="llm_code_qc_hf">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.llm_code_qc_hf">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">llm_code_qc_hf</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">,</span> <span class="n">base_code</span><span class="p">,</span> <span class="n">generate_text</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Perform quality control on code (Hugging Face version)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: make parameter</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;llm_quality_control_p.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;llm_quality_control_p.txt&#39;</span><span class="p">])</span>
     <span class="n">template_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;templates/</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -398,13 +445,12 @@
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;QC PROMPT TO LLM&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">prompt2llm</span><span class="p">)</span>
     
-    <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">submit_mixtral_hf</span><span class="p">(</span><span class="n">prompt2llm</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+    <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">submit_mixtral_local</span><span class="p">(</span><span class="n">prompt2llm</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
                       <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;mistralai/Mixtral-8x7B-v0.1&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;TEXT FROM LLM&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">)</span>
     <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">clean_code_from_llm</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">code_from_llm</span></div>
-
 
 
 <div class="viewcode-block" id="submit_mixtral_hf">
@@ -433,7 +479,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    str</span>
 <span class="sd">        Model&#39;s output from inference</span>
-<span class="sd">    &quot;&quot;&quot;</span>    
+<span class="sd">    &quot;&quot;&quot;</span>   
     <span class="n">max_new_tokens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">900</span><span class="p">,</span> <span class="mi">1300</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HF_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DONT_SCRAPE_ME</span>
     <span class="n">huggingface_hub</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">new_session</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -441,7 +487,6 @@
     <span class="n">client</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;x-use-cache&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
 
     <span class="n">instructions</span> <span class="o">=</span> <span class="p">[</span>
-
             <span class="p">{</span>
                 <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Provide code in Python</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">txt2mixtral</span><span class="p">,</span>
@@ -458,6 +503,45 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
+    
+<div class="viewcode-block" id="submit_gemma2_hf">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_gemma2_hf">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_gemma2_hf</span><span class="p">(</span><span class="n">txt2mixtral</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                      <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;google/gemma-2-27b-it&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">max_new_tokens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">900</span><span class="p">,</span> <span class="mi">1300</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HF_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DONT_SCRAPE_ME</span>
+    <span class="n">huggingface_hub</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">new_session</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">InferenceClient</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model_id</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;x-use-cache&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+
+    <span class="n">instructions</span> <span class="o">=</span> <span class="p">[</span>
+
+            <span class="p">{</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Provide code in Python</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">txt2mixtral</span><span class="p">,</span>
+            <span class="p">},</span>     
+    <span class="p">]</span>
+
+    <span class="n">tokenizer_converter</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="n">tokenizer_converter</span><span class="o">.</span><span class="n">apply_chat_template</span><span class="p">(</span><span class="n">instructions</span><span class="p">,</span> <span class="n">tokenize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">rate_limit</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">while</span> <span class="n">rate_limit</span> <span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">text_generation</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">max_new_tokens</span><span class="p">,</span> 
+                                      <span class="n">return_full_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                                      <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">101</span><span class="p">)]</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rate_limit</span> <span class="o">=</span> <span class="kc">False</span>
+        
+    <span class="k">if</span> <span class="n">return_gen</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+    
     
 <div class="viewcode-block" id="submit_llama3_hf">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_llama3_hf">[docs]</a>
@@ -511,37 +595,50 @@
         <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
     
-<div class="viewcode-block" id="submit_gemini_api">
-<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_gemini_api">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">submit_gemini_api</span><span class="p">(</span><span class="n">txt2gemini</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function submits a model prompt to Gemini through its API</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    txt2gemini : str</span>
-<span class="sd">        Prompt that will be sent to Gemini</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    str</span>
-<span class="sd">        Model&#39;s output from inference</span>
-<span class="sd">    &quot;&quot;&quot;</span>    
-    <span class="n">client</span> <span class="o">=</span> <span class="n">genai</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">GEMINI_API_KEY</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">generate_content</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemini-2.0-flash&quot;</span><span class="p">,</span>
-        <span class="n">contents</span><span class="o">=</span><span class="p">[</span><span class="n">txt2gemini</span><span class="p">],</span>
-        
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
-
-
-
-
 <div class="viewcode-block" id="submit_mixtral">
 <a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_mixtral">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">submit_mixtral</span><span class="p">(</span><span class="n">txt2mixtral</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">764</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
                    <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;mistralai/Mixtral-8x7B-Instruct-v0.1&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">max_new_tokens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;max_new_tokens: </span><span class="si">{</span><span class="n">max_new_tokens</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+        <span class="n">model_id</span><span class="p">,</span>
+        <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">torch_dtype</span><span class="o">=</span><span class="n">bfloat16</span><span class="p">,</span>
+        <span class="n">device_map</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span>
+    <span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+
+    <span class="n">generate_text</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">pipeline</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+        <span class="n">return_full_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="n">task</span><span class="o">=</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span> 
+        <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span>  
+        <span class="n">top_k</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+        <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">max_new_tokens</span><span class="p">,</span> 
+        <span class="n">repetition_penalty</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">generate_text</span><span class="p">(</span><span class="n">txt2mixtral</span><span class="p">)</span>
+    <span class="n">output_txt</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;generated_text&quot;</span><span class="p">]</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;LLM OUTPUT&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output_txt</span><span class="p">)</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;time to load in seconds: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start_time</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   
+    <span class="k">if</span> <span class="n">return_gen</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">generate_text</span></div>
+
+    
+<div class="viewcode-block" id="submit_qwen">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_qwen">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_qwen</span><span class="p">(</span><span class="n">txt2qwen</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">764</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                   <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;Qwen/Qwen3-Coder-30B-A3B-Instruct&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">max_new_tokens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;max_new_tokens: </span><span class="si">{</span><span class="n">max_new_tokens</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -568,7 +665,7 @@
         <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="n">res</span> <span class="o">=</span> <span class="n">generate_text</span><span class="p">(</span><span class="n">txt2mixtral</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">generate_text</span><span class="p">(</span><span class="n">txt2qwen</span><span class="p">)</span>
     <span class="n">output_txt</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;generated_text&quot;</span><span class="p">]</span>
     <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;LLM OUTPUT&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">output_txt</span><span class="p">)</span>
@@ -579,31 +676,261 @@
         <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">generate_text</span></div>
 
     
+<div class="viewcode-block" id="submit_deepseek">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_deepseek">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_deepseek</span><span class="p">(</span><span class="n">txt2qwen</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">764</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                   <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;deepseek-ai/deepseek-coder-33b-instruct&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">max_new_tokens</span> <span class="o">=</span> <span class="mi">3000</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;max_new_tokens: </span><span class="si">{</span><span class="n">max_new_tokens</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+        <span class="n">model_id</span><span class="p">,</span>
+        <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="c1">#torch_dtype=float16,</span>
+        <span class="n">device_map</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+        <span class="n">model_id</span><span class="p">)</span>
+
+    <span class="n">generate_text</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">pipeline</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+        <span class="n">return_full_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># if using langchain set True</span>
+        <span class="n">task</span><span class="o">=</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span>
+        <span class="c1"># we pass model parameters here too</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span>  <span class="c1"># &#39;randomness&#39; of outputs, 0.0 is the min and 1.0 the max</span>
+        <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span>  <span class="c1"># select from top tokens whose probability add up to 15%</span>
+        <span class="n">top_k</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># select from top 0 tokens (because zero, relies on top_p)</span>
+        <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">max_new_tokens</span><span class="p">,</span>  <span class="c1"># max number of tokens to generate in the output</span>
+        <span class="n">repetition_penalty</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>  <span class="c1"># if output begins repeating increase</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">generate_text</span><span class="p">(</span><span class="n">txt2qwen</span><span class="p">)</span>
+    <span class="n">output_txt</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;generated_text&quot;</span><span class="p">]</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;LLM OUTPUT&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output_txt</span><span class="p">)</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;time to load in seconds: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start_time</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   
+    <span class="k">if</span> <span class="n">return_gen</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">generate_text</span></div>
+
     
-<div class="viewcode-block" id="mutate_prompts">
-<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.mutate_prompts">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">mutate_prompts</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="viewcode-block" id="submit_gemma2">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_gemma2">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_gemma2</span><span class="p">(</span><span class="n">txt2gemma</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">764</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                   <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;google/gemma-2-27b-it&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="c1">#                   model_id=&quot;/home/hice1/jli3325/scratch/.cache/huggingface/hub/models--google--gemma-2-2b-it&quot;, return_gen=False):</span>
+    <span class="n">max_new_tokens</span> <span class="o">=</span> <span class="mi">3000</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;max_new_tokens: </span><span class="si">{</span><span class="n">max_new_tokens</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+        <span class="n">model_id</span><span class="p">,</span>
+        <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="c1"># torch_dtype=float16,</span>
+        <span class="n">device_map</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span>
+    <span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+
+    <span class="n">generate_text</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">pipeline</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+        <span class="n">return_full_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># if using langchain set True</span>
+        <span class="n">task</span><span class="o">=</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span>
+        <span class="c1"># we pass model parameters here too</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span>  <span class="c1"># &#39;randomness&#39; of outputs, 0.0 is the min and 1.0 the max</span>
+        <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span>  <span class="c1"># select from top tokens whose probability add up to 15%</span>
+        <span class="n">top_k</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># select from top 0 tokens (because zero, relies on top_p)</span>
+        <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">max_new_tokens</span><span class="p">,</span>  <span class="c1"># max number of tokens to generate in the output</span>
+        <span class="n">repetition_penalty</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>  <span class="c1"># if output begins repeating increase</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">generate_text</span><span class="p">(</span><span class="n">txt2gemma</span><span class="p">)</span>
+    <span class="n">output_txt</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;generated_text&quot;</span><span class="p">]</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;LLM OUTPUT&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output_txt</span><span class="p">)</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;time to load in seconds: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start_time</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   
+    <span class="k">if</span> <span class="n">return_gen</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">generate_text</span></div>
+
+    
+
+<div class="viewcode-block" id="submit_gemma3">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_gemma3">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_gemma3</span><span class="p">(</span><span class="n">txt2gemma</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">764</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                   <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;google/gemma-3-12b-it&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">max_new_tokens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;max_new_tokens: </span><span class="si">{</span><span class="n">max_new_tokens</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+        <span class="n">model_id</span><span class="p">,</span>
+        <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="c1"># torch_dtype=float16,</span>
+        <span class="n">device_map</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span>
+    <span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+
+    <span class="n">generate_text</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">pipeline</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+        <span class="n">return_full_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># if using langchain set True</span>
+        <span class="n">task</span><span class="o">=</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span>
+        <span class="c1"># we pass model parameters here too</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span>  <span class="c1"># &#39;randomness&#39; of outputs, 0.0 is the min and 1.0 the max</span>
+        <span class="n">top_p</span><span class="o">=</span><span class="n">top_p</span><span class="p">,</span>  <span class="c1"># select from top tokens whose probability add up to 15%</span>
+        <span class="n">top_k</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># select from top 0 tokens (because zero, relies on top_p)</span>
+        <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">max_new_tokens</span><span class="p">,</span>  <span class="c1"># max number of tokens to generate in the output</span>
+        <span class="n">repetition_penalty</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>  <span class="c1"># if output begins repeating increase</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">generate_text</span><span class="p">(</span><span class="n">txt2gemma</span><span class="p">)</span>
+    <span class="n">output_txt</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;generated_text&quot;</span><span class="p">]</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;LLM OUTPUT&quot;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output_txt</span><span class="p">)</span>
+    <span class="n">box_print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;time to load in seconds: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start_time</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">print_bbox_len</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">new_line_end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   
+    <span class="k">if</span> <span class="n">return_gen</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">generate_text</span></div>
+
+    
+<div class="viewcode-block" id="get_llm_server_hostname">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.get_llm_server_hostname">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_llm_server_hostname</span><span class="p">():</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">hostname_file_path</span> <span class="o">=</span> <span class="n">HOSTNAME_DIR</span> 
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hostname_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+    <span class="k">return</span> <span class="n">hostname</span></div>
+
+
+<div class="viewcode-block" id="submit_mixtral_local">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_mixtral_local">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_mixtral_local</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">850</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">server_url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SERVER_HOSTNAME&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">PORT</span><span class="si">}</span><span class="s2">/generate&quot;</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
+        <span class="s2">&quot;max_new_tokens&quot;</span><span class="p">:</span> <span class="n">max_new_tokens</span><span class="p">,</span> <span class="c1"># can change to random between 800 - 1000 if needed</span>
+        <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
+        <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span>
+    <span class="p">}</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+
+    <span class="n">llm_hostname</span> <span class="o">=</span> <span class="n">get_llm_server_hostname</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">llm_hostname</span><span class="p">)</span>
+
+    <span class="n">server_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">llm_hostname</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">PORT</span><span class="si">}</span><span class="s2">/generate&quot;</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">output_txt</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;generated_text&quot;</span><span class="p">,</span> <span class="s2">&quot;No output received.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;response_time_sec&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-1&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> sec&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">return_gen</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">output_txt</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">generate_text</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="submit_deepseek_local">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_deepseek_local">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_deepseek_local</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">850</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">server_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_gen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">server_url</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">server_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">get_llm_server_hostname</span><span class="p">()</span><span class="si">}</span><span class="s2">:8000/generate&quot;</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
+        <span class="s2">&quot;max_new_tokens&quot;</span><span class="p">:</span> <span class="n">max_new_tokens</span><span class="p">,</span> <span class="c1"># can change to random between 800 - 1000 if needed</span>
+        <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
+        <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span>
+    <span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SERVER_HOSTNAME&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">))</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">output_txt</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;generated_text&quot;</span><span class="p">,</span> <span class="s2">&quot;No output received.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;response_time_sec&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-1&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> sec&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">return_gen</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">output_txt</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">generate_text</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+    
+<div class="viewcode-block" id="submit_gemini_api">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.submit_gemini_api">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">submit_gemini_api</span><span class="p">(</span><span class="n">txt2gemini</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Mutating prompt by submitting a rephrase request of the prompt to LLM </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">templates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ROOT_DIR</span><span class="si">}</span><span class="s1">/templates/FixedPrompts/*/*.txt&#39;</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">template</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">templates</span><span class="p">):</span>
-        <span class="n">path</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-            <span class="n">prompt_text</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="n">prompt_text</span> <span class="o">=</span> <span class="n">prompt_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Can you rephrase this text:</span><span class="se">\n</span><span class="s2">```</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prompt_text</span><span class="p">)</span>
-        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">LLM_MODEL</span> <span class="o">==</span> <span class="s1">&#39;mixtral&#39;</span><span class="p">:</span>
-            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_mixtral_hf</span>
-        <span class="k">elif</span> <span class="n">LLM_MODEL</span> <span class="o">==</span> <span class="s1">&#39;llama3&#39;</span><span class="p">:</span>
-            <span class="n">llm_code_generator</span> <span class="o">=</span> <span class="n">submit_llama3_hf</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">if</span> <span class="s2">&quot;```&quot;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-            <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">```python</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```&quot;</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;mutant</span><span class="si">{}</span><span class="s2">.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+<span class="sd">    This function submits a model prompt to Gemini through its API</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    txt2gemini : str</span>
+<span class="sd">        Prompt that will be sent to Gemini</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Model&#39;s output from inference</span>
+<span class="sd">    &quot;&quot;&quot;</span>   
+    <span class="n">GEMINI_API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;GEMINI_API_KEY&quot;</span><span class="p">)</span>
+    
+    <span class="n">client</span> <span class="o">=</span> <span class="n">genai</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">GEMINI_API_KEY</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">generate_content</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemini-2.0-flash&quot;</span><span class="p">,</span>
+        <span class="n">contents</span><span class="o">=</span><span class="p">[</span><span class="n">txt2gemini</span><span class="p">],</span>
+        
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+
+
+<div class="viewcode-block" id="mutate_prompt">
+<a class="viewcode-back" href="../api_docs/llm_utils.html#llm_utils.mutate_prompt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">mutate_prompt</span><span class="p">(</span><span class="n">llm_model</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">inference_submission</span><span class="o">=</span><span class="n">INFERENCE_SUBMISSION</span><span class="p">):</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">prompt_text</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">prompt_text</span> <span class="o">=</span> <span class="n">prompt_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Can you rephrase this text:</span><span class="se">\n</span><span class="s2">```</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prompt_text</span><span class="p">)</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+
+    <span class="n">llm_code_generator</span><span class="p">,</span> <span class="n">qc_func</span> <span class="o">=</span> <span class="n">get_llm_code_generator</span><span class="p">(</span><span class="n">llm_model</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mutating Prompts with llm:&quot;</span><span class="p">,</span> <span class="n">llm_model</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">llm_code_generator</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;```&quot;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;```&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">```python</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;mutant</span><span class="si">{}</span><span class="s2">.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">llm_model</span><span class="p">)),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
 
 </pre></div>
         </article>

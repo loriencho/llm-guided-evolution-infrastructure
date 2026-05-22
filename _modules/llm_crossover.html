@@ -191,24 +191,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../setting_up.html">Setting up LLM-GE and run on CIFAR-10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../island_migration.html">Island Migration</a><input aria-label="Toggle navigation of Island Migration" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../generated/run_improved.html">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../titanic_for_vip_bootcamp.html">LLM-Guided Evolution on Titanic Dataset with PACE-ICE</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_for_titanic.html">Titanic API</a><input aria-label="Toggle navigation of Titanic API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/model.html">model</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../marketmaking.html">Crypto MarketMaking</a></li>
 </ul>
 
 </div>
@@ -243,8 +239,15 @@
         <article role="main" id="furo-main-content">
           <h1>Source code for llm_crossover</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="c1"># Ensure repo root is on sys.path so `src` imports work from generated bash scripts</span>
+<span class="n">REPO_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;..&quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">REPO_ROOT</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">REPO_ROOT</span><span class="p">)</span>
+
 <span class="kn">from</span><span class="w"> </span><span class="nn">cfg.constants</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">utils.print_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">box_print</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">llm_utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">split_file</span><span class="p">,</span> <span class="n">submit_mixtral</span><span class="p">,</span> <span class="n">submit_mixtral_hf</span><span class="p">,</span> 
@@ -255,11 +258,9 @@
 <div class="viewcode-block" id="augment_network">
 <a class="viewcode-back" href="../api_docs/llm_crossover.html#llm_crossover.augment_network">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">augment_network</span><span class="p">(</span><span class="n">input_filename_x</span><span class="p">,</span> <span class="n">input_filename_y</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">,</span>
-                    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                    <span class="n">inference_submission</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Augment Python Network Script.</span>
-
+                    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">llm_model</span><span class="o">=</span><span class="n">LLM_QWEN</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Augment Python Network Script.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input_filename_x : os.PathLike</span>
@@ -270,15 +271,13 @@
 <span class="sd">        _description_</span>
 <span class="sd">    top_p : float, optional</span>
 <span class="sd">        _description_, by default 0.15</span>
+<span class="sd">    llm_model : str, optional</span>
+<span class="sd">        _description_, by default LLM_QWEN</span>
 <span class="sd">    temperature : float, optional</span>
 <span class="sd">        _description_, by default 0.1</span>
 <span class="sd">    apply_quality_control : bool, optional</span>
 <span class="sd">        _description_, by default False</span>
-<span class="sd">    inference_submission : bool, optional</span>
-<span class="sd">        _description_, by default False</span>
-<span class="sd">    &quot;&quot;&quot;</span>    
-
-
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Split the input files</span>
     <span class="n">parts_x</span> <span class="o">=</span> <span class="n">split_file</span><span class="p">(</span><span class="n">input_filename_x</span><span class="p">)</span>
     <span class="n">parts_y</span> <span class="o">=</span> <span class="n">split_file</span><span class="p">(</span><span class="n">input_filename_y</span><span class="p">)</span>
@@ -300,7 +299,11 @@
     <span class="n">txt2llm</span> <span class="o">=</span> <span class="n">template_txt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
     <span class="c1"># Generate augmented code</span>
     <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">generate_augmented_code</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">augment_idx</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="p">,</span>
-                                            <span class="n">top_p</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">inference_submission</span><span class="o">=</span><span class="n">inference_submission</span><span class="p">)</span>
+                                            <span class="n">top_p</span><span class="p">,</span> <span class="n">llm_model</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">code_from_llm</span><span class="p">:</span>
+        <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">txt2llm</span>
+    
     <span class="c1"># Insert note if present</span>
     <span class="n">temp_txt</span> <span class="o">=</span> <span class="n">parts_x</span><span class="p">[</span><span class="n">augment_idx</span><span class="p">]</span>
     <span class="n">note_txt</span> <span class="o">=</span> <span class="n">extract_note</span><span class="p">(</span><span class="n">temp_txt</span><span class="p">)</span>
@@ -350,10 +353,10 @@
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;input_filename_x&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input file name&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;input_filename_y&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input file name&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;output_filename&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output file name&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--llm_model&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LLM Model Name&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--top_p&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Top P value for text generation&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--temperature&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Temperature value for text generation&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--apply_quality_control&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">str2bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Use LLM QC&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--inference_submission&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">str2bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Hugging Face bool&#39;</span><span class="p">)</span>
 
     <span class="c1"># Parse the arguments</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
@@ -363,9 +366,9 @@
                     <span class="n">input_filename_y</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">input_filename_y</span><span class="p">,</span>
                     <span class="n">output_filename</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">output_filename</span><span class="p">,</span>
                     <span class="n">top_p</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">top_p</span><span class="p">,</span> 
+                    <span class="n">llm_model</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">llm_model</span><span class="p">,</span>
                     <span class="n">temperature</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">temperature</span><span class="p">,</span>
                     <span class="n">apply_quality_control</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">apply_quality_control</span><span class="p">,</span>
-                    <span class="n">inference_submission</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">inference_submission</span><span class="p">,</span>
                    <span class="p">)</span>
 </pre></div>
         </article>
