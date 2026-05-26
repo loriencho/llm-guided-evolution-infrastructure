@@ -5,25 +5,33 @@ import platform
 import yaml
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA_PATH = os.path.join(ROOT_DIR, "sota/titanic/data")
-SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Titanic')
+SOTA_ROOT = os.path.join(ROOT_DIR, 'sota/Surrogate')
 SEED_NETWORK = os.path.join(SOTA_ROOT, 'model.py')
 MODEL = "model"
+DATA_PATH = SOTA_ROOT
 # Path to local LLM model path used by server.py for LLM operations
 MODEL_PATH = "/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/"
 VARIANT_DIR = os.path.join(SOTA_ROOT, "models/llmge_models") 
-TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py") 
+TRAIN_FILE = os.path.join(SOTA_ROOT, "eval.py")
+SURROGATE_CORPUS_PATH = "/storage/ice-shared/vip-vvk/data/AOT/psomu3/codenas/nasbench201_corpus_pytorch_corrected.csv"
+SURROGATE_RUN_DIR = os.path.join(SOTA_ROOT, "run_nb201")
+SURROGATE_RESULTS_DIR = os.path.join(SOTA_ROOT, "results")
+SURROGATE_SEARCH_SPACE = "nasbench201"
+SURROGATE_DATASET = "cifar100"
 
 # Where Slurm job outputs are written (matches sbatch --output paths)
 SLURM_OUTPUT_PATH = "run_job_outputs/"
 
-# Prompt templates glob relative to the repository root
-DEFAULT_PROMPT_GROUP = "FixedPrompts"
+# Prompt templates glob relative to the repository root.
+# Use NASLib-specific prompts so surrogate evolution is asked to improve
+# search guidance rather than Titanic classification behavior.
+DEFAULT_PROMPT_GROUP = "naslib/general"
 PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/**/*.txt"
 
 # TODO: Adding this here, I think it's supposed to parse from the command line
 OUTPUT_DIR = "titanic_test"
 PORT=8137
+LLM_MAX_NEW_TOKENS = int(os.getenv("LLM_MAX_NEW_TOKENS", "3000"))
 
 CLUSTER = "pace-ice"
 LLM_MODEL = 'llama3.3'
@@ -93,7 +101,7 @@ EVAL_RUNLINE = "uv run python {} --model {} --variant_dir {VARIANT_DIR}"
 """
 Evolution Constants/Params
 """
-FITNESS_WEIGHTS = (-1.0, -1.0)
+FITNESS_WEIGHTS = (1.0, -1.0, -1.0)  # maximize kendall_tau, minimize mse, minimize runtime
 INVALID_FITNESS_MAX = tuple([float(x*np.inf*-1) for x in FITNESS_WEIGHTS])
 PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
 NUM_EOT_ELITES = 10

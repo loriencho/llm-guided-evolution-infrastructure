@@ -1,0 +1,12 @@
+This code is used in an LLM-guided surrogate for NAS. Improve it with an emphasis on efficient search support. The broader pipeline is trying to trade cheap surrogate computation for fewer expensive architecture evaluations, so wasted complexity is costly.
+
+Target the best trade-off between:
+- representation quality
+- computational or token efficiency
+- generalization in limited-data settings
+- reliable architecture ranking
+
+The current code block:
+```python
+{}
+```
