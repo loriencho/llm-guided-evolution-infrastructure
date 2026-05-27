@@ -518,7 +518,6 @@
             <span class="k">try</span><span class="p">:</span>
                 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">HOSTNAME_DIR</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
                     <span class="n">hostname</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;LLM Server Hostname: </span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
                 <span class="n">last_error</span> <span class="o">=</span> <span class="n">err</span>
 
@@ -830,7 +829,7 @@
         <span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
         <span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
         <span class="c1"># TODO: get all features later</span>
-        <span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="n">fitness</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fitness</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fitness</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="n">fitness</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fitness</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
         <span class="n">fitness</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>
         
         <span class="n">GLOBAL_DATA</span><span class="p">[</span><span class="n">gene_id</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;completed&#39;</span>
@@ -1373,13 +1372,8 @@
     <span class="k">if</span> <span class="n">AVAILABLE_LLM_MODELS</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">llm_model</span> <span class="ow">or</span> <span class="n">llm_model</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">AVAILABLE_LLM_MODELS</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in Island Generation: No LLM specified. Exiting script&quot;</span><span class="p">)</span>
         <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">population_data</span><span class="p">,</span> <span class="n">start_gen</span><span class="p">,</span> <span class="n">global_data</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">population_data</span><span class="p">,</span> <span class="n">start_gen</span><span class="p">,</span> <span class="n">global_data</span> <span class="o">=</span> <span class="n">load_checkpoint</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">checkpoints</span><span class="p">,</span> <span class="n">global_path</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">global_path</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No previous checkpoint provided, starting from beginning&quot;</span><span class="p">)</span>
-    
+    <span class="n">population_data</span><span class="p">,</span> <span class="n">start_gen</span><span class="p">,</span> <span class="n">global_data</span> <span class="o">=</span> <span class="n">load_checkpoint</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">checkpoints</span><span class="p">,</span> <span class="n">global_path</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">global_path</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">population_data</span><span class="p">:</span>
         <span class="n">box_print</span><span class="p">(</span><span class="s2">&quot;CHECKPOINT LOADED&quot;</span><span class="p">)</span>
         <span class="n">GLOBAL_DATA</span> <span class="o">=</span> <span class="n">global_data</span><span class="p">[</span><span class="s2">&quot;GLOBAL_DATA&quot;</span><span class="p">]</span>
