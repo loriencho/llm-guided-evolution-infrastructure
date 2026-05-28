@@ -258,9 +258,11 @@
 <div class="viewcode-block" id="augment_network">
 <a class="viewcode-back" href="../api_docs/llm_crossover.html#llm_crossover.augment_network">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">augment_network</span><span class="p">(</span><span class="n">input_filename_x</span><span class="p">,</span> <span class="n">input_filename_y</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">,</span>
-                    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">llm_model</span><span class="o">=</span><span class="n">LLM_QWEN</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Augment Python Network Script.</span>
-<span class="sd">    </span>
+                    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">inference_submission</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Augment Python Network Script.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input_filename_x : os.PathLike</span>
@@ -277,7 +279,11 @@
 <span class="sd">        _description_, by default 0.1</span>
 <span class="sd">    apply_quality_control : bool, optional</span>
 <span class="sd">        _description_, by default False</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    inference_submission : bool, optional</span>
+<span class="sd">        _description_, by default False</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+
+
     <span class="c1"># Split the input files</span>
     <span class="n">parts_x</span> <span class="o">=</span> <span class="n">split_file</span><span class="p">(</span><span class="n">input_filename_x</span><span class="p">)</span>
     <span class="n">parts_y</span> <span class="o">=</span> <span class="n">split_file</span><span class="p">(</span><span class="n">input_filename_y</span><span class="p">)</span>
