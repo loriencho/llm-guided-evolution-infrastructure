@@ -1,0 +1,12 @@
+This code contributes to turning neural architectures into text/code for a surrogate model. Better representations help the embedding model separate promising architectures from weak ones before any expensive training run happens.
+
+Improve it so that the resulting representation is:
+- code-oriented rather than artificially encoded
+- informative about topology and operation semantics
+- efficient in token usage
+- still faithful to the underlying architecture
+
+The current code block:
+```python
+{}
+```

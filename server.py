@@ -14,7 +14,7 @@ BATCH_WAIT_TIME = 2  # max wait time for batch to fill in s
 
 class LLMRequest(BaseModel):
     prompt: str
-    max_new_tokens: int = 800
+    max_new_tokens: int = LLM_MAX_NEW_TOKENS
     top_p: float = 0.8
     temperature: float = 0.7
 
@@ -65,7 +65,7 @@ class LLMModel:
             temperature=0.1,
             top_p=0.15,
             top_k=0,
-            max_new_tokens=1648,
+            max_new_tokens=LLM_MAX_NEW_TOKENS,
             repetition_penalty=1.1,
             do_sample=True,
             batch_size=BATCH_SIZE # for batch support

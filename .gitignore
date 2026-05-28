@@ -10,7 +10,6 @@ sota/Pointnet_Pointnet2_pytorch/results/
 0/
 1/
 first_test/
-data/
 .DS_Store
 mistralai
 **/*.egg-info
@@ -19,8 +18,9 @@ output/
 **/weights/
 **/results/
 **/llmge_models/
+data/**
+run_nb201/**
 slurm-*.out
-*.pkl
 src/island_temp_script.sh
 cifar10
 uv.lock

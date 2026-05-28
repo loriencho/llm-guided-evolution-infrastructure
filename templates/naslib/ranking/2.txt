@@ -1,0 +1,8 @@
+Edit this NASLib surrogate code to better support rank-based architecture selection. In this pipeline, selection quality matters more than perfectly calibrated scores because only the top-ranked candidates are likely to be evaluated next.
+
+Prefer changes that help the model correctly order candidate architectures, reduce swapped comparisons between good and bad candidates, and remain stable in low-data settings. Treat ranking fidelity as more important than raw numeric calibration.
+
+The current code block:
+```python
+{}
+```

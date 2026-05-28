@@ -1,0 +1,8 @@
+Improve this block of code from a surrogate-assisted NAS system. The larger goal of the pipeline is to find strong architectures with fewer expensive ground-truth evaluations by using the surrogate as an efficient guide.
+
+The goal is to evolve a better surrogate for neural architecture search, so favor edits that improve ranking quality, sample efficiency, and reliable generalization. Avoid changes that over-specialize the code to one narrow case unless the code clearly already assumes that case, because the pipeline benefits from search-space-robust guidance.
+
+The current code block:
+```python
+{}
+```

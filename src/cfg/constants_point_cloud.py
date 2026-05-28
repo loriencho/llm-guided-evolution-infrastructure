@@ -56,6 +56,7 @@ PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
 NUM_EOT_ELITES = 10
 GENERATION = 0
 PROB_QC = 0.0
+LLM_MAX_NEW_TOKENS = 1000
 PROB_EOT = 0.25
 num_generations = 57 # Number of generations
 start_population_size = 32  # Starting population size
