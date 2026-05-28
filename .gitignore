@@ -5,6 +5,14 @@ sota/ExquisiteNetV2/cifar-10-batches-py
 *.bmp
 build/
 tests/*/outputs
+datasets/
+runs/
+!runs/detect
+finals_sp25/
+sota/ultralytics/ultralytics/
+fail_run/
+run_old.sh
+.venv/
 sota/Pointnet_Pointnet2_pytorch/models/llmge-models/
 sota/Pointnet_Pointnet2_pytorch/results/
 0/

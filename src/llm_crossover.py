@@ -16,9 +16,11 @@ from llm_utils import (split_file, submit_mixtral, submit_mixtral_hf,
 
 
 def augment_network(input_filename_x, input_filename_y, output_filename,
-                    top_p=0.15, llm_model=LLM_QWEN, temperature=0.1, apply_quality_control=False):
-    """Augment Python Network Script.
-    
+                    top_p=0.15, temperature=0.1, apply_quality_control=False,
+                    inference_submission=False):
+    """
+    Augment Python Network Script.
+
     Parameters
     ----------
     input_filename_x : os.PathLike
@@ -35,7 +37,11 @@ def augment_network(input_filename_x, input_filename_y, output_filename,
         _description_, by default 0.1
     apply_quality_control : bool, optional
         _description_, by default False
-    """
+    inference_submission : bool, optional
+        _description_, by default False
+    """    
+
+
     # Split the input files
     parts_x = split_file(input_filename_x)
     parts_y = split_file(input_filename_y)

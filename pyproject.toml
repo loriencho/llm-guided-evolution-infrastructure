@@ -32,3 +32,8 @@ dependencies = [
     "matplotlib",
     "tensorflow>=2.20.0",
 ]
+[tool.uv]
+workspace = { members = ["sota/ultralytics"] }
+
+[tool.uv.sources]
+ultralytics = { workspace = true}
