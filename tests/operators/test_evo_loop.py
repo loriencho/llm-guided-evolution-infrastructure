@@ -7,5 +7,10 @@ import os
 
 def test_individual():
     individual = run_improved.toolbox.individual()
+<<<<<<< HEAD
+    assert os.path.exists(f'{run_improved.SOTA_ROOT}/models/network_{individual[0]}.py')
+    assert os.path.exists(f'{run_improved.GENERATION}/{individual[0]}.sh')
+=======
     assert os.path.exists(os.path.join(run_improved.SOTA_ROOT, f'/models/network_{individual[0]}.py'))
     assert os.path.exists(os.path.join(run_improved.OUTPUT_DIR, run_improved.GENERATION, f'{individual[0]}.sh'))
+>>>>>>> MosesClean

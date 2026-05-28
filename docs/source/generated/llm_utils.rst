@@ -12,6 +12,9 @@
       clean_code_from_llm
       extract_note
       generate_augmented_code
+      submit_llama3_paceice
+      submit_mixtral_paceice
+      submit_qwen_paceice
       get_llm_code_generator
       llm_code_qc
       llm_code_qc_hf
@@ -38,6 +41,7 @@
 
    .. autosummary::
    
+      AutoModelForCausalLM
       AutoTokenizer
       InferenceClient
    
