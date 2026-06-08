@@ -1,15 +1,15 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
-        <title>llm-guided-evolution - LLM-GE 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+        <title>Setting Up the Unit Testing Environment for the GitHub Actions Runner - LLM-GE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
@@ -161,7 +161,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">LLM-GE 1.0 documentation</div></a>
+      <a href="index.html"><div class="brand">LLM-GE 1.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -172,7 +172,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -180,11 +180,11 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   <span class="sidebar-brand-text">LLM-GE 1.0 documentation</span>
   
-</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
@@ -192,17 +192,17 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../seed_algorithms.html">Adding Your Seed Algorithms</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="seed_algorithms.html">Adding Your Seed Algorithms</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="point_cloud.html">Point Cloud Classification Optimization</a><input aria-label="Toggle navigation of Point Cloud Classification Optimization" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../island_migration.html">Island Migration</a><input aria-label="Toggle navigation of Island Migration" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="island_migration.html">Island Migration</a><input aria-label="Toggle navigation of Island Migration" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/llm_crossover.html">llm_crossover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/llm_mutation.html">llm_mutation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/llm_crossover.html">llm_crossover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/llm_mutation.html">llm_mutation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/llm_utils.html">llm_utils</a></li>
 </ul>
 </li>
 </ul>
@@ -225,7 +225,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/api_docs/modules.rst.txt" title="View this page">
+  <a class="muted-link" href="_sources/set_up_testing_env.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -238,18 +238,74 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="llm-guided-evolution">
-<h1>llm-guided-evolution<a class="headerlink" href="#llm-guided-evolution" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="run_improved.html">run_improved module</a></li>
-</ul>
+          <section id="setting-up-the-unit-testing-environment-for-the-github-actions-runner">
+<h1>Setting Up the Unit Testing Environment for the GitHub Actions Runner<a class="headerlink" href="#setting-up-the-unit-testing-environment-for-the-github-actions-runner" title="Link to this heading">¶</a></h1>
+<p>This tutorial explains how to prepare the GitHub Actions self-hosted runner on
+PACE-ICE for unit testing.</p>
+<section id="step-1-start-the-runner-with-tmux">
+<h2>Step 1: Start the Runner with tmux<a class="headerlink" href="#step-1-start-the-runner-with-tmux" title="Link to this heading">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tmux</span></code> so the runner keeps running even if you disconnect from SSH.</p>
+<p>Create a new <code class="docutils literal notranslate"><span class="pre">tmux</span></code> session:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>runner
+</pre></div>
 </div>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">tmux</span></code> session, go to the GitHub Actions runner directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/actions-runner
+</pre></div>
+</div>
+<p>Start the runner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run.sh
+</pre></div>
+</div>
+<p>If the runner starts correctly, you should see output similar to:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Listening for Jobs
+</pre></div>
+</div>
+<p>Detach from the <code class="docutils literal notranslate"><span class="pre">tmux</span></code> session without stopping the runner:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Ctrl + b, then press d
+</pre></div>
+</div>
+<p>To reconnect to the runner session later:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>runner
+</pre></div>
+</div>
+<p>To list active <code class="docutils literal notranslate"><span class="pre">tmux</span></code> sessions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux<span class="w"> </span>ls
+</pre></div>
+</div>
+</section>
+<section id="step-2-configure-kaggle-secrets-on-github">
+<h2>Step 2: Configure Kaggle Secrets on GitHub<a class="headerlink" href="#step-2-configure-kaggle-secrets-on-github" title="Link to this heading">¶</a></h2>
+<p>The Titanic dataset download phase requires Kaggle credentials.</p>
+<p>On the GitHub website:</p>
+<ol class="arabic simple">
+<li><p>Go to your repository.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Settings</span></code>.</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Secrets</span> <span class="pre">and</span> <span class="pre">variables</span></code> from the sidebar.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Actions</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">repository</span> <span class="pre">secret</span></code>.</p></li>
+<li><p>Create the following repository secrets:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">KAGGLE_USERNAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KAGGLE_KEY</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">KAGGLE_USERNAME</span></code> secret should contain your Kaggle username.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">KAGGLE_KEY</span></code> secret should contain the API token from your Kaggle account.</p>
+<p>To get your Kaggle API token:</p>
+<ol class="arabic simple">
+<li><p>Go to Kaggle.</p></li>
+<li><p>Open your account settings.</p></li>
+<li><p>Scroll to the API section.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">Token</span></code>.</p></li>
+</ol>
+</section>
 </section>
 
         </article>
@@ -277,15 +333,35 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Setting Up the Unit Testing Environment for the GitHub Actions Runner</a><ul>
+<li><a class="reference internal" href="#step-1-start-the-runner-with-tmux">Step 1: Start the Runner with tmux</a></li>
+<li><a class="reference internal" href="#step-2-configure-kaggle-secrets-on-github">Step 2: Configure Kaggle Secrets on GitHub</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=f2a433a1"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+</div><script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>

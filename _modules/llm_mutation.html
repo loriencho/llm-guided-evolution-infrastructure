@@ -199,7 +199,6 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/run_improved.html">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
@@ -260,6 +259,31 @@
                        <span class="n">llm_code_qc</span><span class="p">,</span> <span class="n">str2bool</span><span class="p">,</span> <span class="n">generate_augmented_code</span><span class="p">,</span> 
                        <span class="n">extract_note</span><span class="p">,</span> <span class="n">clean_code_from_llm</span><span class="p">,</span> <span class="n">retrieve_base_code</span><span class="p">)</span>
 
+<div class="viewcode-block" id="validate_generated_chunk">
+<a class="viewcode-back" href="../api_docs/llm_mutation.html#llm_mutation.validate_generated_chunk">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_generated_chunk</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reject common invalid Mujoco/SB3 policy mutations before evaluation.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">DEFAULT_PROMPT_GROUP</span> <span class="o">!=</span> <span class="s2">&quot;Mujoco/Normal&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">forbidden_patterns</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;def forward(&quot;</span><span class="p">,</span> <span class="s2">&quot;overrides ActorCriticPolicy.forward()&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;def _predict(&quot;</span><span class="p">,</span> <span class="s2">&quot;overrides ActorCriticPolicy._predict()&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;def evaluate_actions(&quot;</span><span class="p">,</span> <span class="s2">&quot;overrides ActorCriticPolicy.evaluate_actions()&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;def get_distribution(&quot;</span><span class="p">,</span> <span class="s2">&quot;overrides ActorCriticPolicy.get_distribution()&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;def predict_values(&quot;</span><span class="p">,</span> <span class="s2">&quot;overrides ActorCriticPolicy.predict_values()&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;self.mlp_extractor =&quot;</span><span class="p">,</span> <span class="s2">&quot;replaces SB3&#39;s mlp_extractor with an incompatible module&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;self.mlp_extractor=&quot;</span><span class="p">,</span> <span class="s2">&quot;replaces SB3&#39;s mlp_extractor with an incompatible module&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;self.mlp_extractor.&quot;</span><span class="p">,</span> <span class="s2">&quot;accesses unstable SB3 mlp_extractor internals&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;shared_net&quot;</span><span class="p">,</span> <span class="s2">&quot;uses removed/unstable SB3 MlpExtractor internals&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">reason</span> <span class="ow">in</span> <span class="n">forbidden_patterns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">code_from_llm</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">reason</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;&quot;</span></div>
+
+
 <div class="viewcode-block" id="augment_network">
 <a class="viewcode-back" href="../api_docs/llm_mutation.html#llm_mutation.augment_network">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">augment_network</span><span class="p">(</span><span class="n">input_filename</span><span class="o">=</span><span class="s1">&#39;network.py&#39;</span><span class="p">,</span> <span class="n">output_filename</span><span class="o">=</span><span class="s1">&#39;network_x.py&#39;</span><span class="p">,</span> <span class="n">template_txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -279,13 +303,21 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="n">template_txt</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-    <span class="c1"># add code to be augmented </span>
-    <span class="n">txt2llm</span> <span class="o">=</span> <span class="n">template_txt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code2llm</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="c1"># Prompt templates use a single literal &quot;{}&quot; marker for the code chunk.</span>
+    <span class="c1"># Using str.format would treat JSON/dict examples in the prompt as fields.</span>
+    <span class="k">if</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">template_txt</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prompt template </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2"> must contain a literal </span><span class="se">{{}}</span><span class="s2"> code placeholder&quot;</span><span class="p">)</span>
+    <span class="n">txt2llm</span> <span class="o">=</span> <span class="n">template_txt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">code2llm</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">generate_augmented_code</span><span class="p">(</span><span class="n">txt2llm</span><span class="p">,</span> <span class="n">augment_idx</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">apply_quality_control</span><span class="p">,</span>
                                             <span class="n">top_p</span><span class="p">,</span> <span class="n">llm_model</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="ow">not</span> <span class="n">code_from_llm</span><span class="p">:</span>
         <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">txt2llm</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valid_code</span><span class="p">,</span> <span class="n">invalid_reason</span> <span class="o">=</span> <span class="n">validate_generated_chunk</span><span class="p">(</span><span class="n">code_from_llm</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">valid_code</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rejected generated chunk: </span><span class="si">{</span><span class="n">invalid_reason</span><span class="si">}</span><span class="s2">. Falling back to parent chunk.&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">code_from_llm</span> <span class="o">=</span> <span class="n">code2llm</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
     <span class="n">note_txt</span> <span class="o">=</span> <span class="n">extract_note</span><span class="p">(</span><span class="n">code2llm</span><span class="p">)</span>
     <span class="n">parts</span><span class="p">[</span><span class="n">augment_idx</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">note_txt</span><span class="si">}{</span><span class="n">code_from_llm</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>

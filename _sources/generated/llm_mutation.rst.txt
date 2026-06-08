@@ -19,6 +19,7 @@
       str2bool
       submit_mixtral
       submit_mixtral_hf
+      validate_generated_chunk
    
    .. rubric:: Classes
 

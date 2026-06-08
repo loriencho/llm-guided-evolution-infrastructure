@@ -200,7 +200,6 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="run_improved.html">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="llm_utils.html">llm_utils</a></li>
@@ -262,7 +261,7 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_note</span></code>(txt)</p></td>
 <td><p>Extracts note from the part if present.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_augmented_code</span></code>(txt2llm, ...[, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_augmented_code</span></code>(txt2llm, ...)</p></td>
 <td><p>Generates augmented code using Mixtral.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">llm_code_qc</span></code>(code_from_llm, base_code, ...)</p></td>
@@ -282,6 +281,9 @@
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_mixtral_hf</span></code>(txt2mixtral[, ...])</p></td>
 <td><p>This function submits a model prompt to mixtral through the HuggingFace Inference API</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api_docs/llm_mutation.html#llm_mutation.validate_generated_chunk" title="llm_mutation.validate_generated_chunk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_generated_chunk</span></code></a>(code_from_llm)</p></td>
+<td><p>Reject common invalid Mujoco/SB3 policy mutations before evaluation.</p></td>
 </tr>
 </tbody>
 </table>

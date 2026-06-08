@@ -14,27 +14,24 @@
       check4results
       check_and_update_fitness
       check_contents_for_error
+      createPopulation
       create_bash_file
       create_individual
-      create_population
       customCrossover
       customMutation
       delayed_creation_check
       delayed_mate_check
       delayed_mutate_check
       evalModel
-      extract_generation
-      fill_template_slots
       generate_random_string
       generate_template
       load_checkpoint
-      load_yaml
-      print_ancestry
+      mutate_prompts
+      print_ancestery
       print_job_info
       print_population
       print_scores
       remove_duplicates
-      resolve_prompt_glob
       retrieve_base_code
       save_checkpoint
       split_file
@@ -43,7 +40,6 @@
       true_nsga2
       update_ancestry
       update_individual
-      wait_for_llm_server
       write_bash_script
    
    .. rubric:: Classes
@@ -51,6 +47,4 @@
    .. autosummary::
    
       HallOfFame
-      ParetoFront
-      partial
    

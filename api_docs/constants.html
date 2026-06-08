@@ -200,7 +200,6 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API</a><input aria-label="Toggle navigation of API" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/run_improved.html">run_improved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_crossover.html">llm_crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_mutation.html">llm_mutation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/llm_utils.html">llm_utils</a></li>
@@ -247,9 +246,127 @@
           <section id="module-constants">
 <span id="constants-module"></span><h1>constants module<a class="headerlink" href="#module-constants" title="Link to this heading">¶</a></h1>
 <dl class="py data">
-<dt class="sig sig-object py" id="constants.EVAL_RUNLINE">
-<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">EVAL_RUNLINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uv</span> <span class="pre">run</span> <span class="pre">python</span> <span class="pre">{}</span> <span class="pre">--model</span> <span class="pre">{}</span> <span class="pre">--variant_dir</span> <span class="pre">{VARIANT_DIR}'</span></em><a class="headerlink" href="#constants.EVAL_RUNLINE" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="constants.DATA_PATH">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">DATA_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'./cifar10'</span></em><a class="headerlink" href="#constants.DATA_PATH" title="Link to this definition">¶</a></dt>
+<dd><p>DATA_PATH (not used for RL, kept for compatibility)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.FITNESS_WEIGHTS">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">FITNESS_WEIGHTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(1.0,</span> <span class="pre">-1.0)</span></em><a class="headerlink" href="#constants.FITNESS_WEIGHTS" title="Link to this definition">¶</a></dt>
+<dd><p>maximize reward, minimize parameter count.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2-objective setup</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.LLM_BASH_SCRIPT_TEMPLATE">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">LLM_BASH_SCRIPT_TEMPLATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#!/bin/bash\n#SBATCH</span> <span class="pre">--job-name=llm_oper\n#SBATCH</span> <span class="pre">-t</span> <span class="pre">8:00:00\n#SBATCH</span> <span class="pre">--gres=gpu:1\n#SBATCH</span> <span class="pre">-C</span> <span class="pre">&quot;{}&quot;\n#SBATCH</span> <span class="pre">--mem-per-gpu</span> <span class="pre">16G\n#SBATCH</span> <span class="pre">-n</span> <span class="pre">12\n#SBATCH</span> <span class="pre">-N</span> <span class="pre">1\necho</span> <span class="pre">&quot;Launching</span> <span class="pre">AIsurBL&quot;\nhostname\n\nmodule</span> <span class="pre">load</span> <span class="pre">cuda\nmodule</span> <span class="pre">load</span> <span class="pre">uv\nexport</span> <span class="pre">CUDA_VISIBLE_DEVICES=0\n\nexport</span> <span class="pre">HF_HOME=/storage/ice-shared/vip-vvk/llm_storage/\nexport</span> <span class="pre">HF_TOKEN=&quot;${{HF_TOKEN}}&quot;\nexport</span> <span class="pre">HUGGINGFACE_HUB_TOKEN=&quot;${{HF_TOKEN}}&quot;\n\n#</span> <span class="pre">Run</span> <span class="pre">Python</span> <span class="pre">script\n{}\n'</span></em><a class="headerlink" href="#constants.LLM_BASH_SCRIPT_TEMPLATE" title="Link to this definition">¶</a></dt>
 <dd><p>Evolution Constants/Params</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.LLM_GPU">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">LLM_GPU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nvidia-gpu'</span></em><a class="headerlink" href="#constants.LLM_GPU" title="Link to this definition">¶</a></dt>
+<dd><p>LLM GPU constraint string for SLURM</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.LOCAL">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">LOCAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#constants.LOCAL" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to run llm-ge locally (True) or distribute across a slurm cluster (False)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.MACOS">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">MACOS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#constants.MACOS" title="Link to this definition">¶</a></dt>
+<dd><p>Whether host uses macOS</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.MODEL">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">MODEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'network'</span></em><a class="headerlink" href="#constants.MODEL" title="Link to this definition">¶</a></dt>
+<dd><p>network_{gene_id}.py)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Model basename prefix (used in file naming</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.MODEL_PATH">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">MODEL_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/storage/ice-shared/vip-vvk/llm_storage/meta-llama/Llama-3.3-70B-Instruct/'</span></em><a class="headerlink" href="#constants.MODEL_PATH" title="Link to this definition">¶</a></dt>
+<dd><p>Path to local LLM model path used by server.py for LLM operations</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.MUJOCO_EVAL_PROJECT_DIR">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">MUJOCO_EVAL_PROJECT_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/llm-guided-evolution-infrastructure/llm-guided-evolution-infrastructure/sota/MujocoRL/eval_env'</span></em><a class="headerlink" href="#constants.MUJOCO_EVAL_PROJECT_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>Dedicated uv project used only for Mujoco RL evaluation jobs.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.MUJOCO_EVAL_TIMESTEPS">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">MUJOCO_EVAL_TIMESTEPS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">500000</span></em><a class="headerlink" href="#constants.MUJOCO_EVAL_TIMESTEPS" title="Link to this definition">¶</a></dt>
+<dd><p>Keep eval runs configurable without changing the shared project environment.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.OUTPUT_DIR">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">OUTPUT_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mujoco_rl_output'</span></em><a class="headerlink" href="#constants.OUTPUT_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>Output directory for intermediate generation data</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.PLACEHOLDER_FITNESS">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">PLACEHOLDER_FITNESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(-9999999999,</span> <span class="pre">9999999999)</span></em><a class="headerlink" href="#constants.PLACEHOLDER_FITNESS" title="Link to this definition">¶</a></dt>
+<dd><p>A unique placeholder value used before fitness is evaluated</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.PYTHON_BASH_SCRIPT_TEMPLATE">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_BASH_SCRIPT_TEMPLATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#!/bin/bash\n#SBATCH</span> <span class="pre">--job-name=evaluateGene\n#SBATCH</span> <span class="pre">-t</span> <span class="pre">8:00:00\n#SBATCH</span> <span class="pre">--gres=gpu:1\n#SBATCH</span> <span class="pre">-C</span> <span class="pre">&quot;nvidia-gpu&quot;\n#SBATCH</span> <span class="pre">--mem-per-gpu</span> <span class="pre">16G\n#SBATCH</span> <span class="pre">-n</span> <span class="pre">12\n#SBATCH</span> <span class="pre">-N</span> <span class="pre">1\necho</span> <span class="pre">&quot;Launching</span> <span class="pre">Python</span> <span class="pre">Evaluation&quot;\nhostname\n\nmodule</span> <span class="pre">load</span> <span class="pre">cuda\nmodule</span> <span class="pre">load</span> <span class="pre">uv\nexport</span> <span class="pre">CUDA_VISIBLE_DEVICES=0\n\nexport</span> <span class="pre">HF_HOME=/storage/ice-shared/vip-vvk/llm_storage/\nexport</span> <span class="pre">HF_TOKEN=&quot;${{HF_TOKEN}}&quot;\nexport</span> <span class="pre">HUGGINGFACE_HUB_TOKEN=&quot;${{HF_TOKEN}}&quot;\n\n#</span> <span class="pre">Run</span> <span class="pre">Python</span> <span class="pre">script\n{}\n'</span></em><a class="headerlink" href="#constants.PYTHON_BASH_SCRIPT_TEMPLATE" title="Link to this definition">¶</a></dt>
+<dd><p>Template script for submitting job for evaluation.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.ROOT_DIR">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">ROOT_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/llm-guided-evolution-infrastructure/llm-guided-evolution-infrastructure'</span></em><a class="headerlink" href="#constants.ROOT_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>Root directory of the repository (auto-detected from this file’s location)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.SEED_NETWORK">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">SEED_NETWORK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/llm-guided-evolution-infrastructure/llm-guided-evolution-infrastructure/sota/MujocoRL/network.py'</span></em><a class="headerlink" href="#constants.SEED_NETWORK" title="Link to this definition">¶</a></dt>
+<dd><p>Location where the network architecture for the seed resides</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.SOTA_ROOT">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">SOTA_ROOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/llm-guided-evolution-infrastructure/llm-guided-evolution-infrastructure/sota/MujocoRL'</span></em><a class="headerlink" href="#constants.SOTA_ROOT" title="Link to this definition">¶</a></dt>
+<dd><p>Location where the current seed repo resides</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.TRAIN_FILE">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">TRAIN_FILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/llm-guided-evolution-infrastructure/llm-guided-evolution-infrastructure/sota/MujocoRL/train_rl.py'</span></em><a class="headerlink" href="#constants.TRAIN_FILE" title="Link to this definition">¶</a></dt>
+<dd><p>The training/evaluation script for RL</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.UV_PYTHON">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">UV_PYTHON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uv</span> <span class="pre">run</span> <span class="pre">--no-sync</span> <span class="pre">--project</span> <span class="pre">/home/runner/work/llm-guided-evolution-infrastructure/llm-guided-evolution-infrastructure/sota/MujocoRL/eval_env</span> <span class="pre">python'</span></em><a class="headerlink" href="#constants.UV_PYTHON" title="Link to this definition">¶</a></dt>
+<dd><p>Python run command (uses uv for dependency management)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="constants.VARIANT_DIR">
+<span class="sig-prename descclassname"><span class="pre">constants.</span></span><span class="sig-name descname"><span class="pre">VARIANT_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/llm-guided-evolution-infrastructure/llm-guided-evolution-infrastructure/sota/MujocoRL/models'</span></em><a class="headerlink" href="#constants.VARIANT_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>Directory where LLM-generated model variants are stored</p>
 </dd></dl>
 
 <dl class="py data">
@@ -298,7 +415,25 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">constants module</a><ul>
-<li><a class="reference internal" href="#constants.EVAL_RUNLINE"><code class="docutils literal notranslate"><span class="pre">EVAL_RUNLINE</span></code></a></li>
+<li><a class="reference internal" href="#constants.DATA_PATH"><code class="docutils literal notranslate"><span class="pre">DATA_PATH</span></code></a></li>
+<li><a class="reference internal" href="#constants.FITNESS_WEIGHTS"><code class="docutils literal notranslate"><span class="pre">FITNESS_WEIGHTS</span></code></a></li>
+<li><a class="reference internal" href="#constants.LLM_BASH_SCRIPT_TEMPLATE"><code class="docutils literal notranslate"><span class="pre">LLM_BASH_SCRIPT_TEMPLATE</span></code></a></li>
+<li><a class="reference internal" href="#constants.LLM_GPU"><code class="docutils literal notranslate"><span class="pre">LLM_GPU</span></code></a></li>
+<li><a class="reference internal" href="#constants.LOCAL"><code class="docutils literal notranslate"><span class="pre">LOCAL</span></code></a></li>
+<li><a class="reference internal" href="#constants.MACOS"><code class="docutils literal notranslate"><span class="pre">MACOS</span></code></a></li>
+<li><a class="reference internal" href="#constants.MODEL"><code class="docutils literal notranslate"><span class="pre">MODEL</span></code></a></li>
+<li><a class="reference internal" href="#constants.MODEL_PATH"><code class="docutils literal notranslate"><span class="pre">MODEL_PATH</span></code></a></li>
+<li><a class="reference internal" href="#constants.MUJOCO_EVAL_PROJECT_DIR"><code class="docutils literal notranslate"><span class="pre">MUJOCO_EVAL_PROJECT_DIR</span></code></a></li>
+<li><a class="reference internal" href="#constants.MUJOCO_EVAL_TIMESTEPS"><code class="docutils literal notranslate"><span class="pre">MUJOCO_EVAL_TIMESTEPS</span></code></a></li>
+<li><a class="reference internal" href="#constants.OUTPUT_DIR"><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code></a></li>
+<li><a class="reference internal" href="#constants.PLACEHOLDER_FITNESS"><code class="docutils literal notranslate"><span class="pre">PLACEHOLDER_FITNESS</span></code></a></li>
+<li><a class="reference internal" href="#constants.PYTHON_BASH_SCRIPT_TEMPLATE"><code class="docutils literal notranslate"><span class="pre">PYTHON_BASH_SCRIPT_TEMPLATE</span></code></a></li>
+<li><a class="reference internal" href="#constants.ROOT_DIR"><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></a></li>
+<li><a class="reference internal" href="#constants.SEED_NETWORK"><code class="docutils literal notranslate"><span class="pre">SEED_NETWORK</span></code></a></li>
+<li><a class="reference internal" href="#constants.SOTA_ROOT"><code class="docutils literal notranslate"><span class="pre">SOTA_ROOT</span></code></a></li>
+<li><a class="reference internal" href="#constants.TRAIN_FILE"><code class="docutils literal notranslate"><span class="pre">TRAIN_FILE</span></code></a></li>
+<li><a class="reference internal" href="#constants.UV_PYTHON"><code class="docutils literal notranslate"><span class="pre">UV_PYTHON</span></code></a></li>
+<li><a class="reference internal" href="#constants.VARIANT_DIR"><code class="docutils literal notranslate"><span class="pre">VARIANT_DIR</span></code></a></li>
 <li><a class="reference internal" href="#constants.migration_gen"><code class="docutils literal notranslate"><span class="pre">migration_gen</span></code></a></li>
 </ul>
 </li>
