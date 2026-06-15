@@ -22,6 +22,10 @@ LOAD_BALANCER_PORT = int(os.getenv("LOAD_BALANCER_PORT", "9000"))
 LOADBALANCER_LOG_FILE = os.getenv("LOADBALANCER_LOG_FILE", os.path.join(ROOT_DIR, "loadbalancer.log"))
 ```
 
+In .env:
+
+Please set the standard LLM model to something supported by PACE, such as LLAMA.
+
 #### Configuration Validation
 
 The constants module includes automatic validation to prevent misconfiguration. If `USE_VLLM=False` but vLLM-specific environment variables are set, an error will be raised:
