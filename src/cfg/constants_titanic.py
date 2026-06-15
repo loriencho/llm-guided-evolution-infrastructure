@@ -37,7 +37,7 @@ PROMPTS = f"templates/{DEFAULT_PROMPT_GROUP}/**/*.txt"
 
 # TODO: Adding this here, I think it's supposed to parse from the command line
 OUTPUT_DIR = "titanic_test"
-PORT = int(os.getenv("LLMGE_PORT", "2244"))
+PORT = int(os.getenv("LLMGE_PORT", "22414"))
 
 LLM_MODEL = 'llama3.3'
 PACE_ICE = True
@@ -104,13 +104,13 @@ else:
 
 INFERENCE_SUBMISSION = False
 
-LOCAL = False
+LOCAL = os.getenv("LOCAL", "false").lower() in ("true", "1", "yes")
 if LOCAL:
     RUN_COMMAND = 'bash'
-    DELAYED_CHECK = False
+    DELAYED_CHECK = os.getenv("DELAYED_CHECK", "false").lower() in ("true", "1", "yes")
 else: 
     RUN_COMMAND = 'sbatch'
-    DELAYED_CHECK = True
+    DELAYED_CHECK = os.getenv("DELAYED_CHECK", "true").lower() in ("true", "1", "yes")
 MACOS = platform.system() == "Darwin"
 RUNLINE_AMP = ''
 # Keep constants import side-effect free. In particular, do not call
